@@ -2,32 +2,36 @@ package com.dolphin.awayout;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
-import android.graphics.Point;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
+import android.media.Image;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class Demo extends AppCompatActivity {
 
-    private ImageView imgKey;
+    private ImageView imgKey, imgChest;
     private int windowWidth, windowHeight;
-    private android.widget.RelativeLayout.LayoutParams layoutParams;
+    private ConstraintLayout.LayoutParams layoutParams;
+
+    String msg ="Drag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
         imgKey = findViewById(R.id.key_demo);
+        imgChest = findViewById(R.id.chest_demo);
         //windowWidth = getWindowWidth();
         //windowHeight = getWindowHeight();
+
 
         imgKey.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -49,33 +53,39 @@ public class Demo extends AppCompatActivity {
                 switch(event.getAction())
                 {
                     case DragEvent.ACTION_DRAG_STARTED:
-                        layoutParams = (RelativeLayout.LayoutParams)v.getLayoutParams();
+                        imgKey.setVisibility(View.INVISIBLE);
+                        Log.d(msg, "Started");
+                        layoutParams = (ConstraintLayout.LayoutParams)v.getLayoutParams();
+
 
                         // Do nothing
                         break;
 
                     case DragEvent.ACTION_DRAG_ENTERED:
+                        Log.d(msg, "Entered");
                         int x_cord = (int) event.getX();
                         int y_cord = (int) event.getY();
                         break;
 
                     case DragEvent.ACTION_DRAG_EXITED :
+                        Log.d(msg, "Exited");
                         x_cord = (int) event.getX();
                         y_cord = (int) event.getY();
-                        View view = (View) event.getLocalState();
-                        view.setX(x_cord - (view.getWidth() / 2));
-                        view.setY(y_cord - (view.getWidth() / 2));
-                        view.setVisibility(View.VISIBLE);
                         break;
 
                     case DragEvent.ACTION_DRAG_LOCATION  :
+                        Log.d(msg, "Location");
                         x_cord = (int) event.getX();
                         y_cord = (int) event.getY();
                         break;
 
                     case DragEvent.ACTION_DRAG_ENDED   :
-                        if (!event.getResult())
-                            v.setVisibility(View.VISIBLE);
+                        Log.d(msg, "ENDED");
+                        imgKey.setVisibility(View.VISIBLE);
+                        if(checkCollision(event.getX(), event.getY(), imgKey, imgChest)){
+                            Log.d(msg, "COLLIDED");
+                            Toast.makeText(getApplicationContext(), "GAGNEEEEE", Toast.LENGTH_LONG).show();
+                        }
                         break;
 
                     case DragEvent.ACTION_DROP:
@@ -92,17 +102,10 @@ public class Demo extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     ClipData data = ClipData.newPlainText("", "");
                     View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imgKey);
-
                     imgKey.startDragAndDrop(data, shadowBuilder, imgKey, 0);
-                    imgKey.setVisibility(View.INVISIBLE);
                     return true;
                 }
-                else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    v.setVisibility(View.VISIBLE);
-                    return true;
-                }
-                else
-                {
+                else {
                     return false;
                 }
             }
@@ -110,63 +113,10 @@ public class Demo extends AppCompatActivity {
 
     }
 
-/*
-    public void onKeyClick(View v, MotionEvent event){
-        LayoutParams layoutParams = (LayoutParams) v.getLayoutParams();
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                break;
-            case MotionEvent.ACTION_MOVE:
-                int x_cord = (int) event.getRawX();
-                int y_cord = (int) event.getRawY();
-
-                if (x_cord > windowWidth) {
-                    x_cord = windowWidth;
-                }
-                if (y_cord > windowHeight) {
-                    y_cord = windowHeight;
-                }
-
-                layoutParams.leftMargin = x_cord - 25;
-                layoutParams.topMargin = y_cord - 75;
-                v.setLayoutParams(layoutParams);
-                break;
-            default:
-                break;
-        }
+    public boolean checkCollision(float x, float y, ImageView v1, ImageView v2) {
+        float midX = (x + v1.getWidth())/2;
+        float midY = (y + v1.getHeight())/2;
+        return ((Math.abs(midX - v2.getX()) < v2.getWidth() && Math.abs(midY - v2.getY()) < v2.getHeight()));
     }
-
-    private int getWindowWidth(){
-        Display display = getWindowManager().getDefaultDisplay();
-        int version = android.os.Build.VERSION.SDK_INT;
-        if (version >= 13)
-        {
-            Point size = new Point();
-            display.getSize(size);
-            windowWidth = size.x;
-        }
-        else
-        {
-            windowWidth = display.getWidth();
-        }
-        return windowWidth;
-    }
-
-    private int getWindowHeight(){
-        Display display = getWindowManager().getDefaultDisplay();
-        int version = android.os.Build.VERSION.SDK_INT;
-        if (version >= 13)
-        {
-            Point size = new Point();
-            display.getSize(size);
-            windowHeight = size.y;
-        }
-        else
-        {
-            windowHeight = display.getHeight();
-        }
-        return windowHeight;
-    }
-    */
 }
 
