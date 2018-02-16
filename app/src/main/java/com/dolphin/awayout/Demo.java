@@ -23,6 +23,7 @@ public class Demo extends AppCompatActivity {
 
     String msg ="Drag";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
