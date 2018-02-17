@@ -15,8 +15,8 @@ public class Demo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
-        imgKey = findViewById(R.id.key_demo);
-        imgChest = findViewById(R.id.chest_demo);
+        imgKey = (ImageView) findViewById(R.id.key_demo);
+        imgChest = (ImageView) findViewById(R.id.chest_demo);
         PlayerItem key = new PlayerItem(1, "clé", "ceci est une clé", imgKey,
                 true, true, imgChest);
     }
