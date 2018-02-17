@@ -23,8 +23,6 @@ public class Demo extends AppCompatActivity {
 
     String msg ="Drag";
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,5 +119,4 @@ public class Demo extends AppCompatActivity {
         return ((Math.abs(midX - v2.getX()) < v2.getWidth() && Math.abs(midY - v2.getY()) < v2.getHeight()));
     }
 }
-
 

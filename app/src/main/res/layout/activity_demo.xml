@@ -23,8 +23,11 @@
     <ImageView
         android:id="@+id/key_demo"
         android:layout_width="62dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/key_demo" />
+        app:srcCompat="@drawable/key_demo"
+        android:background="#aaaa"/>
 </android.support.constraint.ConstraintLayout>
