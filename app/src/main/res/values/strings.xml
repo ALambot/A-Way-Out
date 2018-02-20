@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">A way out</string>
     <string name="demo_button">Jouer (démo)</string>
+    <string name="title_activity_ecran_acueil">EcranAcueil</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
