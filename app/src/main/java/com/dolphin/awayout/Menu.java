@@ -15,6 +15,7 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         //Button demo
+        
         demo_button = (Button) findViewById(R.id.demo_button);
     }
 
