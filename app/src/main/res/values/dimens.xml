@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="sizeButtonText">5pt</dimen>
+    <dimen name="height_button">91dp</dimen>
+    <dimen name="widht_button">93dp</dimen>
+</resources>
