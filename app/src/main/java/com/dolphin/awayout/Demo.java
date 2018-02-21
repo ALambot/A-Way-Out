@@ -19,7 +19,7 @@ public class Demo extends AppCompatActivity {
         imgChest = (ImageView) findViewById(R.id.chest_demo);
         PlayerItem key = new PlayerItem(1, "clé", "ceci est une clé", imgKey,
                 true, true, imgChest);
-    }
+    }//lol
 
 
 }
