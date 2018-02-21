@@ -8,11 +8,8 @@ public class MyObject {
     private String name = null;
     private String description;
     private int idImage;
-    private String msg ="LOG PLAYER ITEM";
-    private int imageId;
     private ImageView img = null;
     private boolean visible = true;
-    private boolean draggable = false;
 
     public MyObject(String name, int imageRef) {
         this.name = name;

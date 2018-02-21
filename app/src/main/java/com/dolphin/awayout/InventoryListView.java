@@ -97,7 +97,7 @@ public class InventoryListView {
         observers.add(observer);
     }
 
-    public void notifyDropObservers(MyObject object, float x, float y){
+    private void notifyDropObservers(MyObject object, float x, float y){
         for(InventoryObserver observer : observers) {
             observer.update(2, object, Math.round(x), Math.round(y));
         }
