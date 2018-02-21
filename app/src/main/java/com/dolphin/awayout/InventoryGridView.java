@@ -1,6 +1,5 @@
 package com.dolphin.awayout;
 
-import android.content.ClipDescription;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;

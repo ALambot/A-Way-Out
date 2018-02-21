@@ -1,15 +1,8 @@
 package com.dolphin.awayout;
 
-import android.content.ClipData;
-import android.content.ClipDescription;
-import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.util.Log;
-import android.view.DragEvent;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class MyObject {
     private String name = null;

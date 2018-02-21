@@ -7,7 +7,7 @@ package com.dolphin.awayout;
 public class GameState {
     private static GameState gameState;
     private InventoryAdapt inventory;
-    /** A private Constructor prevents any other class from instantiating. */
+
     private GameState() {
         //Optionnal
     }

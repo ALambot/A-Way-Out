@@ -1,14 +1,10 @@
 package com.dolphin.awayout;
 
-import android.content.ClipData;
 import android.content.ClipDescription;
-import android.content.Context;
 import android.util.Log;
 import android.view.DragEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,9 +13,9 @@ import android.widget.Toast;
  */
 
 public class InventoryListView {
-    InventoryAdapt inventoryAdapt;
-    ListView listView;
-    String msg = "LOG";
+    private InventoryAdapt inventoryAdapt;
+    private ListView listView;
+    private String msg = "LOG";
 
     public InventoryListView(ListView view, InventoryAdapt inventoryAdapt, boolean itemDraggable) {
         this.listView = view;
@@ -34,9 +30,6 @@ public class InventoryListView {
             listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> adapterView, View v, int i, long l) {
-                    //ClipData.Item item = new ClipData.Item((CharSequence) v.getTag());
-                    String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
-                    //ClipData dragData = new ClipData(v.getTag().toString(), mimeTypes, item);
                     View.DragShadowBuilder myShadow = new View.DragShadowBuilder(v);
                     v.startDragAndDrop(null, myShadow, null, 0) ;
                     return true;
