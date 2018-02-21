@@ -1,5 +1,4 @@
 package com.dolphin.awayout;
-
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.graphics.Rect;
@@ -97,10 +96,8 @@ public class PlayerItem implements Comparable{
             public boolean onLongClick(View v) {
                 ClipData.Item item = new ClipData.Item((CharSequence) v.getTag());
                 String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
-
                 ClipData dragData = new ClipData(v.getTag().toString(), mimeTypes, item);
                 View.DragShadowBuilder myShadow = new View.DragShadowBuilder(img);
-
                 v.startDragAndDrop(dragData, myShadow, null, 0);
                 return true;
             }
