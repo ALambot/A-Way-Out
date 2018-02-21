@@ -1,27 +1,18 @@
 package com.dolphin.awayout;
 
-import android.content.ClipData;
-import android.content.ClipDescription;
-import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.util.Log;
-import android.view.DragEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 
 public class MyObject {
     private String name = null;
     private String description;
     private int idImage;
-    //private int slotId; // Where your item is in inventory
     private String msg ="LOG PLAYER ITEM";
     private int imageId;
     private ImageView img = null;
     private boolean visible = true;
     private boolean draggable = false;
-    //private ImageView imgGoal = null; //Image triggered when collision after drag'n'drop
 
     public MyObject(String name, int imageRef) {
         this.name = name;
