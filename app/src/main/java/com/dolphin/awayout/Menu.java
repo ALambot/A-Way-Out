@@ -19,7 +19,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void onButtonDemoClick(View view){
-        Intent intent = new Intent(this, Demo.class);
+        Intent intent = new Intent(this, EcranAcueil.class);
         startActivity(intent);
     }
 
