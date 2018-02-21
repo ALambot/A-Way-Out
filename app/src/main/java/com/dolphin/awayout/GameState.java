@@ -15,7 +15,7 @@ public class GameState {
         if (gameState == null) {
             gameState = new GameState();
         }
-        return gameState;
+        return gameState; //LOL
     }
 
     public InventoryAdapt getInventory(){
