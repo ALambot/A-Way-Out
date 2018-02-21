@@ -1,4 +1,5 @@
 package com.dolphin.awayout;
+
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.graphics.Rect;
@@ -10,59 +11,75 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-/**
- * Created by siasn on 17-02-18.
- */
-
-public class PlayerItem implements Comparable{
-    private int slotId; // Where your item is in inventory
-    private String name;
+public class MyObject {
+    private String name = null;
     private String description;
+    private int idImage;
+    //private int slotId; // Where your item is in inventory
     private String msg ="LOG PLAYER ITEM";
-    private ImageView img;
-    private boolean visible;
-    private boolean draggable;
-    private ImageView imgGoal = null; //Image triggered when collision after drag'n'drop
+    private int imageId;
+    private ImageView img = null;
+    private boolean visible = true;
+    private boolean draggable = false;
+    //private ImageView imgGoal = null; //Image triggered when collision after drag'n'drop
 
-    public PlayerItem(int slotId, String title, String description, ImageView img,
-                      boolean visible, boolean draggable, ImageView imgGoal) {
-        this.slotId = slotId;
-        this.name = title;
+    public MyObject(String name, int imageRef) {
+        this.name = name;
+        this.idImage = imageRef;
+    }
+
+    public MyObject(String name,String description, int imageRef) {
+        this.name = name;
         this.description = description;
-        this.img = img;
-        this.visible = visible;
-        if(isVisible()) {
-            img.setVisibility(View.VISIBLE);
-        }
-        else {
-            img.setVisibility(View.INVISIBLE);
-        }
-        this.draggable = draggable;
-        if(isDraggable()) {
-            this.imgGoal = imgGoal;
-            combineWith();
-        }
+        this.idImage = imageRef;
     }
 
-    public int getSlotId() {
-        return slotId;
-    }
 
-    public void setSlotId(int slotId) {
-        this.slotId = slotId;
-    }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getDescription(){
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
         return description;
     }
 
-    public boolean isVisible(){
+    public void setDesc(String desc) {
+        this.description = description;
+    }
+
+    public int getIdImage() {
+        return idImage;
+    }
+
+    public void setIdImage(int idImage) {
+        this.idImage = idImage;
+    }
+
+    public ImageView getImage() {
+        return img;
+    }
+
+    public void setImage(ImageView image) {
+        this.img = image;
+    }
+
+
+
+    //TO DO verifier si img not null
+    public boolean isVisible() {
         return visible;
     }
+
+    public void setVisible(boolean visible) {
+        if(visible) show();
+        else hide();
+    }
+
 
     public void show(){
         visible = true;
@@ -74,6 +91,8 @@ public class PlayerItem implements Comparable{
         img.setVisibility(View.INVISIBLE);
 
     }
+
+
 
     public boolean isDraggable(){
         return draggable;
@@ -90,14 +109,16 @@ public class PlayerItem implements Comparable{
         img.setOnTouchListener(null);
     }
 
-    private void setListenerDragNDrop() {
+    public void setListenerDragNDrop() {
         img.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 ClipData.Item item = new ClipData.Item((CharSequence) v.getTag());
                 String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
+
                 ClipData dragData = new ClipData(v.getTag().toString(), mimeTypes, item);
                 View.DragShadowBuilder myShadow = new View.DragShadowBuilder(img);
+
                 v.startDragAndDrop(dragData, myShadow, null, 0);
                 return true;
             }
@@ -131,13 +152,6 @@ public class PlayerItem implements Comparable{
                     case DragEvent.ACTION_DRAG_ENDED:
                         Log.d(msg, "Ended");
                         img.setVisibility(View.VISIBLE);
-                        if (checkCollision(event.getX(), event.getY(), img, imgGoal)) {
-                            Log.d(msg, "Collision detected : goalX =" + imgGoal.getX() + "goalY =" + imgGoal.getY());
-                            Toast.makeText(imgGoal.getContext(), "GAGNEEEEE", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            Toast.makeText(imgGoal.getContext(), "Perdu", Toast.LENGTH_SHORT).show();
-                        }
                         break;
 
                     case DragEvent.ACTION_DROP:
@@ -165,21 +179,4 @@ public class PlayerItem implements Comparable{
         });
     }
 
-
-    //TO DO : avoid error if v2 is null
-    public boolean checkCollision(float x, float y, ImageView v1, ImageView v2) {
-        if(v2.getVisibility() == View.INVISIBLE)
-            return false;
-        Rect r1 = new Rect(Math.round(x), Math.round(y), Math.round(x + v1.getWidth()), Math.round(y + v1.getHeight()));
-        Rect r2 = new Rect();
-        v2.getHitRect(r2);
-        return r1.intersect(r2);
-    }
-
-
-
-    @Override
-    public int compareTo(@NonNull Object o) {
-        return slotId - ((PlayerItem)o).getSlotId();
-    }
 }
