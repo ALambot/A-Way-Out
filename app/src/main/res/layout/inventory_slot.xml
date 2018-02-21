@@ -15,7 +15,6 @@
                 android:id="@+id/imageSlotObject"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:srcCompat="@drawable/key_demo"
                 app:layout_constraintTop_toTopOf="@+id/imageSlot"
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageSlot"

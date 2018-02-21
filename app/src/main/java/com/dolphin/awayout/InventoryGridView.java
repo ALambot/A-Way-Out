@@ -34,11 +34,9 @@ public class InventoryGridView {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View v, int i, long l) {
-                //ClipData.Item item = new ClipData.Item((CharSequence) v.getTag());
+                Log.d("CLICK", " "+ inventoryAdapt.getItem(i).getImage());
                 MyObject obj = inventoryAdapt.getItem(i);
-                String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
-                //ClipData dragData = new ClipData(v.getTag().toString(), mimeTypes, item);
-                View.DragShadowBuilder myShadow = new View.DragShadowBuilder(obj.getImage());
+                View.DragShadowBuilder myShadow = new View.DragShadowBuilder(v);
                 v.startDragAndDrop(null, myShadow, obj, 0) ;
                 return true;
             }

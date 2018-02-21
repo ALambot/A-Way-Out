@@ -43,14 +43,8 @@ public class InventoryAdapt extends ArrayAdapter<MyObject>{
         View view = inflater.inflate(R.layout.inventory_slot, parent , false);
         ImageView image = (ImageView) view.findViewById(R.id.imageSlotObject);
         MyObject obj = getItem(position);
-        obj.setImage(image);
         image.setImageResource(obj.getIdImage());
-        if(obj.isVisible()) {
-            image.setVisibility(View.VISIBLE);
-        }
-        else {
-            image.setVisibility(View.INVISIBLE);
-        }
+        obj.setImage(image);
        return view;
     }
 

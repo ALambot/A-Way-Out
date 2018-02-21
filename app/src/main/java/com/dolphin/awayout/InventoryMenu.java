@@ -23,23 +23,23 @@ public class InventoryMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inventory_menu);
 
-        final TextView title = (TextView) findViewById(R.id.textInventTilte);
+        final TextView title = (TextView) findViewById(R.id.textInventTitle);
         final TextView desc = (TextView) findViewById(R.id.textInventDesc);
         final ImageView img = (ImageView) findViewById(R.id.imageInventMenu);
-        Intent intent = getIntent();
+        final GridView gridView = (GridView) findViewById(R.id.gridInventoryMenu);
+
         final InventoryAdapt adapt = GameState.getGameState().getInventory();
+        final InventoryGridView inventory = new InventoryGridView(gridView, adapt, true);
+        final InventoryMenuDescription menuTriggered = new InventoryMenuDescription(title,
+                desc, img, inventory);
 
-
-        String longDesc = "nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
-                "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje";
 
         /**
          * Inventaire
          */
 
-        final GridView gridView = (GridView) findViewById(R.id.gridInventoryMenu);
-        final InventoryGridView inventor = new InventoryGridView(gridView, adapt, true);
-        InventoryMenuDescription menuTriggered = new InventoryMenuDescription(title, desc, img, inventor);
+
+
 
 
 

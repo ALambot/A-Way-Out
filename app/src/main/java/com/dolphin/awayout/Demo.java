@@ -27,11 +27,18 @@ public class Demo extends AppCompatActivity {
         imgKey = (ImageView) findViewById(R.id.key_demo);
         imgChest = (ImageView) findViewById(R.id.chest_demo);
 
-        ArrayList<MyObject> inventObject = new ArrayList<MyObject>();
-        inventObject.add(new MyObject("cle", R.drawable.key_demo));
-        inventObject.add(new MyObject("cle2", R.drawable.key_demo));
-        inventObject.add(new MyObject("coffre", R.drawable.chest_demo));
-        inventObject.add(new MyObject("coffre2", R.drawable.chest_demo));
+        ArrayList<MyObject> inventObject = new ArrayList<>();
+        String longDesc = "nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
+                "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje"+"nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
+                "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje"+"nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
+                "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje"+"nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
+                "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje"+"nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
+                "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje"+"nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
+                "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje";
+        inventObject.add(new MyObject("cle", "Ceci est une clé", R.drawable.key_demo));
+        inventObject.add(new MyObject("cle2", "Ceci est une autre clé", R.drawable.key_demo));
+        inventObject.add(new MyObject("coffre", longDesc, R.drawable.chest_demo));
+        inventObject.add(new MyObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
 
         adapt = new InventoryAdapt(this, inventObject);
         final ListView view = (ListView) findViewById(R.id.listinventory);

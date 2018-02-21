@@ -33,9 +33,6 @@ public class MyObject {
         this.description = description;
         this.idImage = imageRef;
     }
-
-
-
     public String getName() {
         return name;
     }
@@ -48,8 +45,8 @@ public class MyObject {
         return description;
     }
 
-    public void setDesc(String desc) {
-        this.description = description;
+    public void setDescription(String descr) {
+        this.description = descr;
     }
 
     public int getIdImage() {
@@ -68,9 +65,6 @@ public class MyObject {
         this.img = image;
     }
 
-
-
-    //TO DO verifier si img not null
     public boolean isVisible() {
         return visible;
     }
@@ -92,91 +86,5 @@ public class MyObject {
 
     }
 
-
-
-    public boolean isDraggable(){
-        return draggable;
-    }
-
-    public void combineWith() {
-        draggable = true;
-        setListenerDragNDrop();
-    }
-
-    public void stopListenerDragNDrop(){
-        img.setOnLongClickListener(null);
-        img.setOnDragListener(null);
-        img.setOnTouchListener(null);
-    }
-
-    public void setListenerDragNDrop() {
-        img.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                ClipData.Item item = new ClipData.Item((CharSequence) v.getTag());
-                String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
-
-                ClipData dragData = new ClipData(v.getTag().toString(), mimeTypes, item);
-                View.DragShadowBuilder myShadow = new View.DragShadowBuilder(img);
-
-                v.startDragAndDrop(dragData, myShadow, null, 0);
-                return true;
-            }
-        });
-
-        img.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-                switch (event.getAction()) {
-                    case DragEvent.ACTION_DRAG_STARTED:
-                        img.setVisibility(View.INVISIBLE);
-                        Log.d(msg, "Started");
-                        break;
-
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        Log.d(msg, "Entered");
-                        int x_cord = (int) event.getX();
-                        int y_cord = (int) event.getY();
-                        break;
-
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        Log.d(msg, "Exited");
-                        break;
-
-                    case DragEvent.ACTION_DRAG_LOCATION:
-                        Log.d(msg, "Location");
-                        x_cord = (int) event.getX();
-                        y_cord = (int) event.getY();
-                        break;
-
-                    case DragEvent.ACTION_DRAG_ENDED:
-                        Log.d(msg, "Ended");
-                        img.setVisibility(View.VISIBLE);
-                        break;
-
-                    case DragEvent.ACTION_DROP:
-                        Log.d(msg, "Drop");
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-
-        img.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    ClipData data = ClipData.newPlainText("", "");
-                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(img);
-                    img.startDragAndDrop(data, shadowBuilder, img, 0);
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        });
-    }
 
 }

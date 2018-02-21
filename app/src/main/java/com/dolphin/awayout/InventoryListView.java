@@ -49,7 +49,7 @@ public class InventoryListView {
                 public boolean onDrag(View v, DragEvent event) {
                     switch (event.getAction()) {
                         case DragEvent.ACTION_DRAG_STARTED:
-                            //v.setVisibility(View.INVISIBLE);
+                            v.setVisibility(View.VISIBLE);
                             Log.d(msg, "Started");
                             break;
 

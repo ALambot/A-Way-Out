@@ -7,8 +7,8 @@
 
     <GridView
         android:id="@+id/gridInventoryMenu"
-        android:layout_width="0dp"
-        android:layout_height="168dp"
+        android:layout_width="312dp"
+        android:layout_height="128dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -17,15 +17,15 @@
         android:verticalSpacing="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.977" />
 
     <TextView
-        android:id="@+id/textInventTilte"
+        android:id="@+id/textInventTitle"
         android:layout_width="152dp"
         android:layout_height="30dp"
         android:layout_marginBottom="8dp"
@@ -37,11 +37,12 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageInventMenu"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/scrollViewDesc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintVertical_bias="0.526" />
 
 
     <ScrollView
@@ -62,13 +63,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInventDesc"
+        app:layout_constraintBottom_toTopOf="@+id/gridInventoryMenu"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/scrollViewDesc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.773"
+        app:layout_constraintVertical_bias="0.354"
         app:srcCompat="@drawable/chest_demo" />
 
     <TextView
@@ -77,13 +79,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="16dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:text="Description"
         app:layout_constraintBottom_toTopOf="@+id/gridInventoryMenu"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageInventMenu"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
+        app:layout_constraintVertical_bias="0.207" />
     <!-- adapter le nombre de col avec la taille de l'ecran-->
 
 
