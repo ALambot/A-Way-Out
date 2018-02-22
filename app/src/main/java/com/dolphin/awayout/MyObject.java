@@ -5,21 +5,32 @@ import android.widget.ImageView;
 
 
 public class MyObject {
-    private String name = null;
+    private final int ID;
+    private static int nextID = 1;
+
+    private String name;
     private String description;
     private int idImage;
-    private ImageView img = null;
-    private boolean visible = true;
+    private ImageView img;
+    private boolean visible;
 
     public MyObject(String name, int imageRef) {
+        this.ID = this.nextID;
+        this.nextID++;
+
         this.name = name;
         this.idImage = imageRef;
+        this.visible = false;
     }
 
     public MyObject(String name,String description, int imageRef) {
+        this.ID = this.nextID;
+        this.nextID++;
+
         this.name = name;
         this.description = description;
         this.idImage = imageRef;
+        this.visible = false;
     }
     public String getName() {
         return name;
@@ -45,6 +56,8 @@ public class MyObject {
         this.idImage = idImage;
     }
 
+    public int getID() {return this.ID;}
+
     public ImageView getImage() {
         return img;
     }
@@ -62,6 +75,9 @@ public class MyObject {
         else hide();
     }
 
+    public boolean equals(MyObject o){
+        return this.ID == o.ID;
+    }
 
     public void show(){
         visible = true;
