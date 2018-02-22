@@ -15,6 +15,9 @@ public class GameState {
     private long startTime; //seconds
     private long gameDuration = 600; // seconds
 
+    private InteractionManager interactions;
+
+
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
         //Optionnal
@@ -44,6 +47,13 @@ public class GameState {
         return Math.max(0, gameDuration-elapsed);
     }
 
+    public void setInteractions(){
+        this.interactions = new InteractionManager();
+    }
+
+    public InteractionManager getInteractions(){
+        return this.interactions;
+    }
 
 
 

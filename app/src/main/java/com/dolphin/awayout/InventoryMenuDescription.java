@@ -33,6 +33,12 @@ public class InventoryMenuDescription extends InventoryObserver {
         else {
             Log.d("UPDATE", "name"+ object.getName() +"x: "+ x + " y :" + y);
             if (checkCollision(x, y, object.getImage())) {
+
+                //TEST INTERACTION
+                if(object.getName().equals("cle2") && object.getName().equals("coffre2")) {
+                    GameState.getGameState().getInteractions().doInteractionTEST();
+                }
+
                 Log.d("UPDATE", "Collision detected : goalX =" + img.getX() + "goalY =" + img.getY());
                 Toast.makeText(img.getContext(), "Une collision a lieu entre " +object.getName()+ " et " + title.getText(),
                         Toast.LENGTH_SHORT).show();

@@ -50,6 +50,7 @@ public class Demo extends AppCompatActivity {
         timer = (TextView) findViewById(R.id.timer);
         timerLoop();
 
+        GameState.getGameState().setInteractions();
     }
 
     public void onButtonInventoryMenuClick(View view) {
