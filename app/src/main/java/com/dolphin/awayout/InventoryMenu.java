@@ -7,8 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import java.util.ArrayList;
-
 
 public class InventoryMenu extends AppCompatActivity {
 
@@ -28,28 +26,6 @@ public class InventoryMenu extends AppCompatActivity {
         final InventoryGridView inventory = new InventoryGridView(gridView, adapt, true);
         final InventoryMenuDescription menuTriggered = new InventoryMenuDescription(title,
                 desc, img, inventory);
-
-
-        /**
-         * Inventaire
-         */
-
-
-
-
-
-
-        /*inventor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MyObject obj = adapt.getItem(position);
-                title.setText(obj.getName());
-                Desc.setText(obj.getDescription());
-                img.setImageResource(obj.getIdImage());
-
-            }
-        });*/
-
 
     }
 }

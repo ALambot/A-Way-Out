@@ -33,7 +33,6 @@ public class InventoryGridView {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View v, int i, long l) {
-                Log.d("CLICK", " "+ inventoryAdapt.getItem(i).getImage());
                 MyObject obj = inventoryAdapt.getItem(i);
                 View.DragShadowBuilder myShadow = new View.DragShadowBuilder(v);
                 v.startDragAndDrop(null, myShadow, obj, 0) ;
@@ -100,13 +99,13 @@ public class InventoryGridView {
         observers.add(observer);
     }
 
-    public void notifyClickObservers(MyObject object) {
+    private void notifyClickObservers(MyObject object) {
         for(InventoryObserver observer : observers) {
             observer.update(1, object, 0, 0);
         }
     }
 
-    public void notifyDropObservers(MyObject object, float x, float y){
+    private void notifyDropObservers(MyObject object, float x, float y){
         for(InventoryObserver observer : observers) {
             observer.update(2, object, Math.round(x), Math.round(y));
         }

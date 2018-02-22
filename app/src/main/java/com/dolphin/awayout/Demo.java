@@ -27,6 +27,7 @@ public class Demo extends AppCompatActivity {
         imgKey = (ImageView) findViewById(R.id.key_demo);
         imgChest = (ImageView) findViewById(R.id.chest_demo);
 
+
         ArrayList<MyObject> inventObject = new ArrayList<>();
         String longDesc = "nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +
                 "fbejrvbfhrebfker fuegfbfkbrhfvk urfbebfkref  rhfeihfiehf rfgefef   fehfbbfbefkfbjrebfje"+"nkfbjd jrbvcjs vbs djfbesd kbr df cerdhfkj   irdhj,fd  fersbf ejdfsbefdj ve kfrheusbgver s erbsnv erd ufbersb df er f re ifbersj fe dsrn  fehfb rej feksbf er " +

@@ -45,7 +45,7 @@ public class InventoryMenuDescription extends InventoryObserver {
 
     }
 
-    public boolean checkCollision(int x, int y, ImageView v1) {
+    private boolean checkCollision(int x, int y, ImageView v1) {
         Rect r1 = new Rect(x, y, x + v1.getWidth(), y + v1.getHeight());
         Rect r2 = new Rect();
         img.getHitRect(r2);
