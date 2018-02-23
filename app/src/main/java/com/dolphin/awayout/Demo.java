@@ -26,8 +26,8 @@ public class Demo extends AppCompatActivity {
         setContentView(R.layout.activity_demo);
 
 
-        imgKey = (ImageView) findViewById(R.id.key_demo);
-        imgChest = (ImageView) findViewById(R.id.chest_demo);
+        //imgKey = (ImageView) findViewById(R.id.key_demo);
+        //imgChest = (ImageView) findViewById(R.id.chest_demo);
 
 
         ArrayList<MyObject> inventObject = new ArrayList<>();
