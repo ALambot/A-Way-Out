@@ -7,14 +7,24 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/ETCtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ETCquestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Enigme"
+        android:text="@string/enigmes"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,33 +33,31 @@
         app:layout_constraintVertical_bias="0.253" />
 
     <Button
-        android:id="@+id/reponse1"
+        android:id="@+id/ETCreponse1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="1"
-        app:layout_constraintBottom_toTopOf="@+id/reponse3"
-        app:layout_constraintStart_toStartOf="@+id/reponse3"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/ETCreponse3"
+        app:layout_constraintStart_toStartOf="@+id/ETCreponse3" />
 
     <Button
-        android:id="@+id/reponse6"
+        android:id="@+id/ETCreponse6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
-        app:layout_constraintBottom_toBottomOf="@+id/reponse5"
+        app:layout_constraintBottom_toBottomOf="@+id/ETCreponse5"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/reponse3"
+        android:id="@+id/ETCreponse3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/reponse5"
-        app:layout_constraintStart_toStartOf="@+id/reponse5" />
+        app:layout_constraintBottom_toTopOf="@+id/ETCreponse5"
+        app:layout_constraintStart_toStartOf="@+id/ETCreponse5" />
 
     <Button
-        android:id="@+id/reponse5"
+        android:id="@+id/ETCreponse5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -58,19 +66,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/reponse4"
+        android:id="@+id/ETCreponse4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/reponse3"
-        app:layout_constraintEnd_toEndOf="@+id/reponse6" />
+        app:layout_constraintBottom_toBottomOf="@+id/ETCreponse3"
+        app:layout_constraintEnd_toEndOf="@+id/ETCreponse6" />
 
     <Button
-        android:id="@+id/reponse2"
+        android:id="@+id/ETCreponse2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
-        app:layout_constraintBottom_toBottomOf="@+id/reponse1"
-        app:layout_constraintEnd_toEndOf="@+id/reponse4" />
+        app:layout_constraintBottom_toBottomOf="@+id/ETCreponse1"
+        app:layout_constraintEnd_toEndOf="@+id/ETCreponse4" />
 
     <TextView
         android:id="@+id/timer"

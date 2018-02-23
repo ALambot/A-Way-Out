@@ -4,26 +4,26 @@ package com.dolphin.awayout;
 public class EnigmeObject {
     private String title = null;
     private String type = null;
-    private String texte = null;
-    private String[] reponsePossible = null;
+    private String text = null;
+    private String[] proposition = null;
     private String reponse =  null;
 
 
     //type text
-    public EnigmeObject(String title,String texte ,String type , String reponse) {
+    public EnigmeObject(String title,String text ,String type , String reponse) {
         this.title = title;
-        this.texte = texte;
+        this.text = text;
         this.type = type;
         this.reponse = reponse;
     }
 
 
     //type textChoix
-    public EnigmeObject(String title, String type, String texte, String[] reponsePossible, String reponse) {
+    public EnigmeObject(String title, String text, String[] reponsePossible, String reponse) {
         this.title = title;
-        this.type = type;
-        this.texte = texte;
-        this.reponsePossible = reponsePossible;
+        this.type = "textChoix";
+        this.text = text;
+        this.proposition = reponsePossible;
         this.reponse = reponse;
     }
 
@@ -35,20 +35,20 @@ public class EnigmeObject {
         this.title = title;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getText() {
+        return text;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String[] getReponsePossible() {
-        return reponsePossible;
+    public String[] getProposition() {
+        return proposition;
     }
 
-    public void setReponsePossible(String[] reponsePossible) {
-        this.reponsePossible = reponsePossible;
+    public void setProposition(String[] proposition) {
+        this.proposition = proposition;
     }
 
     public String getReponse() {

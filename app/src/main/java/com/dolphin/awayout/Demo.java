@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -46,8 +44,11 @@ public class Demo extends AppCompatActivity {
         inventObject.add(new MyObject("coffre", longDesc, R.drawable.chest_demo));
         inventObject.add(new MyObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
 
-        String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine", "Personne", "Moi"};
-        enigmeList.add((new EnigmeObject("Dauphin","textChoix" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
+
+        String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
+        enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
+        String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
+        enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
         /**
          * Partie menu de jeu
          */
@@ -74,7 +75,7 @@ public class Demo extends AppCompatActivity {
     }
 
     public void onButtonEnigmeListeClick(View view) {
-        Intent intent = new Intent(Demo.this, EnigmeListe.class);
+        Intent intent = new Intent(Demo.this, EnigmeList.class);
         startActivity(intent);
     }
 
