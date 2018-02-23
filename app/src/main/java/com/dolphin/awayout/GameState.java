@@ -1,5 +1,6 @@
 package com.dolphin.awayout;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -14,6 +15,10 @@ public class GameState {
     // Timer vars
     private long startTime; //seconds
     private long gameDuration = 600; // seconds
+
+    //enigimes variable
+    private ArrayList<EnigmeObject>  enigmeObjectArrayList;
+
 
     private InteractionManager interactions;
 
@@ -46,6 +51,15 @@ public class GameState {
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
         return Math.max(0, gameDuration-elapsed);
     }
+
+    public ArrayList<EnigmeObject> getEnigmeObjectArrayList() {
+        return enigmeObjectArrayList;
+    }
+
+    public void setEnigmeObjectArrayList(ArrayList<EnigmeObject> enigmeObjectArrayList) {
+        this.enigmeObjectArrayList = enigmeObjectArrayList;
+    }
+
 
     public void setInteractions(){
         this.interactions = new InteractionManager();

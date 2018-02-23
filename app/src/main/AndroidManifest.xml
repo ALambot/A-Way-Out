@@ -19,8 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Demo"/>
-        <activity android:name=".InventoryMenu"
-            />
+        <activity android:name=".InventoryMenu" />
+        <activity android:name=".EnigmeListe" />
     </application>
 
 </manifest>
