@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">A way out</string>
     <string name="demo_button">Jouer (démo)</string>
+    <!--Demo -->
+    <string name="inventaire">Inventaire</string>
+    <string name="enigmes">Enigmes</string>
+    <string name="qr_code">QR code</string>
+    <string name="timer">TIMER</string>
 </resources>
