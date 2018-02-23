@@ -21,6 +21,7 @@
         <activity android:name=".Demo"/>
         <activity android:name=".InventoryMenu" />
         <activity android:name=".EnigmeListe" />
+        <activity android:name=".EnigmeTextChoix" />
     </application>
 
 </manifest>

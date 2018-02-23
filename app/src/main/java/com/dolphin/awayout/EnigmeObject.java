@@ -66,4 +66,5 @@ public class EnigmeObject {
     public void setType(String type) {
         this.type = type;
     }
+
 }
