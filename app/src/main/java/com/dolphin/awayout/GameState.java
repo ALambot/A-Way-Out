@@ -30,6 +30,10 @@ public class GameState {
         return gameState;
     }
 
+    public void init(){ //init state from escape room file or save file
+
+    }
+
     public InventoryAdapt getInventory(){
         return inventory;
     }
@@ -44,7 +48,8 @@ public class GameState {
 
     public long getRemainingTime(){
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
-        return Math.max(0, gameDuration-elapsed);
+        // return Math.max(0, gameDuration-elapsed); // stops at zero
+        return gameDuration-elapsed;
     }
 
     public void setInteractions(){

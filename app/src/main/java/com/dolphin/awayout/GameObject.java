@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-public class MyObject {
+public class GameObject {
     private final int ID;
     private static int nextID = 1;
 
@@ -14,7 +14,7 @@ public class MyObject {
     private ImageView img;
     private boolean visible;
 
-    public MyObject(String name, int imageRef) {
+    public GameObject(String name, int imageRef) {
         this.ID = this.nextID;
         this.nextID++;
 
@@ -23,7 +23,7 @@ public class MyObject {
         this.visible = false;
     }
 
-    public MyObject(String name,String description, int imageRef) {
+    public GameObject(String name, String description, int imageRef) {
         this.ID = this.nextID;
         this.nextID++;
 
@@ -75,7 +75,7 @@ public class MyObject {
         else hide();
     }
 
-    public boolean equals(MyObject o){
+    public boolean equals(GameObject o){
         return this.ID == o.ID;
     }
 
