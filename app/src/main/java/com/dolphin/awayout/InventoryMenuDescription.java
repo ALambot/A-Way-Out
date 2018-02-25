@@ -24,7 +24,7 @@ public class InventoryMenuDescription extends InventoryObserver {
         this.inventoryGridView.attach(this);
     }
     @Override
-    public void update(int state, MyObject object, int x, int y) {
+    public void update(int state, GameObject object, int x, int y) {
         if(state == 1) {
             title.setText(object.getName());
             description.setText(object.getDescription());
@@ -35,9 +35,14 @@ public class InventoryMenuDescription extends InventoryObserver {
             if (checkCollision(x, y, object.getImage())) {
 
                 //TEST INTERACTION
-                if(object.getName().equals("cle2") && object.getName().equals("coffre2")) {
+                if(object.getName().equals("cle2") && title.getText().equals("coffre2")) {
+                    Log.d("KEK","Test Inter : InventoryMD 1");
                     GameState.getGameState().getInteractions().doInteractionTEST();
+                    Log.d("KEK","Test Inter : InventoryMD 2");
+
                 }
+
+                //Test git
 
                 Log.d("UPDATE", "Collision detected : goalX =" + img.getX() + "goalY =" + img.getY());
                 Toast.makeText(img.getContext(), "Une collision a lieu entre " +object.getName()+ " et " + title.getText(),

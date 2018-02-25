@@ -25,11 +25,26 @@ public class InteractionManager {
         Interaction actual = this.get(obj1, obj2);
         if(actual != null){
             //TEST
-            GameState.getGameState().getInventory().add(new MyObject("Golde Dolphin","You have found the mighty Golden Dolphin !!!",R.drawable.gold));
+            GameState.getGameState().getInventory().add(new GameObject("Golden Dolphin","You have found the mighty Golden Dolphin !!!",R.drawable.gold));
         }
     }
 
     public void doInteractionTEST(){
-        GameState.getGameState().getInventory().add(new MyObject("Golde Dolphin","You have found the mighty Golden Dolphin !!!",R.drawable.gold));
+        GameState.getGameState().getInventory().add(new GameObject("Golden Dolphin","You have found the mighty Golden Dolphin !!!",R.drawable.gold));
     }
+
+    public class Interaction {
+
+        public final int obj1, obj2;
+        public final String action;
+        public final String arg;
+
+        public Interaction(int obj1, int obj2, String action, String arg){
+            this.obj1 = obj1;
+            this.obj2 = obj2;
+            this.action = action;
+            this.arg = arg;
+        }
+    }
+
 }

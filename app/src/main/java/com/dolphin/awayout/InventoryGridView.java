@@ -33,7 +33,7 @@ public class InventoryGridView {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View v, int i, long l) {
-                MyObject obj = inventoryAdapt.getItem(i);
+                GameObject obj = inventoryAdapt.getItem(i);
                 View.DragShadowBuilder myShadow = new View.DragShadowBuilder(v);
                 v.startDragAndDrop(null, myShadow, obj, 0) ;
                 return true;
@@ -68,7 +68,7 @@ public class InventoryGridView {
 
                     case DragEvent.ACTION_DRAG_ENDED:
                         Log.d(msg, "Ended");
-                        notifyDropObservers((MyObject) event.getLocalState(), event.getX(), event.getY());
+                        notifyDropObservers((GameObject) event.getLocalState(), event.getX(), event.getY());
                         break;
 
                     case DragEvent.ACTION_DROP:
@@ -87,7 +87,7 @@ public class InventoryGridView {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MyObject obj = inventoryAdapt.getItem(position);
+                GameObject obj = inventoryAdapt.getItem(position);
                 if(obj != null){
                     notifyClickObservers(obj);
                 }
@@ -99,13 +99,13 @@ public class InventoryGridView {
         observers.add(observer);
     }
 
-    private void notifyClickObservers(MyObject object) {
+    private void notifyClickObservers(GameObject object) {
         for(InventoryObserver observer : observers) {
             observer.update(1, object, 0, 0);
         }
     }
 
-    private void notifyDropObservers(MyObject object, float x, float y){
+    private void notifyDropObservers(GameObject object, float x, float y){
         for(InventoryObserver observer : observers) {
             observer.update(2, object, Math.round(x), Math.round(y));
         }
