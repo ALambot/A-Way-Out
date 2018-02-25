@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import java.util.ArrayList;
 
 
@@ -19,6 +22,7 @@ public class Demo extends AppCompatActivity {
     private Button inventory_button;
     private Button enigme_button;
     private Button loupe_button;
+    private IntentIntegrator qrScan;
     InventoryAdapt adapt = null;
 
     @Override
@@ -62,6 +66,7 @@ public class Demo extends AppCompatActivity {
         inventory_button=(Button) findViewById(R.id.buttonMenuInventory);
         enigme_button = (Button) findViewById(R.id.buttonMenuEnigme);
         loupe_button = (Button) findViewById(R.id.buttonMenuQRcode);
+        qrScan=new IntentIntegrator(this);
 
         timer = (TextView) findViewById(R.id.timer);
         timerLoop();
@@ -78,6 +83,48 @@ public class Demo extends AppCompatActivity {
         Intent intent = new Intent(Demo.this, EnigmeList.class);
         startActivity(intent);
     }
+
+    public void onButtonQRClick(View view){
+        qrScan.initiateScan();
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        IntentResult result=IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if(result !=null){
+            if(result.getContents()==null){
+                Toast.makeText(this, "QR code illisible", Toast.LENGTH_LONG).show();
+            }
+            else{
+                //qr has data
+
+                Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
+                //Bout de code pour faire le pop up. En travail.
+                    /*LayoutInflater inflater= (LayoutInflater) mContext.getSystemService(Context. LAYOUT_INFLATER_SERVICE);
+                    View customView=inflater.inflate(R.layout.activity_pop_up__post_qr, null);
+                    float density=EcranAcueil.this.getResources().getDisplayMetrics().density;
+                    final PopupWindow popUp=new PopupWindow(customView, (int)density*240, (int) density*280);
+
+                    Button buttonQuit=(Button) customView.findViewById(R.id.buttonquit_PopUp);
+                    buttonQuit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            popUp.dismiss();
+                        }
+                    });
+                    textInPopUp=customView.findViewById(R.id.titlePoPUp);
+                    textInPopUp.setText("Felicitations ! Vous avez débloqué : la clé ");
+
+
+                    popUp.showAtLocation(relativeLayout, Gravity.CENTER,0,0);*/
+            }
+
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 
 
     public void timerLoop(){
