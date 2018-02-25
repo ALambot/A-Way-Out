@@ -1,12 +1,19 @@
 package com.dolphin.awayout;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -100,24 +107,9 @@ public class Demo extends AppCompatActivity {
                 //qr has data
 
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
-                //Bout de code pour faire le pop up. En travail.
-                    /*LayoutInflater inflater= (LayoutInflater) mContext.getSystemService(Context. LAYOUT_INFLATER_SERVICE);
-                    View customView=inflater.inflate(R.layout.activity_pop_up__post_qr, null);
-                    float density=EcranAcueil.this.getResources().getDisplayMetrics().density;
-                    final PopupWindow popUp=new PopupWindow(customView, (int)density*240, (int) density*280);
 
-                    Button buttonQuit=(Button) customView.findViewById(R.id.buttonquit_PopUp);
-                    buttonQuit.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            popUp.dismiss();
-                        }
-                    });
-                    textInPopUp=customView.findViewById(R.id.titlePoPUp);
-                    textInPopUp.setText("Felicitations ! Vous avez débloqué : la clé ");
+                showPopup(Demo.this, result.getContents());
 
-
-                    popUp.showAtLocation(relativeLayout, Gravity.CENTER,0,0);*/
             }
 
         } else {
@@ -125,6 +117,32 @@ public class Demo extends AppCompatActivity {
         }
     }
 
+    public void showPopup(final Activity context, String object){
+        LinearLayout viewGroup=(LinearLayout) context.findViewById(R.id.popup_QR);
+        LayoutInflater layoutInflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout=layoutInflater.inflate(R.layout.popup_postqr, viewGroup);
+
+        final PopupWindow popup=new PopupWindow(context);
+        popup.setContentView(layout);
+        popup.setFocusable(true);
+
+        popup.showAtLocation(layout, Gravity.CENTER,0,0);
+        Button close = (Button) layout.findViewById(R.id.closePopUp);
+        TextView title=layout.findViewById(R.id.textViewQRTitle);
+        title.setText("Bien joué !");
+
+        TextView textinPopUp=layout.findViewById(R.id.textQR);
+        textinPopUp.setText("Vous avez trouvé l'objet " +object);
+        close.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+
+
+    }
 
 
     public void timerLoop(){
