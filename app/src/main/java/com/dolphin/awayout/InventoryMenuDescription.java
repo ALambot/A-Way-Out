@@ -35,13 +35,18 @@ public class InventoryMenuDescription extends InventoryObserver {
             if (checkCollision(x, y, object.getImage())) {
 
                 //TEST INTERACTION
-                if(object.getName().equals("cle2") && object.getName().equals("coffre2")) {
+                if(object.getName().equals("Bonne clé") && title.getText().equals("Coffre")) {
                     GameState.getGameState().getInteractions().doInteractionTEST();
+                    Toast.makeText(img.getContext(), "Vous avez ouvert le coffre",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(img.getContext(), "Rien ne se passe",
+                            Toast.LENGTH_SHORT).show();
                 }
 
                 Log.d("UPDATE", "Collision detected : goalX =" + img.getX() + "goalY =" + img.getY());
-                Toast.makeText(img.getContext(), "Une collision a lieu entre " +object.getName()+ " et " + title.getText(),
-                        Toast.LENGTH_SHORT).show();
+
             }
             else {
                 Toast.makeText(img.getContext(), "Veuillez déplacer l'objet vers l'objet décrit ci-dessus",
