@@ -46,14 +46,9 @@ public class Demo extends AppCompatActivity {
          * Partie Demo
          */
 
-
-        String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n" +
-                "\n" +
-                "Maecenas laoreet augue eu massa convallis sollicitudin. Praesent lacinia mauris sed nisl ullamcorper interdum. Vestibulum ut lectus vitae justo rhoncus viverra vitae eget dui. Suspendisse potenti. Morbi fringilla tempor nibh id vehicula. In non dolor semper, blandit felis et, lacinia tellus. Nam quis eleifend ligula. Aliquam nec viverra lectus, in gravida ipsum. Aenean varius vitae purus vel feugiat. Aenean eleifend, nulla non fermentum eleifend, tortor dolor tristique tellus, in laoreet justo elit ut turpis. Maecenas id erat at lectus tempus laoreet sit amet aliquam ex.";
-        inventObject.add(new MyObject("cle", "Ceci est une clé", R.drawable.key_demo));
-        inventObject.add(new MyObject("cle2", "Ceci est une autre clé", R.drawable.key_demo));
-        inventObject.add(new MyObject("coffre", longDesc, R.drawable.chest_demo));
-        inventObject.add(new MyObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
+        inventObject.add(new MyObject("Clé inutile", "Cette clé semble inutile", R.drawable.key_demo));
+        inventObject.add(new MyObject("Coffre", "Ce coffre renferme peut-être la réponse à l'énigme", R.drawable.chest_demo));
+        //inventObject.add(new MyObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
 
 
         String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
@@ -105,10 +100,10 @@ public class Demo extends AppCompatActivity {
             }
             else{
                 //qr has data
-
-                Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
-
-                showPopup(Demo.this, result.getContents());
+                if(result.getContents().equals("Bonne clé")) {
+                        GameState.getGameState().getInventory().add(new MyObject("Bonne clé", "Ceci est la bonne clé pour ouvrir le coffre", R.drawable.key_demo));
+                        showPopup(Demo.this, result.getContents());
+                }
 
             }
 

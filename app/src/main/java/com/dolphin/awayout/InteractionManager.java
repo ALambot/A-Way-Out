@@ -1,5 +1,7 @@
 package com.dolphin.awayout;
 
+import android.util.Log;
+
 /**
  * Created by antoine on 22.02.18.
  */
@@ -30,6 +32,11 @@ public class InteractionManager {
     }
 
     public void doInteractionTEST(){
-        GameState.getGameState().getInventory().add(new MyObject("Golde Dolphin","You have found the mighty Golden Dolphin !!!",R.drawable.gold));
+        Log.d("INTERACTION", "TEST");
+        InventoryAdapt inventoryAdapt = GameState.getGameState().getInventory();
+        inventoryAdapt.add(new MyObject("Note de l'équipe","Une liste de proposition d'idées pour le surnom d'un de leur membre",R.drawable.note_team));
+        inventoryAdapt.remove(inventoryAdapt.getItem(1));
+        inventoryAdapt.remove(inventoryAdapt.getItem(1));
+
     }
 }
