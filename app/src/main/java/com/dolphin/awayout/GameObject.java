@@ -13,6 +13,7 @@ public class GameObject {
     private int idImage;
     private ImageView img;
     private boolean visible;
+    private boolean active;
 
     public GameObject(String name, int imageRef) {
         this.ID = this.nextID;
@@ -21,6 +22,7 @@ public class GameObject {
         this.name = name;
         this.idImage = imageRef;
         this.visible = false;
+        this.active = false; // objet dans inventaire ou non
     }
 
     public GameObject(String name, String description, int imageRef) {
@@ -31,7 +33,28 @@ public class GameObject {
         this.description = description;
         this.idImage = imageRef;
         this.visible = false;
+        this.active = false;
     }
+
+    public GameObject(int ID, String name, int imageRef) {
+        this.ID = ID;
+
+        this.name = name;
+        this.idImage = imageRef;
+        this.visible = false;
+        this.active = false;
+    }
+
+    public GameObject(int ID, String name, String description, int imageRef) {
+        this.ID = ID;
+
+        this.name = name;
+        this.description = description;
+        this.idImage = imageRef;
+        this.visible = false;
+        this.active = false;
+    }
+
     public String getName() {
         return name;
     }
@@ -74,6 +97,19 @@ public class GameObject {
         if(visible) show();
         else hide();
     }
+
+    public boolean isActive(){
+        return this.active;
+    }
+
+    public void activate(){
+        this.active = true;
+    }
+
+    public void deactivate(){
+        this.active = false;
+    }
+
 
     public boolean equals(GameObject o){
         return this.ID == o.ID;

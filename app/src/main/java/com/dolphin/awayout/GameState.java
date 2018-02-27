@@ -24,7 +24,9 @@ public class GameState {
     private ArrayList<GameObject> gobs;
 
     // Visuals
-    private InventoryAdapt inventory;
+    //private InventoryAdapt inventory;
+
+    private Context ctx;
 
 
     /** A private Constructor prevents any other class from instantiating. */
@@ -36,7 +38,7 @@ public class GameState {
 
     public void init(Context context){ //init state from escape room file or save file
         this.initialized = true;
-
+        this.ctx = context;
         this.gameDuration = 90;
 
         this.gobs = new ArrayList<GameObject>();
@@ -50,14 +52,6 @@ public class GameState {
         gobs.add(new GameObject("coffre", longDesc, R.drawable.chest_demo));
         gobs.add(new GameObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
 
-        this.inventory = new InventoryAdapt(context, this.gobs);
-    }
-
-    private void setInventory(InventoryAdapt inventory){
-        this.inventory = inventory;
-    }
-
-    private void setInteractions(){
         this.interactions = new InteractionManager();
     }
 
@@ -74,7 +68,13 @@ public class GameState {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
-        return inventory;
+        ArrayList<GameObject> activeGobs = new ArrayList<>();
+        for(GameObject gob : this.gobs){
+            if(gob.isActive()){
+                activeGobs.add(gob);
+            }
+        }
+        return new InventoryAdapt(this.ctx, activeGobs);
     }
 
     public long getRemainingTime() throws GameStateNotInitializedException {
