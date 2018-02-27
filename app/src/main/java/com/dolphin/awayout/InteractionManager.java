@@ -34,7 +34,7 @@ public class InteractionManager {
     public void doInteractionTEST(){
         Log.d("INTERACTION", "TEST");
         InventoryAdapt inventoryAdapt = GameState.getGameState().getInventory();
-        inventoryAdapt.add(new MyObject("Note de l'équipe","Une liste de proposition d'idées pour le surnom d'un de leur membre",R.drawable.note_team));
+        inventoryAdapt.add(new MyObject("Note de l'équipe","La Dolphin Team cherche un surnom pour un de ses membres. Voici les propositions \n -Super developpeur en chef \n\n -On a pas de surnom \n\n -Programmeur tout simplement \n\n -Hello World Writer \n\n -IntelliJ master \n\n -Etudiant(e) en informatique",R.drawable.note_team));
         inventoryAdapt.remove(inventoryAdapt.getItem(1));
         inventoryAdapt.remove(inventoryAdapt.getItem(1));
 

@@ -101,8 +101,11 @@ public class Demo extends AppCompatActivity {
             else{
                 //qr has data
                 if(result.getContents().equals("Bonne clé")) {
+                    if(GameState.getGameState().keyDEMO) {
                         GameState.getGameState().getInventory().add(new MyObject("Bonne clé", "Ceci est la bonne clé pour ouvrir le coffre", R.drawable.key_demo));
                         showPopup(Demo.this, result.getContents());
+                        GameState.getGameState().keyDEMO = false;
+                    }
                 }
 
             }
@@ -140,7 +143,7 @@ public class Demo extends AppCompatActivity {
     }
 
 
-    public void timerLoop(){
+   public void timerLoop(){
 
         Runnable Loop = new Runnable(){
             @Override

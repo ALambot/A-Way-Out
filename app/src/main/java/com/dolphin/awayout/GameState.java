@@ -22,6 +22,7 @@ public class GameState {
 
     private InteractionManager interactions;
 
+    public boolean keyDEMO = true;
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
