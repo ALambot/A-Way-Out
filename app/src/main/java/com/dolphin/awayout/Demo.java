@@ -45,7 +45,6 @@ public class Demo extends AppCompatActivity {
         /**
          * Partie Demo
          */
-
         inventObject.add(new MyObject("Clé inutile", "Cette clé semble inutile", R.drawable.key_demo));
         inventObject.add(new MyObject("Coffre", "Ce coffre renferme peut-être la réponse à l'énigme", R.drawable.chest_demo));
         //inventObject.add(new MyObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
@@ -59,8 +58,8 @@ public class Demo extends AppCompatActivity {
          * Partie menu de jeu
          */
         adapt = new InventoryAdapt(this, inventObject);
-        final ListView invent_view = (ListView) findViewById(R.id.listinventory);
-        final InventoryListView inventor = new InventoryListView(invent_view, adapt, true);
+        //final ListView invent_view = (ListView) findViewById(R.id.listinventory);
+        //final InventoryListView inventor = new InventoryListView(invent_view, adapt, true);
 
         GameState.getGameState().setInventory(adapt);
         GameState.getGameState().setEnigmeObjectArrayList(enigmeList);
