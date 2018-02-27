@@ -21,10 +21,15 @@ public class EnigmeTextChoix extends AppCompatActivity {
     private Button b5;
     private Button b6;
 
+    private TextView timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enigme_text_choix);
+
+        timer = findViewById(R.id.timer);
+        timerLoop();
 
         title = (TextView) findViewById(R.id.ETCtitle);
         question = (TextView) findViewById(R.id.ETCquestion);
@@ -120,5 +125,32 @@ public class EnigmeTextChoix extends AppCompatActivity {
         }
     };
 
+    public void timerLoop(){
 
+        Runnable Loop = new Runnable(){
+            @Override
+            public void run(){
+                while(true){
+                    try {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException e){
+                    }
+                    timer.post(new Runnable() {
+                        @Override
+                        public void run(){
+                            GameState gameState = GameState.getGameState();
+                            long time = gameState.getRemainingTime();
+                            int sec = (int) (time%60);
+                            int min = (int) ((time - sec)/60);
+                            timer.setText(min+":"+sec);
+                            timer.postInvalidate();
+                        }
+                    });
+                }
+            }
+        };
+        Thread myThread = new Thread(Loop);
+        myThread.start();
+    }
 }
