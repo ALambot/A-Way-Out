@@ -160,7 +160,17 @@ public class Demo extends AppCompatActivity {
                             long time = gameState.getRemainingTime();
                             int sec = (int) (time%60);
                             int min = (int) ((time - sec)/60);
-                            timer.setText(min+":"+sec);
+                            StringBuilder stringBuilder = new StringBuilder();
+                            if(Integer.toString(min).length() == 1) {
+                                stringBuilder.append("0");
+                            }
+                            stringBuilder.append(min);
+                            stringBuilder.append(":");
+                            if(Integer.toString(sec).length()==1) {
+                                stringBuilder.append("0");
+                            }
+                            stringBuilder.append(sec);
+                            timer.setText(stringBuilder.toString());
                             timer.postInvalidate();
                         }
                     });
