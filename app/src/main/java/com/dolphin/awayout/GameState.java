@@ -1,5 +1,7 @@
 package com.dolphin.awayout;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -32,17 +34,30 @@ public class GameState {
 
     // SETTERS ----------
 
-    public void init(){ //init state from escape room file or save file
+    public void init(Context context){ //init state from escape room file or save file
         this.initialized = true;
 
-        this.gameDuration = 600;
+        this.gameDuration = 90;
+
+        this.gobs = new ArrayList<GameObject>();
+
+        String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n" +
+                "\n" +
+                "Maecenas laoreet augue eu massa convallis sollicitudin. Praesent lacinia mauris sed nisl ullamcorper interdum. Vestibulum ut lectus vitae justo rhoncus viverra vitae eget dui. Suspendisse potenti. Morbi fringilla tempor nibh id vehicula. In non dolor semper, blandit felis et, lacinia tellus. Nam quis eleifend ligula. Aliquam nec viverra lectus, in gravida ipsum. Aenean varius vitae purus vel feugiat. Aenean eleifend, nulla non fermentum eleifend, tortor dolor tristique tellus, in laoreet justo elit ut turpis. Maecenas id erat at lectus tempus laoreet sit amet aliquam ex.";
+
+        gobs.add(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
+        gobs.add(new GameObject("cle2", "Ceci est une autre clé", R.drawable.key_demo));
+        gobs.add(new GameObject("coffre", longDesc, R.drawable.chest_demo));
+        gobs.add(new GameObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
+
+        this.inventory = new InventoryAdapt(context, this.gobs);
     }
 
-    public void setInventory(InventoryAdapt inventory){
+    private void setInventory(InventoryAdapt inventory){
         this.inventory = inventory;
     }
 
-    public void setInteractions(){
+    private void setInteractions(){
         this.interactions = new InteractionManager();
     }
 

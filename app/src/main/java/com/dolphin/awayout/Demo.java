@@ -29,8 +29,8 @@ public class Demo extends AppCompatActivity {
         demo_button = (Button) findViewById(R.id.buttonMenuInventory);
         timer = (TextView) findViewById(R.id.timer);
         final ListView view = (ListView) findViewById(R.id.listinventory);
-        
 
+        /*
         ArrayList<GameObject> inventObject = new ArrayList<>();
         String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n" +
                 "\n" +
@@ -41,14 +41,13 @@ public class Demo extends AppCompatActivity {
         inventObject.add(new GameObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
 
         adapt = new InventoryAdapt(this, inventObject);
+        */
 
+        GameState.getGameState().init(this);
+        adapt = GameState.getGameState().getInventory();
         final InventoryListView inventor = new InventoryListView(view, adapt, true);
 
-        GameState.getGameState().setInventory(adapt);
-
         timerLoop();
-
-        GameState.getGameState().setInteractions();
     }
 
     public void onButtonInventoryMenuClick(View view) {
