@@ -42,6 +42,8 @@ public class InventoryMenuDescription extends InventoryObserver {
 
                 }
 
+                //Test git
+
                 Log.d("UPDATE", "Collision detected : goalX =" + img.getX() + "goalY =" + img.getY());
                 Toast.makeText(img.getContext(), "Une collision a lieu entre " +object.getName()+ " et " + title.getText(),
                         Toast.LENGTH_SHORT).show();
