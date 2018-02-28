@@ -27,7 +27,10 @@ public class GameState {
     private long startTime; //seconds
     private long gameDuration; // seconds
 
-    //
+
+    //enigmes variable
+    private ArrayList<EnigmeObject>  enigmeObjectArrayList;
+  
     private InteractionManager interactions;
     private ArrayList<GameObject> gobs;
 
@@ -36,6 +39,7 @@ public class GameState {
 
     private Context ctx;
 
+    public boolean keyDEMO = true;
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
@@ -102,8 +106,23 @@ public class GameState {
             throw new GameStateNotInitializedException();
         }
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
+      
         // return Math.max(0, gameDuration-elapsed); // stops at zero
         return gameDuration-elapsed;
+    }
+
+    public ArrayList<EnigmeObject> getEnigmeObjectArrayList() {
+        return enigmeObjectArrayList;
+    }
+
+    public void setEnigmeObjectArrayList(ArrayList<EnigmeObject> enigmeObjectArrayList) {
+        this.enigmeObjectArrayList = enigmeObjectArrayList;
+    }
+
+
+    public void setInteractions(){
+        this.interactions = new InteractionManager();
+
     }
 
     public InteractionManager getInteractions() throws GameStateNotInitializedException {

@@ -2,6 +2,7 @@ package com.dolphin.awayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import android.util.Log;
 
 /**
  * Created by antoine on 22.02.18.
