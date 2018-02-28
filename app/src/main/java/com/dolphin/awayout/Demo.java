@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -37,17 +36,20 @@ public class Demo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
 
-        ArrayList<MyObject> inventObject = new ArrayList<>();
+
+        imgKey = (ImageView) findViewById(R.id.key_demo);
+        imgChest = (ImageView) findViewById(R.id.chest_demo);
+        demo_button = (Button) findViewById(R.id.buttonMenuInventory);
+        timer = (TextView) findViewById(R.id.timer);
+        final ListView view = (ListView) findViewById(R.id.listinventory);
+
+        GameState gameState = GameState.getGameState();
+        gameState.init(this);
+        gameState.startTimer();
+        adapt = gameState.getInventory();
+        final InventoryListView inventor = new InventoryListView(view, adapt, true);
+
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
-
-
-
-        /**
-         * Partie Demo
-         */
-        inventObject.add(new MyObject("Clé inutile", "Cette clé semble inutile", R.drawable.key_demo));
-        inventObject.add(new MyObject("Coffre", "Ce coffre renferme peut-être la réponse à l'énigme", R.drawable.chest_demo));
-        //inventObject.add(new MyObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
 
 
         String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
@@ -57,11 +59,7 @@ public class Demo extends AppCompatActivity {
         /**
          * Partie menu de jeu
          */
-        adapt = new InventoryAdapt(this, inventObject);
-        //final ListView invent_view = (ListView) findViewById(R.id.listinventory);
-        //final InventoryListView inventor = new InventoryListView(invent_view, adapt, true);
-
-        GameState.getGameState().setInventory(adapt);
+      
         GameState.getGameState().setEnigmeObjectArrayList(enigmeList);
 
         inventory_button=(Button) findViewById(R.id.buttonMenuInventory);
@@ -69,10 +67,7 @@ public class Demo extends AppCompatActivity {
         loupe_button = (Button) findViewById(R.id.buttonMenuQRcode);
         qrScan=new IntentIntegrator(this);
 
-        timer = (TextView) findViewById(R.id.timer);
         timerLoop();
-
-        GameState.getGameState().setInteractions();
     }
 
     public void onButtonInventoryMenuClick(View view) {
@@ -158,6 +153,11 @@ public class Demo extends AppCompatActivity {
                         public void run(){
                             GameState gameState = GameState.getGameState();
                             long time = gameState.getRemainingTime();
+                            String neg = "";
+                            if(time<0){
+                                neg = "- ";
+                                time = - time;
+                            }
                             int sec = (int) (time%60);
                             int min = (int) ((time - sec)/60);
                             StringBuilder stringBuilder = new StringBuilder();
@@ -171,7 +171,6 @@ public class Demo extends AppCompatActivity {
                             }
                             stringBuilder.append(sec);
                             timer.setText(stringBuilder.toString());
-                            timer.postInvalidate();
                         }
                     });
                 }

@@ -1,5 +1,15 @@
 package com.dolphin.awayout;
 
+import android.content.Context;
+import android.util.Log;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -10,17 +20,24 @@ import java.util.Calendar;
 public class GameState {
 
     private static GameState gameState;
-    private InventoryAdapt inventory;
 
-    // Timer vars
+    private boolean initialized = false;
+
+    // Timer
     private long startTime; //seconds
-    private long gameDuration = 600; // seconds
+    private long gameDuration; // seconds
 
-    //enigimes variable
+
+    //enigmes variable
     private ArrayList<EnigmeObject>  enigmeObjectArrayList;
-
-
+  
     private InteractionManager interactions;
+    private ArrayList<GameObject> gobs;
+
+    // Visuals
+    //private InventoryAdapt inventory;
+
+    private Context ctx;
 
     public boolean keyDEMO = true;
 
@@ -29,6 +46,34 @@ public class GameState {
         //Optionnal
     }
 
+    // SETTERS ----------
+
+    public void init(Context context){ //init state from escape room file or save file
+        this.initialized = true;
+        this.ctx = context;
+
+        this.gameDuration = 90;
+        
+        this.gobs = new ArrayList<GameObject>();
+
+        String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n" +
+                "\n" +
+                "Maecenas laoreet augue eu massa convallis sollicitudin. Praesent lacinia mauris sed nisl ullamcorper interdum. Vestibulum ut lectus vitae justo rhoncus viverra vitae eget dui. Suspendisse potenti. Morbi fringilla tempor nibh id vehicula. In non dolor semper, blandit felis et, lacinia tellus. Nam quis eleifend ligula. Aliquam nec viverra lectus, in gravida ipsum. Aenean varius vitae purus vel feugiat. Aenean eleifend, nulla non fermentum eleifend, tortor dolor tristique tellus, in laoreet justo elit ut turpis. Maecenas id erat at lectus tempus laoreet sit amet aliquam ex.";
+
+        gobs.add(new GameObject(1,"cle", "Ceci est une clé", R.drawable.key_demo));
+        gobs.add(new GameObject(2,"cle2", "Ceci est une autre clé", R.drawable.key_demo));
+        gobs.add(new GameObject(3,"coffre", longDesc, R.drawable.chest_demo));
+        gobs.add(new GameObject(4,"coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
+
+        gobs.get(0).activate();
+        gobs.get(2).activate();
+        gobs.get(3).activate();
+
+        this.interactions = new InteractionManager();
+    }
+
+    // GETTERS ----------
+
     public static synchronized GameState getGameState() {
         if (gameState == null) {
             gameState = new GameState();
@@ -36,21 +81,34 @@ public class GameState {
         return gameState;
     }
 
-    public InventoryAdapt getInventory(){
-        return inventory;
+    public ArrayList<GameObject> getGobs(){
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        return this.gobs;
     }
 
-    public void setInventory(InventoryAdapt inventory){
-        this.inventory = inventory;
+    public InventoryAdapt getInventory() throws GameStateNotInitializedException {
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        ArrayList<GameObject> activeGobs = new ArrayList<>();
+        for(GameObject gob : this.gobs){
+            if(gob.isActive()){
+                activeGobs.add(gob);
+            }
+        }
+        return new InventoryAdapt(this.ctx, activeGobs);
     }
 
-    public void startTimer(){
-        this.startTime = Calendar.getInstance().getTimeInMillis()/1000;
-    }
-
-    public long getRemainingTime(){
+    public long getRemainingTime() throws GameStateNotInitializedException {
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
-        return Math.max(0, gameDuration-elapsed);
+      
+        // return Math.max(0, gameDuration-elapsed); // stops at zero
+        return gameDuration-elapsed;
     }
 
     public ArrayList<EnigmeObject> getEnigmeObjectArrayList() {
@@ -64,15 +122,25 @@ public class GameState {
 
     public void setInteractions(){
         this.interactions = new InteractionManager();
+
     }
 
-    public InteractionManager getInteractions(){
+    public InteractionManager getInteractions() throws GameStateNotInitializedException {
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
         return this.interactions;
     }
 
+    // FUNCTIONS ----------
 
+    public void startTimer(){
+        this.startTime = Calendar.getInstance().getTimeInMillis()/1000;
+    }
 
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
     }
+
+    private class GameStateNotInitializedException extends RuntimeException{ }
 }

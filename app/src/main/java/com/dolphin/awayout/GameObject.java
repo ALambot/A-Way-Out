@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-public class MyObject {
+public class GameObject {
     private final int ID;
     private static int nextID = 1;
 
@@ -13,17 +13,19 @@ public class MyObject {
     private int idImage;
     private ImageView img;
     private boolean visible;
+    private boolean active;
 
-    public MyObject(String name, int imageRef) {
+    public GameObject(String name, int imageRef) {
         this.ID = this.nextID;
         this.nextID++;
 
         this.name = name;
         this.idImage = imageRef;
         this.visible = false;
+        this.active = false; // objet dans inventaire ou non
     }
 
-    public MyObject(String name,String description, int imageRef) {
+    public GameObject(String name, String description, int imageRef) {
         this.ID = this.nextID;
         this.nextID++;
 
@@ -31,7 +33,32 @@ public class MyObject {
         this.description = description;
         this.idImage = imageRef;
         this.visible = false;
+        this.active = false;
     }
+
+    public GameObject(int ID, String name, int imageRef) {
+        this.ID = ID;
+
+        this.name = name;
+        this.idImage = imageRef;
+        this.visible = false;
+        this.active = false;
+    }
+
+    public GameObject(int ID, String name, String description, int imageRef) {
+        this.ID = ID;
+
+        this.name = name;
+        this.description = description;
+        this.idImage = imageRef;
+        this.visible = false;
+        this.active = false;
+    }
+
+    public GameObject(String ID){
+        this.ID = Integer.parseInt(ID);
+    }
+
     public String getName() {
         return name;
     }
@@ -75,7 +102,20 @@ public class MyObject {
         else hide();
     }
 
-    public boolean equals(MyObject o){
+    public boolean isActive(){
+        return this.active;
+    }
+
+    public void activate(){
+        this.active = true;
+    }
+
+    public void deactivate(){
+        this.active = false;
+    }
+
+    //pire implementation de equals possible
+    public boolean equals(GameObject o){
         return this.ID == o.ID;
     }
 

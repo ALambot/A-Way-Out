@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 /**
  * Created by siasn on 17-02-18.
+ *
+ * NOT TO USE ?
+ * USE GAMEOBJECT INSTEAD
  */
 
 public class PlayerItem implements Comparable{
