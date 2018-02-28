@@ -1,7 +1,15 @@
 package com.dolphin.awayout;
 
 import android.content.Context;
+import android.util.Log;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -39,18 +47,23 @@ public class GameState {
     public void init(Context context){ //init state from escape room file or save file
         this.initialized = true;
         this.ctx = context;
-        this.gameDuration = 90;
 
+        this.gameDuration = 90;
+        
         this.gobs = new ArrayList<GameObject>();
 
         String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n" +
                 "\n" +
                 "Maecenas laoreet augue eu massa convallis sollicitudin. Praesent lacinia mauris sed nisl ullamcorper interdum. Vestibulum ut lectus vitae justo rhoncus viverra vitae eget dui. Suspendisse potenti. Morbi fringilla tempor nibh id vehicula. In non dolor semper, blandit felis et, lacinia tellus. Nam quis eleifend ligula. Aliquam nec viverra lectus, in gravida ipsum. Aenean varius vitae purus vel feugiat. Aenean eleifend, nulla non fermentum eleifend, tortor dolor tristique tellus, in laoreet justo elit ut turpis. Maecenas id erat at lectus tempus laoreet sit amet aliquam ex.";
 
-        gobs.add(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
-        gobs.add(new GameObject("cle2", "Ceci est une autre clé", R.drawable.key_demo));
-        gobs.add(new GameObject("coffre", longDesc, R.drawable.chest_demo));
-        gobs.add(new GameObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
+        gobs.add(new GameObject(1,"cle", "Ceci est une clé", R.drawable.key_demo));
+        gobs.add(new GameObject(2,"cle2", "Ceci est une autre clé", R.drawable.key_demo));
+        gobs.add(new GameObject(3,"coffre", longDesc, R.drawable.chest_demo));
+        gobs.add(new GameObject(4,"coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
+
+        gobs.get(0).activate();
+        gobs.get(2).activate();
+        gobs.get(3).activate();
 
         this.interactions = new InteractionManager();
     }
@@ -62,6 +75,13 @@ public class GameState {
             gameState = new GameState();
         }
         return gameState;
+    }
+
+    public ArrayList<GameObject> getGobs(){
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        return this.gobs;
     }
 
     public InventoryAdapt getInventory() throws GameStateNotInitializedException {

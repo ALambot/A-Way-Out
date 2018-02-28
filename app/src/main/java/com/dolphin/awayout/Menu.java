@@ -17,8 +17,6 @@ public class Menu extends AppCompatActivity {
     }
 
     public void onButtonDemoClick(View view){
-        GameState gameState = GameState.getGameState();
-        gameState.startTimer();
         Intent intent = new Intent(this, Demo.class);
         startActivity(intent);
     }

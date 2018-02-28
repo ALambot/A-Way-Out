@@ -30,8 +30,10 @@ public class Demo extends AppCompatActivity {
         timer = (TextView) findViewById(R.id.timer);
         final ListView view = (ListView) findViewById(R.id.listinventory);
 
-        GameState.getGameState().init(this);
-        adapt = GameState.getGameState().getInventory();
+        GameState gameState = GameState.getGameState();
+        gameState.init(this);
+        gameState.startTimer();
+        adapt = gameState.getInventory();
         final InventoryListView inventor = new InventoryListView(view, adapt, true);
 
         timerLoop();

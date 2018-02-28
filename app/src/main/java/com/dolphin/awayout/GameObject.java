@@ -55,6 +55,10 @@ public class GameObject {
         this.active = false;
     }
 
+    public GameObject(String ID){
+        this.ID = Integer.parseInt(ID);
+    }
+
     public String getName() {
         return name;
     }
@@ -110,7 +114,7 @@ public class GameObject {
         this.active = false;
     }
 
-
+    //pire implementation de equals possible
     public boolean equals(GameObject o){
         return this.ID == o.ID;
     }
