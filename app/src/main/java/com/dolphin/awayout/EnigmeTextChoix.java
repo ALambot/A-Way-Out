@@ -28,7 +28,7 @@ public class EnigmeTextChoix extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enigme_text_choix);
 
-        timer = findViewById(R.id.timer);
+        timer = (TextView) findViewById(R.id.timer);
         timerLoop();
 
         title = (TextView) findViewById(R.id.ETCtitle);

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -37,17 +38,16 @@ public class Demo extends AppCompatActivity {
         setContentView(R.layout.activity_demo);
 
 
-        imgKey = (ImageView) findViewById(R.id.key_demo);
-        imgChest = (ImageView) findViewById(R.id.chest_demo);
-        demo_button = (Button) findViewById(R.id.buttonMenuInventory);
+        //imgKey = (ImageView) findViewById(R.id.key_demo);
+        //imgChest = (ImageView) findViewById(R.id.chest_demo);
         timer = (TextView) findViewById(R.id.timer);
-        final ListView view = (ListView) findViewById(R.id.listinventory);
+        //final ListView view = (ListView) findViewById(R.id.listinventory);
 
         GameState gameState = GameState.getGameState();
         gameState.init(this);
         gameState.startTimer();
-        adapt = gameState.getInventory();
-        final InventoryListView inventor = new InventoryListView(view, adapt, true);
+        //adapt = gameState.getInventory();
+        //final InventoryListView inventor = new InventoryListView(view, adapt, true);
 
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
 
@@ -96,7 +96,7 @@ public class Demo extends AppCompatActivity {
                 //qr has data
                 if(result.getContents().equals("Bonne clé")) {
                     if(GameState.getGameState().keyDEMO) {
-                        GameState.getGameState().getInventory().add(new MyObject("Bonne clé", "Ceci est la bonne clé pour ouvrir le coffre", R.drawable.key_demo));
+                        GameState.getGameState().getInventory().add(new GameObject("Bonne clé", "Ceci est la bonne clé pour ouvrir le coffre", R.drawable.key_demo));
                         showPopup(Demo.this, result.getContents());
                         GameState.getGameState().keyDEMO = false;
                     }

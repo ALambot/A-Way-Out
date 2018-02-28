@@ -37,7 +37,7 @@ public class InventoryMenuDescription extends InventoryObserver {
 
                 //TEST INTERACTION
                 if(object.getName().equals("Bonne clé") && title.getText().equals("Coffre")) {
-                    GameState.getGameState().getInteractions().doInteractionTEST();
+                    //GameState.getGameState().getInteractions().doInteractionTEST();
                     Toast.makeText(img.getContext(), "Vous avez ouvert le coffre",
                             Toast.LENGTH_SHORT).show();
                 }
