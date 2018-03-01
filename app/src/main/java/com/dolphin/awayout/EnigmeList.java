@@ -2,14 +2,20 @@ package com.dolphin.awayout;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 
@@ -34,8 +40,17 @@ public class EnigmeList extends AppCompatActivity{
             }
 
             ListView list_enigme = (ListView) findViewById(R.id.listEnigme);
-            final ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, enigmeTitre);
+            final ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, enigmeTitre){
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent){
+                    View view = super.getView(position, convertView, parent);
+                    TextView txt = (TextView) view;
+                    //txt.setTypeface(Typeface.createFromAsset(getAssets(),"precious.ttf"));
+                    return view;
+                }
+            };
             list_enigme.setAdapter(adapter);
+
 
 
             list_enigme.setOnItemClickListener(new AdapterView.OnItemClickListener(){
