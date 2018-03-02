@@ -45,15 +45,6 @@ public class Demo extends AppCompatActivity {
         gameState.init(this);
         gameState.startTimer();
 
-        /*
-        ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
-        String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
-        String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
-        GameState.getGameState().setEnigmeObjectArrayList(enigmeList);
-        */
-
         qrScan=new IntentIntegrator(this);
 
         timerLoop();
