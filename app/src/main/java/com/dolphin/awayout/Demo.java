@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class Demo extends AppCompatActivity {
 
-    private ImageView imgKey, imgChest;
     private TextView timer;
     private Button inventory_button;
     private Button enigme_button;
@@ -37,34 +36,24 @@ public class Demo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
 
-
-        //imgKey = (ImageView) findViewById(R.id.key_demo);
-        //imgChest = (ImageView) findViewById(R.id.chest_demo);
         timer = (TextView) findViewById(R.id.timer);
-        //final ListView view = (ListView) findViewById(R.id.listinventory);
+        inventory_button = (Button) findViewById(R.id.buttonMenuInventory);
+        enigme_button = (Button) findViewById(R.id.buttonMenuEnigme);
+        loupe_button = (Button) findViewById(R.id.buttonMenuQRcode);
 
         GameState gameState = GameState.getGameState();
         gameState.init(this);
         gameState.startTimer();
-        //adapt = gameState.getInventory();
-        //final InventoryListView inventor = new InventoryListView(view, adapt, true);
 
+        /*
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
-
-
         String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
         String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
-        /**
-         * Partie menu de jeu
-         */
-      
         GameState.getGameState().setEnigmeObjectArrayList(enigmeList);
+        */
 
-        inventory_button=(Button) findViewById(R.id.buttonMenuInventory);
-        enigme_button = (Button) findViewById(R.id.buttonMenuEnigme);
-        loupe_button = (Button) findViewById(R.id.buttonMenuQRcode);
         qrScan=new IntentIntegrator(this);
 
         timerLoop();
@@ -94,14 +83,9 @@ public class Demo extends AppCompatActivity {
             }
             else{
                 //qr has data
-                if(result.getContents().equals("Bonne clé")) {
-                    if(GameState.getGameState().keyDEMO) {
-                        GameState.getGameState().getInventory().add(new GameObject("Bonne clé", "Ceci est la bonne clé pour ouvrir le coffre", R.drawable.key_demo));
-                        showPopup(Demo.this, result.getContents());
-                        GameState.getGameState().keyDEMO = false;
-                    }
-                }
-
+                InteractionManager im = GameState.getGameState().getInteractions();
+                im.QRresult(result.getContents());
+                showPopup(Demo.this, result.getContents());
             }
 
         } else {
@@ -143,11 +127,6 @@ public class Demo extends AppCompatActivity {
             @Override
             public void run(){
                 while(true){
-                    try {
-                        Thread.sleep(1000);
-                    }
-                    catch(InterruptedException e){
-                    }
                     timer.post(new Runnable() {
                         @Override
                         public void run(){
@@ -173,6 +152,11 @@ public class Demo extends AppCompatActivity {
                             timer.setText(stringBuilder.toString());
                         }
                     });
+                    try {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException e){
+                    }
                 }
             }
         };

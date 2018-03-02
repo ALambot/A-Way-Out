@@ -20,26 +20,17 @@ import java.util.Calendar;
 public class GameState {
 
     private static GameState gameState;
-
     private boolean initialized = false;
+    private Context ctx;
 
     // Timer
     private long startTime; //seconds
     private long gameDuration; // seconds
 
-
-    //enigmes variable
-    private ArrayList<EnigmeObject>  enigmeObjectArrayList;
-  
+    // EscapeRoom
     private InteractionManager interactions;
     private ArrayList<GameObject> gobs;
-
-    // Visuals
-    //private InventoryAdapt inventory;
-
-    private Context ctx;
-
-    public boolean keyDEMO = true;
+    private ArrayList<EnigmeObject>  enigmeObjectArrayList;
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
@@ -88,7 +79,7 @@ public class GameState {
         return this.gobs;
     }
 
-    public InventoryAdapt getInventory() throws GameStateNotInitializedException {
+    public InventoryAdapt getInventoryAdapt() throws GameStateNotInitializedException {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
@@ -113,16 +104,6 @@ public class GameState {
 
     public ArrayList<EnigmeObject> getEnigmeObjectArrayList() {
         return enigmeObjectArrayList;
-    }
-
-    public void setEnigmeObjectArrayList(ArrayList<EnigmeObject> enigmeObjectArrayList) {
-        this.enigmeObjectArrayList = enigmeObjectArrayList;
-    }
-
-
-    public void setInteractions(){
-        this.interactions = new InteractionManager();
-
     }
 
     public InteractionManager getInteractions() throws GameStateNotInitializedException {
