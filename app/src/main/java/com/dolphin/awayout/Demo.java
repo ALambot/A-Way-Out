@@ -29,7 +29,7 @@ public class Demo extends AppCompatActivity {
     private Button enigme_button;
     private Button loupe_button;
     private IntentIntegrator qrScan;
-    InventoryAdapt adapt = null;
+    private InventoryAdapt adapt = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,14 +132,16 @@ public class Demo extends AppCompatActivity {
                         public void run(){
                             GameState gameState = GameState.getGameState();
                             long time = gameState.getRemainingTime();
+                            StringBuilder stringBuilder = new StringBuilder();
                             String neg = "";
                             if(time<0){
                                 neg = "- ";
                                 time = - time;
                             }
+                            stringBuilder.append(neg);
                             int sec = (int) (time%60);
                             int min = (int) ((time - sec)/60);
-                            StringBuilder stringBuilder = new StringBuilder();
+
                             if(Integer.toString(min).length() == 1) {
                                 stringBuilder.append("0");
                             }
