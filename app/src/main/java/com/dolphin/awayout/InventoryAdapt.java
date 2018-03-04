@@ -13,26 +13,26 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 
-public class InventoryAdapt extends ArrayAdapter<MyObject>{
+public class InventoryAdapt extends ArrayAdapter<GameObject>{
 
 
-    public InventoryAdapt(@NonNull Context context, ArrayList<MyObject> ImageNames) {
+    public InventoryAdapt(@NonNull Context context, ArrayList<GameObject> ImageNames) {
         super(context, R.layout.inventory_slot,ImageNames);
     }
 
     @Nullable
     @Override
-    public MyObject getItem(int position) {
+    public GameObject getItem(int position) {
         return super.getItem(position);
     }
 
     @Override
-    public void add(@Nullable MyObject object) {
+    public void add(@Nullable GameObject object) {
         super.add(object);
     }
 
     @Override
-    public void remove(@Nullable MyObject object){
+    public void remove(@Nullable GameObject object){
         super.remove(object);
     }
 
@@ -42,7 +42,7 @@ public class InventoryAdapt extends ArrayAdapter<MyObject>{
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.inventory_slot, parent , false);
         ImageView image = (ImageView) view.findViewById(R.id.imageSlotObject);
-        MyObject obj = getItem(position);
+        GameObject obj = getItem(position);
         image.setImageResource(obj.getIdImage());
         obj.setImage(image);
        return view;

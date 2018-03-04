@@ -6,5 +6,5 @@ package com.dolphin.awayout;
 
 public abstract class InventoryObserver {
     protected InventoryGridView inventoryGridView;
-    public abstract void update(int state, MyObject object, int x, int y);
+    public abstract void update(int state, GameObject object, int x, int y);
 }

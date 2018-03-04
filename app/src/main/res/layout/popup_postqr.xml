@@ -4,18 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/popup_QR"
-    android:background="@color/CornflowerBlue"
+    android:background="#630f0f"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textViewQRTitle"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
+        android:textSize="50sp"
+        android:textColor="#daa53b"
+        android:fontFamily="@font/victorian"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/textQR"
+        android:fontFamily="@font/victorian"
+        android:textColor="#daa53b"
         android:layout_marginTop="5dp"
+        android:textSize="35sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -28,7 +34,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Close" />
+        android:text="Retour au jeu"
+        android:textAllCaps="false"
+        android:fontFamily="@font/precious"
+        android:textColor="#72583f"/>
 
 
 </LinearLayout>

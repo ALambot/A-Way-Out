@@ -22,7 +22,7 @@ public class InventoryMenu extends AppCompatActivity {
         final ImageView img = (ImageView) findViewById(R.id.imageInventMenu);
         final GridView gridView = (GridView) findViewById(R.id.gridInventoryMenu);
 
-        final InventoryAdapt adapt = GameState.getGameState().getInventory();
+        final InventoryAdapt adapt = GameState.getGameState().getInventoryAdapt();
         final InventoryGridView inventory = new InventoryGridView(gridView, adapt, true);
         final InventoryMenuDescription menuTriggered = new InventoryMenuDescription(title,
                 desc, img, inventory);

@@ -67,7 +67,7 @@ public class InventoryListView {
 
                         case DragEvent.ACTION_DRAG_ENDED:
                             Log.d(msg, "Ended");
-                            notifyDropObservers((MyObject) event.getLocalState(), event.getX(), event.getY());
+                            notifyDropObservers((GameObject) event.getLocalState(), event.getX(), event.getY());
                             break;
 
                         case DragEvent.ACTION_DROP:
@@ -85,7 +85,7 @@ public class InventoryListView {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MyObject obj = inventoryAdapt.getItem(position);
+                GameObject obj = inventoryAdapt.getItem(position);
                 if(obj != null)
                     Toast.makeText(listView.getContext(), obj.getName(),Toast.LENGTH_SHORT).show();
 
@@ -97,7 +97,7 @@ public class InventoryListView {
         observers.add(observer);
     }
 
-    private void notifyDropObservers(MyObject object, float x, float y){
+    private void notifyDropObservers(GameObject object, float x, float y){
         for(InventoryObserver observer : observers) {
             observer.update(2, object, Math.round(x), Math.round(y));
         }

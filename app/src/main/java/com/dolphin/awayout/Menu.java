@@ -15,12 +15,9 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-       // ImageButton imgButton = (ImageButton) findViewById(R.id.buttonMenuInventory);
     }
 
     public void onButtonDemoClick(View view){
-        GameState gameState = GameState.getGameState();
-        gameState.startTimer();
         Intent intent = new Intent(this, Demo.class);
         startActivity(intent);
     }

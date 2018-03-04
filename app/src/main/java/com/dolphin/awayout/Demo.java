@@ -24,56 +24,30 @@ import java.util.ArrayList;
 
 public class Demo extends AppCompatActivity {
 
-    private ImageView imgKey, imgChest;
     private TextView timer;
     private Button inventory_button;
     private Button enigme_button;
     private Button loupe_button;
     private IntentIntegrator qrScan;
-    InventoryAdapt adapt = null;
+    private InventoryAdapt adapt = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
 
-        ArrayList<MyObject> inventObject = new ArrayList<>();
-        ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
-
-
-
-        /**
-         * Partie Demo
-         */
-
-        inventObject.add(new MyObject("Clé inutile", "Cette clé semble inutile", R.drawable.key_demo));
-        inventObject.add(new MyObject("Coffre", "Ce coffre renferme peut-être la réponse à l'énigme", R.drawable.chest_demo));
-        //inventObject.add(new MyObject("coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
-
-
-        String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
-        String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
-        /**
-         * Partie menu de jeu
-         */
-        adapt = new InventoryAdapt(this, inventObject);
-        final ListView invent_view = (ListView) findViewById(R.id.listinventory);
-        final InventoryListView inventor = new InventoryListView(invent_view, adapt, true);
-
-        GameState.getGameState().setInventory(adapt);
-        GameState.getGameState().setEnigmeObjectArrayList(enigmeList);
-
-        inventory_button=(Button) findViewById(R.id.buttonMenuInventory);
+        timer = (TextView) findViewById(R.id.timer);
+        inventory_button = (Button) findViewById(R.id.buttonMenuInventory);
         enigme_button = (Button) findViewById(R.id.buttonMenuEnigme);
         loupe_button = (Button) findViewById(R.id.buttonMenuQRcode);
+
+        GameState gameState = GameState.getGameState();
+        gameState.init(this);
+        gameState.startTimer();
+
         qrScan=new IntentIntegrator(this);
 
-        timer = (TextView) findViewById(R.id.timer);
         timerLoop();
-
-        GameState.getGameState().setInteractions();
     }
 
     public void onButtonInventoryMenuClick(View view) {
@@ -100,14 +74,9 @@ public class Demo extends AppCompatActivity {
             }
             else{
                 //qr has data
-                if(result.getContents().equals("Bonne clé")) {
-                    if(GameState.getGameState().keyDEMO) {
-                        GameState.getGameState().getInventory().add(new MyObject("Bonne clé", "Ceci est la bonne clé pour ouvrir le coffre", R.drawable.key_demo));
-                        showPopup(Demo.this, result.getContents());
-                        GameState.getGameState().keyDEMO = false;
-                    }
-                }
-
+                InteractionManager im = GameState.getGameState().getInteractions();
+                im.QRresult(result.getContents());
+                showPopup(Demo.this, result.getContents());
             }
 
         } else {
@@ -149,22 +118,38 @@ public class Demo extends AppCompatActivity {
             @Override
             public void run(){
                 while(true){
-                    try {
-                        Thread.sleep(1000);
-                    }
-                    catch(InterruptedException e){
-                    }
                     timer.post(new Runnable() {
                         @Override
                         public void run(){
                             GameState gameState = GameState.getGameState();
                             long time = gameState.getRemainingTime();
+                            StringBuilder stringBuilder = new StringBuilder();
+                            String neg = "";
+                            if(time<0){
+                                neg = "- ";
+                                time = - time;
+                            }
+                            stringBuilder.append(neg);
                             int sec = (int) (time%60);
                             int min = (int) ((time - sec)/60);
-                            timer.setText(min+":"+sec);
-                            timer.postInvalidate();
+
+                            if(Integer.toString(min).length() == 1) {
+                                stringBuilder.append("0");
+                            }
+                            stringBuilder.append(min);
+                            stringBuilder.append(":");
+                            if(Integer.toString(sec).length()==1) {
+                                stringBuilder.append("0");
+                            }
+                            stringBuilder.append(sec);
+                            timer.setText(stringBuilder.toString());
                         }
                     });
+                    try {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException e){
+                    }
                 }
             }
         };

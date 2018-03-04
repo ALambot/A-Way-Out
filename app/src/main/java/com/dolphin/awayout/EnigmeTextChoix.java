@@ -28,7 +28,7 @@ public class EnigmeTextChoix extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enigme_text_choix);
 
-        timer = findViewById(R.id.timer);
+        timer = (TextView) findViewById(R.id.timer);
         timerLoop();
 
         title = (TextView) findViewById(R.id.ETCtitle);
@@ -141,10 +141,27 @@ public class EnigmeTextChoix extends AppCompatActivity {
                         public void run(){
                             GameState gameState = GameState.getGameState();
                             long time = gameState.getRemainingTime();
+                            StringBuilder stringBuilder = new StringBuilder();
+                            String neg = "";
+                            if(time<0){
+                                neg = "- ";
+                                time = - time;
+                            }
+                            stringBuilder.append(neg);
                             int sec = (int) (time%60);
                             int min = (int) ((time - sec)/60);
-                            timer.setText(min+":"+sec);
-                            timer.postInvalidate();
+
+                            if(Integer.toString(min).length() == 1) {
+                                stringBuilder.append("0");
+                            }
+                            stringBuilder.append(min);
+                            stringBuilder.append(":");
+                            if(Integer.toString(sec).length()==1) {
+                                stringBuilder.append("0");
+                            }
+                            stringBuilder.append(sec);
+                            timer.setText(stringBuilder.toString());
+                            timer.invalidate();
                         }
                     });
                 }

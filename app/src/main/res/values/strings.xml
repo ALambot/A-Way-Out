@@ -5,8 +5,8 @@
     <!--Demo -->
     <string name="inventaire">Inventaire</string>
     <string name="enigmes">Enigmes</string>
-    <string name="qr_code">QR code</string>
-    <string name="timer">TIMER</string>
+    <string name="qr_code">Loupe</string>
+    <string name="timer">99:99</string>
     <!-- Inventaire -->
     <string name="title">Title</string>
     <string name="description">Description</string>
