@@ -11,4 +11,5 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="desc_play_button">Jouer</string>
+    <string name="title_activity_cypher_roll_enigme">cypherRoll_enigme</string>
 </resources>

@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        >
-        <activity android:name=".Menu"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".Menu"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,10 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Demo" android:screenOrientation="portrait"/>
-        <activity android:name=".InventoryMenu" android:screenOrientation="portrait"/>
-        <activity android:name=".EnigmeList" android:screenOrientation="portrait"/>
-        <activity android:name=".EnigmeTextChoix" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Demo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InventoryMenu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EnigmeList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EnigmeTextChoix"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cypherRoll_enigme"
+            android:label="@string/title_activity_cypher_roll_enigme"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

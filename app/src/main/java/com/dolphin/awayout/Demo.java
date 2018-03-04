@@ -56,7 +56,7 @@ public class Demo extends AppCompatActivity {
     }
 
     public void onButtonEnigmeListeClick(View view) {
-        Intent intent = new Intent(Demo.this, EnigmeList.class);
+        Intent intent = new Intent(Demo.this, cypherRoll_enigme.class);
         startActivity(intent);
     }
 
