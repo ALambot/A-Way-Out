@@ -12,4 +12,25 @@
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MyAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_player_menu</item>
+        <item name="android:fontFamily">@font/victorian</item>
+        <item name="colorPrimaryDark">#630f0f</item>
+        <item name="buttonStyle">@style/MyAppTheme.button</item>
+    </style>
+
+    <style name="MyAppTheme.button" parent="@android:style/Widget.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/fondgris</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="MyAppTheme.animation" parent="@android:style/Animation.Toast">
+        <item name="android:fontFamily">@font/precious</item>
+    </style>
+
+    <style name="MyAppTheme.Precious">
+        <item name="android:fontFamily">@font/precious</item>
+    </style>
+
 </resources>
