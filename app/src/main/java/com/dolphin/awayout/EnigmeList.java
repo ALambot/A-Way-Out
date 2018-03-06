@@ -59,9 +59,18 @@ public class EnigmeList extends AppCompatActivity{
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     if(enigmeList != null || enigmeList.size() >= 0){  // eviter le cas ou il n'y a pas d'enigme
                         EnigmeObject enigme = enigmeList.get(position);
-                        EnigmeTextChoix.enigme = enigme;
-                        Intent intent = new Intent(EnigmeList.this, EnigmeTextChoix.class);
-                        startActivity(intent);
+                        Intent intent;
+                        switch (enigme.getType()) {
+                            case 1:
+                                EnigmeTextChoix.enigme = enigme;
+                                intent = new Intent(EnigmeList.this, EnigmeTextChoix.class);
+                                startActivity(intent);
+                                break;
+                            case 2 :
+                                intent = new Intent(EnigmeList.this, cypherRoll_enigme.class);
+                                startActivity(intent);
+                                break;
+                        }
                     }
                 }
             });

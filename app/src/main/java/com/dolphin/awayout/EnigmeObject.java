@@ -2,17 +2,21 @@ package com.dolphin.awayout;
 
 
 public class EnigmeObject {
+
+    /*type
+    * 1 : text choix
+    * 2 : cypher roll
+    */
     private String title = null;
-    private String type = null;
+    private int type;
     private String text = null;
     private String[] proposition = null;
     private String reponse =  null;
 
 
     //type text
-    public EnigmeObject(String title,String text ,String type , String reponse) {
+    public EnigmeObject(String title,int type , String reponse) {
         this.title = title;
-        this.text = text;
         this.type = type;
         this.reponse = reponse;
     }
@@ -21,12 +25,11 @@ public class EnigmeObject {
     //type textChoix
     public EnigmeObject(String title, String text, String[] reponsePossible, String reponse) {
         this.title = title;
-        this.type = "textChoix";
+        this.type = 1;
         this.text = text;
         this.proposition = reponsePossible;
         this.reponse = reponse;
     }
-
     public String getTitle() {
         return title;
     }
@@ -59,11 +62,11 @@ public class EnigmeObject {
         this.reponse = reponse;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
