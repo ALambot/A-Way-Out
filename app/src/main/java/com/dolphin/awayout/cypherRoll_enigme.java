@@ -26,6 +26,7 @@ public class cypherRoll_enigme extends AppCompatActivity {
         setContentView(R.layout.activity_cypher_roll_enigme);
 
 
+
         gauche=findViewById(R.id.button_versGauche);
         droite=findViewById(R.id.bouton_versdroite);
         insideCypher=findViewById(R.id.insidside_circle);
@@ -33,7 +34,7 @@ public class cypherRoll_enigme extends AppCompatActivity {
 
         inventoryAdapt=new InventoryAdapt(this, GameState.getGameState().getGobs());
 
-        inventair=new InventoryListView(inventaire,inventoryAdapt, true);
+        inventair=new InventoryListView(cypherRoll_enigme.this,inventaire,inventoryAdapt, true);
 
 
 
