@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">A way out</string>
     <string name="demo_button">Jouer (démo)</string>
+    <!-- Choix du niveau -->
+    <string name="choix_du_niveau"> Choix du niveau</string>
     <!-- Menu principale -->
     <!--Demo -->
     <string name="inventaire">Inventaire</string>
@@ -11,5 +13,4 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="desc_play_button">Jouer</string>
-    <string name="title_activity_cypher_roll_enigme">cypherRoll_enigme</string>
 </resources>
