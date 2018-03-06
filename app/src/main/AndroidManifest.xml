@@ -32,8 +32,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".cypherRoll_enigme"
-            android:label="@string/title_activity_cypher_roll_enigme"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+           />
     </application>
 
 </manifest>
