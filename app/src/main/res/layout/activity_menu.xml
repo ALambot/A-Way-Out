@@ -18,7 +18,7 @@
         android:adjustViewBounds="true"
         android:background="@null"
         android:contentDescription="@string/desc_play_button"
-        android:onClick="onButtonDemoClick"
+        android:onClick="onButtonLevelChoiceClick"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

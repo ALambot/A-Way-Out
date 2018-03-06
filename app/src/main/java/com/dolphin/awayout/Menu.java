@@ -17,8 +17,8 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
     }
 
-    public void onButtonDemoClick(View view){
-        Intent intent = new Intent(this, Demo.class);
+    public void onButtonLevelChoiceClick(View view){
+        Intent intent = new Intent(this, Level_choice.class);
         startActivity(intent);
     }
 

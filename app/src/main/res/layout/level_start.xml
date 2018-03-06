@@ -6,17 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonDemarrer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Demarrer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textDescription"
@@ -70,12 +59,6 @@
         app:layout_constraintStart_toStartOf="@+id/textVTemps"
         app:layout_constraintTop_toBottomOf="@+id/textVTemps" />
 
-    <TextClock
-        android:id="@+id/textClock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/textVTemps"
-        app:layout_constraintTop_toBottomOf="@+id/textVTemps" />
 
     <TextView
         android:id="@+id/TextVLocalisation"
@@ -97,6 +80,18 @@
         app:layout_constraintStart_toStartOf="@+id/TextVLocalisation"
         app:layout_constraintTop_toBottomOf="@+id/TextVLocalisation" />
 
+    <Button
+        android:id="@+id/buttonDemarrer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Demarrer"
+        android:onClick="onButtonGameStartClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
