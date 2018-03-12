@@ -3,26 +3,22 @@ package com.dolphin.awayout;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import java.util.ArrayList;
 
 
-public class Demo extends AppCompatActivity {
+public class PlayerMenu extends AppCompatActivity {
 
     private TextView timer;
     private Button inventory_button;
@@ -34,7 +30,7 @@ public class Demo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demo);
+        setContentView(R.layout.activity_player_menu);
 
         timer = (TextView) findViewById(R.id.timer);
         inventory_button = (Button) findViewById(R.id.buttonMenuInventory);
@@ -51,12 +47,12 @@ public class Demo extends AppCompatActivity {
     }
 
     public void onButtonInventoryMenuClick(View view) {
-        Intent intent = new Intent(Demo.this, InventoryMenu.class);
+        Intent intent = new Intent(PlayerMenu.this, InventoryMenu.class);
         startActivity(intent);
     }
 
     public void onButtonEnigmeListeClick(View view) {
-        Intent intent = new Intent(Demo.this, EnigmeList.class);
+        Intent intent = new Intent(PlayerMenu.this, EnigmeList.class);
         startActivity(intent);
     }
 
@@ -76,7 +72,7 @@ public class Demo extends AppCompatActivity {
                 //qr has data
                 InteractionManager im = GameState.getGameState().getInteractions();
                 im.QRresult(result.getContents());
-                showPopup(Demo.this, result.getContents());
+                showPopup(PlayerMenu.this, result.getContents());
             }
 
         } else {
