@@ -28,7 +28,7 @@ public class InteractionManager {
         // Ajouter les Interactions a la main pour le moment
         addQR("Anneau unique", new Interaction("GAMEOVER", null));
         this.qr.put("clé", new Interaction("ADD_GOB", "1"));
-        this.qr.put("mirroir", new Interaction("ADD_GOB", "5"));
+        this.qr.put("miroir", new Interaction("ADD_GOB", "5"));
         this.qr.put("vase", new Interaction("ADD_GOB", "6"));
         this.qr.put("bol vide", new Interaction("ADD_GOB", "7"));
         this.qr.put("tiroir", new Interaction("ADD_GOB", "16"));
@@ -140,7 +140,7 @@ public class InteractionManager {
         public void run(){
             if(this.action.equals("ADD_GOB")){
                 ArrayList<GameObject> ar = GameState.getGameState().getGobs();
-                GameObject gob = ar.get(Integer.parseInt(this.arg));
+                GameObject gob = ar.get(ar.indexOf(new GameObject(this.arg)));
                 gob.activate();
             }
             else if(this.action.equals("REMOVE_GOB")){

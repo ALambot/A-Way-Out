@@ -57,11 +57,11 @@ public class GameState {
         gobs.add(new GameObject(8,"clou", "Un clou rouillé", R.drawable.nail));
         gobs.add(new GameObject(9,"statue", "Une délicate statue posée sur le bureau", R.drawable.statue));
         gobs.add(new GameObject(10,"cypherDisr", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.outside_cypher_roll));
-        gobs.add(new GameObject(11,"medusa", "Un papier d'une représentation de la Méduse", R.drawable.chest_demo));
+        gobs.add(new GameObject(11,"medusa", "Un papier d'une représentation de la Méduse", R.drawable.medusa_paper));
         gobs.add(new GameObject(12,"victoria","Une photo de la reine Victoria", R.drawable.victoria));
         gobs.add(new GameObject(13,"armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.chest_demo));
         gobs.add(new GameObject(14,"boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.crystal_ball));
-        gobs.add(new GameObject(15,"contrats", "Des contrats qui donnent toutes les possesion aux héritiers de Lady Douthshire ! ", R.drawable.chest_demo));
+        gobs.add(new GameObject(15,"feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
         gobs.add(new GameObject(16,"tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
 
         //gobs.get(1).activate();
