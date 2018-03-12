@@ -51,10 +51,10 @@ public class GameState {
         String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis"; //semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. ";//Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n";
 
         gobs.add(new GameObject(1,"cle", "Ceci est une clé", R.drawable.key_demo));
-        gobs.add(new GameObject(2,"bol", "Un ancien pot de chambre", R.drawable.chest_demo));
-        gobs.add(new GameObject(5,"mirroir", "Un ancien mirroir posé sur la cheminée", R.drawable.chest_demo));
+        gobs.add(new GameObject(2,"bol", "Un ancien pot de chambre", R.drawable.chamber_pot));
+        gobs.add(new GameObject(5,"mirroir", "Un ancien mirroir posé sur la cheminée", R.drawable.mirror));
         gobs.add(new GameObject(6,"vase", "Une vase avec des fleures fraiches", R.drawable.chest_demo));
-        gobs.add(new GameObject(8,"clou", "Un clou rouillé", R.drawable.chest_demo));
+        gobs.add(new GameObject(8,"clou", "Un clou rouillé", R.drawable.nail));
         gobs.add(new GameObject(9,"statue", "Une délicate statue posée sur le bureau", R.drawable.chest_demo));
         gobs.add(new GameObject(10,"cypherDisr", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.chest_demo));
         gobs.add(new GameObject(11,"medusa", "Une photo d'une rprésentation de la Méduse", R.drawable.chest_demo));
