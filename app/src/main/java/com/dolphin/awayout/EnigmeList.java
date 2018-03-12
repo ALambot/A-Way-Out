@@ -33,7 +33,7 @@ public class EnigmeList extends AppCompatActivity{
             setContentView(R.layout.enigme_liste);
 
             enigmeTitre = new ArrayList<String>();
-            enigmeList = GameState.getGameState().getEnigmeObjectArrayList();
+            enigmeList = GameState.getGameState().getEnigmeList();
             if(enigmeList.size() == 0 ){ enigmeTitre.add("Aucune enigme n'est diponible");}
             for(int k= 0; k < enigmeList.size(); k++){
                 enigmeTitre.add(enigmeList.get(k).getTitle());
