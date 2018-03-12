@@ -21,11 +21,12 @@ public class InteractionManager {
         this.enigmeWIN = new HashMap<String, Interaction>(0);
         this.enigmeLOSE = new HashMap<String, Interaction>(0);
         this.qr = new HashMap<String, Interaction>();
+        this.timeOut = null;
     }
 
     public void init(){
         // Ajouter les Interactions a la main pour le moment
-        this.qr.put("Anneau unique", new Interaction("GAMEOVER",null));
+        addQR("Anneau unique", new Interaction("GAMEOVER", null));
         this.qr.put("clé", new Interaction("ADD_GOB", "1"));
         this.qr.put("mirroir", new Interaction("ADD_GOB", "5"));
         this.qr.put("vase", new Interaction("ADD_GOB", "6"));
@@ -35,6 +36,56 @@ public class InteractionManager {
         this.qr.put("clou", new Interaction("ADD_GOB", "8"));
         this.qr.put("statue", new Interaction("ADD_GOB", "9"));
 
+    }
+
+    private void addCombi(int ID1, int ID2, Interaction interaction){
+        Interaction ir = combiTable[ID1][ID2];
+        if(ir == null){
+            combiTable[ID1][ID2] = interaction;
+        }
+        else{
+            ir.nextInteraction = interaction;
+        }
+    }
+
+    private void addEnigmeWIN(String enigme, Interaction interaction){
+        Interaction ir = enigmeWIN.get(enigme);
+        if(ir == null){
+            enigmeWIN.put(enigme, interaction);
+        }
+        else{
+            ir.nextInteraction = interaction;
+        }
+    }
+
+    private void addEnigmeLose(String enigme, Interaction interaction){
+        Interaction ir = enigmeLOSE.get(enigme);
+        if(ir == null){
+            enigmeLOSE.put(enigme, interaction);
+        }
+        else{
+            ir.nextInteraction = interaction;
+        }
+    }
+
+    private void addQR(String str, Interaction interaction){
+        Interaction ir = this.qr.get(str);
+        if(ir == null){
+            enigmeWIN.put(str, interaction);
+        }
+        else{
+            ir.nextInteraction = interaction;
+        }
+    }
+
+    private void addTimeOut(Interaction interaction){
+        Interaction ir = this.timeOut;
+        if(ir == null){
+            timeOut = interaction;
+        }
+        else{
+            ir.nextInteraction = interaction;
+        }
     }
 
     public void combine(GameObject obj1, GameObject obj2){
@@ -70,6 +121,12 @@ public class InteractionManager {
         public Interaction(String action, String arg){
             this.action = action;
             this.arg = arg;
+            this.nextInteraction = null;
+        }
+
+        public Interaction(String action){
+            this.action = action;
+            this.arg = null;
             this.nextInteraction = null;
         }
 
