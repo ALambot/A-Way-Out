@@ -22,7 +22,8 @@
     </style>
 
     <style name="MyAppThemebutton" parent="@android:style/Widget.Button">
-        <item name="android:background">@drawable/fondgris</item>
+        <item name="android:backgroundTint">#66451c</item>
+        <item name="android:textColor">#efd9be</item>
         <item name="android:textSize">25sp</item>
     </style>
 
