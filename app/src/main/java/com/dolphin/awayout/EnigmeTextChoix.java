@@ -118,9 +118,11 @@ public class EnigmeTextChoix extends AppCompatActivity {
             Button b = (Button) v;
             String Choix = (String) b.getText();
             if(Choix.equals(enigme.getReponse())){
-                Toast.makeText(EnigmeTextChoix.this, "Bonne réponse", Toast.LENGTH_LONG).show();
+                //Toast.makeText(EnigmeTextChoix.this, "Bonne réponse", Toast.LENGTH_LONG).show();
+                GameState.getGameState().getInteractions().enigmeSuccess(enigme.getTitle());
             }else{
-                Toast.makeText(EnigmeTextChoix.this, "Mauvaise réponse", Toast.LENGTH_LONG).show();
+                //Toast.makeText(EnigmeTextChoix.this, "Mauvaise réponse", Toast.LENGTH_LONG).show();
+                GameState.getGameState().getInteractions().enigmeFail(enigme.getTitle());
             }
         }
     };
