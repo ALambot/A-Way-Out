@@ -17,7 +17,7 @@ public class InteractionManager {
     private Interaction timeOut;
 
     public InteractionManager(){
-        this.combiTable = new Interaction[10][10];
+        this.combiTable = new Interaction[20][20];
         this.enigmeWIN = new HashMap<String, Interaction>(0);
         this.enigmeLOSE = new HashMap<String, Interaction>(0);
         this.qr = new HashMap<String, Interaction>();
@@ -27,6 +27,14 @@ public class InteractionManager {
         // Ajouter les Interactions a la main pour le moment
         this.qr.put("Anneau unique", new Interaction("GAMEOVER",null));
         this.qr.put("clé", new Interaction("ADD_GOB", "1"));
+        this.qr.put("mirroir", new Interaction("ADD_GOB", "5"));
+        this.qr.put("vase", new Interaction("ADD_GOB", "6"));
+        this.qr.put("bol vide", new Interaction("ADD_GOB", "7"));
+        this.qr.put("tiroir", new Interaction("ADD_GOB", "16"));
+        this.qr.put("armoire", new Interaction("ADD_GOB", "13"));
+        this.qr.put("clou", new Interaction("ADD_GOB", "8"));
+        this.qr.put("statue", new Interaction("ADD_GOB", "9"));
+
     }
 
     public void combine(GameObject obj1, GameObject obj2){
@@ -68,7 +76,7 @@ public class InteractionManager {
         public void run(){
             if(this.action.equals("ADD_GOB")){
                 ArrayList<GameObject> ar = GameState.getGameState().getGobs();
-                GameObject gob = ar.get(ar.indexOf(new GameObject(this.arg)));
+                GameObject gob = ar.get(Integer.parseInt(this.arg));
                 gob.activate();
             }
             else if(this.action.equals("REMOVE_GOB")){

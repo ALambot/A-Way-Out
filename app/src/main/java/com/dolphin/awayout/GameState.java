@@ -53,6 +53,18 @@ public class GameState {
         gobs.add(new GameObject(2,"cle2", "Ceci est une autre clé", R.drawable.key_demo));
         gobs.add(new GameObject(3,"coffre", longDesc, R.drawable.chest_demo));
         gobs.add(new GameObject(4,"coffre2", "Ceci est un autre coffre", R.drawable.chest_demo));
+        gobs.add(new GameObject(5,"mirroir", "Un ancien mirroir posé sur la cheminée", R.drawable.chest_demo));
+        gobs.add(new GameObject(6,"vase", "Une vase avec des fleures fraiches", R.drawable.chest_demo));
+        gobs.add(new GameObject(7,"bol vide", "Un ancien pot de chambre", R.drawable.chest_demo));
+        gobs.add(new GameObject(8,"clou", "Un clou rouillé", R.drawable.chest_demo));
+        gobs.add(new GameObject(9,"statue", "Une délicate statue posée sur le bureau", R.drawable.chest_demo));
+        gobs.add(new GameObject(10,"cypherDisr", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.chest_demo));
+        gobs.add(new GameObject(11,"medusa", "Une photo d'une rprésentation de la Méduse", R.drawable.chest_demo));
+        gobs.add(new GameObject(12,"victoria","Une photo de la reine Victoria", R.drawable.chest_demo));
+        gobs.add(new GameObject(13,"armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.chest_demo));
+        gobs.add(new GameObject(14,"cboule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.chest_demo));
+        gobs.add(new GameObject(15,"contrats", "Des contrats qui donnent toutes les possesion aux héritiers de Lady Douthshire ! ", R.drawable.chest_demo));
+        gobs.add(new GameObject(16,"tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.chest_demo));
 
         gobs.get(0).activate();
         gobs.get(2).activate();
