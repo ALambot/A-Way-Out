@@ -44,7 +44,7 @@ public class GameState {
         this.initialized = true;
         this.ctx = context;
 
-        this.gameDuration = 90;
+        this.gameDuration = 900;
         
         this.gobs = new ArrayList<GameObject>();
 

@@ -25,8 +25,8 @@ public class Level_choice extends AppCompatActivity{
         levelList = new ArrayList<Object>();
 
         //Creer les niveau ici
-        levelList.add(new LevelObject("Demo"));
-        levelList.add(new LevelObject("Demo2"));
+        levelList.add(new LevelObject("Chapitre 1 : Dans le hall d'entrée ","Vous arriver dans un petit hall mal éclairé, le scénariste de l'escape room vous regarde le regard vide. Il n'a aucune idée de ce qu'il va mettre dans la description de ce niveau...",R.drawable.Chap1,900,"Réaumur"));
+        //levelList.add(new LevelObject("Demo2"));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);
         final TextAdapt adapter = new TextAdapt(this,levelList);
