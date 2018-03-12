@@ -76,6 +76,7 @@ public class GameState {
         String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
         enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
+        enigmeList.add((new EnigmeObject("Armoire mystérieuse",3,"ULPQXTOD")));
         this.enigmeObjectArrayList = enigmeList;
 
         this.interactions = new InteractionManager();

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dolphin.awayout.Enigme_Armoire">
+
+
+    <Button
+        android:id="@+id/buttonA"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="A"
+        android:onClick="onButtonAClick"
+        app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonB"
+        android:layout_width="38dp"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="B"
+        android:onClick="onButtonBClick"
+        app:layout_constraintStart_toEndOf="@+id/buttonA"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonC"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="C"
+        android:onClick="onButtonCClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toEndOf="@+id/buttonV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonV"
+        android:onClick="onButtonVClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="V"
+        app:layout_constraintStart_toEndOf="@+id/buttonD"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonD"
+        android:onClick="onButtonDClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="D"
+        app:layout_constraintStart_toEndOf="@+id/buttonB"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonI"
+        android:onClick="onButtonIClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="I"
+        app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
+        app:layout_constraintTop_toBottomOf="@+id/buttonA" />
+
+    <Button
+        android:id="@+id/buttonT"
+        android:onClick="onButtonTClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="T"
+        app:layout_constraintStart_toEndOf="@+id/buttonI"
+        app:layout_constraintTop_toBottomOf="@+id/buttonB" />
+
+    <Button
+        android:id="@+id/buttonO"
+        android:onClick="onButtonOClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:text="O"
+        app:layout_constraintStart_toEndOf="@+id/buttonT"
+        app:layout_constraintTop_toBottomOf="@+id/buttonD" />
+
+    <Button
+        android:id="@+id/buttonF"
+        android:onClick="onButtonFClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="F"
+        app:layout_constraintStart_toEndOf="@+id/buttonO"
+        app:layout_constraintTop_toBottomOf="@+id/buttonV" />
+
+    <Button
+        android:id="@+id/buttonQ"
+        android:onClick="onButtonQClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Q"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toEndOf="@+id/buttonF"
+        app:layout_constraintTop_toBottomOf="@+id/buttonC" />
+
+    <Button
+        android:id="@+id/buttonX"
+        android:onClick="onButtonXClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="X"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
+        app:layout_constraintTop_toBottomOf="@+id/buttonI" />
+
+    <Button
+        android:id="@+id/buttonH"
+        android:onClick="onButtonHClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:text="H"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonX"
+        app:layout_constraintTop_toBottomOf="@+id/buttonT" />
+
+    <Button
+        android:id="@+id/buttonL"
+        android:onClick="onButtonLClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:text="L"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonH"
+        app:layout_constraintTop_toBottomOf="@+id/buttonO" />
+
+    <Button
+        android:id="@+id/buttonP"
+        android:onClick="onButtonPClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="P"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonL"
+        app:layout_constraintTop_toBottomOf="@+id/buttonF" />
+
+    <Button
+        android:id="@+id/buttonU"
+        android:onClick="onButtonUClick"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="U"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toEndOf="@+id/buttonP"
+        app:layout_constraintTop_toBottomOf="@+id/buttonQ"
+        app:layout_constraintVertical_bias="0.534" />
+
+    <ListView
+        android:id="@+id/listView_enigme_armoir"
+        android:layout_width="48dp"
+        android:layout_height="563dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

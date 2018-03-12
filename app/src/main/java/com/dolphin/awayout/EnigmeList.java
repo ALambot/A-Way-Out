@@ -70,6 +70,9 @@ public class EnigmeList extends AppCompatActivity{
                                 intent = new Intent(EnigmeList.this, cypherRoll_enigme.class);
                                 startActivity(intent);
                                 break;
+                            case 3:
+                                intent=new Intent(EnigmeList.this, Enigme_Armoire.class);
+                                startActivity(intent);
                         }
                     }
                 }
