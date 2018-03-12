@@ -87,6 +87,13 @@ public class GameState {
         return this.gobs;
     }
 
+    public ArrayList<EnigmeObject> getEnigmeList(){
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        return this.enigmeObjectArrayList;
+    }
+
     public InventoryAdapt getInventoryAdapt() throws GameStateNotInitializedException {
         if(initialized == false){
             throw new GameStateNotInitializedException();
