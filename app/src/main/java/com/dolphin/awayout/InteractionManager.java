@@ -26,22 +26,25 @@ public class InteractionManager {
 
     public void init(){
         // Ajouter les Interactions a la main pour le moment
-        addQR("Anneau unique", new Interaction("GAMEOVER", null));
-        this.qr.put("clé", new Interaction("ADD_GOB", "1"));
-        this.qr.put("miroir", new Interaction("ADD_GOB", "5"));
-        this.qr.put("vase", new Interaction("ADD_GOB", "6"));
-        this.qr.put("bol vide", new Interaction("ADD_GOB", "7"));
-        this.qr.put("tiroir", new Interaction("ADD_GOB", "16"));
-        this.qr.put("armoire", new Interaction("ADD_GOB", "13"));
-        this.qr.put("clou", new Interaction("ADD_GOB", "8"));
-        this.qr.put("statue", new Interaction("ADD_GOB", "9"));
-        this.combiTable[2][6] = new Interaction("ADD_GOB", "14"); //vase+bol =boule transparente
-        this.combiTable[14][9] = new Interaction("UNLOCK_ENIGME", "?");  // boule+statue= cypherKey
-        this.combiTable[8][16] = new Interaction("ADD_GOB", "11");  // clou+tiroir= photo reine Victoria+photo medusa
-        //this.combiTable[8][16] = new Interaction("ADD_GOB", "12");  // clou+tiroir= photo reine Victoria+photo medusa
-        this.combiTable[5][11] = new Interaction("ADD_GOB", "14");//miroir+medusa=code
-        this.enigmeWIN.put("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code
-        //this.enigmeWIN.put("Armoir",new Interaction("WIN",null)); //Armoir +code
+
+        addQR("Anneau unique", new Interaction("PENALITE", "30"));
+        addQR("clé", new Interaction("ADD_GOB", "cle"));
+        addQR("miroir", new Interaction("ADD_GOB", "miroir"));
+        addQR("vase", new Interaction("ADD_GOB", "vase"));
+        addQR("bol vide", new Interaction("ADD_GOB", "bol"));
+        addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
+        addQR("armoire", new Interaction("ADD_GOB", "armoire"));
+        addQR("clou", new Interaction("ADD_GOB", "clou"));
+        addQR("statue", new Interaction("ADD_GOB", "statue"));
+
+        addCombi(2,6, new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
+        addCombi(14, 9, new Interaction("UNLOCK_ENIGME", "?"));  // boule+statue= cypherKey TODO
+        addCombi(8,16, new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi(8,16, new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi(5,11, new Interaction("ADD_GOB", "14"));//miroir+medusa=code TODO
+
+        addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
+        addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
 
     }
 
@@ -65,7 +68,7 @@ public class InteractionManager {
         }
     }
 
-    private void addEnigmeLose(String enigme, Interaction interaction){
+    private void addEnigmeLOSE(String enigme, Interaction interaction){
         Interaction ir = enigmeLOSE.get(enigme);
         if(ir == null){
             enigmeLOSE.put(enigme, interaction);
@@ -78,7 +81,7 @@ public class InteractionManager {
     private void addQR(String str, Interaction interaction){
         Interaction ir = this.qr.get(str);
         if(ir == null){
-            enigmeWIN.put(str, interaction);
+            qr.put(str, interaction);
         }
         else{
             ir.nextInteraction = interaction;
@@ -108,7 +111,6 @@ public class InteractionManager {
     }
 
     public void QRresult(String result){
-        Log.d("InterMana","QR : "+result);
         Interaction ir = qr.get(result);
         if(ir != null){
             ir.run();
@@ -143,26 +145,10 @@ public class InteractionManager {
 
         public void run(){
             if(this.action.equals("ADD_GOB")){
-                ArrayList<GameObject> ar = GameState.getGameState().getGobs();
-                int index = ar.indexOf(new GameObject(this.arg));
-                if(index >= 0){
-                    GameObject gob = ar.get(index);
-                    gob.activate();
-                }
-                else{
-                    Log.d("InterMana","add_gob : index == -1 : "+this.arg);
-                }
+                GameState.getGameState().getObjectByName(this.arg).activate();
             }
             else if(this.action.equals("REMOVE_GOB")){
-                ArrayList<GameObject> ar = GameState.getGameState().getGobs();
-                int index = ar.indexOf(new GameObject(this.arg));
-                if(index >= 0){
-                    GameObject gob = ar.get(index);
-                    gob.deactivate();
-                }
-                else{
-                    Log.d("InterMana","rm_gob : index == -1 : "+this.arg);
-                }
+                GameState.getGameState().getObjectByName(this.arg).deactivate();
             }
             else if(this.action.equals("LOCK_ENIGME")){
                 // ...
