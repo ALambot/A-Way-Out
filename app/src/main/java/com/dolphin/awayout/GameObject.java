@@ -6,7 +6,6 @@ import android.widget.ImageView;
 
 public class GameObject {
     private final int ID;
-    private static int nextID = 1;
 
     private String name;
     private String description;
@@ -14,27 +13,6 @@ public class GameObject {
     private ImageView img;
     private boolean visible;
     private boolean active;
-
-    public GameObject(String name, int imageRef) {
-        this.ID = this.nextID;
-        this.nextID++;
-
-        this.name = name;
-        this.idImage = imageRef;
-        this.visible = false;
-        this.active = false; // objet dans inventaire ou non
-    }
-
-    public GameObject(String name, String description, int imageRef) {
-        this.ID = this.nextID;
-        this.nextID++;
-
-        this.name = name;
-        this.description = description;
-        this.idImage = imageRef;
-        this.visible = false;
-        this.active = false;
-    }
 
     public GameObject(int ID, String name, int imageRef) {
         this.ID = ID;
