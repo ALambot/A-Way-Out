@@ -108,7 +108,11 @@ public class InteractionManager {
     }
 
     public void QRresult(String result){
-        qr.get(result).run();
+        Log.d("InterMana","QR : "+result);
+        Interaction ir = qr.get(result);
+        if(ir != null){
+            ir.run();
+        }
     }
 
     public void timeOut(){
@@ -120,7 +124,7 @@ public class InteractionManager {
 
     public class Interaction {
 
-        public final String action; // ADD_GOB REMOVE_GOB LOCK_ENIGME UNLOCK_ENIGME HIDE_ENIGME SHOW_ENIGME GAMEOVER WIN
+        public final String action; // ADD_GOB REMOVE_GOB LOCK_ENIGME UNLOCK_ENIGME HIDE_ENIGME SHOW_ENIGME GAMEOVER WIN PENALITE
         public final String arg;
 
         public Interaction nextInteraction;
@@ -140,13 +144,25 @@ public class InteractionManager {
         public void run(){
             if(this.action.equals("ADD_GOB")){
                 ArrayList<GameObject> ar = GameState.getGameState().getGobs();
-                GameObject gob = ar.get(Integer.parseInt(this.arg));
-                gob.activate();
+                int index = ar.indexOf(new GameObject(this.arg));
+                if(index >= 0){
+                    GameObject gob = ar.get(index);
+                    gob.activate();
+                }
+                else{
+                    Log.d("InterMana","add_gob : index == -1 : "+this.arg);
+                }
             }
             else if(this.action.equals("REMOVE_GOB")){
                 ArrayList<GameObject> ar = GameState.getGameState().getGobs();
-                GameObject gob = ar.get(ar.indexOf(new GameObject(this.arg)));
-                gob.deactivate();
+                int index = ar.indexOf(new GameObject(this.arg));
+                if(index >= 0){
+                    GameObject gob = ar.get(index);
+                    gob.deactivate();
+                }
+                else{
+                    Log.d("InterMana","rm_gob : index == -1 : "+this.arg);
+                }
             }
             else if(this.action.equals("LOCK_ENIGME")){
                 // ...
@@ -161,10 +177,14 @@ public class InteractionManager {
                 // ...
             }
             else if(this.action.equals("GAMEOVER")){
-                // ...
+                // TODO
             }
             else if(this.action.equals("WIN")){
-                // ...
+                // TODO
+            }
+            else if(this.action.equals("PENALITE")){
+                int penne = Integer.parseInt(this.arg);
+                GameState.getGameState().penalize(penne);
             }
 
             if(this.nextInteraction != null){

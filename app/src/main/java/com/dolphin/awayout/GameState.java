@@ -1,15 +1,6 @@
 package com.dolphin.awayout;
 
 import android.content.Context;
-import android.util.Log;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -31,7 +22,7 @@ public class GameState {
     // EscapeRoom
     private InteractionManager interactions;
     private ArrayList<GameObject> gobs;
-    private ArrayList<EnigmeObject>  enigmeObjectArrayList;
+    private ArrayList<EnigmeObject> enigmeObjectArrayList;
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
@@ -45,10 +36,9 @@ public class GameState {
         this.ctx = context;
 
         this.gameDuration = 90;
+        this.penalite = 0;
         
         this.gobs = new ArrayList<GameObject>();
-
-        String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis"; //semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. ";//Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n";
 
         gobs.add(new GameObject(1,"cle", "Ceci est une clé", R.drawable.key_demo));
         gobs.add(new GameObject(2,"bol", "Un ancien pot de chambre", R.drawable.chest_demo));
@@ -64,7 +54,7 @@ public class GameState {
         gobs.add(new GameObject(15,"contrats", "Des contrats qui donnent toutes les possesion aux héritiers de Lady Douthshire ! ", R.drawable.chest_demo));
         gobs.add(new GameObject(16,"tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.chest_demo));
 
-        //gobs.get(1).activate();
+        gobs.get(1).activate();
 
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
         String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
@@ -135,11 +125,7 @@ public class GameState {
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
       
         // return Math.max(0, gameDuration-elapsed); // stops at zero
-        return gameDuration-elapsed;
-    }
-
-    public ArrayList<EnigmeObject> getEnigmeObjectArrayList() {
-        return enigmeObjectArrayList;
+        return this.gameDuration-elapsed-this.penalite;
     }
 
     public InteractionManager getInteractions() throws GameStateNotInitializedException {
@@ -156,7 +142,7 @@ public class GameState {
     }
 
     public void penalize(long seconds){
-
+        this.penalite += seconds;
     }
 
     public Object clone() throws CloneNotSupportedException {
