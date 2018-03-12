@@ -28,7 +28,7 @@ public class InteractionManager {
         // Ajouter les Interactions a la main pour le moment
         addQR("Anneau unique", new Interaction("GAMEOVER", null));
         this.qr.put("clé", new Interaction("ADD_GOB", "1"));
-        this.qr.put("mirroir", new Interaction("ADD_GOB", "5"));
+        this.qr.put("miroir", new Interaction("ADD_GOB", "5"));
         this.qr.put("vase", new Interaction("ADD_GOB", "6"));
         this.qr.put("bol vide", new Interaction("ADD_GOB", "7"));
         this.qr.put("tiroir", new Interaction("ADD_GOB", "16"));
