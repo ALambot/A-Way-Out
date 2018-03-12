@@ -20,12 +20,13 @@ public class InteractionManager {
         this.combiTable = new Interaction[10][10];
         this.enigmeWIN = new HashMap<String, Interaction>(0);
         this.enigmeLOSE = new HashMap<String, Interaction>(0);
-        this.qr = new HashMap<String, Interaction>(1);
+        this.qr = new HashMap<String, Interaction>();
     }
 
     public void init(){
         // Ajouter les Interactions a la main pour le moment
         this.qr.put("Anneau unique", new Interaction("GAMEOVER",null));
+        this.qr.put("clé", new Interaction("ADD_GOB", "1"));
     }
 
     public void combine(GameObject obj1, GameObject obj2){

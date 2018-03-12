@@ -28,14 +28,14 @@
     <ScrollView
         android:id="@+id/scrollViewin-Pop_upInventaire"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginRight="6dp"
         android:layout_marginLeft="6dp"
         android:layout_marginTop="0dp"
         android:fontFamily="@font/victorian"
         android:textColor="#daa53b"
         android:layout_gravity="center"
-        android:padding="15dp"
+        android:padding="10dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewPop_up_Inventaire">
 
@@ -47,10 +47,14 @@
             android:textColor="#daa53b"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginRight="0dp"
             android:layout_marginStart="4dp"
+            android:text="@string/description"
             android:layout_marginTop="0dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/closePopUpInventaire"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPop_up_Inventaire"
+            app:layout_constraintTop_toTopOf="@+id/imageViewPop_up_Inventaire"
             app:layout_constraintVertical_bias="0.0" />
 
     </ScrollView>
@@ -63,6 +67,7 @@
         android:layout_height="wrap_content"
         android:text="Retour au jeu"
         android:textAllCaps="false"
+        android:textSize="15sp"
         android:fontFamily="@font/precious"
         android:textColor="#72583f"/>
 
