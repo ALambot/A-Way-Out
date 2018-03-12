@@ -32,7 +32,7 @@ public class cypherRoll_enigme extends AppCompatActivity {
         insideCypher=findViewById(R.id.insidside_circle);
         inventaire=findViewById(R.id.inventaire_liste);
 
-        inventoryAdapt=new InventoryAdapt(this, GameState.getGameState().getGobs());
+        inventoryAdapt = GameState.getGameState().getInventoryAdapt();
 
         inventair=new InventoryListView(cypherRoll_enigme.this,inventaire,inventoryAdapt, true);
 

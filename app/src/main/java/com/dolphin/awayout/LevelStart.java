@@ -4,15 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextClock;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class LevelStart extends AppCompatActivity{
 
@@ -43,7 +36,7 @@ public class LevelStart extends AppCompatActivity{
     }
 
     public void onButtonGameStartClick(View view){
-        Intent intent = new Intent(this, Demo.class);
+        Intent intent = new Intent(this, PlayerMenu.class);
         startActivity(intent);
     }
 
