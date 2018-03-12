@@ -26,6 +26,7 @@ public class GameState {
     // Timer
     private long startTime; //seconds
     private long gameDuration; // seconds
+    private long penalite; //seconds
 
     // EscapeRoom
     private InteractionManager interactions;
@@ -84,7 +85,7 @@ public class GameState {
 
     // GETTERS ----------
 
-    public static synchronized GameState getGameState() {
+    public static synchronized GameState getGameState() { // Do not touch
         if (gameState == null) {
             gameState = new GameState();
         }
@@ -96,6 +97,20 @@ public class GameState {
             throw new GameStateNotInitializedException();
         }
         return this.gobs;
+    }
+
+    public GameObject getObjectByName(String name){
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        GameObject ret = null;
+        for(GameObject gob : this.gobs){
+            if(gob.getName().equals(name)){
+                ret = gob;
+                return ret;
+            }
+        }
+        return ret;
     }
 
     public InventoryAdapt getInventoryAdapt() throws GameStateNotInitializedException {
@@ -136,6 +151,10 @@ public class GameState {
 
     public void startTimer(){
         this.startTime = Calendar.getInstance().getTimeInMillis()/1000;
+    }
+
+    public void penalize(long seconds){
+
     }
 
     public Object clone() throws CloneNotSupportedException {
