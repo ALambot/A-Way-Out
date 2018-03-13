@@ -8,23 +8,37 @@
     tools:context="com.dolphin.awayout.Enigme_Armoire">
 
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="334dp"
+        android:layout_height="551dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/listView_enigme_armoir"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/armoire" />
+
     <Button
         android:id="@+id/buttonA"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="52dp"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="68dp"
         android:onClick="onButtonLClick"
         android:text="A"
-        app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonB"
-        android:layout_width="38dp"
+        android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
         android:onClick="onButtonLClick"
         android:text="B"
         app:layout_constraintStart_toEndOf="@+id/buttonA"
@@ -32,24 +46,24 @@
 
     <Button
         android:id="@+id/buttonC"
-        android:layout_width="42dp"
+        android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="68dp"
         android:onClick="onButtonLClick"
         android:text="C"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonV"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <Button
         android:id="@+id/buttonV"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="68dp"
         android:onClick="onButtonLClick"
         android:text="V"
         app:layout_constraintStart_toEndOf="@+id/buttonD"
@@ -59,8 +73,8 @@
         android:id="@+id/buttonD"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="68dp"
         android:onClick="onButtonLClick"
         android:text="D"
         app:layout_constraintStart_toEndOf="@+id/buttonB"
@@ -70,8 +84,8 @@
         android:id="@+id/buttonI"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:onClick="onButtonLClick"
         android:text="I"
         app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
@@ -81,10 +95,13 @@
         android:id="@+id/buttonT"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:onClick="onButtonLClick"
         android:text="T"
+        app:layout_constraintEnd_toStartOf="@+id/buttonF"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonI"
         app:layout_constraintTop_toBottomOf="@+id/buttonB" />
 
@@ -92,23 +109,26 @@
         android:id="@+id/buttonO"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
 
+        android:layout_marginTop="20dp"
         android:onClick="onButtonLClick"
         android:text="O"
+        app:layout_constraintBottom_toTopOf="@+id/buttonX"
         app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
-        app:layout_constraintTop_toBottomOf="@+id/buttonI" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonI"
+        app:layout_constraintVertical_bias="0.357" />
 
     <Button
         android:id="@+id/buttonF"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginTop="32dp"
         android:onClick="onButtonLClick"
         android:text="F"
-        app:layout_constraintStart_toEndOf="@+id/buttonO"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonV" />
 
     <Button
@@ -116,7 +136,7 @@
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:onClick="onButtonLClick"
         android:text="M"
@@ -152,17 +172,17 @@
         android:text="L"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintHorizontal_bias="0.775"
         app:layout_constraintStart_toEndOf="@+id/buttonO"
         app:layout_constraintTop_toBottomOf="@+id/buttonQ"
-        app:layout_constraintVertical_bias="0.882" />
+        app:layout_constraintVertical_bias="0.923" />
 
     <Button
         android:id="@+id/buttonP"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:onClick="onButtonLClick"
         android:text="P"
@@ -170,7 +190,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonH"
         app:layout_constraintTop_toBottomOf="@+id/buttonF"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintVertical_bias="0.216" />
 
     <Button
         android:id="@+id/buttonU"
@@ -184,10 +204,24 @@
         android:text="F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toEndOf="@+id/buttonP"
         app:layout_constraintTop_toBottomOf="@+id/buttonL"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.022" />
+
+    <Button
+        android:id="@+id/buttonQ"
+        android:layout_width="@dimen/height_one_letter"
+        android:layout_height="@dimen/widht_one_letter"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:onClick="onButtonLClick"
+        android:text="Q"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonF"
+        app:layout_constraintTop_toBottomOf="@+id/buttonC" />
 
     <ListView
         android:id="@+id/listView_enigme_armoir"
@@ -196,27 +230,5 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="350dp"
-        android:layout_height="604dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/armoire" />
-
-    <Button
-        android:id="@+id/buttonQ"
-        android:layout_width="@dimen/height_one_letter"
-        android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:onClick="onButtonLClick"
-        android:text="Q"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toEndOf="@+id/buttonF"
-        app:layout_constraintTop_toBottomOf="@+id/buttonC" />
 
 </android.support.constraint.ConstraintLayout>
