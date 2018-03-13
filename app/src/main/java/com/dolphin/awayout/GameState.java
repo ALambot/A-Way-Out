@@ -62,6 +62,8 @@ public class GameState {
         enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
         String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
+        enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
+        enigmeList.add((new EnigmeObject("Armoire mystérieuse",3,"ULPQXTOD")));
         enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));*/
         this.enigmeObjectArrayList = enigmeList;
 
