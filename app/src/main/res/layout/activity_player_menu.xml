@@ -22,7 +22,7 @@
         android:text="@string/inventaire"
         android:textAllCaps="false"
         android:textColor="#72583f"
-        android:textSize="35sp"
+        android:textSize="@dimen/smalltitlesize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.388"
@@ -43,7 +43,7 @@
         android:text="@string/enigmes"
         android:textAllCaps="false"
         android:textColor="#72583f"
-        android:textSize="35sp"
+        android:textSize="@dimen/smalltitlesize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.718"
@@ -64,7 +64,7 @@
         android:text="@string/qr_code"
         android:textAllCaps="false"
         android:textColor="#72583f"
-        android:textSize="35sp"
+        android:textSize="@dimen/smalltitlesize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.751"
@@ -80,7 +80,7 @@
         android:fontFamily="@font/precious"
         android:text="@string/timer"
         android:textColor="#72583f"
-        android:textSize="50sp"
+        android:textSize="@dimen/bigtitlesize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -90,8 +90,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="128dp"
-        android:layout_height="157dp"
+        android:layout_width="@dimen/imgmenuwidth"
+        android:layout_height="@dimen/imgmenuheight"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -107,8 +107,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="128dp"
-        android:layout_height="157dp"
+        android:layout_width="@dimen/imgmenuwidth"
+        android:layout_height="@dimen/imgmenuheight"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -155,8 +155,8 @@
 -->
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="198dp"
-        android:layout_height="130dp"
+        android:layout_width="@dimen/imgverticalewidth"
+        android:layout_height="@dimen/imgverticaleheight"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
