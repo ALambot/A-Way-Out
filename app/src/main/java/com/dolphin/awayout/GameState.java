@@ -1,17 +1,9 @@
 package com.dolphin.awayout;
 
 import android.content.Context;
-import android.util.Log;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 /**
  * Created by siasn on 20-02-18.
@@ -30,8 +22,8 @@ public class GameState {
 
     // EscapeRoom
     private InteractionManager interactions;
-    private ArrayList<GameObject> gobs;
-    private ArrayList<EnigmeObject>  enigmeObjectArrayList;
+    private HashMap<String,GameObject> gobs;
+    private ArrayList<EnigmeObject> enigmeObjectArrayList;
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
@@ -45,26 +37,25 @@ public class GameState {
         this.ctx = context;
 
         this.gameDuration = 900;
+        this.penalite = 0;
         
-        this.gobs = new ArrayList<GameObject>();
+        this.gobs = new HashMap<String,GameObject>();
 
-        String longDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet dui vitae leo imperdiet egestas non ut metus. Fusce id orci et lorem efficitur consequat quis quis nunc. Nam aliquet ante a ante convallis"; //semper. Cras non elementum dolor. Aenean ornare nisl nec ex accumsan interdum. Sed eu libero eros. ";//Pellentesque luctus, quam eget elementum auctor, nibh orci interdum quam, eget venenatis dui nunc sed ante. Etiam bibendum consectetur tortor eget finibus. Vestibulum ornare tincidunt tristique. In hac habitasse platea dictumst. Vivamus semper erat id leo feugiat, sagittis eleifend ipsum mollis. Sed cursus tincidunt lobortis. Sed consequat at justo sed sagittis. Fusce a tempus est, sed semper lacus.\n";
+        addGob(new GameObject(1,"cle", "Ceci est une clé", R.drawable.key_demo));
+        addGob(new GameObject(5,"miroir", "Un ancien mirroir posé sur la cheminée", R.drawable.mirror));
+        addGob(new GameObject(6,"vase", "Une vase avec des fleures fraiches", R.drawable.vase));
+        addGob(new GameObject(7,"bol", "Un ancien pot de chambre", R.drawable.chamber_pot));
+        addGob(new GameObject(8,"clou", "Un clou rouillé", R.drawable.nail));
+        addGob(new GameObject(9,"statue", "Une délicate statue posée sur le bureau", R.drawable.statue));
+        addGob(new GameObject(10,"cypherDisr", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.outside_cypher_roll));
+        addGob(new GameObject(11,"medusa", "Un papier d'une représentation de la Méduse", R.drawable.medusa_paper));
+        addGob(new GameObject(12,"victoria","Une photo de la reine Victoria", R.drawable.victoria));
+        addGob(new GameObject(13,"armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.chest_demo));
+        addGob(new GameObject(14,"boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.crystal_ball));
+        addGob(new GameObject(15,"feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
+        addGob(new GameObject(16,"tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
 
-        gobs.add(new GameObject(1,"cle", "Ceci est une clé", R.drawable.key_demo));
-        gobs.add(new GameObject(5,"mirroir", "Un ancien mirroir posé sur la cheminée", R.drawable.chest_demo));
-        gobs.add(new GameObject(6,"vase", "Une vase avec des fleures fraiches", R.drawable.chest_demo));
-        gobs.add(new GameObject(7,"bol", "Un ancien pot de chambre", R.drawable.chest_demo));
-        gobs.add(new GameObject(8,"clou", "Un clou rouillé", R.drawable.chest_demo));
-        gobs.add(new GameObject(9,"statue", "Une délicate statue posée sur le bureau", R.drawable.chest_demo));
-        gobs.add(new GameObject(10,"cypherDisr", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.chest_demo));
-        gobs.add(new GameObject(11,"medusa", "Une photo d'une rprésentation de la Méduse", R.drawable.chest_demo));
-        gobs.add(new GameObject(12,"victoria","Une photo de la reine Victoria", R.drawable.chest_demo));
-        gobs.add(new GameObject(13,"armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.chest_demo));
-        gobs.add(new GameObject(14,"cboule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.chest_demo));
-        gobs.add(new GameObject(15,"contrats", "Des contrats qui donnent toutes les possesion aux héritiers de Lady Douthshire ! ", R.drawable.chest_demo));
-        gobs.add(new GameObject(16,"tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.chest_demo));
-
-        //gobs.get(1).activate();
+        gobs.get("cle").activate();
 
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
         String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
@@ -76,6 +67,10 @@ public class GameState {
 
         this.interactions = new InteractionManager();
         interactions.init();
+    }
+
+    private void addGob(GameObject gob){
+        this.gobs.put(gob.getName(),gob);
     }
 
     // GETTERS ----------
@@ -91,7 +86,7 @@ public class GameState {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
-        return this.gobs;
+        return new ArrayList<GameObject>(this.gobs.values());
     }
 
     public ArrayList<EnigmeObject> getEnigmeList(){
@@ -105,14 +100,7 @@ public class GameState {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
-        GameObject ret = null;
-        for(GameObject gob : this.gobs){
-            if(gob.getName().equals(name)){
-                ret = gob;
-                return ret;
-            }
-        }
-        return ret;
+        return this.gobs.get(name);
     }
 
     public InventoryAdapt getInventoryAdapt() throws GameStateNotInitializedException {
@@ -120,7 +108,7 @@ public class GameState {
             throw new GameStateNotInitializedException();
         }
         ArrayList<GameObject> activeGobs = new ArrayList<>();
-        for(GameObject gob : this.gobs){
+        for(GameObject gob : this.gobs.values()){
             if(gob.isActive()){
                 activeGobs.add(gob);
             }
@@ -135,11 +123,7 @@ public class GameState {
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
       
         // return Math.max(0, gameDuration-elapsed); // stops at zero
-        return gameDuration-elapsed;
-    }
-
-    public ArrayList<EnigmeObject> getEnigmeObjectArrayList() {
-        return enigmeObjectArrayList;
+        return this.gameDuration-elapsed-this.penalite;
     }
 
     public InteractionManager getInteractions() throws GameStateNotInitializedException {
@@ -156,7 +140,7 @@ public class GameState {
     }
 
     public void penalize(long seconds){
-
+        this.penalite += seconds;
     }
 
     public Object clone() throws CloneNotSupportedException {
