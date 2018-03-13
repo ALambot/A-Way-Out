@@ -58,11 +58,11 @@ public class GameState {
         gobs.get("cle").activate();
 
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
-        String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
+        /*String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
         String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
-        enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
+        enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));*/
         this.enigmeObjectArrayList = enigmeList;
 
         this.interactions = new InteractionManager();
