@@ -27,7 +27,8 @@ public class InteractionManager {
     public void init(){
         // Ajouter les Interactions a la main pour le moment
 
-        addQR("Anneau unique", new Interaction("PENALITE", "30"));
+        addQR("Anneau unique", new Interaction("PENALITE", "30")); //pas touche
+
         addQR("clé", new Interaction("ADD_GOB", "cle"));
         addQR("miroir", new Interaction("ADD_GOB", "miroir"));
         addQR("vase", new Interaction("ADD_GOB", "vase"));
@@ -37,25 +38,28 @@ public class InteractionManager {
         addQR("clou", new Interaction("ADD_GOB", "clou"));
         addQR("statue", new Interaction("ADD_GOB", "statue"));
 
-        addCombi(2,6, new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
-        //addCombi(2,6, new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
-        //addCombi(2,6, new Interaction("REMOVE_GOB", "bol")); //vase+bol =boule transparente
-        addCombi(14, 9, new Interaction("UNLOCK_ENIGME", "?"));  // boule+statue= cypherKey TODO
-        addCombi(8,16, new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
-        addCombi(8,16, new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
-        //addCombi(8,16, new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
-        //addCombi(8,16, new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
-        addCombi(5,11, new Interaction("ADD_GOB", "14"));//miroir+medusa=code TODO
+        addCombi("vase","bol", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
+        addCombi("boule transparente", "statue", new Interaction("UNLOCK_ENIGME", "?"));  // boule+statue= cypherKey TODO
+        addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi("miroir","medusa", new Interaction("ADD_GOB", "14"));//miroir+medusa=code TODO
+        addCombi("vase","bol", new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
+        addCombi("vase","bol", new Interaction("REMOVE_GOB", "bol")); //vase+bol =boule transparente
+        addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
 
         addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
         addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
 
-
-        addEnigmeLOSE("Armoir", new Interaction("PENALITE", "3000"));
+        addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
 
     }
 
-    private void addCombi(int ID1, int ID2, Interaction interaction){
+    private void addCombi(String name1, String name2, Interaction interaction){
+        GameObject gob1 = GameState.getGameState().getObjectByName(name1);
+        GameObject gob2 = GameState.getGameState().getObjectByName(name2);
+        int ID1 = gob1.getID();
+        int ID2 = gob2.getID();
         Interaction ir = combiTable[ID1][ID2];
         if(ir == null){
             combiTable[ID1][ID2] = interaction;
@@ -183,6 +187,14 @@ public class InteractionManager {
             if(this.nextInteraction != null){
                 this.nextInteraction.run();
             }
+        }
+
+        public String toString(){
+            String ret = this.action + " " +this.arg;
+            if(this.nextInteraction != null){
+                ret = ret+this.nextInteraction.toString();
+            }
+            return ret;
         }
     }
 
