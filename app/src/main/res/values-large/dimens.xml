@@ -6,6 +6,10 @@
     <!-- image horizontale-->
     <dimen name="imgheight">250dp</dimen>
     <dimen name="imgwidth">300dp</dimen>
+    <!-- image menu -->
+    <dimen name="imgmenuheight">200dp</dimen>
+    <dimen name="imgmenuwidth">200dp</dimen>
+
     <!-- text -->
     <dimen name="textsize">26sp</dimen>
     <dimen name="buttontesxtsize">40sp</dimen>
