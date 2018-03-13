@@ -3,4 +3,16 @@
     <dimen name="height_one_letter">45dp</dimen>
     <dimen name="widht_one_letter">50dp</dimen>
 
+    <!-- image verticale-->
+    <dimen name="imgverticaleheight">265dp</dimen>
+    <dimen name="imgverticalewidth">185dp</dimen>
+
+    <!-- image -->
+    <dimen name="imgheight">185dp</dimen>
+    <dimen name="imgwidth">200dp</dimen>
+    <!-- text -->
+    <dimen name="textsize">18sp</dimen>
+    <dimen name="buttontesxtsize">26sp</dimen>
+    <dimen name="bigtitlesize">60sp</dimen>
+    <dimen name="smalltitlesize">30sp</dimen>
 </resources>
