@@ -18,8 +18,8 @@ public class InteractionManager {
 
     public InteractionManager(){
         this.combiTable = new Interaction[20][20];
-        this.enigmeWIN = new HashMap<String, Interaction>(0);
-        this.enigmeLOSE = new HashMap<String, Interaction>(0);
+        this.enigmeWIN = new HashMap<String, Interaction>();
+        this.enigmeLOSE = new HashMap<String, Interaction>();
         this.qr = new HashMap<String, Interaction>();
         this.timeOut = null;
     }
@@ -45,6 +45,9 @@ public class InteractionManager {
 
         addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
         addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
+
+
+        addEnigmeLOSE("Armoir", new Interaction("PENALITE", "3000"));
 
     }
 

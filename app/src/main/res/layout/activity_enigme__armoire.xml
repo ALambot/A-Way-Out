@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="A"
-        android:onClick="onButtonAClick"
+        android:onClick="onButtonLClick"
         app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +26,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="B"
-        android:onClick="onButtonBClick"
+        android:onClick="onButtonLClick"
         app:layout_constraintStart_toEndOf="@+id/buttonA"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="C"
-        android:onClick="onButtonCClick"
+        android:onClick="onButtonLClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.282"
         app:layout_constraintStart_toEndOf="@+id/buttonV"
@@ -46,7 +46,7 @@
 
     <Button
         android:id="@+id/buttonV"
-        android:onClick="onButtonVClick"
+        android:onClick="onButtonLClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginStart="20dp"
@@ -57,7 +57,7 @@
 
     <Button
         android:id="@+id/buttonD"
-        android:onClick="onButtonDClick"
+        android:onClick="onButtonLClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginStart="16dp"
@@ -68,130 +68,131 @@
 
     <Button
         android:id="@+id/buttonI"
-        android:onClick="onButtonIClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
+        android:onClick="onButtonLClick"
         android:text="I"
         app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
         app:layout_constraintTop_toBottomOf="@+id/buttonA" />
 
     <Button
         android:id="@+id/buttonT"
-        android:onClick="onButtonTClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:onClick="onButtonLClick"
         android:text="T"
         app:layout_constraintStart_toEndOf="@+id/buttonI"
         app:layout_constraintTop_toBottomOf="@+id/buttonB" />
 
     <Button
         android:id="@+id/buttonO"
-        android:onClick="onButtonOClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:onClick="onButtonLClick"
         android:text="O"
         app:layout_constraintStart_toEndOf="@+id/buttonT"
         app:layout_constraintTop_toBottomOf="@+id/buttonD" />
 
     <Button
         android:id="@+id/buttonF"
-        android:onClick="onButtonFClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:onClick="onButtonLClick"
         android:text="F"
         app:layout_constraintStart_toEndOf="@+id/buttonO"
         app:layout_constraintTop_toBottomOf="@+id/buttonV" />
 
     <Button
         android:id="@+id/buttonQ"
-        android:onClick="onButtonQClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
+        android:onClick="onButtonLClick"
         android:text="Q"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toEndOf="@+id/buttonF"
         app:layout_constraintTop_toBottomOf="@+id/buttonC" />
 
     <Button
         android:id="@+id/buttonX"
-        android:onClick="onButtonXClick"
+        android:onClick="onButtonLClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="X"
+        android:text="M"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/listView_enigme_armoir"
         app:layout_constraintTop_toBottomOf="@+id/buttonI" />
 
     <Button
         android:id="@+id/buttonH"
-        android:onClick="onButtonHClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="H"
+        android:onClick="onButtonLClick"
+        android:text="S"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonX"
-        app:layout_constraintTop_toBottomOf="@+id/buttonT" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonT"
+        app:layout_constraintVertical_bias="0.492" />
 
     <Button
         android:id="@+id/buttonL"
-        android:onClick="onButtonLClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
+        android:onClick="onButtonLClick"
         android:text="L"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonH"
-        app:layout_constraintTop_toBottomOf="@+id/buttonO" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonO"
+        app:layout_constraintVertical_bias="0.474" />
 
     <Button
         android:id="@+id/buttonP"
-        android:onClick="onButtonPClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="32dp"
+        android:onClick="onButtonLClick"
         android:text="P"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonL"
-        app:layout_constraintTop_toBottomOf="@+id/buttonF" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonF"
+        app:layout_constraintVertical_bias="0.48" />
 
     <Button
         android:id="@+id/buttonU"
-        android:onClick="onButtonUClick"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="U"
+        android:onClick="onButtonLClick"
+        android:text="F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toEndOf="@+id/buttonP"
         app:layout_constraintTop_toBottomOf="@+id/buttonQ"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintVertical_bias="0.52" />
 
     <ListView
         android:id="@+id/listView_enigme_armoir"

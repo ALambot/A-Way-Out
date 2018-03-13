@@ -1,5 +1,7 @@
 package com.dolphin.awayout;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +28,7 @@ public class Enigme_Armoire extends AppCompatActivity {
     private Button buttonU;
     private ListView inventaire;
     private String code="";
-    private String reponse="ULPQXTOD";
+    private String reponse="ILCFSMPB";
 
 
     @Override
@@ -50,123 +52,31 @@ public class Enigme_Armoire extends AppCompatActivity {
         buttonU=findViewById(R.id.buttonU);
     }
 
-    public void onButtonUClick(View vieuw){
-        code=code+buttonU.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonPClick(View vieuw){
-        code=code+buttonP.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
 
     public void onButtonLClick(View vieuw){
-        code=code+buttonL.getText().toString();
+        Button p=(Button) vieuw;
+        p.setBackgroundColor(Color.parseColor("#E6E6FA"));
+        code=code+p.getText().toString();
         if( code.length()==reponse.length()){
             codeWritten();
         }
+        //Toast.makeText(this, code,Toast.LENGTH_LONG).show();
     }
 
-    public void onButtonHClick(View vieuw){
-        code=code+buttonH.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonXClick(View vieuw){
-        code=code+buttonX.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonQClick(View vieuw){
-        code=code+buttonQ.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonFClick(View vieuw){
-        code=code+buttonF.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonOClick(View vieuw){
-        code=code+buttonO.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonTClick(View vieuw){
-        code=code+buttonT.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonIClick(View vieuw){
-        code=code+buttonI.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonDClick(View vieuw){
-        code=code+buttonD.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonAClick(View view){
-
-        code=code+buttonA.getText().toString();
-        Toast.makeText(this, code, Toast.LENGTH_SHORT).show();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonBClick(View vieuw){
-        code=code+buttonB.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonCClick(View vieuw){
-        code=code+buttonC.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
-
-    public void onButtonVClick(View vieuw){
-        code=code+buttonV.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
-        }
-    }
 
     public void codeWritten(){
         InteractionManager interactionManager=new InteractionManager();
         if (code.equals(reponse)){
-            interactionManager.enigmeSuccess("enigme armoire");
+            /*Intent de fin*/
+            //interactionManager.enigmeSuccess("Armoir");
+            Intent intent= new Intent(this, fin_niveau.class);
+            startActivity(intent);
 
         }
         else{
             code="";
-            interactionManager.enigmeFail("enigme armoire");
-            /*Ajouter pénalité*/
+            interactionManager.enigmeFail("Armoir");
+            Toast.makeText(this, "Mauvais Code ! Vous perdez 3 minutes", Toast.LENGTH_LONG).show();
 
         }
     }

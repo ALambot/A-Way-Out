@@ -13,4 +13,6 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="desc_play_button">Jouer</string>
+    <!--fin de niveau-->
+    <string name="histoire1">Dans l\'armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubthshire à ses héritiers ! L\'un d'entre eux en aurait-il eu marre d'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !</string>
 </resources>
