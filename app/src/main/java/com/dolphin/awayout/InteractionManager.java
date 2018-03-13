@@ -30,7 +30,7 @@ public class InteractionManager {
         this.qr.put("clé", new Interaction("ADD_GOB", "1"));
         this.qr.put("mirroir", new Interaction("ADD_GOB", "5"));
         this.qr.put("vase", new Interaction("ADD_GOB", "6"));
-        this.qr.put("bol vide", new Interaction("ADD_GOB", "7"));
+        this.qr.put("bol", new Interaction("ADD_GOB", "7"));
         this.qr.put("tiroir", new Interaction("ADD_GOB", "16"));
         this.qr.put("armoire", new Interaction("ADD_GOB", "13"));
         this.qr.put("clou", new Interaction("ADD_GOB", "8"));
