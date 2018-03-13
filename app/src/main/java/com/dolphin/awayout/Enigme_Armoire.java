@@ -65,7 +65,7 @@ public class Enigme_Armoire extends AppCompatActivity {
 
 
     public void codeWritten(){
-        InteractionManager interactionManager=new InteractionManager();
+        InteractionManager interactionManager=GameState.getGameState().getInteractions();
         if (code.equals(reponse)){
             /*Intent de fin*/
             //interactionManager.enigmeSuccess("Armoir");

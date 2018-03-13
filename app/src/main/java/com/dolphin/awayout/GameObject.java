@@ -14,27 +14,14 @@ public class GameObject {
     private boolean visible;
     private boolean active;
 
-    public GameObject(int ID, String name, int imageRef) {
-        this.ID = ID;
-
-        this.name = name;
-        this.idImage = imageRef;
-        this.visible = false;
-        this.active = false;
-    }
-
-    public GameObject(int ID, String name, String description, int imageRef) {
-        this.ID = ID;
+    public GameObject(String name, String description, int imageRef) {
+        this.ID = GameState.getGameState().getNextID();
 
         this.name = name;
         this.description = description;
         this.idImage = imageRef;
         this.visible = false;
         this.active = false;
-    }
-
-    public GameObject(String ID){
-        this.ID = Integer.parseInt(ID);
     }
 
     public String getName() {
