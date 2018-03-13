@@ -43,6 +43,15 @@ public class InteractionManager {
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("miroir","medusa", new Interaction("ADD_GOB", "14"));//miroir+medusa=code TODO
+        addCombi(2,6, new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
+        //addCombi(2,6, new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
+        //addCombi(2,6, new Interaction("REMOVE_GOB", "bol")); //vase+bol =boule transparente
+        addCombi(14, 9, new Interaction("UNLOCK_ENIGME", "?"));  // boule+statue= cypherKey TODO
+        addCombi(8,16, new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi(8,16, new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
+        //addCombi(8,16, new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
+        //addCombi(8,16, new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi(5,11, new Interaction("ADD_GOB", "14"));//miroir+medusa=code TODO
 
         addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
         addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code

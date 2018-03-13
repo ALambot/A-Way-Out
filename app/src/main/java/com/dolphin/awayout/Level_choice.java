@@ -25,7 +25,12 @@ public class Level_choice extends AppCompatActivity{
         levelList = new ArrayList<Object>();
 
         //Creer les niveau ici
-        levelList.add(new LevelObject("Chapitre 1 : Dans le hall d'entrée ","Vous arriver dans un petit hall mal éclairé, le scénariste de l'escape room vous regarde le regard vide. Il n'a aucune idée de ce qu'il va mettre dans la description de ce niveau...",R.drawable.chap1,900,"Réaumur"));
+        String UnfinishedText = "Vous arriver dans un petit hall mal éclairé, le scénariste de l'escape room vous regarde le regard vide. " +
+                "Et vous dis avec uune voix denuée de toute émotion \"This is an unpolished draft of the escape room\"";
+        String description = "Lady Doubthshire a été assasinée ! Son corps sans vie a été retrouvé ce matin. Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne. " +
+                "On a fait appel à vos service pour résoudre cette mystère." +
+                "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !";
+        levelList.add(new LevelObject("Chapitre 1 : \n Dans le hall d'entrée ",description,R.drawable.chap1,900,"Réaumur"));
         //levelList.add(new LevelObject("Demo2"));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);

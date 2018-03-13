@@ -27,8 +27,10 @@ public class Enigme_Armoire extends AppCompatActivity {
     private Button buttonP;
     private Button buttonU;
     private ListView inventaire;
+    private InventoryListView inventair;
     private String code="";
     private String reponse="ILCFSMPB";
+    private InventoryAdapt inventoryAdapt;
 
 
     @Override
@@ -50,6 +52,11 @@ public class Enigme_Armoire extends AppCompatActivity {
         buttonL=findViewById(R.id.buttonL);
         buttonP=findViewById(R.id.buttonP);
         buttonU=findViewById(R.id.buttonU);
+        inventaire=findViewById(R.id.listView_enigme_armoir);
+
+        inventoryAdapt = GameState.getGameState().getInventoryAdapt();
+
+        inventair=new InventoryListView(Enigme_Armoire.this,inventaire,inventoryAdapt, true);
     }
 
 

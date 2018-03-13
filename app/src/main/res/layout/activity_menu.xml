@@ -8,30 +8,11 @@
     tools:context="com.dolphin.awayout.Menu">
 
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="365dp"
-        android:layout_height="124dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:contentDescription="@string/desc_play_button"
-        android:onClick="onButtonLevelChoiceClick"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/play_button_menu" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="218dp"
-        android:layout_height="302dp"
+        android:layout_width="@dimen/imgverticalewidth"
+        android:layout_height="@dimen/imgverticaleheight"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -42,5 +23,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041"
         app:srcCompat="@drawable/logo_menu" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="@dimen/imgverticalewidth"
+        android:layout_height="@dimen/imgverticalewidth"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/desc_play_button"
+        android:foregroundGravity="center_horizontal"
+        android:onClick="onButtonLevelChoiceClick"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.437"
+        app:srcCompat="@drawable/play_button_menu" />
+
+
 
 </android.support.constraint.ConstraintLayout>
