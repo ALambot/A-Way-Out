@@ -115,6 +115,7 @@ public class GameState {
                 activeGobs.add(gob);
             }
         }
+
         return new InventoryAdapt(this.ctx, activeGobs);
     }
 

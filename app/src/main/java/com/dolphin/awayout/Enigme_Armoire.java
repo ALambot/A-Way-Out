@@ -82,7 +82,7 @@ public class Enigme_Armoire extends AppCompatActivity {
         }
         else{
             code="";
-            interactionManager.enigmeFail("Armoir");
+            //interactionManager.enigmeFail("Armoir");
             Toast.makeText(this, "Mauvais Code ! Vous perdez 3 minutes", Toast.LENGTH_LONG).show();
 
         }
