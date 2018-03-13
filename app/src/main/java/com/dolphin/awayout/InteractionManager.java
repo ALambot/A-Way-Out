@@ -18,8 +18,8 @@ public class InteractionManager {
 
     public InteractionManager(){
         this.combiTable = new Interaction[20][20];
-        this.enigmeWIN = new HashMap<String, Interaction>(0);
-        this.enigmeLOSE = new HashMap<String, Interaction>(0);
+        this.enigmeWIN = new HashMap<String, Interaction>();
+        this.enigmeLOSE = new HashMap<String, Interaction>();
         this.qr = new HashMap<String, Interaction>();
         this.timeOut = null;
     }
@@ -38,13 +38,20 @@ public class InteractionManager {
         addQR("statue", new Interaction("ADD_GOB", "statue"));
 
         addCombi(2,6, new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
+        //addCombi(2,6, new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
+        //addCombi(2,6, new Interaction("REMOVE_GOB", "bol")); //vase+bol =boule transparente
         addCombi(14, 9, new Interaction("UNLOCK_ENIGME", "?"));  // boule+statue= cypherKey TODO
         addCombi(8,16, new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi(8,16, new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
+        //addCombi(8,16, new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
+        //addCombi(8,16, new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi(5,11, new Interaction("ADD_GOB", "14"));//miroir+medusa=code TODO
 
         addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
         addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
+
+
+        addEnigmeLOSE("Armoir", new Interaction("PENALITE", "3000"));
 
     }
 

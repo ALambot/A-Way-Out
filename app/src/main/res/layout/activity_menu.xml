@@ -18,14 +18,15 @@
         android:adjustViewBounds="true"
         android:background="@null"
         android:contentDescription="@string/desc_play_button"
+        android:foregroundGravity="center_horizontal"
         android:onClick="onButtonLevelChoiceClick"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.437"
         app:srcCompat="@drawable/play_button_menu" />
 
     <ImageView

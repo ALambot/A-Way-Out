@@ -55,13 +55,15 @@ public class GameState {
         addGob(new GameObject(15,"feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
         addGob(new GameObject(16,"tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
 
-        gobs.get("cle").activate();
+        //gobs.get("cle").activate();
 
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
-        String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
+        /*String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
         String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));
+        enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));*/
+        //enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
+        enigmeList.add((new EnigmeObject("Armoire mystérieuse",3,"ULPQXTOD")));
         enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
         this.enigmeObjectArrayList = enigmeList;
 
