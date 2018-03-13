@@ -1,7 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="height_one_letter">45dp</dimen>
-    <dimen name="widht_one_letter">50dp</dimen>
+    <dimen name="widht_one_letter">52dp</dimen>
 
     <!-- image verticale-->
     <dimen name="imgverticaleheight">265dp</dimen>
