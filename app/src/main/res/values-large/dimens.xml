@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- image verticale-->
+    <dimen name="imgverticaleheight">350dp</dimen>
+    <dimen name="imgverticalewidth">300dp</dimen>
+    <!-- image horizontale-->
+    <dimen name="imgheight">250dp</dimen>
+    <dimen name="imgwidth">300dp</dimen>
+    <!-- text -->
+    <dimen name="textsize">26sp</dimen>
+    <dimen name="buttontesxtsize">40sp</dimen>
+    <dimen name="bigtitlesize">70sp</dimen>
+    <dimen name="smalltitlesize">50sp</dimen>
+</resources>
