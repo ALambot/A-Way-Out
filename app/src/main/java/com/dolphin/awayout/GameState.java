@@ -55,7 +55,7 @@ public class GameState {
         addGob(new GameObject(15,"feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
         addGob(new GameObject(16,"tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
 
-        gobs.get("cle").activate();
+        //gobs.get("cle").activate();
 
         ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
         /*String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
