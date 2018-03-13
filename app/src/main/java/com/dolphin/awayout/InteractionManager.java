@@ -2,6 +2,8 @@ package com.dolphin.awayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import android.content.Intent;
 import android.util.Log;
 
 /**
@@ -52,6 +54,8 @@ public class InteractionManager {
         addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
 
         addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
+
+        addTimeOut(new Interaction("launch activity", "loose_screen.class"));
 
     }
 
@@ -155,6 +159,7 @@ public class InteractionManager {
         }
 
         public void run(){
+
             if(this.action.equals("ADD_GOB")){
                 GameState.getGameState().getObjectByName(this.arg).activate();
             }
@@ -182,6 +187,11 @@ public class InteractionManager {
             else if(this.action.equals("PENALITE")){
                 int penne = Integer.parseInt(this.arg);
                 GameState.getGameState().penalize(penne);
+            }
+            else if(this.action.equals("launch activity")){
+                Intent intent=new Intent(GameState.getGameState().ctx, loose_screen.class);
+                GameState.getGameState().ctx.startActivity(intent);
+
             }
 
             if(this.nextInteraction != null){
