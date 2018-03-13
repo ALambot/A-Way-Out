@@ -30,7 +30,7 @@ public class Level_choice extends AppCompatActivity{
         String description = "Lady Doubthshire a été assasinée ! Son corps sans vie a été retrouvé ce matin. Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne. " +
                 "On a fait appel à vos service pour résoudre cette mystère." +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !";
-        levelList.add(new LevelObject("Chapitre 1 : Dans le hall d'entrée ",description,R.drawable.chap1,900,"Réaumur"));
+        levelList.add(new LevelObject("Chapitre 1 : \n Dans le hall d'entrée ",description,R.drawable.chap1,900,"Réaumur"));
         //levelList.add(new LevelObject("Demo2"));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);

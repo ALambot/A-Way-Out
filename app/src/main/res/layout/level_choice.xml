@@ -11,9 +11,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/choix_du_niveau"
-        android:textSize="60sp"
+        android:textSize="@dimen/bigtitlesize"
         app:layout_constraintBottom_toTopOf="@+id/listNiveau"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />

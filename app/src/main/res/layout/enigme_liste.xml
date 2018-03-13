@@ -8,15 +8,15 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="342sp"
-        android:layout_height="91sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8sp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8sp"
         android:fontFamily="@font/victorian"
         android:text="@string/enigmes"
-        android:textSize="60sp"
+        android:textSize="@dimen/bigtitlesize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
