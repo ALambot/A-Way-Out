@@ -27,8 +27,8 @@
 
     <TextView
         android:id="@+id/histoire_fin_niveau"
-        android:layout_width="248dp"
-        android:layout_height="283dp"
+        android:layout_width="259dp"
+        android:layout_height="311dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
@@ -40,16 +40,17 @@
     <Button
         android:id="@+id/retour_choix_niveau"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Choix du niveau"
         android:onClick="onButtonChoixNiveauClick"
+        android:text="Choix du niveau"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/histoire_fin_niveau" />
+        app:layout_constraintTop_toBottomOf="@+id/histoire_fin_niveau"
+        app:layout_constraintVertical_bias="0.473" />
 
 </android.support.constraint.ConstraintLayout>
