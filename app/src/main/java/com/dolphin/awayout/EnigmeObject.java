@@ -13,12 +13,17 @@ public class EnigmeObject {
     private String[] proposition = null;
     private String reponse =  null;
 
+    private boolean hidden = true;
+    private boolean solved = false;
+
 
     //type text
     public EnigmeObject(String title,int type , String reponse) {
         this.title = title;
         this.type = type;
         this.reponse = reponse;
+        this.hidden = true;
+        this.solved = false;
     }
 
 
@@ -29,6 +34,8 @@ public class EnigmeObject {
         this.text = text;
         this.proposition = reponsePossible;
         this.reponse = reponse;
+        this.hidden = true;
+        this.solved = false;
     }
     public String getTitle() {
         return title;
@@ -69,5 +76,22 @@ public class EnigmeObject {
     public void setType(int type) {
         this.type = type;
     }
+
+    public boolean isHidden(){
+        return this.hidden;
+    }
+
+    public boolean isSolved(){
+        return this.solved;
+    }
+
+    public void setVisible(boolean visible){
+        this.hidden = !visible;
+    }
+
+    public void solve(){
+        this.solved = true;
+    }
+
 
 }
