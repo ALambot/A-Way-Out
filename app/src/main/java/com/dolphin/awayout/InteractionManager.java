@@ -2,7 +2,10 @@ package com.dolphin.awayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by antoine on 22.02.18.
@@ -43,6 +46,7 @@ public class InteractionManager {
         addQR("bol vide", new Interaction("ADD_GOB", "bol"));
         addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
         addQR("armoire", new Interaction("ADD_GOB", "armoire"));
+        addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mystérieuse"));
         addQR("clou", new Interaction("ADD_GOB", "clou"));
         addQR("statue", new Interaction("ADD_GOB", "statue"));
 
@@ -63,6 +67,8 @@ public class InteractionManager {
 
         // ENIGME LOSE
         addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
+
+        addTimeOut(new Interaction("launch activity", "loose_screen.class"));
 
     }
 
@@ -116,7 +122,13 @@ public class InteractionManager {
     }
 
     public void combine(GameObject obj1, GameObject obj2){
-        combiTable[obj1.getID()][obj2.getID()].run();
+        Interaction inter=combiTable[obj1.getID()][obj2.getID()];
+         if (inter != null) {
+             inter.run();
+         }
+         else{
+             Toast.makeText(GameState.getGameState().ctx, "Rien ne se passe", Toast.LENGTH_SHORT).show();
+         }
     }
 
     public void enigmeSuccess(String enigme){
@@ -162,6 +174,7 @@ public class InteractionManager {
         }
 
         public void run(){
+
             if(this.action.equals("ADD_GOB")){
                 GameState.getGameState().getObjectByName(this.arg).activate();
             }
@@ -186,6 +199,11 @@ public class InteractionManager {
             else if(this.action.equals("PENALITE")){
                 int penne = Integer.parseInt(this.arg);
                 GameState.getGameState().penalize(penne);
+            }
+            else if(this.action.equals("launch activity")){
+                Intent intent=new Intent(GameState.getGameState().ctx, loose_screen.class);
+                GameState.getGameState().ctx.startActivity(intent);
+
             }
 
             if(this.nextInteraction != null){

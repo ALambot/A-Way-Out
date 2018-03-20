@@ -24,7 +24,8 @@
 
     <Button
         android:id="@+id/buttonA"
-        android:layout_width="52dp"
+
+        android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
         android:layout_marginStart="64dp"
         android:layout_marginTop="68dp"
@@ -33,6 +34,8 @@
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <Button
         android:id="@+id/buttonB"
@@ -213,7 +216,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="onButtonLClick"
-        android:text="F"
+        android:text="U"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
