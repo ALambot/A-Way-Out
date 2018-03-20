@@ -8,68 +8,7 @@
     tools:context=".PlayerMenu">
 
 
-    <Button
-        android:id="@+id/buttonMenuInventory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:fontFamily="@font/victorian"
-        android:onClick="onButtonInventoryMenuClick"
-        android:text="@string/inventaire"
-        android:textAllCaps="false"
-        android:textColor="#72583f"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
 
-    <Button
-        android:id="@+id/buttonMenuEnigme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:fontFamily="@font/victorian"
-        android:onClick="onButtonEnigmeListeClick"
-        android:text="@string/enigmes"
-        android:textAllCaps="false"
-        android:textColor="#72583f"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.622" />
-
-    <Button
-        android:id="@+id/buttonMenuQRcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:fontFamily="@font/victorian"
-        android:onClick="onButtonQRClick"
-        android:text="@string/qr_code"
-        android:textAllCaps="false"
-        android:textColor="#72583f"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.751"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
 
     <TextView
         android:id="@+id/timer"
@@ -80,7 +19,7 @@
         android:fontFamily="@font/precious"
         android:text="@string/timer"
         android:textColor="#72583f"
-        android:textSize="50sp"
+        android:textSize="@dimen/bigtitlesize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -90,8 +29,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="128dp"
-        android:layout_height="157dp"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -99,16 +38,16 @@
         android:alpha=".35"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/border2_player_menu" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="128dp"
-        android:layout_height="157dp"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -116,26 +55,26 @@
         android:alpha=".35"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/border_player_menu" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="67dp"
-        android:layout_height="66dp"
+        android:layout_width="77dp"
+        android:layout_height="68dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051"
+        app:layout_constraintVertical_bias="0.029"
         app:srcCompat="@drawable/clock_player_menu" />
     <!--
         <ListView
@@ -155,8 +94,8 @@
     -->
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="198dp"
-        android:layout_height="130dp"
+        android:layout_width="293dp"
+        android:layout_height="336dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -164,16 +103,16 @@
         android:onClick="onButtonQRClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435"
+        app:layout_constraintVertical_bias="0.319"
         app:srcCompat="@drawable/magnifying_button" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="146dp"
-        android:layout_height="129dp"
+        android:layout_width="231dp"
+        android:layout_height="165dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -181,26 +120,74 @@
         android:onClick="onButtonInventoryMenuClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781"
+        app:layout_constraintVertical_bias="0.737"
         app:srcCompat="@drawable/inventory_button" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="190dp"
-        android:layout_height="171dp"
+        android:layout_width="283dp"
+        android:layout_height="237dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginTop="8dp"
         android:onClick="onButtonEnigmeListeClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.892"
+        app:layout_constraintVertical_bias="0.821"
         app:srcCompat="@drawable/enigma_button" />
+
+
+    <Button
+        android:id="@+id/buttonMenuInventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:fontFamily="@font/victorian"
+        android:onClick="onButtonInventoryMenuClick"
+        android:text="@string/inventaire"
+        android:textAllCaps="false"
+        android:textColor="#72583f"
+        android:textSize="@dimen/smalltitlesize"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <Button
+        android:id="@+id/buttonMenuEnigme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="208dp"
+        android:layout_marginStart="40dp"
+        android:background="@null"
+        android:fontFamily="@font/victorian"
+        android:onClick="onButtonEnigmeListeClick"
+        android:text="@string/enigmes"
+        android:textAllCaps="false"
+        android:textColor="#72583f"
+        android:textSize="@dimen/smalltitlesize"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/imageView7" />
+
+    <Button
+        android:id="@+id/buttonMenuQRcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="60dp"
+        android:background="@null"
+        android:fontFamily="@font/victorian"
+        android:onClick="onButtonQRClick"
+        android:text="@string/qr_code"
+        android:textAllCaps="false"
+        android:textColor="#72583f"
+        android:textSize="@dimen/smalltitlesize"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
 
 </android.support.constraint.ConstraintLayout>
