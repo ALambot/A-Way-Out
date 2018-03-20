@@ -57,7 +57,7 @@ public class EnigmeList extends AppCompatActivity{
 
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    if(enigmeList != null || enigmeList.size() > 0){  // eviter le cas ou il n'y a pas d'enigme
+                    if(enigmeList != null &&  enigmeList.size() > 0){  // eviter le cas ou il n'y a pas d'enigme
                         EnigmeObject enigme = enigmeList.get(position);
                         Intent intent;
                         switch (enigme.getType()) {

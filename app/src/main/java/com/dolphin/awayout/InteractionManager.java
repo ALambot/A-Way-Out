@@ -46,7 +46,7 @@ public class InteractionManager {
         addQR("bol vide", new Interaction("ADD_GOB", "bol"));
         addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
         addQR("armoire", new Interaction("ADD_GOB", "armoire"));
-        addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mystérieuse"));
+        addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
         addQR("clou", new Interaction("ADD_GOB", "clou"));
         addQR("statue", new Interaction("ADD_GOB", "statue"));
 

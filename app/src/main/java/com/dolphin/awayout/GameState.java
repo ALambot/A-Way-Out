@@ -72,11 +72,11 @@ public class GameState {
         this.enigmes = new HashMap<String, EnigmeObject>();
 
         /*String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
+        enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prjjhnce des dauphins ? ", reponses, "Nico")));
         String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));*/
         //enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
-        addEnigme((new EnigmeObject("Armoire mystérieuse",3,"ULPQXTOD")));
+        addEnigme((new EnigmeObject("Armoire mysterieuse",3,"ULPQXTOD")));
         addEnigme((new EnigmeObject("cypherRoll",2,"Victoria")));
 
         this.interactions = new InteractionManager();

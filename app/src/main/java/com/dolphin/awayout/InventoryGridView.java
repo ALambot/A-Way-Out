@@ -105,6 +105,8 @@ public class InventoryGridView {
         }
     }
 
+
+
     private void notifyDropObservers(GameObject object, float x, float y){
         for(InventoryObserver observer : observers) {
             observer.update(2, object, Math.round(x), Math.round(y));
