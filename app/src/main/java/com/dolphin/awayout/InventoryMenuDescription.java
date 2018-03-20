@@ -34,14 +34,14 @@ public class InventoryMenuDescription extends InventoryObserver {
         else {
             Log.d("UPDATE", "name"+ object.getName() +"x: "+ x + " y :" + y);
             if (checkCollision(x, y, object.getImage())) {
+                try {
+                    GameState.getGameState().getInteractions().combine(object, GameState.getGameState().getObjectByName(title.getText().toString()));
+                    InventoryMenu.onUpdate();
+                } catch(NullPointerException e) {
+                    Toast.makeText(img.getContext(), "Vous ne pouvez combiner un objet avec votre inventaire",
+                            Toast.LENGTH_SHORT).show();
+                }
 
-
-                GameState.getGameState().getInteractions().combine(object, GameState.getGameState().getObjectByName(title.getText().toString()));
-
-
-
-
-                InventoryMenu.onUpdate();
 
 
                 // TO DO trouver l'objet 2 (title)
@@ -75,4 +75,27 @@ public class InventoryMenuDescription extends InventoryObserver {
         return r1.intersect(r2);
     }
 
+    public TextView getTitle() {
+        return title;
+    }
+
+    public TextView getDescription() {
+        return description;
+    }
+
+    public ImageView getImg() {
+        return img;
+    }
+
+    public void setTitle(String title) {
+        this.title.setText(title);
+    }
+
+    public void setDescription(String description) {
+        this.description.setText(description);
+    }
+
+    public void setImg(ImageView img) {
+        this.img = img;
+    }
 }
