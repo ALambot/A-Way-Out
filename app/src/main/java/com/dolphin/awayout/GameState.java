@@ -15,7 +15,7 @@ public class GameState {
 
     private static GameState gameState;
     private boolean initialized = false;
-    private Context ctx;
+    public Context ctx;
 
     // Timer
     private long startTime; //seconds

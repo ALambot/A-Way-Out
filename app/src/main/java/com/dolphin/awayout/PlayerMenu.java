@@ -26,6 +26,7 @@ public class PlayerMenu extends AppCompatActivity {
     private Button loupe_button;
     private IntentIntegrator qrScan;
     private InventoryAdapt adapt = null;
+    public boolean started=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +114,7 @@ public class PlayerMenu extends AppCompatActivity {
         Runnable Loop = new Runnable(){
             @Override
             public void run(){
+
                 while(true){
                     timer.post(new Runnable() {
                         @Override
@@ -122,8 +124,15 @@ public class PlayerMenu extends AppCompatActivity {
                             StringBuilder stringBuilder = new StringBuilder();
                             String neg = "";
                             if(time<0){
+                                if (started) {
+                                    started=false;
+                                    InteractionManager interactionManager = GameState.getGameState().getInteractions();
+                                    interactionManager.timeOut();
+
+                                }
                                 neg = "- ";
                                 time = - time;
+
                             }
                             stringBuilder.append(neg);
                             int sec = (int) (time%60);
@@ -152,6 +161,8 @@ public class PlayerMenu extends AppCompatActivity {
         Thread myThread = new Thread(Loop);
         myThread.start();
     }
+
+
 }
 
 
