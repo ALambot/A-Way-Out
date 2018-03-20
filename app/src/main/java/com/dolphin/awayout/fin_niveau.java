@@ -18,4 +18,9 @@ public class fin_niveau extends AppCompatActivity {
         Intent intent=new Intent(this, Level_choice.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

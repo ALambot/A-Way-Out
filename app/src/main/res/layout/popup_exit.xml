@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/popup_QR"
+    android:background="#630f0f"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewQRTitle"
+        android:layout_width="400dp"
+        android:layout_gravity="center"
+        android:textSize="@dimen/smalltitlesize"
+        android:textColor="#daa53b"
+        android:text="Est vous sur de vouloir quitter le niveau ? Votre progression sera perdue."
+        android:fontFamily="@font/victorian"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/exitPopUpNo"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non"
+            android:textAllCaps="false"
+            android:fontFamily="@font/precious"
+            android:backgroundTint="#daa53b"
+            android:textColor="#3b2e21"/>
+
+        <Button
+            android:id="@+id/exitPopUpYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#daa53b"
+            android:fontFamily="@font/precious"
+            android:text="Oui"
+            android:textAllCaps="false"
+            android:textColor="#3b2e21"
+            android:layout_marginStart="40dp"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
