@@ -35,6 +35,13 @@ public class GameState {
         //Optionnal
     }
 
+    public static synchronized GameState getGameState() { // Do not touch
+        if (gameState == null) {
+            gameState = new GameState();
+        }
+        return gameState;
+    }
+
     // SETTERS ----------
 
     public void init(Context context){ //init state from escape room file or save file
@@ -46,7 +53,7 @@ public class GameState {
 
         nextID = 0; //pas touche
         
-        this.gobs = new HashMap<String,GameObject>();
+        this.gobs = new HashMap<String, GameObject>();
 
         addGob(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
         addGob(new GameObject("miroir", "Un ancien mirroir posé sur la cheminée", R.drawable.mirror));
@@ -73,9 +80,11 @@ public class GameState {
         addEnigme((new EnigmeObject("cypherRoll",2,"Victoria")));
 
         this.interactions = new InteractionManager();
-        interactions.init();
+        this.interactions.init();
+        this.interactions.start();
     }
 
+    // ADDERS ------
     private void addGob(GameObject gob){
         this.gobs.put(gob.getName(),gob);
     }
@@ -85,15 +94,18 @@ public class GameState {
 
     // GETTERS ----------
 
-    public static synchronized GameState getGameState() { // Do not touch
-        if (gameState == null) {
-            gameState = new GameState();
-        }
-        return gameState;
-    }
-
     public int getNextID(){
         return this.nextID++;
+    }
+
+    public long getRemainingTime() throws GameStateNotInitializedException {
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
+
+        // return Math.max(0, gameDuration-elapsed); // stops at zero
+        return this.gameDuration-elapsed-this.penalite;
     }
 
     public ArrayList<GameObject> getGobs(){
@@ -109,23 +121,11 @@ public class GameState {
         }
         ArrayList<EnigmeObject> ret = new ArrayList<EnigmeObject>();
         for(EnigmeObject e : this.enigmes.values()){
-            Log.d("KEKE",e.getTitle()+" "+e.isHidden());
             if(!e.isHidden()){
                 ret.add(e);
             }
         }
         return ret;
-    }
-
-    public EnigmeObject getEnigmeByTitle(String title){
-        return this.enigmes.get(title);
-    }
-
-    public GameObject getObjectByName(String name){
-        if(initialized == false){
-            throw new GameStateNotInitializedException();
-        }
-        return this.gobs.get(name);
     }
 
     public InventoryAdapt getInventoryAdapt() throws GameStateNotInitializedException {
@@ -141,21 +141,22 @@ public class GameState {
         return new InventoryAdapt(this.ctx, activeGobs);
     }
 
-    public long getRemainingTime() throws GameStateNotInitializedException {
-        if(initialized == false){
-            throw new GameStateNotInitializedException();
-        }
-        long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
-      
-        // return Math.max(0, gameDuration-elapsed); // stops at zero
-        return this.gameDuration-elapsed-this.penalite;
-    }
-
     public InteractionManager getInteractions() throws GameStateNotInitializedException {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
         return this.interactions;
+    }
+
+    public EnigmeObject getEnigmeByTitle(String title){
+        return this.enigmes.get(title);
+    }
+
+    public GameObject getObjectByName(String name){
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        return this.gobs.get(name);
     }
 
     // FUNCTIONS ----------
@@ -167,6 +168,8 @@ public class GameState {
     public void penalize(long seconds){
         this.penalite += seconds;
     }
+
+    // OTHER ------
 
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
