@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class InteractionManager {
 
+    private Interaction start;
     private Interaction[][] combiTable;
     private HashMap<String, Interaction> enigmeWIN;
     private HashMap<String, Interaction> enigmeLOSE;
@@ -20,7 +21,8 @@ public class InteractionManager {
     private Interaction timeOut;
 
     public InteractionManager(){
-        this.combiTable = new Interaction[20][20];
+        this.start = null;
+        this.combiTable = new Interaction[40][40];
         this.enigmeWIN = new HashMap<String, Interaction>();
         this.enigmeLOSE = new HashMap<String, Interaction>();
         this.qr = new HashMap<String, Interaction>();
@@ -30,9 +32,14 @@ public class InteractionManager {
     public void init(){
         // Ajouter les Interactions a la main pour le moment
 
-        addQR("Anneau unique", new Interaction("PENALITE", "30")); //pas touche
+        // DEBUG - pas touche
+        addQR("Anneau unique", new Interaction("PENALITE", "30"));
         addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
 
+        // Interactions lancees au debut
+        //addStart(new Interaction("ADD_GOB","cle"));
+
+        // QR
         addQR("clé", new Interaction("ADD_GOB", "cle"));
         addQR("miroir", new Interaction("ADD_GOB", "miroir"));
         addQR("vase", new Interaction("ADD_GOB", "vase"));
@@ -43,6 +50,7 @@ public class InteractionManager {
         addQR("clou", new Interaction("ADD_GOB", "clou"));
         addQR("statue", new Interaction("ADD_GOB", "statue"));
 
+        // COMBI
         addCombi("vase","bol", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
         addCombi("boule transparente", "statue", new Interaction("UNLOCK_ENIGME", "?"));  // boule+statue= cypherKey TODO
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
@@ -53,13 +61,23 @@ public class InteractionManager {
         addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
 
+        // ENIGME WIN
         addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
         addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
 
+        // ENIGME LOSE
         addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
 
         addTimeOut(new Interaction("launch activity", "loose_screen.class"));
 
+    }
+
+    // ADDERS ------
+
+    private void addStart(Interaction interaction){
+        Interaction ir = this.start;
+        interaction.nextInteraction = ir;
+        this.start = interaction;
     }
 
     private void addCombi(String name1, String name2, Interaction interaction){
@@ -67,52 +85,41 @@ public class InteractionManager {
         GameObject gob2 = GameState.getGameState().getObjectByName(name2);
         int ID1 = gob1.getID();
         int ID2 = gob2.getID();
-        Interaction ir = combiTable[ID1][ID2];
-        if(ir == null){
-            combiTable[ID1][ID2] = interaction;
-        }
-        else{
-            ir.nextInteraction = interaction;
-        }
+
+        Interaction ir = this.combiTable[ID1][ID2];
+        interaction.nextInteraction = ir;
+        this.combiTable[ID1][ID2] = interaction;
     }
 
     private void addEnigmeWIN(String enigme, Interaction interaction){
-        Interaction ir = enigmeWIN.get(enigme);
-        if(ir == null){
-            enigmeWIN.put(enigme, interaction);
-        }
-        else{
-            ir.nextInteraction = interaction;
-        }
+        Interaction ir = this.enigmeWIN.get(enigme);
+        interaction.nextInteraction = ir;
+        this.enigmeWIN.put(enigme, interaction);
     }
 
     private void addEnigmeLOSE(String enigme, Interaction interaction){
-        Interaction ir = enigmeLOSE.get(enigme);
-        if(ir == null){
-            enigmeLOSE.put(enigme, interaction);
-        }
-        else{
-            ir.nextInteraction = interaction;
-        }
+        Interaction ir = this.enigmeLOSE.get(enigme);
+        interaction.nextInteraction = ir;
+        this.enigmeLOSE.put(enigme, interaction);
     }
 
     private void addQR(String str, Interaction interaction){
         Interaction ir = this.qr.get(str);
-        if(ir == null){
-            qr.put(str, interaction);
-        }
-        else{
-            ir.nextInteraction = interaction;
-        }
+        interaction.nextInteraction = ir;
+        this.qr.put(str,interaction);
     }
 
     private void addTimeOut(Interaction interaction){
         Interaction ir = this.timeOut;
-        if(ir == null){
-            timeOut = interaction;
-        }
-        else{
-            ir.nextInteraction = interaction;
+        interaction.nextInteraction = ir;
+        this.timeOut = interaction;
+    }
+
+    // ACTIONS -----
+
+    public void start() {
+        if(this.start != null){
+            this.start.run();
         }
     }
 
@@ -147,6 +154,7 @@ public class InteractionManager {
         }
     }
 
+    // INTERACTION ------
 
     public class Interaction {
 
