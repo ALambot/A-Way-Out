@@ -37,7 +37,8 @@
         android:text="Retour au jeu"
         android:textAllCaps="false"
         android:fontFamily="@font/precious"
-        android:textColor="#72583f"/>
+        android:backgroundTint="#daa53b"
+        android:textColor="#3b2e21"/>
 
 
 </LinearLayout>

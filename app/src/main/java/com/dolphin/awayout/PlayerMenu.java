@@ -109,6 +109,44 @@ public class PlayerMenu extends AppCompatActivity {
     }
 
 
+    public void exitPopup(final Activity context){
+        LinearLayout viewGroup=(LinearLayout) context.findViewById(R.id.popup_QR);
+        LayoutInflater layoutInflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout=layoutInflater.inflate(R.layout.popup_exit, viewGroup);
+
+        final PopupWindow popup=new PopupWindow(context);
+        popup.setContentView(layout);
+        popup.setFocusable(true);
+
+        popup.showAtLocation(layout, Gravity.CENTER,0,0);
+        Button no = (Button) layout.findViewById(R.id.exitPopUpNo);
+        Button yes = (Button) layout.findViewById(R.id.exitPopUpYes);
+
+        no.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+        yes.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlayerMenu.this, Menu.class);
+                startActivity(intent);
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        exitPopup(PlayerMenu.this);
+    }
+
+
    public void timerLoop(){
 
         Runnable Loop = new Runnable(){
