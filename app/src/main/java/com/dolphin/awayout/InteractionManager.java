@@ -30,6 +30,7 @@ public class InteractionManager {
         // Ajouter les Interactions a la main pour le moment
 
         addQR("Anneau unique", new Interaction("PENALITE", "30")); //pas touche
+        addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
 
         addQR("clé", new Interaction("ADD_GOB", "cle"));
         addQR("miroir", new Interaction("ADD_GOB", "miroir"));
@@ -141,7 +142,7 @@ public class InteractionManager {
 
     public class Interaction {
 
-        public final String action; // ADD_GOB REMOVE_GOB LOCK_ENIGME UNLOCK_ENIGME HIDE_ENIGME SHOW_ENIGME GAMEOVER WIN PENALITE
+        public final String action; // ADD_GOB REMOVE_GOB SOLVE_ENIGME HIDE_ENIGME SHOW_ENIGME GAMEOVER WIN PENALITE
         public final String arg;
 
         public Interaction nextInteraction;
@@ -166,17 +167,14 @@ public class InteractionManager {
             else if(this.action.equals("REMOVE_GOB")){
                 GameState.getGameState().getObjectByName(this.arg).deactivate();
             }
-            else if(this.action.equals("LOCK_ENIGME")){
-                // ...
-            }
-            else if(this.action.equals("UNLOCK_ENIGME")){
-                // ...
+            else if(this.action.equals("SOLVE_ENIGME")){
+                GameState.getGameState().getEnigmeByTitle(this.arg).solve();
             }
             else if(this.action.equals("HIDE_ENIGME")){
-                // ...
+                GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(false);
             }
             else if(this.action.equals("SHOW_ENIGME")){
-                // ...
+                GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(true);
             }
             else if(this.action.equals("GAMEOVER")){
                 // TODO

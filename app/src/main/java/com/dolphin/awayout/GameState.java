@@ -1,6 +1,8 @@
 package com.dolphin.awayout;
 
 import android.content.Context;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -26,7 +28,7 @@ public class GameState {
     // EscapeRoom
     private InteractionManager interactions;
     private HashMap<String,GameObject> gobs;
-    private ArrayList<EnigmeObject> enigmeObjectArrayList;
+    private HashMap<String,EnigmeObject> enigmes;
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
@@ -60,17 +62,15 @@ public class GameState {
         addGob(new GameObject("feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
         addGob(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
 
-        //gobs.get("cle").activate();
+        this.enigmes = new HashMap<String, EnigmeObject>();
 
-        ArrayList<EnigmeObject> enigmeList = new ArrayList<>();
         /*String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prince des dauphins ? ", reponses, "Nico")));
         String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
         enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));*/
         //enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
-        enigmeList.add((new EnigmeObject("Armoire mystérieuse",3,"ULPQXTOD")));
-        enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
-        this.enigmeObjectArrayList = enigmeList;
+        addEnigme((new EnigmeObject("Armoire mystérieuse",3,"ULPQXTOD")));
+        addEnigme((new EnigmeObject("cypherRoll",2,"Victoria")));
 
         this.interactions = new InteractionManager();
         interactions.init();
@@ -78,6 +78,9 @@ public class GameState {
 
     private void addGob(GameObject gob){
         this.gobs.put(gob.getName(),gob);
+    }
+    private void addEnigme(EnigmeObject e){
+        this.enigmes.put(e.getTitle(),e);
     }
 
     // GETTERS ----------
@@ -104,7 +107,18 @@ public class GameState {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
-        return this.enigmeObjectArrayList;
+        ArrayList<EnigmeObject> ret = new ArrayList<EnigmeObject>();
+        for(EnigmeObject e : this.enigmes.values()){
+            Log.d("KEKE",e.getTitle()+" "+e.isHidden());
+            if(!e.isHidden()){
+                ret.add(e);
+            }
+        }
+        return ret;
+    }
+
+    public EnigmeObject getEnigmeByTitle(String title){
+        return this.enigmes.get(title);
     }
 
     public GameObject getObjectByName(String name){
@@ -118,13 +132,12 @@ public class GameState {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
-        ArrayList<GameObject> activeGobs = new ArrayList<>();
+        ArrayList<GameObject> activeGobs = new ArrayList<GameObject>();
         for(GameObject gob : this.gobs.values()){
             if(gob.isActive()){
                 activeGobs.add(gob);
             }
         }
-
         return new InventoryAdapt(this.ctx, activeGobs);
     }
 
