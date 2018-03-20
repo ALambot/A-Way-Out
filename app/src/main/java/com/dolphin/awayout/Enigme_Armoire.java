@@ -62,7 +62,8 @@ public class Enigme_Armoire extends AppCompatActivity {
 
     public void onButtonLClick(View vieuw){
         Button p=(Button) vieuw;
-        p.setBackgroundColor(Color.parseColor("#E6E6FA"));
+        //p.setBackgroundColor(Color.parseColor("#E6E6FA"));
+        p.setTextColor(Color.parseColor("#E6E6FA"));
         code=code+p.getText().toString();
         if( code.length()==reponse.length()){
             codeWritten();
