@@ -35,4 +35,12 @@
         <item name="android:fontFamily">@font/precious</item>
     </style>
 
+<!--
+    <style name="MyAppTheme.Armoire" parent="@android:style/Widget.Button">
+        <item name="buttonStyle">@style/ArmoireButton</item>
+    </style>
+    <style name="ArmoireButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    -->
 </resources>

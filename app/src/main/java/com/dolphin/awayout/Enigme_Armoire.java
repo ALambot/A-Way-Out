@@ -31,6 +31,7 @@ public class Enigme_Armoire extends AppCompatActivity {
     private Button buttonL;
     private Button buttonP;
     private Button buttonU;
+    private Button buttonR;
     private ListView inventaire;
     private InventoryListView inventair;
     private String code="";
@@ -74,6 +75,8 @@ public class Enigme_Armoire extends AppCompatActivity {
         boutons.add(buttonP);
         buttonU=findViewById(R.id.buttonU);
         boutons.add(buttonU);
+        buttonR=findViewById(R.id.buttonR);
+        boutons.add(buttonR);
 
 
         inventaire=findViewById(R.id.listView_enigme_armoir);

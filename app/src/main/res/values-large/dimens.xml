@@ -3,6 +3,8 @@
     <!-- image verticale-->
     <dimen name="imgverticaleheight">350dp</dimen>
     <dimen name="imgverticalewidth">300dp</dimen>
+    <dimen name="height_one_letter">65dp</dimen>
+    <dimen name="widht_one_letter">80dp</dimen>
     <!-- image horizontale-->
     <dimen name="imgheight">250dp</dimen>
     <dimen name="imgwidth">300dp</dimen>
