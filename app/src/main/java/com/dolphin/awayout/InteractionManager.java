@@ -2,6 +2,8 @@ package com.dolphin.awayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import android.content.Intent;
 import android.util.Log;
 
 /**
@@ -28,6 +30,7 @@ public class InteractionManager {
         // Ajouter les Interactions a la main pour le moment
 
         addQR("Anneau unique", new Interaction("PENALITE", "30")); //pas touche
+        addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
 
         addQR("clé", new Interaction("ADD_GOB", "cle"));
         addQR("miroir", new Interaction("ADD_GOB", "miroir"));
@@ -52,6 +55,8 @@ public class InteractionManager {
         addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
 
         addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
+
+        addTimeOut(new Interaction("launch activity", "loose_screen.class"));
 
     }
 
@@ -137,7 +142,7 @@ public class InteractionManager {
 
     public class Interaction {
 
-        public final String action; // ADD_GOB REMOVE_GOB LOCK_ENIGME UNLOCK_ENIGME HIDE_ENIGME SHOW_ENIGME GAMEOVER WIN PENALITE
+        public final String action; // ADD_GOB REMOVE_GOB SOLVE_ENIGME HIDE_ENIGME SHOW_ENIGME GAMEOVER WIN PENALITE
         public final String arg;
 
         public Interaction nextInteraction;
@@ -155,23 +160,21 @@ public class InteractionManager {
         }
 
         public void run(){
+
             if(this.action.equals("ADD_GOB")){
                 GameState.getGameState().getObjectByName(this.arg).activate();
             }
             else if(this.action.equals("REMOVE_GOB")){
                 GameState.getGameState().getObjectByName(this.arg).deactivate();
             }
-            else if(this.action.equals("LOCK_ENIGME")){
-                // ...
-            }
-            else if(this.action.equals("UNLOCK_ENIGME")){
-                // ...
+            else if(this.action.equals("SOLVE_ENIGME")){
+                GameState.getGameState().getEnigmeByTitle(this.arg).solve();
             }
             else if(this.action.equals("HIDE_ENIGME")){
-                // ...
+                GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(false);
             }
             else if(this.action.equals("SHOW_ENIGME")){
-                // ...
+                GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(true);
             }
             else if(this.action.equals("GAMEOVER")){
                 // TODO
@@ -182,6 +185,11 @@ public class InteractionManager {
             else if(this.action.equals("PENALITE")){
                 int penne = Integer.parseInt(this.arg);
                 GameState.getGameState().penalize(penne);
+            }
+            else if(this.action.equals("launch activity")){
+                Intent intent=new Intent(GameState.getGameState().ctx, loose_screen.class);
+                GameState.getGameState().ctx.startActivity(intent);
+
             }
 
             if(this.nextInteraction != null){
