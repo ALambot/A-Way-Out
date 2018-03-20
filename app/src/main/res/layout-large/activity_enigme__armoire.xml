@@ -8,12 +8,10 @@
     tools:context="com.dolphin.awayout.Enigme_Armoire">
 
 
-
-
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="334dp"
-        android:layout_height="551dp"
+        android:layout_width="529dp"
+        android:layout_height="873dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +36,7 @@
         android:id="@+id/buttonT"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="72dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="T"
@@ -50,7 +48,7 @@
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
 
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="128dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="O"
@@ -62,8 +60,8 @@
         android:id="@+id/buttonX"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginBottom="112dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginBottom="172dp"
+        android:layout_marginStart="84dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="M"
@@ -74,7 +72,7 @@
         android:id="@+id/buttonH"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="28dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="S"
@@ -86,7 +84,7 @@
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
 
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="56dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="L"
@@ -129,11 +127,10 @@
         android:id="@+id/buttonD"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginBottom="40dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="D"
-        app:layout_constraintBottom_toTopOf="@+id/buttonU"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonT"
         app:layout_constraintStart_toStartOf="@+id/buttonA" />
 
     <Button
@@ -141,11 +138,10 @@
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
 
-        android:layout_marginBottom="32dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="U"
-        app:layout_constraintBottom_toTopOf="@+id/buttonA"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonO"
         app:layout_constraintStart_toStartOf="@+id/buttonA" />
 
 
@@ -153,19 +149,18 @@
         android:id="@+id/buttonA"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginBottom="112dp"
         android:layout_marginStart="52dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="A"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonX"
         app:layout_constraintStart_toEndOf="@+id/buttonH" />
 
     <Button
         android:id="@+id/buttonB"
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="32dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="B"
@@ -177,11 +172,10 @@
         android:layout_width="@dimen/height_one_letter"
         android:layout_height="@dimen/widht_one_letter"
 
-        android:layout_marginBottom="28dp"
         android:background="@android:color/transparent"
         android:onClick="onButtonLClick"
         android:text="F"
-        app:layout_constraintBottom_toTopOf="@+id/buttonD"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonL"
         app:layout_constraintStart_toStartOf="@+id/buttonA" />
 
     <Button
@@ -206,18 +200,15 @@
         app:layout_constraintEnd_toEndOf="@+id/buttonB" />
 
 
-
-
     <ListView
         android:id="@+id/listView_enigme_armoir"
-        android:layout_width="48dp"
-        android:layout_height="563dp"
+        android:layout_width="69dp"
+        android:layout_height="875dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintVertical_bias="0.025" />
 
 
 </android.support.constraint.ConstraintLayout>
