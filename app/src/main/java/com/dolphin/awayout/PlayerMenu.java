@@ -66,8 +66,8 @@ public class PlayerMenu extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         IntentResult result=IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
         if(result !=null){
-            if(result.getContents()==null){
-                Toast.makeText(this, "QR code illisible", Toast.LENGTH_LONG).show();
+            if(result.getContents()==null || !GameState.getGameState().getInteractions().isValidQR(result.getContents())){
+                Toast.makeText(this, "Veuillez scanner un QR code de la partie en cours", Toast.LENGTH_LONG).show();
             }
             else{
                 //qr has data

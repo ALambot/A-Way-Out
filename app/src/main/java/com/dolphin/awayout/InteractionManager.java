@@ -148,6 +148,10 @@ public class InteractionManager {
         }
     }
 
+    public boolean isValidQR(String result){
+        return (qr.get(result) != null);
+    }
+
     public void timeOut(){
         if(this.timeOut != null){
             this.timeOut.run();
