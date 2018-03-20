@@ -1,5 +1,6 @@
 package com.dolphin.awayout;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.util.Log;
 import android.widget.ImageView;
@@ -35,8 +36,16 @@ public class InventoryMenuDescription extends InventoryObserver {
             if (checkCollision(x, y, object.getImage())) {
 
 
-                GameState.getGameState().getInteractions().combine(object, GameState.getGameState().getObjectByName(title.getText().toString()));   // TO DO trouver l'objet 2 (title)
-                //TEST INTERACTION
+                GameState.getGameState().getInteractions().combine(object, GameState.getGameState().getObjectByName(title.getText().toString()));
+
+
+
+
+                InventoryMenu.onUpdate();
+
+
+                // TO DO trouver l'objet 2 (title)
+                //EST INTERACTION
                 /*if(object.getName().equals("Bonne clé") && title.getText().equals("Coffre")) {
                     //GameState.getGameState().getInteractions().doInteractionTEST();
 
