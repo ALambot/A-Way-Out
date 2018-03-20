@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by antoine on 22.02.18.
@@ -38,6 +39,7 @@ public class InteractionManager {
         addQR("bol vide", new Interaction("ADD_GOB", "bol"));
         addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
         addQR("armoire", new Interaction("ADD_GOB", "armoire"));
+        addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mystérieuse"));
         addQR("clou", new Interaction("ADD_GOB", "clou"));
         addQR("statue", new Interaction("ADD_GOB", "statue"));
 
@@ -115,7 +117,13 @@ public class InteractionManager {
     }
 
     public void combine(GameObject obj1, GameObject obj2){
-        combiTable[obj1.getID()][obj2.getID()].run();
+        Interaction inter=combiTable[obj1.getID()][obj2.getID()];
+         if (inter != null) {
+             inter.run();
+         }
+         else{
+             Toast.makeText(GameState.getGameState().ctx, "Rien ne se passe", Toast.LENGTH_SHORT).show();
+         }
     }
 
     public void enigmeSuccess(String enigme){
