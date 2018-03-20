@@ -117,8 +117,10 @@ public class InteractionManager {
 
     // ACTIONS -----
 
-    public void start(){
-        this.start.run();
+    public void start() {
+        if(this.start != null){
+            this.start.run();
+        }
     }
 
     public void combine(GameObject obj1, GameObject obj2){
