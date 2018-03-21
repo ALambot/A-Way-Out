@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.Button;
 
 public class fin_niveau extends AppCompatActivity {
-    private Button retourChoixNiveau;
+    private Button retourMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fin_niveau);
-        retourChoixNiveau=findViewById(R.id.retour_choix_niveau);
+        retourMenu=findViewById(R.id.retour_menu);
     }
     public void onButtonChoixNiveauClick(View view){
-        Intent intent=new Intent(this, Level_choice.class);
+        Intent intent=new Intent(this, Menu.class);
         startActivity(intent);
     }
 

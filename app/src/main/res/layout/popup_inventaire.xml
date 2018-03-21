@@ -69,7 +69,8 @@
         android:textAllCaps="false"
         android:textSize="15sp"
         android:fontFamily="@font/precious"
-        android:textColor="#72583f"/>
+        android:backgroundTint="#daa53b"
+        android:textColor="#3b2e21"/>
 
 
 </LinearLayout>

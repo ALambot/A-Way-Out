@@ -51,7 +51,10 @@ public class InteractionManager {
         // COMBI
         addCombi("vase","bol", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
 
-        addCombi("boule transparente", "statue", new Interaction("UNLOCK_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
+        //addCombi("boule transparente", "statue", new Interaction("UNLOCK_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
+        addCombi("boule transparente", "statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
+        addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "boule transparente"));
+        addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "statue"));
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("miroir","medusa", new Interaction("ADD_GOB", "feuille"));//miroir+medusa=code TODO

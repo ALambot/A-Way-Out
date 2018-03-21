@@ -18,7 +18,7 @@ public class LooseScreen extends AppCompatActivity {
     }
 
     protected void onClickRetour(View view){
-        Intent intent=new Intent(this, Level_choice.class);
+        Intent intent=new Intent(this, Menu.class);
         startActivity(intent);
     }
     @Override

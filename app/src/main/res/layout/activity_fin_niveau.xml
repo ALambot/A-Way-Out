@@ -38,15 +38,15 @@
         app:layout_constraintTop_toBottomOf="@+id/titre_fin_de_niveau" />
 
     <Button
-        android:id="@+id/retour_choix_niveau"
+        android:id="@+id/retour_menu"
         android:layout_width="wrap_content"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="onButtonChoixNiveauClick"
-        android:text="Choix du niveau"
+        android:text="Terminer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
