@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class loose_screen extends AppCompatActivity {
+public class LooseScreen extends AppCompatActivity {
     private Button retour_choix_niveau;
 
     @Override

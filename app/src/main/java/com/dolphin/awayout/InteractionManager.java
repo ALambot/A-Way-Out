@@ -1,10 +1,8 @@
 package com.dolphin.awayout;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Intent;
-import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -52,14 +50,20 @@ public class InteractionManager {
 
         // COMBI
         addCombi("vase","bol", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
-        addCombi("boule transparente", "statue", new Interaction("UNLOCK_ENIGME", "?"));  // boule+statue= cypherKey TODO
+
+        addCombi("boule transparente", "statue", new Interaction("UNLOCK_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
-        addCombi("miroir","medusa", new Interaction("ADD_GOB", "14"));//miroir+medusa=code TODO
+        addCombi("miroir","medusa", new Interaction("ADD_GOB", "feuille"));//miroir+medusa=code TODO
+        addCombi("medusa","miroir", new Interaction("ADD_GOB", "feuille"));
+        addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "miroir"));
+        addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "medusa"));
+
         addCombi("vase","bol", new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
         addCombi("vase","bol", new Interaction("REMOVE_GOB", "bol")); //vase+bol =boule transparente
         addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
+
 
         // ENIGME WIN
         addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
@@ -68,7 +72,7 @@ public class InteractionManager {
         // ENIGME LOSE
         addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
 
-        addTimeOut(new Interaction("launch activity", "loose_screen.class"));
+        addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
 
     }
 
@@ -200,14 +204,14 @@ public class InteractionManager {
                 // TODO
             }
             else if(this.action.equals("WIN")){
-                // TODO
+                //TODO
             }
             else if(this.action.equals("PENALITE")){
                 int penne = Integer.parseInt(this.arg);
                 GameState.getGameState().penalize(penne);
             }
             else if(this.action.equals("launch activity")){
-                Intent intent=new Intent(GameState.getGameState().ctx, loose_screen.class);
+                Intent intent=new Intent(GameState.getGameState().ctx, LooseScreen.class);
                 GameState.getGameState().ctx.startActivity(intent);
 
             }

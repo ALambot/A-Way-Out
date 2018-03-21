@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PlayerMenu"
-            android:screenOrientation="portrait"/>
+        android:screenOrientation="portrait"/>
         <activity android:name=".InventoryMenu"
             android:screenOrientation="portrait"/>
         <activity android:name=".EnigmeList"
@@ -31,12 +31,14 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".LevelStart"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Enigme_Armoire"
+        <activity android:name=".EnigmeArmoire"
             android:screenOrientation="portrait"/>
         <activity android:name=".fin_niveau"
             android:screenOrientation="portrait"/>
-        <activity android:name=".loose_screen"
+        <activity android:name=".LooseScreen"
             android:screenOrientation="portrait"/>
+
+
     </application>
 
 </manifest>

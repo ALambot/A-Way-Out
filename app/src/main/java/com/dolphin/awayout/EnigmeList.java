@@ -2,7 +2,6 @@ package com.dolphin.awayout;
 
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,9 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -71,7 +67,7 @@ public class EnigmeList extends AppCompatActivity{
                                 startActivity(intent);
                                 break;
                             case 3:
-                                intent=new Intent(EnigmeList.this, Enigme_Armoire.class);
+                                intent=new Intent(EnigmeList.this, EnigmeArmoire.class);
                                 startActivity(intent);
                         }
                     }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Enigme_Armoire extends AppCompatActivity {
+public class EnigmeArmoire extends AppCompatActivity {
 
     private Button buttonA;
     private Button buttonB;
@@ -83,7 +83,7 @@ public class Enigme_Armoire extends AppCompatActivity {
 
         inventoryAdapt = GameState.getGameState().getInventoryAdapt();
 
-        inventair=new InventoryListView(Enigme_Armoire.this,inventaire,inventoryAdapt, true);
+        inventair=new InventoryListView(EnigmeArmoire.this,inventaire,inventoryAdapt, true);
     }
 
 
