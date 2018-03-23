@@ -15,8 +15,8 @@
     <dimen name="imgmenuheight">157dp</dimen>
     <dimen name="imgmenuwidth">128dp</dimen>
     <!-- text -->
-    <dimen name="textsize">18sp</dimen>
+    <dimen name="textsize">16sp</dimen>
     <dimen name="buttontesxtsize">26sp</dimen>
     <dimen name="bigtitlesize">45sp</dimen>
-    <dimen name="smalltitlesize">35sp</dimen>
+    <dimen name="smalltitlesize">30sp</dimen>
 </resources>

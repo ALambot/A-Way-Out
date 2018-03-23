@@ -32,7 +32,6 @@
         android:layout_marginRight="6dp"
         android:layout_marginLeft="6dp"
         android:layout_marginTop="0dp"
-        android:fontFamily="@font/victorian"
         android:textColor="#daa53b"
         android:layout_gravity="center"
         android:padding="10dp"
@@ -43,7 +42,6 @@
             android:id="@+id/textDescriptionInPopUp_inventaire"
             android:layout_width="150dp"
             android:layout_gravity="center"
-            android:fontFamily="@font/victorian"
             android:textColor="#daa53b"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -67,8 +65,6 @@
         android:layout_height="wrap_content"
         android:text="Retour au jeu"
         android:textAllCaps="false"
-        android:textSize="15sp"
-        android:fontFamily="@font/precious"
         android:backgroundTint="#daa53b"
         android:textColor="#3b2e21"/>
 

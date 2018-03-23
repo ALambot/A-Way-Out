@@ -15,7 +15,7 @@
         android:layout_marginTop="68dp"
         android:gravity="center"
         android:text="Perdu ! "
-        android:textSize="@dimen/smalltitlesize"
+        android:theme="@style/MyAppTheme.TitleStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
