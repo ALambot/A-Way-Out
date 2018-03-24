@@ -1,6 +1,7 @@
 package com.dolphin.awayout;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -89,15 +90,22 @@ public class EnigmeArmoire extends AppCompatActivity {
 
     public void onButtonLClick(View vieuw){
         final Button p=(Button) vieuw;
-
-        p.setTextColor(Color.parseColor("#E6E6FA"));
-        code=code+p.getText().toString();
-        if( code.length()==reponse.length()){
-            codeWritten();
+        //empecher de pouvoir reappuier sur le bouton
+        if(! p.getTextColors().equals(ColorStateList.valueOf(Color.parseColor("#E6E6FA")))) {   //empechement  a l'aide des couleur -> a ameliorer
+            p.setTextColor(Color.parseColor("#E6E6FA"));
+            code = code + p.getText().toString();
+            if (code.length() == reponse.length()) {
+                codeWritten();
+            }
         }
 
 
 
+    }
+
+    public void onButtonResetClick(View vieuw){
+        code="";
+        setButtonsColorBack();
     }
 
     public void setButtonsColorBack(){
