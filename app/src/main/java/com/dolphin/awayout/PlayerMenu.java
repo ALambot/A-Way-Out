@@ -73,7 +73,7 @@ public class PlayerMenu extends AppCompatActivity {
                 //qr has data
                 InteractionManager im = GameState.getGameState().getInteractions();
                 im.QRresult(result.getContents());
-                showPopup(PlayerMenu.this, result.getContents());
+                showPopup(PlayerMenu.this, result.getContents()); //TODO
             }
 
         } else {

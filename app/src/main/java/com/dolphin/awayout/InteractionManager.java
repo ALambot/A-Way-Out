@@ -33,6 +33,15 @@ public class InteractionManager {
         // DEBUG - pas touche
         addQR("Anneau unique", new Interaction("PENALITE", "30"));
         addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "cle"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "bol"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "tiroir"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "armoire"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "clou"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "statue"));
+        addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Armoire mysterieuse"));
 
         // Interactions lancees au debut
         //addStart(new Interaction("ADD_GOB","cle"));
