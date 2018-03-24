@@ -17,7 +17,6 @@
 
     <TextView
         android:id="@+id/textQR"
-        android:fontFamily="@font/victorian"
         android:textColor="#daa53b"
         android:layout_marginTop="5dp"
         android:textSize="35sp"

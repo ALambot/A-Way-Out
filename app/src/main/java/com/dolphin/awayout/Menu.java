@@ -22,4 +22,8 @@ public class Menu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

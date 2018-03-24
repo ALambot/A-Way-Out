@@ -44,11 +44,11 @@ public class cypherRoll_enigme extends AppCompatActivity {
 
     public void onButtonGaucheClick(View vieuw){
 
-        insideCypher.setRotation(insideCypher.getRotation() - 5);
+        insideCypher.setRotation(insideCypher.getRotation() - 15);
     }
     public void onButtonDroiteClick(View vieuw){
 
-        insideCypher.setRotation(insideCypher.getRotation() + 5);
+        insideCypher.setRotation(insideCypher.getRotation() + 15);
     }
 
 

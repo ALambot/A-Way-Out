@@ -19,13 +19,13 @@
         <item name="android:textAllCaps">false</item>
         <item name="buttonStyle">@style/MyAppThemebutton</item>
         <item name="android:textSize">@dimen/textsize</item>
+        <item name="android:fadeScrollbars">false</item>
     </style>
 
     <style name="MyAppThemebutton" parent="@android:style/Widget.Button">
         <item name="android:backgroundTint">#66451c</item>
         <item name="android:textColor">#efd9be</item>
         <item name="android:textSize">@dimen/buttontesxtsize</item>
-        <item name="android:fontFamily">@font/victorian</item>
     </style>
 
     <style name="MyAppTheme.animation" parent="@android:style/Animation.Toast">
