@@ -13,10 +13,11 @@ public class GameObject {
     private ImageView img;
     private boolean visible;
     private boolean active;
+    private boolean found;
 
     public GameObject(String name, String description, int imageRef) {
         this.ID = GameState.getGameState().getNextID();
-
+        this.found=false;
         this.name = name;
         this.description = description;
         this.idImage = imageRef;
@@ -58,9 +59,13 @@ public class GameObject {
         this.img = image;
     }
 
+    public void setFound(){this.found=true;}
+
     public boolean isVisible() {
         return visible;
     }
+
+    public boolean isFound(){return this.found;}
 
     public void setVisible(boolean visible) {
         if(visible) show();
