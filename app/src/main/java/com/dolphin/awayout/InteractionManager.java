@@ -1,5 +1,6 @@
 package com.dolphin.awayout;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Intent;
@@ -85,6 +86,7 @@ public class InteractionManager {
         addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
 
         addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
+        addTimeOut(new Interaction("GAMEOVER",null));
 
     }
 
@@ -133,19 +135,22 @@ public class InteractionManager {
 
     // ACTIONS -----
 
-    public void start() {
+    public Interaction start() {
         if(this.start != null){
             this.start.run();
         }
+        return this.start;
     }
 
-    public void combine(GameObject obj1, GameObject obj2){
+    public Interaction combine(GameObject obj1, GameObject obj2){
         Interaction inter=combiTable[obj1.getID()][obj2.getID()];
          if (inter != null) {
              inter.run();
+             return inter;
          }
          else{
              Toast.makeText(GameState.getGameState().ctx, "Rien ne se passe", Toast.LENGTH_SHORT).show();
+             return null;
          }
     }
 
@@ -157,11 +162,12 @@ public class InteractionManager {
         enigmeLOSE.get(enigme).run();
     }
 
-    public void QRresult(String result){
+    public Interaction QRresult(String result){
         Interaction ir = qr.get(result);
         if(ir != null){
             ir.run();
         }
+        return ir;
     }
 
     public boolean isValidQR(String result){
@@ -213,10 +219,10 @@ public class InteractionManager {
                 GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(true);
             }
             else if(this.action.equals("GAMEOVER")){
-                // TODO
+                GameState.getGameState().finishTimer();
             }
             else if(this.action.equals("WIN")){
-                //TODO
+                GameState.getGameState().finishTimer();
             }
             else if(this.action.equals("PENALITE")){
                 int penne = Integer.parseInt(this.arg);
@@ -225,7 +231,6 @@ public class InteractionManager {
             else if(this.action.equals("launch activity")){
                 Intent intent=new Intent(GameState.getGameState().ctx, LooseScreen.class);
                 GameState.getGameState().ctx.startActivity(intent);
-
             }
 
             if(this.nextInteraction != null){

@@ -104,8 +104,6 @@ public class PlayerMenu extends AppCompatActivity {
                 popup.dismiss();
             }
         });
-
-
     }
 
 
