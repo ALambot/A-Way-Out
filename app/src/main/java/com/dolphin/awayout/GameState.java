@@ -60,10 +60,10 @@ public class GameState {
         addGob(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
         addGob(new GameObject("miroir", "Un ancien mirroir posé sur la cheminée", R.drawable.mirror));
         addGob(new GameObject("vase", "Une vase avec des fleures fraiches", R.drawable.vase));
-        addGob(new GameObject("bol", "Un ancien pot de chambre", R.drawable.chamber_pot));
+        addGob(new GameObject("bol vide", "Un ancien pot de chambre", R.drawable.chamber_pot));
         addGob(new GameObject("clou", "Un clou rouillé", R.drawable.nail));
         addGob(new GameObject("statue", "Une délicate statue posée sur le bureau", R.drawable.statue));
-        addGob(new GameObject("cypherDisr", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.outside_cypher_roll));
+        addGob(new GameObject("cypherDisc", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.outside_cypher_roll));
         addGob(new GameObject("medusa", "Un papier d'une représentation de la Méduse", R.drawable.medusa_paper));
         addGob(new GameObject("victoria","Une photo de la reine Victoria", R.drawable.victoria));
         addGob(new GameObject("armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.chest_demo));

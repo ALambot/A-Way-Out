@@ -72,8 +72,8 @@ public class PlayerMenu extends AppCompatActivity {
             else{
                 //qr has data
                 InteractionManager im = GameState.getGameState().getInteractions();
-                im.QRresult(result.getContents());
-                showPopup(PlayerMenu.this, result.getContents()); //TODO
+                boolean found=im.QRresult(result.getContents());
+                showPopup(PlayerMenu.this, result.getContents(), found); //TODO
             }
 
         } else {
@@ -81,7 +81,7 @@ public class PlayerMenu extends AppCompatActivity {
         }
     }
 
-    public void showPopup(final Activity context, String object){
+    public void showPopup(final Activity context, String object, boolean found){
         LinearLayout viewGroup=(LinearLayout) context.findViewById(R.id.popup_QR);
         LayoutInflater layoutInflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout=layoutInflater.inflate(R.layout.popup_postqr, viewGroup);
@@ -93,10 +93,17 @@ public class PlayerMenu extends AppCompatActivity {
         popup.showAtLocation(layout, Gravity.CENTER,0,0);
         Button close = (Button) layout.findViewById(R.id.closePopUp);
         TextView title=layout.findViewById(R.id.textViewQRTitle);
-        title.setText("Bien joué !");
-
         TextView textinPopUp=layout.findViewById(R.id.textQR);
-        textinPopUp.setText("Vous avez trouvé l'objet " +object);
+        if (found) {
+            title.setText("Bien joué !");
+
+
+            textinPopUp.setText("Vous avez trouvé l'objet " + object);
+        }
+        else {
+            title.setText("Attention");
+            textinPopUp.setText("Vous avez déja trouvé l'object "+object);
+        }
         close.setOnClickListener(new View.OnClickListener() {
 
             @Override

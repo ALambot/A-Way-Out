@@ -51,7 +51,7 @@ public class InteractionManager {
         addQR("clé", new Interaction("ADD_GOB", "cle"));
         addQR("miroir", new Interaction("ADD_GOB", "miroir"));
         addQR("vase", new Interaction("ADD_GOB", "vase"));
-        addQR("bol vide", new Interaction("ADD_GOB", "bol"));
+        addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
         addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
         addQR("armoire", new Interaction("ADD_GOB", "armoire"));
         addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
@@ -59,12 +59,10 @@ public class InteractionManager {
         addQR("statue", new Interaction("ADD_GOB", "statue"));
 
         // COMBI
-        addCombi("vase","bol", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
-
-        //addCombi("boule transparente", "statue", new Interaction("UNLOCK_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
+        addCombi("vase","bol vide", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
         addCombi("boule transparente", "statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
-        addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "boule transparente"));
         addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "statue"));
+        addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "boule transparente"));
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("miroir","medusa", new Interaction("ADD_GOB", "feuille"));//miroir+medusa=code TODO
@@ -72,8 +70,8 @@ public class InteractionManager {
         addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "miroir"));
         addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "medusa"));
 
-        addCombi("vase","bol", new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
-        addCombi("vase","bol", new Interaction("REMOVE_GOB", "bol")); //vase+bol =boule transparente
+        addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
+        addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "bol vide")); //vase+bol =boule transparente
         addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
 
@@ -162,12 +160,19 @@ public class InteractionManager {
         enigmeLOSE.get(enigme).run();
     }
 
-    public Interaction QRresult(String result){
+    public boolean QRresult(String result){
         Interaction ir = qr.get(result);
-        if(ir != null){
-            ir.run();
+
+        if (!GameState.getGameState().getObjectByName(result).isFound()) {
+            if (ir != null) {
+                GameState.getGameState().getObjectByName(result).setFound();
+                ir.run();
+            }
+            return true;
         }
-        return ir;
+        else{
+            return false;
+        }
     }
 
     public boolean isValidQR(String result){
@@ -217,6 +222,9 @@ public class InteractionManager {
             }
             else if(this.action.equals("SHOW_ENIGME")){
                 GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(true);
+                Toast.makeText(GameState.getGameState().ctx, "Vous avez débloqué une énigme !", Toast.LENGTH_SHORT).show();
+
+
             }
             else if(this.action.equals("GAMEOVER")){
                 GameState.getGameState().finishTimer();
@@ -231,6 +239,7 @@ public class InteractionManager {
             else if(this.action.equals("launch activity")){
                 Intent intent=new Intent(GameState.getGameState().ctx, LooseScreen.class);
                 GameState.getGameState().ctx.startActivity(intent);
+
             }
 
             if(this.nextInteraction != null){
