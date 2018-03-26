@@ -31,24 +31,18 @@
         android:layout_height="150dp"
         android:layout_marginRight="6dp"
         android:layout_marginLeft="6dp"
-        android:layout_marginTop="0dp"
         android:textColor="#daa53b"
         android:layout_gravity="center"
-        android:padding="10dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewPop_up_Inventaire">
 
         <TextView
             android:id="@+id/textDescriptionInPopUp_inventaire"
             android:layout_width="150dp"
-            android:layout_gravity="center"
-            android:textColor="#daa53b"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="4dp"
+            android:textColor="#daa53b"
             android:text="@string/description"
-            android:layout_marginTop="0dp"
-
+            android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/closePopUpInventaire"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewPop_up_Inventaire"
@@ -59,7 +53,7 @@
 
     <Button
         android:id="@+id/closePopUpInventaire"
-        android:layout_marginTop="10dp"
+        android:layout_margin="12dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

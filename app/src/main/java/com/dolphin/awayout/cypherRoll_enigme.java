@@ -23,7 +23,7 @@ public class cypherRoll_enigme extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cypher_roll_enigme);
+        setContentView(R.layout.content_cypher_roll_enigme);
 
 
 

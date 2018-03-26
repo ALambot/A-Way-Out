@@ -41,7 +41,12 @@ public class GameState {
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
-        //Optionnal
+
+    }
+
+    public static synchronized  void relaunch() {
+        gameState = null;
+        gameState = new GameState();
     }
 
     public static synchronized GameState getGameState() { // Do not touch
