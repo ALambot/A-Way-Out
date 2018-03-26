@@ -128,6 +128,19 @@ public class GameState {
         return ret;
     }
 
+    public ArrayList<Object> getEnigmeList2(){   //renvoie une liste d'objets
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        ArrayList<Object> ret = new ArrayList<Object>();
+        for(EnigmeObject e : this.enigmes.values()){
+            if(!e.isHidden()){
+                ret.add(e);
+            }
+        }
+        return ret;
+    }
+
     public InventoryAdapt getInventoryAdapt() throws GameStateNotInitializedException {
         if(initialized == false){
             throw new GameStateNotInitializedException();
