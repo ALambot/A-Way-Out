@@ -44,7 +44,6 @@ public class InteractionManager {
         addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
         addQR("Roll", new Interaction("ADD_GOB", "le small one"));
         addQR("Roll", new Interaction("ADD_GOB", "le big one"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "cle"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "bol vide"));
@@ -71,6 +70,7 @@ public class InteractionManager {
         addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
         addQR("clou", new Interaction("ADD_GOB", "clou"));
         addQR("statue", new Interaction("ADD_GOB", "statue"));
+        GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
 
         // COMBI
         addCombi("vase","bol vide", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
@@ -184,6 +184,7 @@ public class InteractionManager {
         if (gob != null && !gob.isFound()) {
             if (ir != null) {
                 GameState.getGameState().getObjectByName(result).setFound();
+                GameState.getGameState().remainingQR--; // TODO TEMPORARY
                 ir.run();
             }
             return true;

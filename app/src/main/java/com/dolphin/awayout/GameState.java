@@ -30,6 +30,10 @@ public class GameState {
     // Gob ID
     private int nextID;
 
+    // Hints
+    private ArrayList<Hint> hints;
+    public int remainingQR;
+
     // EscapeRoom
     private InteractionManager interactions;
     private HashMap<String,GameObject> gobs;
@@ -56,9 +60,8 @@ public class GameState {
         this.gameDuration = 900;
         this.penalite = 0;
 
-        nextID = 0; //pas touche
-
-
+        this.nextID = 0; //pas touche
+        this.remainingQR = 0;
 
         this.gobs = new HashMap<String, GameObject>();
 
@@ -80,10 +83,17 @@ public class GameState {
         addGob(new GameObject("le small one", "put me in le big one", R.drawable.inside_cypher_roll));
         addGob(new GameObject("le big one", "no touchy me", R.drawable.outside_cypher_roll));
 
+
         this.enigmes = new HashMap<String, EnigmeObject>();
 
         addEnigme((new EnigmeObject("Armoire mysterieuse",3,"ULPQXTOD")));
         addEnigme((new EnigmeObject("cypherRoll",2,"Victoria")));
+
+
+        this.hints = new ArrayList<Hint>();
+
+        this.hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
+        this.hints.add(new Hint("Vazy vide l'eau du vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
 
         this.interactions = new InteractionManager();
         this.interactions.init();
@@ -102,6 +112,21 @@ public class GameState {
 
     public int getNextID(){
         return this.nextID++;
+    }
+
+    public String getRandomHint(){
+        ArrayList<Hint> valid = new ArrayList<Hint>();
+        for(Hint h : this.hints){
+            if(h.valid()){
+                valid.add(h);
+            }
+        }
+        if(valid.size()>0){
+            return valid.get((int) Math.ceil(Math.random()*valid.size())).getText();
+        }
+        else{
+            return null;
+        }
     }
 
     public long getRemainingTime() throws GameStateNotInitializedException {
