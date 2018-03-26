@@ -102,7 +102,7 @@ public class PlayerMenu extends AppCompatActivity {
         }
         else {
             title.setText("Attention");
-            textinPopUp.setText("Vous avez déja trouvé l'object "+object);
+            textinPopUp.setText("Vous avez déja trouvé l'objet "+object);
         }
         close.setOnClickListener(new View.OnClickListener() {
 
