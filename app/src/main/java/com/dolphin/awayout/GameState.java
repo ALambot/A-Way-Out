@@ -1,6 +1,8 @@
 package com.dolphin.awayout;
 
 
+import android.app.Activity;
+
 import android.content.Context;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class GameState {
     private static GameState gameState;
     private boolean initialized = false;
     public Context ctx;
+    public Activity inventaire;
 
     // Timer
     private long startTime; //seconds
@@ -54,7 +57,9 @@ public class GameState {
         this.penalite = 0;
 
         nextID = 0; //pas touche
-        
+
+
+
         this.gobs = new HashMap<String, GameObject>();
 
         addGob(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));

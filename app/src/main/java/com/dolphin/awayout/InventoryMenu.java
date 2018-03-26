@@ -23,7 +23,9 @@ public class InventoryMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inventory_menu);
 
-         title = (TextView) findViewById(R.id.textInventTitle);
+        GameState.getGameState().inventaire=this;
+
+        title = (TextView) findViewById(R.id.textInventTitle);
         desc = (TextView) findViewById(R.id.textInventDesc);
         img = (ImageView) findViewById(R.id.imageInventMenu);
         inventoryLogo = img.getDrawable();
