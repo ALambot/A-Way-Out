@@ -61,6 +61,9 @@ public class PlayerMenu extends AppCompatActivity {
         qrScan.initiateScan();
     }
 
+    public void onButtonHintClick(View view){
+        Toast.makeText(this, GameState.getGameState().getRandomHint(), Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){

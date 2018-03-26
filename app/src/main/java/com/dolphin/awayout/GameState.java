@@ -130,7 +130,7 @@ public class GameState {
             return valid.get((int) Math.ceil(Math.random()*valid.size())).getText();
         }
         else{
-            return null;
+            return "Aucun indice disponible mais vous perdez quand meme du temps ;-) ";
         }
     }
 
