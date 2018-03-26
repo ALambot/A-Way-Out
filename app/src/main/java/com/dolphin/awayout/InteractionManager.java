@@ -1,5 +1,6 @@
 package com.dolphin.awayout;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Intent;
@@ -36,7 +37,7 @@ public class InteractionManager {
         addQR("Jackpot", new Interaction( "ADD_GOB", "cle"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "bol"));
+        addQR("Jackpot", new Interaction( "ADD_GOB", "bol vide"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "tiroir"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "armoire"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "clou"));
@@ -47,7 +48,7 @@ public class InteractionManager {
         //addStart(new Interaction("ADD_GOB","cle"));
 
         // QR
-        addQR("clé", new Interaction("ADD_GOB", "cle"));
+        addQR("cle", new Interaction("ADD_GOB", "cle"));
         addQR("miroir", new Interaction("ADD_GOB", "miroir"));
         addQR("vase", new Interaction("ADD_GOB", "vase"));
         addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
@@ -83,6 +84,7 @@ public class InteractionManager {
         addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
 
         addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
+        addTimeOut(new Interaction("GAMEOVER",null));
 
     }
 
@@ -131,19 +133,22 @@ public class InteractionManager {
 
     // ACTIONS -----
 
-    public void start() {
+    public Interaction start() {
         if(this.start != null){
             this.start.run();
         }
+        return this.start;
     }
 
-    public void combine(GameObject obj1, GameObject obj2){
+    public Interaction combine(GameObject obj1, GameObject obj2){
         Interaction inter=combiTable[obj1.getID()][obj2.getID()];
          if (inter != null) {
              inter.run();
+             return inter;
          }
          else{
              Toast.makeText(GameState.getGameState().ctx, "Rien ne se passe", Toast.LENGTH_SHORT).show();
+             return null;
          }
     }
 
@@ -157,8 +162,8 @@ public class InteractionManager {
 
     public boolean QRresult(String result){
         Interaction ir = qr.get(result);
-
-        if (!GameState.getGameState().getObjectByName(result).isFound()) {
+        GameObject gob = GameState.getGameState().getObjectByName(result);
+        if (gob != null && !gob.isFound()) {
             if (ir != null) {
                 GameState.getGameState().getObjectByName(result).setFound();
                 ir.run();
@@ -166,6 +171,9 @@ public class InteractionManager {
             return true;
         }
         else{
+            if(ir != null && gob == null){
+                ir.run(); //DEBUG ONLY
+            }
             return false;
         }
     }
@@ -204,7 +212,9 @@ public class InteractionManager {
         public void run(){
 
             if(this.action.equals("ADD_GOB")){
-                GameState.getGameState().getObjectByName(this.arg).activate();
+                GameObject gob = GameState.getGameState().getObjectByName(this.arg);
+                gob.activate();
+                gob.setFound();
             }
             else if(this.action.equals("REMOVE_GOB")){
                 GameState.getGameState().getObjectByName(this.arg).deactivate();
@@ -218,14 +228,12 @@ public class InteractionManager {
             else if(this.action.equals("SHOW_ENIGME")){
                 GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(true);
                 Toast.makeText(GameState.getGameState().ctx, "Vous avez débloqué une énigme !", Toast.LENGTH_SHORT).show();
-
-
             }
             else if(this.action.equals("GAMEOVER")){
-                // TODO
+                GameState.getGameState().finishTimer();
             }
             else if(this.action.equals("WIN")){
-                //TODO
+                GameState.getGameState().finishTimer();
             }
             else if(this.action.equals("PENALITE")){
                 int penne = Integer.parseInt(this.arg);
