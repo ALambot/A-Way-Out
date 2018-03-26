@@ -18,6 +18,7 @@
         android:layout_marginTop="8dp"
         android:background="@null"
         android:onClick="onButtonInventoryMenuClick"
+        android:fontFamily="@font/victorian"
         android:text="@string/inventaire"
         android:textAllCaps="false"
         android:textColor="#72583f"

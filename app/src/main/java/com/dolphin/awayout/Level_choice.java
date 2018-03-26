@@ -26,7 +26,7 @@ public class Level_choice extends AppCompatActivity{
 
         //Creer les niveau ici
         String UnfinishedText = "Vous arriver dans un petit hall mal éclairé, le scénariste de l'escape room vous regarde le regard vide. " +
-                "Et vous dis avec uune voix denuée de toute émotion \"This is an unpolished draft of the escape room\"";
+                "Et vous dis avec une voix denuée de toute émotion \"This is an unpolished draft of the escape room\"";
         String description = "Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne.\n " +
                 "On a fait appel à vos service pour résoudre cette mystère.\n \n" +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";

@@ -18,33 +18,25 @@ import java.util.ArrayList;
 
 public class EnigmeList extends AppCompatActivity{
 
-    ArrayList<EnigmeObject> enigmeList = null;
-    ArrayList<String> enigmeTitre;
-
-
+    ArrayList<Object> enigmeList = null;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.enigme_liste);
 
-            enigmeTitre = new ArrayList<String>();
-            enigmeList = GameState.getGameState().getEnigmeList();
-            if(enigmeList.size() == 0 ){ enigmeTitre.add("Aucune enigme n'est diponible");}
-            for(int k= 0; k < enigmeList.size(); k++){
-                enigmeTitre.add(enigmeList.get(k).getTitle());
-            }
+            enigmeList = GameState.getGameState().getEnigmeList2();
 
             ListView list_enigme = (ListView) findViewById(R.id.listEnigme);
-            final ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, enigmeTitre){
-                @Override
-                public View getView(int position, View convertView, ViewGroup parent){
-                    View view = super.getView(position, convertView, parent);
-                    TextView txt = (TextView) view;
-                    //txt.setTypeface(Typeface.createFromAsset(getAssets(),"precious.ttf"));
-                    return view;
-                }
-            };
+            final TextAdapt adapter;
+            if(enigmeList.size() == 0 ){
+                ArrayList<Object> NoEnigme = new ArrayList<Object>();
+                NoEnigme.add(new EnigmeObject("Aucune enigme n'est disponible pour le moment", 1 , null));
+                adapter = new TextAdapt(this, NoEnigme);
+            }
+            else {
+                adapter = new TextAdapt(this, enigmeList);
+            }
             list_enigme.setAdapter(adapter);
 
 
@@ -54,9 +46,9 @@ public class EnigmeList extends AppCompatActivity{
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     if(enigmeList != null &&  enigmeList.size() > 0){  // eviter le cas ou il n'y a pas d'enigme
-                        EnigmeObject enigme = enigmeList.get(position);
+                        EnigmeObject enigme = (EnigmeObject) enigmeList.get(position);
                         Intent intent;
-                        switch (enigme.getType()) {
+                        switch (enigme. getType()) {
                             case 1:
                                 EnigmeTextChoix.enigme = enigme;
                                 intent = new Intent(EnigmeList.this, EnigmeTextChoix.class);

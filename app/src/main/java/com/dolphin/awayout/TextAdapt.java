@@ -38,13 +38,13 @@ public class TextAdapt extends ArrayAdapter<Object>{
             EnigmeObject enigme = (EnigmeObject) obj;
             text.setText((enigme.getTitle()));
         }
-        if (obj instanceof LevelObject){
-            LevelObject levelObject = (LevelObject) obj;
-            text.setText((levelObject.getTitle()));
-        }
+        else if (obj instanceof LevelObject){
+                LevelObject levelObject = (LevelObject) obj;
+                text.setText((levelObject.getTitle()));
+            }
         else{
-            //si l'objet est un  string
-            text.setText((String) obj);
+                //si l'objet est un  string
+                text.setText((String) obj);
         }
         return view;
     }

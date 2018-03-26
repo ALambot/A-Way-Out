@@ -66,7 +66,7 @@ public class GameState {
         addGob(new GameObject("cypherDisc", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.outside_cypher_roll));
         addGob(new GameObject("medusa", "Un papier d'une représentation de la Méduse", R.drawable.medusa_paper));
         addGob(new GameObject("victoria","Une photo de la reine Victoria", R.drawable.victoria));
-        addGob(new GameObject("armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.chest_demo));
+        addGob(new GameObject("armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.armoire));
         addGob(new GameObject("boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.crystal_ball));
         addGob(new GameObject("feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
         addGob(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
@@ -125,6 +125,19 @@ public class GameState {
             throw new GameStateNotInitializedException();
         }
         ArrayList<EnigmeObject> ret = new ArrayList<EnigmeObject>();
+        for(EnigmeObject e : this.enigmes.values()){
+            if(!e.isHidden()){
+                ret.add(e);
+            }
+        }
+        return ret;
+    }
+
+    public ArrayList<Object> getEnigmeList2(){   //renvoie une liste d'objets
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        ArrayList<Object> ret = new ArrayList<Object>();
         for(EnigmeObject e : this.enigmes.values()){
             if(!e.isHidden()){
                 ret.add(e);
