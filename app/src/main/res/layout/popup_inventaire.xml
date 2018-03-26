@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:textColor="#daa53b"
             android:text="@string/description"
+            android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/closePopUpInventaire"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewPop_up_Inventaire"
@@ -52,7 +53,7 @@
 
     <Button
         android:id="@+id/closePopUpInventaire"
-        android:layout_marginTop="10dp"
+        android:layout_margin="12dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
