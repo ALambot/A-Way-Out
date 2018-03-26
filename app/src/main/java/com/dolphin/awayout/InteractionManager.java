@@ -3,7 +3,15 @@ package com.dolphin.awayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.content.Context;
 import android.content.Intent;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -66,15 +74,19 @@ public class InteractionManager {
 
         // COMBI
         addCombi("vase","bol vide", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
+        addCombi("vase","bol vide", new Interaction("LAUNCH_POPUP", "Vous videz le vase dans le bol. Dans l'eau du vase était cachée une boule transparente."));
         addCombi("boule transparente", "statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
         addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "statue"));
         addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "boule transparente"));
+        addCombi("boule transparente", "statue", new Interaction("LAUNCH_POPUP", "Lorsque vous posez la boule dans la paume de la statue, le socle de celle-ci s'ouvre pour dévoiler un cypher roll. Il est disponible dans vos énigmes"));
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
+        addCombi("clou","tiroir", new Interaction("LAUNCH_POPUP", "Vous utilisez le clou comme poignée de tiroir. A l'intérieur de celui-ci se trouvent deux photos."));
         addCombi("miroir","medusa", new Interaction("ADD_GOB", "feuille"));//miroir+medusa=code TODO
         addCombi("medusa","miroir", new Interaction("ADD_GOB", "feuille"));
         addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "miroir"));
         addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "medusa"));
+        addCombi("medusa","miroir", new Interaction("LAUNCH_POPUP", "En mettant la photo de la Méduse devant le miroir, elle s'éface pour laisser apparaitre un code !"));
 
         addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
         addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "bol vide")); //vase+bol =boule transparente
@@ -248,6 +260,30 @@ public class InteractionManager {
             else if(this.action.equals("launch activity")){
                 Intent intent=new Intent(GameState.getGameState().ctx, LooseScreen.class);
                 GameState.getGameState().ctx.startActivity(intent);
+
+            }
+            else if(this.action.equals("LAUNCH_POPUP")){
+                LinearLayout viewGroupe= GameState.getGameState().inventaire.findViewById(R.id.popup_General);
+                LayoutInflater layoutInflater=(LayoutInflater) GameState.getGameState().inventaire.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View layout = layoutInflater.inflate(R.layout.popup_general, viewGroupe);
+                final PopupWindow popup=new PopupWindow(GameState.getGameState().inventaire);
+                popup.setContentView(layout);
+                popup.setFocusable(true);
+
+                popup.showAtLocation(layout, Gravity.CENTER,0,0);
+                Button close=layout.findViewById(R.id.closePopUpGeneral);
+                close.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        popup.dismiss();
+                    }
+                });
+                TextView title=layout.findViewById(R.id.titlePopUpGeneral);
+                TextView textinPopUp=layout.findViewById(R.id.textPopUpGeneral);
+                title.setText("Trouvé !");
+                textinPopUp.setText(this.arg);
+
 
             }
 
