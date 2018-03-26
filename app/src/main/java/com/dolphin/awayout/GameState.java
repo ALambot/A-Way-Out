@@ -127,7 +127,7 @@ public class GameState {
             }
         }
         if(valid.size()>0){
-            return valid.get((int) Math.ceil(Math.random()*valid.size())).getText();
+            return valid.get((int) Math.floor(Math.random()*valid.size())).getText();
         }
         else{
             return "Aucun indice disponible mais vous perdez quand meme du temps ;-) ";

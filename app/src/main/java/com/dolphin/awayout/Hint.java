@@ -1,5 +1,7 @@
 package com.dolphin.awayout;
 
+import android.util.Log;
+
 /**
  * Created by antoine on 26.03.18.
  */
@@ -25,6 +27,7 @@ public class Hint {
     }
 
     public String getText(){
+        Log.d("HINT",""+GameState.getGameState().remainingQR);
         return this.text;
     }
 
