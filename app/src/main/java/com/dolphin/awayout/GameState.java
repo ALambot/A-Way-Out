@@ -1,7 +1,7 @@
 package com.dolphin.awayout;
 
+
 import android.content.Context;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,6 +21,8 @@ public class GameState {
     private long startTime; //seconds
     private long gameDuration; // seconds
     private long penalite; //seconds
+    private boolean finished;
+    private long finish;
 
     // Gob ID
     private int nextID;
@@ -102,6 +104,9 @@ public class GameState {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
+        if(finished){
+            return this.finish - this.startTime - this.penalite;
+        }
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
 
         // return Math.max(0, gameDuration-elapsed); // stops at zero
@@ -120,6 +125,19 @@ public class GameState {
             throw new GameStateNotInitializedException();
         }
         ArrayList<EnigmeObject> ret = new ArrayList<EnigmeObject>();
+        for(EnigmeObject e : this.enigmes.values()){
+            if(!e.isHidden()){
+                ret.add(e);
+            }
+        }
+        return ret;
+    }
+
+    public ArrayList<Object> getEnigmeList2(){   //renvoie une liste d'objets
+        if(initialized == false){
+            throw new GameStateNotInitializedException();
+        }
+        ArrayList<Object> ret = new ArrayList<Object>();
         for(EnigmeObject e : this.enigmes.values()){
             if(!e.isHidden()){
                 ret.add(e);
@@ -163,6 +181,11 @@ public class GameState {
 
     public void startTimer(){
         this.startTime = Calendar.getInstance().getTimeInMillis()/1000;
+    }
+
+    public void finishTimer(){
+        this.finished = true;
+        this.finish = Calendar.getInstance().getTimeInMillis()/1000;
     }
 
     public void penalize(long seconds){
