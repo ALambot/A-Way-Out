@@ -12,10 +12,6 @@
         android:id="@+id/buttonMenuInventory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@null"
         android:fontFamily="@font/victorian"
         android:onClick="onButtonInventoryMenuClick"
@@ -23,20 +19,15 @@
         android:textAllCaps="false"
         android:textColor="#72583f"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        tools:layout_editor_absoluteX="28dp" />
 
     <Button
         android:id="@+id/buttonMenuEnigme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="132dp"
+        android:layout_marginStart="104dp"
         android:background="@null"
         android:fontFamily="@font/victorian"
         android:onClick="onButtonEnigmeListeClick"
@@ -44,20 +35,15 @@
         android:textAllCaps="false"
         android:textColor="#72583f"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.622" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/imageView7" />
 
     <Button
         android:id="@+id/buttonMenuQRcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="76dp"
+        android:layout_marginStart="104dp"
         android:background="@null"
         android:fontFamily="@font/victorian"
         android:onClick="onButtonQRClick"
@@ -65,11 +51,27 @@
         android:textAllCaps="false"
         android:textColor="#72583f"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.751"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5" />
+
+    <Button
+        android:id="@+id/buttonMenuIndice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@null"
+        android:fontFamily="@font/victorian"
+        android:onClick="onButtonInventoryMenuClick"
+        android:text="Ìndice"
+        android:textAllCaps="false"
+        android:textColor="#72583f"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageIndice"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="@+id/imageIndice"
+        app:layout_constraintTop_toBottomOf="@+id/imageIndice" />
+
 
     <TextView
         android:id="@+id/timer"
@@ -137,6 +139,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.051"
         app:srcCompat="@drawable/clock_player_menu" />
+
+
     <!--
         <ListView
             android:id="@+id/listinventory"
@@ -164,10 +168,27 @@
         android:onClick="onButtonQRClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435"
+        app:layout_constraintVertical_bias="0.391"
+        app:srcCompat="@drawable/magnifying_button" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="198dp"
+        android:layout_height="130dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onButtonQRClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391"
         app:srcCompat="@drawable/magnifying_button" />
 
     <ImageView
@@ -192,15 +213,31 @@
         android:layout_width="190dp"
         android:layout_height="171dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:onClick="onButtonEnigmeListeClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.892"
+        app:layout_constraintVertical_bias="0.978"
         app:srcCompat="@drawable/enigma_button" />
+
+    <ImageView
+        android:id="@+id/imageIndice"
+        android:layout_width="146dp"
+        android:layout_height="129dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onButtonInventoryMenuClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.395"
+        app:srcCompat="@drawable/bulb" />
 
 
 </android.support.constraint.ConstraintLayout>
