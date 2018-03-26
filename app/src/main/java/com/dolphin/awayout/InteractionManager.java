@@ -42,7 +42,6 @@ public class InteractionManager {
         // DEBUG - pas touche
         addQR("Anneau unique", new Interaction("PENALITE", "30"));
         addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "cle"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "bol vide"));

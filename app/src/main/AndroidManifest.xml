@@ -8,9 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/MyAppTheme">
+        android:theme="@style/MyAppTheme"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
         <activity android:name=".Menu"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,25 +22,45 @@
             </intent-filter>
         </activity>
         <activity android:name=".PlayerMenu"
-        android:screenOrientation="portrait"/>
+        android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".InventoryMenu"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".EnigmeList"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".EnigmeTextChoix"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".cypherRoll_enigme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".Level_choice"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".LevelStart"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".EnigmeArmoire"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".fin_niveau"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".LooseScreen"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
     </application>
 
 </manifest>
