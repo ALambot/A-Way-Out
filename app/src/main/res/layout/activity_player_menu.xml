@@ -19,6 +19,7 @@
         android:background="@null"
         android:fontFamily="@font/victorian"
         android:onClick="onButtonInventoryMenuClick"
+        android:fontFamily="@font/victorian"
         android:text="@string/inventaire"
         android:textAllCaps="false"
         android:textColor="#72583f"
