@@ -19,8 +19,8 @@
         android:textAllCaps="false"
         android:textColor="#72583f"
         android:textSize="35sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        tools:layout_editor_absoluteX="28dp" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <Button
         android:id="@+id/buttonMenuEnigme"
