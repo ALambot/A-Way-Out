@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#630f0f"
+    android:id="@+id/popup_General"
+
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titlePopUpGeneral"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="50sp"
+        android:textColor="#daa53b"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textPopUpGeneral"
+        android:textColor="#daa53b"
+        android:layout_marginTop="5dp"
+        android:textSize="35sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="15dp"
+        />
+
+    <Button
+        android:id="@+id/closePopUpGeneral"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour au jeu"
+        android:textAllCaps="false"
+        android:backgroundTint="#daa53b"
+        android:textColor="#3b2e21"/>
+
+
+</LinearLayout>

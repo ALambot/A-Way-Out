@@ -1,5 +1,6 @@
 package com.dolphin.awayout;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
@@ -16,6 +17,7 @@ public class GameState {
     private static GameState gameState;
     private boolean initialized = false;
     public Context ctx;
+    public Activity inventaire;
 
     // Timer
     private long startTime; //seconds
@@ -52,6 +54,8 @@ public class GameState {
         this.penalite = 0;
 
         nextID = 0; //pas touche
+
+
         
         this.gobs = new HashMap<String, GameObject>();
 
@@ -68,6 +72,7 @@ public class GameState {
         addGob(new GameObject("boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.crystal_ball));
         addGob(new GameObject("feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
         addGob(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
+        //addGob(new GameObject("Jackpot ", "hello", R.drawable.armoire));
 
         this.enigmes = new HashMap<String, EnigmeObject>();
 
