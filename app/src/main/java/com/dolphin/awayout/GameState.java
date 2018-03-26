@@ -71,13 +71,12 @@ public class GameState {
         addGob(new GameObject("feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
         addGob(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
 
+        //DEBUG
+        addGob(new GameObject("le small one", "put me in le big one", R.drawable.inside_cypher_roll));
+        addGob(new GameObject("le big one", "no touchy me", R.drawable.outside_cypher_roll));
+
         this.enigmes = new HashMap<String, EnigmeObject>();
 
-        /*String [] reponses = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Dauphin" ,"Qui est le prjjhnce des dauphins ? ", reponses, "Nico")));
-        String [] reponses2 = {"Sophie", "Héloise", "Nico", "Antoine"};
-        enigmeList.add((new EnigmeObject("Surnom","A qui faut il trouver un surnom ? ", reponses2, "Sophie")));*/
-        //enigmeList.add((new EnigmeObject("cypherRoll",2,"Victoria")));
         addEnigme((new EnigmeObject("Armoire mysterieuse",3,"ULPQXTOD")));
         addEnigme((new EnigmeObject("cypherRoll",2,"Victoria")));
 

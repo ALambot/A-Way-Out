@@ -31,9 +31,11 @@ public class InteractionManager {
     public void init(){
         // Ajouter les Interactions a la main pour le moment
 
-        // DEBUG - pas touche
-        addQR("Anneau unique", new Interaction("PENALITE", "30"));
+        // DEBUG
+        addQR("Pain", new Interaction("PENALITE", "30"));
         addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
+        addQR("Roll", new Interaction("ADD_GOB", "le small one"));
+        addQR("Roll", new Interaction("ADD_GOB", "le big one"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "cle"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
@@ -43,6 +45,10 @@ public class InteractionManager {
         addQR("Jackpot", new Interaction( "ADD_GOB", "clou"));
         addQR("Jackpot", new Interaction( "ADD_GOB", "statue"));
         addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Armoire mysterieuse"));
+
+        for(int ii = 0; ii<6; ii++) {
+            addCombi("le small one", "le big one", new Interaction("PENALITE", "10"));
+        }
 
         // Interactions lancees au debut
         //addStart(new Interaction("ADD_GOB","cle"));
