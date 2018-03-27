@@ -98,7 +98,10 @@ public class GameState {
         this.hints = new ArrayList<Hint>();
 
         this.hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
-        this.hints.add(new Hint("Vazy vide l'eau du vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
+        this.hints.add(new Hint("Cette statue semble attendre quelque chose dans sa paume", new HintFlag[]{new HintFlag("HAS_GOB","statue"), new HintFlag("HAS_GOB", "boule transparente")}));
+        this.hints.add(new Hint("Essayez de regarder dans l'eau du vase", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
+        this.hints.add(new Hint("Il y aurait-il un object qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
+        this.hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","medusa"), new HintFlag("HAS_GOB", "miroir")}));
 
         this.interactions = new InteractionManager();
         this.interactions.init();
