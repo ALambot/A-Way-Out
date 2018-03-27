@@ -16,16 +16,20 @@
         android:textColor="#daa53b"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/textPopUpGeneral"
-        android:textColor="#daa53b"
-        android:layout_marginTop="5dp"
-        android:textSize="35sp"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="15dp"
-        />
+        android:layout_height="125dp"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/textPopUpGeneral"
+            android:textColor="#daa53b"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="15dp"
+            />
+    </ScrollView>
 
     <Button
         android:id="@+id/closePopUpGeneral"
