@@ -6,6 +6,8 @@ public class EnigmeObject {
     /*type
     * 1 : text choix
     * 2 : cypher roll
+    * 3 : Armoir
+    * 4 : Coffret
     */
     private String title = null;
     private int type;
