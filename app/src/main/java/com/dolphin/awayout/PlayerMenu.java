@@ -61,7 +61,8 @@ public class PlayerMenu extends AppCompatActivity {
     }
 
     public void onButtonHintClick(View view){
-        Toast.makeText(this, GameState.getGameState().getRandomHint(), Toast.LENGTH_LONG).show();
+        showPopup(PlayerMenu.this, GameState.getGameState().getRandomHint(), false, true);
+        //Toast.makeText(this, GameState.getGameState().getRandomHint(), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -75,7 +76,7 @@ public class PlayerMenu extends AppCompatActivity {
                 //qr has data
                 InteractionManager im = GameState.getGameState().getInteractions();
                 boolean found=im.QRresult(result.getContents());
-                showPopup(PlayerMenu.this, result.getContents(), found); //TODO
+                showPopup(PlayerMenu.this, result.getContents(), found, false); //TODO
             }
 
         } else {
@@ -83,7 +84,7 @@ public class PlayerMenu extends AppCompatActivity {
         }
     }
 
-    public void showPopup(final Activity context, String object, boolean found){
+    public void showPopup(final Activity context, String object, boolean found, boolean hint){
         LinearLayout viewGroup=(LinearLayout) context.findViewById(R.id.popup_QR);
         LayoutInflater layoutInflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout=layoutInflater.inflate(R.layout.popup_postqr, viewGroup);
@@ -96,15 +97,20 @@ public class PlayerMenu extends AppCompatActivity {
         Button close = (Button) layout.findViewById(R.id.closePopUp);
         TextView title=layout.findViewById(R.id.textViewQRTitle);
         TextView textinPopUp=layout.findViewById(R.id.textQR);
-        if (found) {
-            title.setText("Bien joué !");
+        if (! hint) { //Pop up avec le résultat du QR code
+            if (found) {
+                title.setText("Bien joué !");
 
 
-            textinPopUp.setText("Vous avez trouvé l'objet " + object);
+                textinPopUp.setText("Vous avez trouvé l'objet " + object);
+            } else {
+                title.setText("Attention");
+                textinPopUp.setText("Vous avez déja trouvé l'objet " + object);
+            }
         }
-        else {
-            title.setText("Attention");
-            textinPopUp.setText("Vous avez déja trouvé l'objet "+object);
+        else{ //Pop up avec un indice
+            title.setText("Indice");
+            textinPopUp.setText(object);
         }
         close.setOnClickListener(new View.OnClickListener() {
 
@@ -114,6 +120,7 @@ public class PlayerMenu extends AppCompatActivity {
             }
         });
     }
+
 
 
     public void exitPopup(final Activity context){

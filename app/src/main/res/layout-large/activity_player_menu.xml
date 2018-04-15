@@ -66,12 +66,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029"
+        app:layout_constraintVertical_bias="0.99"
         app:srcCompat="@drawable/clock_player_menu" />
     <!--
         <ListView
@@ -186,5 +187,41 @@
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
+
+    <ImageView
+        android:id="@+id/imageIndice"
+        android:layout_width="105dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onButtonHintClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/bulb" />
+
+    <Button
+        android:id="@+id/buttonMenuIndice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:background="@null"
+        android:fontFamily="@font/victorian"
+        android:onClick="onButtonInventoryMenuClick"
+        android:text="Ìndice"
+        android:textAllCaps="false"
+        android:textColor="#72583f"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageIndice"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageIndice"
+        app:layout_constraintTop_toTopOf="@+id/imageIndice" />
 
 </android.support.constraint.ConstraintLayout>

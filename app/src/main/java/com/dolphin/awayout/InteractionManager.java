@@ -56,12 +56,10 @@ public class InteractionManager {
         for(int ii = 0; ii<6; ii++) {
             addCombi("le small one", "le big one", new Interaction("PENALITE", "10"));
         }
-
         // Interactions lancees au debut
         //addStart(new Interaction("ADD_GOB","cle"));
 
         // QR
-        addQR("cle", new Interaction("ADD_GOB", "cle"));
         addQR("miroir", new Interaction("ADD_GOB", "miroir"));
         addQR("vase", new Interaction("ADD_GOB", "vase"));
         addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
