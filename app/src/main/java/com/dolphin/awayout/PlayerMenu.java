@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,14 +34,12 @@ public class PlayerMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_menu);
 
+        Log.d("KEK", "PLAYERMENU CREATE");
+
         timer = (TextView) findViewById(R.id.timer);
         inventory_button = (Button) findViewById(R.id.buttonMenuInventory);
         enigme_button = (Button) findViewById(R.id.buttonMenuEnigme);
         loupe_button = (Button) findViewById(R.id.buttonMenuQRcode);
-
-        GameState gameState = GameState.getGameState();
-        gameState.init(this);
-        gameState.startTimer();
 
         qrScan=new IntentIntegrator(this);
 
@@ -170,6 +169,7 @@ public class PlayerMenu extends AppCompatActivity {
                             StringBuilder stringBuilder = new StringBuilder();
                             String neg = "";
                             if(time<0){
+                                Log.d("KEK","TIMER 0 " + GameState.getGameState().getRemainingTime());
                                 if (started) {
                                     started=false;
                                     InteractionManager interactionManager = GameState.getGameState().getInteractions();

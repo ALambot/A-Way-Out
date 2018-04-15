@@ -27,9 +27,9 @@ public class InteractionManager {
     private HashMap<String, Interaction> qr;
     private Interaction timeOut;
 
-    public InteractionManager(){
+    public InteractionManager(int gobCount){
         this.start = null;
-        this.combiTable = new Interaction[40][40];
+        this.combiTable = new Interaction[gobCount][gobCount];
         this.enigmeWIN = new HashMap<String, Interaction>();
         this.enigmeLOSE = new HashMap<String, Interaction>();
         this.qr = new HashMap<String, Interaction>();
@@ -37,8 +37,8 @@ public class InteractionManager {
     }
 
     public void init(){
-        // Ajouter les Interactions a la main pour le moment
 
+        /*
         // DEBUG
         addQR("Pain", new Interaction("PENALITE", "30"));
         addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
@@ -103,18 +103,18 @@ public class InteractionManager {
 
         addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
         addTimeOut(new Interaction("GAMEOVER",null));
-
+        */
     }
 
     // ADDERS ------
 
-    private void addStart(Interaction interaction){
+    public void addStart(Interaction interaction){
         Interaction ir = this.start;
         interaction.nextInteraction = ir;
         this.start = interaction;
     }
 
-    private void addCombi(String name1, String name2, Interaction interaction){
+    public void addCombi(String name1, String name2, Interaction interaction){
         GameObject gob1 = GameState.getGameState().getObjectByName(name1);
         GameObject gob2 = GameState.getGameState().getObjectByName(name2);
         int ID1 = gob1.getID();
@@ -125,25 +125,25 @@ public class InteractionManager {
         this.combiTable[ID1][ID2] = interaction;
     }
 
-    private void addEnigmeWIN(String enigme, Interaction interaction){
+    public void addEnigmeWIN(String enigme, Interaction interaction){
         Interaction ir = this.enigmeWIN.get(enigme);
         interaction.nextInteraction = ir;
         this.enigmeWIN.put(enigme, interaction);
     }
 
-    private void addEnigmeLOSE(String enigme, Interaction interaction){
+    public void addEnigmeLOSE(String enigme, Interaction interaction){
         Interaction ir = this.enigmeLOSE.get(enigme);
         interaction.nextInteraction = ir;
         this.enigmeLOSE.put(enigme, interaction);
     }
 
-    private void addQR(String str, Interaction interaction){
+    public void addQR(String str, Interaction interaction){
         Interaction ir = this.qr.get(str);
         interaction.nextInteraction = ir;
         this.qr.put(str,interaction);
     }
 
-    private void addTimeOut(Interaction interaction){
+    public void addTimeOut(Interaction interaction){
         Interaction ir = this.timeOut;
         interaction.nextInteraction = ir;
         this.timeOut = interaction;
@@ -192,6 +192,7 @@ public class InteractionManager {
         else{
             if(ir != null && gob == null){
                 ir.run(); //DEBUG ONLY
+                GameState.getGameState().remainingQR--; // TODO TEMPORARY
             }
             return false;
         }
@@ -204,101 +205,6 @@ public class InteractionManager {
     public void timeOut(){
         if(this.timeOut != null){
             this.timeOut.run();
-        }
-    }
-
-    // INTERACTION ------
-
-    public class Interaction {
-
-        public final String action; // ADD_GOB REMOVE_GOB SOLVE_ENIGME HIDE_ENIGME SHOW_ENIGME GAMEOVER WIN PENALITE
-        public final String arg;
-
-        public Interaction nextInteraction;
-
-        public Interaction(String action, String arg){
-            this.action = action;
-            this.arg = arg;
-            this.nextInteraction = null;
-        }
-
-        public Interaction(String action){
-            this.action = action;
-            this.arg = null;
-            this.nextInteraction = null;
-        }
-
-        public void run(){
-
-            if(this.action.equals("ADD_GOB")){
-                GameObject gob = GameState.getGameState().getObjectByName(this.arg);
-                gob.activate();
-                gob.setFound();
-            }
-            else if(this.action.equals("REMOVE_GOB")){
-                GameState.getGameState().getObjectByName(this.arg).deactivate();
-            }
-            else if(this.action.equals("SOLVE_ENIGME")){
-                GameState.getGameState().getEnigmeByTitle(this.arg).solve();
-            }
-            else if(this.action.equals("HIDE_ENIGME")){
-                GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(false);
-            }
-            else if(this.action.equals("SHOW_ENIGME")){
-                GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(true);
-                Toast.makeText(GameState.getGameState().ctx, "Vous avez débloqué une énigme !", Toast.LENGTH_SHORT).show();
-            }
-            else if(this.action.equals("GAMEOVER")){
-                GameState.getGameState().finishTimer();
-            }
-            else if(this.action.equals("WIN")){
-                GameState.getGameState().finishTimer();
-            }
-            else if(this.action.equals("PENALITE")){
-                int penne = Integer.parseInt(this.arg);
-                GameState.getGameState().penalize(penne);
-            }
-            else if(this.action.equals("launch activity")){
-                Intent intent=new Intent(GameState.getGameState().ctx, LooseScreen.class);
-                GameState.getGameState().ctx.startActivity(intent);
-
-            }
-            else if(this.action.equals("LAUNCH_POPUP")){
-                LinearLayout viewGroupe= GameState.getGameState().inventaire.findViewById(R.id.popup_General);
-                LayoutInflater layoutInflater=(LayoutInflater) GameState.getGameState().inventaire.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View layout = layoutInflater.inflate(R.layout.popup_general, viewGroupe);
-                final PopupWindow popup=new PopupWindow(GameState.getGameState().inventaire);
-                popup.setContentView(layout);
-                popup.setFocusable(true);
-
-                popup.showAtLocation(layout, Gravity.CENTER,0,0);
-                Button close=layout.findViewById(R.id.closePopUpGeneral);
-                close.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        popup.dismiss();
-                    }
-                });
-                TextView title=layout.findViewById(R.id.titlePopUpGeneral);
-                TextView textinPopUp=layout.findViewById(R.id.textPopUpGeneral);
-                title.setText("Trouvé !");
-                textinPopUp.setText(this.arg);
-
-
-            }
-
-            if(this.nextInteraction != null){
-                this.nextInteraction.run();
-            }
-        }
-
-        public String toString(){
-            String ret = this.action + " " +this.arg;
-            if(this.nextInteraction != null){
-                ret = ret+this.nextInteraction.toString();
-            }
-            return ret;
         }
     }
 

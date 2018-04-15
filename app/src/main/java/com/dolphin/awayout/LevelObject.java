@@ -10,13 +10,16 @@ public class LevelObject{ //extends java.lang.Object{
     private String Localisation;
     //private GameState gameState;
     //Et/ou fichier contenant le niveau
+    private Chapter chapter;
 
-    public LevelObject(String title, String description, int imageId, int temps, String localisation) {
+    public LevelObject(String title, String description, int imageId, int temps, String localisation, Chapter chapter) {
         Title = title;
         this.description = description;
         this.imageId = imageId;
         Temps = temps;
         Localisation = localisation;
+
+        this.chapter = chapter;
     }
 
     public LevelObject(String title) {
@@ -56,5 +59,9 @@ public class LevelObject{ //extends java.lang.Object{
 
     public String getLocalisation() {
         return Localisation;
+    }
+
+    public void load(){
+        this.chapter.load();
     }
 }

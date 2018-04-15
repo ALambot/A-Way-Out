@@ -1,0 +1,125 @@
+package com.dolphin.awayout;
+
+import java.util.ArrayList;
+
+/**
+ * Created by antoine on 27.03.18.
+ */
+
+public class Chapter1 implements Chapter {
+
+    public Chapter1() {
+        //...
+    }
+
+    public void load(){
+        long gameduration = 900;
+
+        // GameObjects
+        ArrayList<GameObject> gobs = new ArrayList<GameObject>();
+
+        gobs.add(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
+        gobs.add(new GameObject("miroir", "Un ancien mirroir posé sur la cheminée", R.drawable.mirror));
+        gobs.add(new GameObject("vase", "Une vase avec des fleures fraiches", R.drawable.vase));
+        gobs.add(new GameObject("bol vide", "Un ancien pot de chambre", R.drawable.chamber_pot));
+        gobs.add(new GameObject("clou", "Un clou rouillé", R.drawable.nail));
+        gobs.add(new GameObject("statue", "Une délicate statue posée sur le bureau", R.drawable.statue));
+        gobs.add(new GameObject("cypherDisc", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.outside_cypher_roll));
+        gobs.add(new GameObject("medusa", "Un papier d'une représentation de la Méduse", R.drawable.medusa_paper));
+        gobs.add(new GameObject("victoria","Une photo de la reine Victoria", R.drawable.victoria));
+        gobs.add(new GameObject("armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.armoire));
+        gobs.add(new GameObject("boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.crystal_ball));
+        gobs.add(new GameObject("feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
+        gobs.add(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
+        //DEBUG
+        gobs.add(new GameObject("le small one", "put me in le big one", R.drawable.inside_cypher_roll));
+        gobs.add(new GameObject("le big one", "no touchy me", R.drawable.outside_cypher_roll));
+
+
+        // Enigmes
+        ArrayList<EnigmeObject> enigmes = new ArrayList<EnigmeObject>();
+
+        enigmes.add(new EnigmeObject("Armoire mysterieuse",3,"ULPQXTOD"));
+        enigmes.add(new EnigmeObject("cypherRoll",2,"Victoria"));
+
+
+        // Hints
+        ArrayList<Hint> hints = new ArrayList<Hint>();
+
+        hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
+        hints.add(new Hint("Vazy vide l'eau du vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
+
+        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this);
+
+        // --------------------------------------
+
+        //Interactions
+        InteractionManager im = new InteractionManager(gobs.size());
+
+        // DEBUG
+        im.addQR("Pain", new Interaction("PENALITE", "30"));
+        im.addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
+        im.addQR("Roll", new Interaction("ADD_GOB", "le small one"));
+        im.addQR("Roll", new Interaction("ADD_GOB", "le big one"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "bol vide"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "tiroir"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "armoire"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "clou"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "statue"));
+        im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Armoire mysterieuse"));
+
+        for(int ii = 0; ii<6; ii++) {
+            im.addCombi("le small one", "le big one", new Interaction("PENALITE", "10"));
+        }
+
+        // QR
+        im.addQR("cle", new Interaction("ADD_GOB", "cle"));
+        im.addQR("miroir", new Interaction("ADD_GOB", "miroir"));
+        im.addQR("vase", new Interaction("ADD_GOB", "vase"));
+        im.addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
+        im.addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
+        im.addQR("armoire", new Interaction("ADD_GOB", "armoire"));
+        im.addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
+        im.addQR("clou", new Interaction("ADD_GOB", "clou"));
+        im.addQR("statue", new Interaction("ADD_GOB", "statue"));
+        GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
+
+        // COMBI
+        im.addCombi("vase","bol vide", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
+        im.addCombi("vase","bol vide", new Interaction("LAUNCH_POPUP", "Vous videz le vase dans le bol. Dans l'eau du vase était cachée une boule transparente."));
+        im.addCombi("boule transparente", "statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
+        im.addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "statue"));
+        im.addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "boule transparente"));
+        im.addCombi("boule transparente", "statue", new Interaction("LAUNCH_POPUP", "Lorsque vous posez la boule dans la paume de la statue, le socle de celle-ci s'ouvre pour dévoiler un cypher roll. Il est disponible dans vos énigmes"));
+        im.addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
+        im.addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
+        im.addCombi("clou","tiroir", new Interaction("LAUNCH_POPUP", "Vous utilisez le clou comme poignée de tiroir. A l'intérieur de celui-ci se trouvent deux photos."));
+        im.addCombi("miroir","medusa", new Interaction("ADD_GOB", "feuille"));//miroir+medusa=code TODO
+        im.addCombi("medusa","miroir", new Interaction("ADD_GOB", "feuille"));
+        im.addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "miroir"));
+        im.addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "medusa"));
+        im.addCombi("medusa","miroir", new Interaction("LAUNCH_POPUP", "En mettant la photo de la Méduse devant le miroir, elle s'éface pour laisser apparaitre un code !"));
+
+        im.addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
+        im.addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "bol vide")); //vase+bol =boule transparente
+        im.addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
+        im.addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
+
+
+        // ENIGME WIN
+        im.addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
+        im.addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
+
+        // ENIGME LOSE
+        im.addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
+
+        im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
+        im.addTimeOut(new Interaction("GAMEOVER",null));
+
+        GameState.getGameState().addIM(im);
+
+    }
+
+}
