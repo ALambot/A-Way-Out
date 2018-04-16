@@ -121,7 +121,7 @@ public class Chapter1 implements Chapter {
         // ENIGME LOSE
         im.addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
 
-        im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
+        //im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
         im.addTimeOut(new Interaction("GAMEOVER",null));
 
         GameState.getGameState().addIM(im);

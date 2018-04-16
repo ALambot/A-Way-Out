@@ -71,7 +71,7 @@ public class ChapterTuto implements Chapter {
         // ENIGME LOSE
         im.addEnigmeLOSE("Coffret", new Interaction("PENALITE", "30"));
 
-        im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
+        //im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
         im.addTimeOut(new Interaction("GAMEOVER",null));
 
         GameState.getGameState().addIM(im);
