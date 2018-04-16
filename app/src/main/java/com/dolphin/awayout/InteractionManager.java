@@ -36,74 +36,6 @@ public class InteractionManager {
         this.timeOut = null;
     }
 
-    public void init(){
-
-        /*
-        // DEBUG
-        addQR("Pain", new Interaction("PENALITE", "30"));
-        addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
-        addQR("Roll", new Interaction("ADD_GOB", "le small one"));
-        addQR("Roll", new Interaction("ADD_GOB", "le big one"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "bol vide"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "tiroir"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "armoire"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "clou"));
-        addQR("Jackpot", new Interaction( "ADD_GOB", "statue"));
-        addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Armoire mysterieuse"));
-
-        for(int ii = 0; ii<6; ii++) {
-            addCombi("le small one", "le big one", new Interaction("PENALITE", "10"));
-        }
-        // Interactions lancees au debut
-        //addStart(new Interaction("ADD_GOB","cle"));
-
-        // QR
-        addQR("miroir", new Interaction("ADD_GOB", "miroir"));
-        addQR("vase", new Interaction("ADD_GOB", "vase"));
-        addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
-        addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
-        addQR("armoire", new Interaction("ADD_GOB", "armoire"));
-        addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
-        addQR("clou", new Interaction("ADD_GOB", "clou"));
-        addQR("statue", new Interaction("ADD_GOB", "statue"));
-        GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
-
-        // COMBI
-        addCombi("vase","bol vide", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
-        addCombi("vase","bol vide", new Interaction("LAUNCH_POPUP", "Vous videz le vase dans le bol. Dans l'eau du vase était cachée une boule transparente."));
-        addCombi("boule transparente", "statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+statue= cypherKey TODO
-        addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "statue"));
-        addCombi("boule transparente", "statue", new Interaction("REMOVE_GOB", "boule transparente"));
-        addCombi("boule transparente", "statue", new Interaction("LAUNCH_POPUP", "Lorsque vous posez la boule dans la paume de la statue, le socle de celle-ci s'ouvre pour dévoiler un cypher roll. Il est disponible dans vos énigmes"));
-        addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
-        addCombi("clou","tiroir", new Interaction("ADD_GOB", "victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
-        addCombi("clou","tiroir", new Interaction("LAUNCH_POPUP", "Vous utilisez le clou comme poignée de tiroir. A l'intérieur de celui-ci se trouvent deux photos."));
-        addCombi("miroir","medusa", new Interaction("ADD_GOB", "feuille"));//miroir+medusa=code TODO
-        addCombi("medusa","miroir", new Interaction("ADD_GOB", "feuille"));
-        addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "miroir"));
-        addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "medusa"));
-        addCombi("medusa","miroir", new Interaction("LAUNCH_POPUP", "En mettant la photo de la Méduse devant le miroir, elle s'éface pour laisser apparaitre un code !"));
-
-        addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "vase")); //vase+bol =boule transparente
-        addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "bol vide")); //vase+bol =boule transparente
-        addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
-        addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
-
-
-        // ENIGME WIN
-        addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
-        addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
-
-        // ENIGME LOSE
-        addEnigmeLOSE("Armoir", new Interaction("PENALITE", "180"));
-
-        addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
-        addTimeOut(new Interaction("GAMEOVER",null));
-        */
-    }
-
     // ADDERS ------
 
     public void addStart(Interaction interaction){
@@ -182,7 +114,6 @@ public class InteractionManager {
         if (gob != null && !gob.isFound()) {
             if (ir != null) {
                 GameState.getGameState().getObjectByName(result).setFound();
-                GameState.getGameState().remainingQR--; // TODO TEMPORARY
                 ir.run();
             }
             return true;
@@ -190,7 +121,6 @@ public class InteractionManager {
         else{
             if(ir != null && gob == null){
                 ir.run(); //DEBUG ONLY
-                GameState.getGameState().remainingQR--; // TODO TEMPORARY
             }
             return false;
         }

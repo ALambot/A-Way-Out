@@ -6,9 +6,9 @@ import java.util.ArrayList;
  * Created by antoine on 27.03.18.
  */
 
-public class Chapter2 implements Chapter {
+public class ChapterTest implements Chapter {
 
-    public Chapter2() {
+    public ChapterTest() {
         //...
     }
 

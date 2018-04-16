@@ -48,6 +48,10 @@ public class Chapter1 implements Chapter {
 
         hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
         hints.add(new Hint("Vazy vide l'eau du vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
+        hints.add(new Hint("Essayez de regarder dans l'eau du vase", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
+        hints.add(new Hint("Il y aurait-il un object qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
+        hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","medusa"), new HintFlag("HAS_GOB", "miroir")}));
+
 
         GameState.getGameState().init(gameduration,gobs,enigmes,hints,this);
 

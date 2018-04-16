@@ -95,7 +95,6 @@ public class GameState {
 
     public void addIM(InteractionManager im){
         this.interactions = im;
-        this.interactions.init();
         this.interactions.start();
     }
     public void addContext(Context ctx){
