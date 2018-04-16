@@ -52,8 +52,10 @@ public class Chapter1 implements Chapter {
         hints.add(new Hint("Il y aurait-il un object qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
         hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","medusa"), new HintFlag("HAS_GOB", "miroir")}));
 
+        String looseMessage="Votre temps est écoulé ! Le majordome vous escortes hors de la maison alors qu\'il vous manque des indices. Essayez de repasser  plus tard !";
+        String winMessage="Dans l\'armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubthshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !";
 
-        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this);
+        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
         // --------------------------------------
 
@@ -123,6 +125,8 @@ public class Chapter1 implements Chapter {
         im.addTimeOut(new Interaction("GAMEOVER",null));
 
         GameState.getGameState().addIM(im);
+
+
 
     }
 
