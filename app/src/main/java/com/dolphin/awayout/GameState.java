@@ -40,6 +40,8 @@ public class GameState {
     private InteractionManager interactions;
     private HashMap<String,GameObject> gobs;
     private HashMap<String,EnigmeObject> enigmes;
+    public String winMessage;
+    public String looseMessage;
 
     /** A private Constructor prevents any other class from instantiating. */
     private GameState() {
@@ -59,7 +61,7 @@ public class GameState {
 
     // SETTERS ----------
 
-    public void init(long gameDuration, ArrayList<GameObject> gobs, ArrayList<EnigmeObject> enigmes, ArrayList<Hint> hints, Chapter chapter){ //init state from escape room file or save file
+    public void init(long gameDuration, ArrayList<GameObject> gobs, ArrayList<EnigmeObject> enigmes, ArrayList<Hint> hints, Chapter chapter, String looseMessage, String winMessage){ //init state from escape room file or save file
 
         this.chapter = chapter;
 
@@ -69,7 +71,8 @@ public class GameState {
         this.nextID = 0; //pas touche
         this.remainingQR = 0;
 
-
+        this.looseMessage=looseMessage;
+        this.winMessage=winMessage;
         this.gameDuration = gameDuration;
 
         this.gobs = new HashMap<String, GameObject>();

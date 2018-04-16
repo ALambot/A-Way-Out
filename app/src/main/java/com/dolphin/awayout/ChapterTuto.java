@@ -29,8 +29,14 @@ public class ChapterTuto implements Chapter {
         ArrayList<Hint> hints = new ArrayList<Hint>();
 
         hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
+        hints.add(new Hint("Quelle information peut-on tirer d'une montre ?", new HintFlag[]{new HintFlag("ENIGME_UNSOLVED", "Coffret")}));
 
-        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this);
+
+
+        String looseMessage="Votre temps est écoulé. Une autre détective est venue et a rafflé la mise. N'hésitez pas rééssayer et utiliser les indices. ";
+        String winMessage="Félicitations ! Vous êtes maintenant un ou une détéctive accompli ! Essayez maintenant les escape rooms plus compliquées.";
+
+        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,looseMessage,"");
 
         // --------------------------------------
 
