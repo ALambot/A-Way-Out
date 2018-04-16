@@ -32,7 +32,7 @@ public class Level_choice extends AppCompatActivity{
                 "On a fait appel à vos service pour résoudre cette mystère.\n \n" +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
         levelList.add(new LevelObject("Chapitre 1 : \n Dans le hall d'entrée ",description,R.drawable.chap1,900,"Réaumur", new Chapter1()));
-        levelList.add(new LevelObject("???","OwO what's this",R.drawable.gold,60,"where am i ???", new Chapter2()));
+        levelList.add(new LevelObject("???","OwO what's this",R.drawable.gold,60,"where am i ???", new ChapterTest()));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);
         final TextAdapt adapter = new TextAdapt(this,levelList);
