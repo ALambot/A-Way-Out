@@ -61,6 +61,11 @@ public class EnigmeList extends AppCompatActivity{
                             case 3:
                                 intent=new Intent(EnigmeList.this, EnigmeArmoire.class);
                                 startActivity(intent);
+                                break;
+                            case 4:
+                                intent=new Intent(EnigmeList.this, EnigmeCoffret.class);
+                                startActivity(intent);
+                                break;
                         }
                     }
                 }

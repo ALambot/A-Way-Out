@@ -37,10 +37,6 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
-        <activity android:name=".cypherRoll_enigme"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="false"
-            android:largeHeap="true"/>
         <activity android:name=".Level_choice"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
@@ -49,15 +45,23 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
-        <activity android:name=".EnigmeArmoire"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="false"
-            android:largeHeap="true"/>
         <activity android:name=".fin_niveau"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
         <activity android:name=".LooseScreen"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
+        <!-- Tutorielle -->
+        <activity android:name=".EnigmeCoffret"
+            android:screenOrientation="portrait"/>
+        <!-- Chapter 1 -->
+        <activity android:name=".cypherRoll_enigme"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
+        <activity android:name=".EnigmeArmoire"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
