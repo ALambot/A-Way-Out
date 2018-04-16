@@ -57,13 +57,13 @@ public class ChapterTuto implements Chapter {
         GameState.getGameState().remainingQR = 3; //TODO TEMPORARY
 
         // COMBI
-        im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Morceau de loupe"));
-        im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Verre"));
-        im.addCombi("Morceau de loupe","Lentille", new Interaction("WIN", null));
+        im.addCombi("Morceau de loupe","Verre", new Interaction("REMOVE_GOB", "Morceau de loupe"));
+        im.addCombi("Morceau de loupe","Verre", new Interaction("REMOVE_GOB", "Verre"));
+        im.addCombi("Morceau de loupe","Verre", new Interaction("WIN", null));
         //im.addCombi("Morceau de loupe","Lentille", new Interaction("launch activity", "fin_niveau.class"));   //Debug ?
-        im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Morceau de loupe"));
-        im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Verre"));
-        im.addCombi("Lentille","Morceau de loupe", new Interaction("WIN", null));
+        im.addCombi("Verre","Morceau de loupe", new Interaction("REMOVE_GOB", "Morceau de loupe"));
+        im.addCombi("Verre","Morceau de loupe", new Interaction("REMOVE_GOB", "Verre"));
+        im.addCombi("Verre","Morceau de loupe", new Interaction("WIN", null));
         //im.addCombi("Lentille", "Morceau de loupe", new Interaction("launch activity", "fin_niveau.class"));   //Debug ?
 
         // ENIGME WIN
