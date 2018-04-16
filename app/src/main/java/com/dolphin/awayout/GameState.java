@@ -4,6 +4,7 @@ package com.dolphin.awayout;
 import android.app.Activity;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,6 +20,7 @@ public class GameState {
     private boolean initialized = false;
     public Context ctx;
     public Activity inventaire;
+    private static Chapter chapter;
 
     // Timer
     private long startTime; //seconds
@@ -45,8 +47,7 @@ public class GameState {
     }
 
     public static synchronized  void relaunch() {
-        gameState = null;
-        gameState = new GameState();
+        chapter.load();
     }
 
     public static synchronized GameState getGameState() { // Do not touch
@@ -58,55 +59,30 @@ public class GameState {
 
     // SETTERS ----------
 
-    public void init(Context context){ //init state from escape room file or save file
+    public void init(long gameDuration, ArrayList<GameObject> gobs, ArrayList<EnigmeObject> enigmes, ArrayList<Hint> hints, Chapter chapter){ //init state from escape room file or save file
+
+        this.chapter = chapter;
+
         this.initialized = true;
-        this.ctx = context;
-
-        this.gameDuration = 1800;
+        this.finished = false;
         this.penalite = 0;
-
         this.nextID = 0; //pas touche
         this.remainingQR = 0;
 
+
+        this.gameDuration = gameDuration;
+
         this.gobs = new HashMap<String, GameObject>();
-
-        addGob(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
-        addGob(new GameObject("miroir", "Un ancien mirroir posé sur la cheminée", R.drawable.mirror));
-        addGob(new GameObject("vase", "Une vase avec des fleures fraiches", R.drawable.vase));
-        addGob(new GameObject("bol vide", "Un ancien pot de chambre", R.drawable.chamber_pot));
-        addGob(new GameObject("clou", "Un clou rouillé", R.drawable.nail));
-        addGob(new GameObject("statue", "Une délicate statue posée sur le bureau", R.drawable.statue));
-        addGob(new GameObject("cypherDisc", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.outside_cypher_roll));
-        addGob(new GameObject("medusa", "Un papier d'une représentation de la Méduse", R.drawable.medusa_paper));
-        addGob(new GameObject("victoria","Une photo de la reine Victoria", R.drawable.victoria));
-        addGob(new GameObject("armoire", "Une armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.armoire));
-        addGob(new GameObject("boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.crystal_ball));
-        addGob(new GameObject("feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.password_paper));
-        addGob(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.tirroir));
-
-        //DEBUG
-        addGob(new GameObject("le small one", "put me in le big one", R.drawable.inside_cypher_roll));
-        addGob(new GameObject("le big one", "no touchy me", R.drawable.outside_cypher_roll));
-
+        for(GameObject gob : gobs){
+            addGob(gob);
+        }
 
         this.enigmes = new HashMap<String, EnigmeObject>();
+        for(EnigmeObject enigme : enigmes){
+            addEnigme(enigme);
+        }
 
-        addEnigme((new EnigmeObject("Armoire mysterieuse",3,"ULPQXTOD")));
-        addEnigme((new EnigmeObject("cypherRoll",2,"Victoria")));
-
-
-        this.hints = new ArrayList<Hint>();
-
-        this.hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
-        this.hints.add(new Hint("Cette statue semble attendre quelque chose dans sa paume", new HintFlag[]{new HintFlag("HAS_GOB","statue"), new HintFlag("HAS_GOB", "boule transparente")}));
-        this.hints.add(new Hint("Essayez de regarder dans l'eau du vase", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
-        this.hints.add(new Hint("Il y aurait-il un object qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
-        this.hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","medusa"), new HintFlag("HAS_GOB", "miroir")}));
-        this.hints.add(new Hint("Les fleches du code indiquent un sens de rotation", new HintFlag[]{new HintFlag("HAS_GOB","feuille"), new HintFlag("HAS_GOB", "cypherDisc")}));
-
-        this.interactions = new InteractionManager();
-        this.interactions.init();
-        this.interactions.start();
+        this.hints = hints;
     }
 
     // ADDERS ------
@@ -115,6 +91,14 @@ public class GameState {
     }
     private void addEnigme(EnigmeObject e){
         this.enigmes.put(e.getTitle(),e);
+    }
+
+    public void addIM(InteractionManager im){
+        this.interactions = im;
+        this.interactions.start();
+    }
+    public void addContext(Context ctx){
+        this.ctx = ctx;
     }
 
     // GETTERS ----------
@@ -219,6 +203,7 @@ public class GameState {
 
     public void startTimer(){
         this.startTime = Calendar.getInstance().getTimeInMillis()/1000;
+        Log.d("KEK", "STARTTIMER");
     }
 
     public void finishTimer(){

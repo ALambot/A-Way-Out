@@ -38,6 +38,7 @@ public class LevelStart extends AppCompatActivity{
     public void onButtonGameStartClick(View view){
         Intent intent = new Intent(this, PlayerMenu.class);
         GameState.relaunch();
+        GameState.getGameState().startTimer();
         startActivity(intent);
     }
 
