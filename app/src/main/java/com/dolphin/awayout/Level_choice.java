@@ -31,7 +31,7 @@ public class Level_choice extends AppCompatActivity{
         String description = "Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne.\n " +
                 "On a fait appel à vos service pour résoudre cette mystère.\n \n" +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
-        levelList.add(new LevelObject("Tutoriel: \n Derniers préparatifs ","ToDo",R.drawable.gold,600,"Partout", new ChapterTuto()));
+        levelList.add(new LevelObject("Tutoriel: \n Derniers préparatifs ","Vous allez perdre ! \n \n \n \n\n \n \n \n \n pas de message gentil \n Heloise",R.drawable.gold,600,"Partout", new ChapterTuto()));
         levelList.add(new LevelObject("Chapitre 1 : \n Des debut difficiles ",description,R.drawable.chap1,900,"Réaumur", new Chapter1()));
         levelList.add(new LevelObject("Test : \n Sombre histoire de Dauphins","OwO what's this",R.drawable.gold,60,"where am i ???", new ChapterTest()));
 
