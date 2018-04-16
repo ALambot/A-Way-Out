@@ -17,7 +17,7 @@ public class EnigmeCoffret extends AppCompatActivity{
     private ListView inventaire;
     private InventoryListView inventair;
     private InventoryAdapt inventoryAdapt;
-    private String solution="635";
+    public static EnigmeObject enigme;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,15 +29,6 @@ public class EnigmeCoffret extends AppCompatActivity{
         inventoryAdapt = GameState.getGameState().getInventoryAdapt();
         inventair=new InventoryListView(EnigmeCoffret.this,inventaire,inventoryAdapt, true);
         editText = (EditText)findViewById(R.id.editTextCoffret);
-        /*editText.addTextChangedListener(new TextWatcher() {
-            InteractionManager interactionManager=GameState.getGameState().getInteractions();
-            public void afterTextChanged(Editable s) {}
-
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-        });*/
 
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -46,10 +37,10 @@ public class EnigmeCoffret extends AppCompatActivity{
                 //if(keyEvent.getAction() == KeyEvent.ACTION_DOWN){
                     String reponse = editText.getText().toString();
                     if(reponse.length() == 3) {
-                        if (reponse.equals(solution)) {
+                        if (reponse.equals(enigme.getReponse())) {
                             interactionManager.enigmeSuccess("Coffret");
                             //TODO creer interaction succes et fail pour coffret
-                            Intent intent = new Intent(EnigmeCoffret.this, fin_niveau.class);
+                            Intent intent = new Intent(EnigmeCoffret.this, PlayerMenu.class);
                             startActivity(intent);
                         } else {
                             interactionManager.enigmeFail("Coffret");

@@ -63,6 +63,7 @@ public class EnigmeList extends AppCompatActivity{
                                 startActivity(intent);
                                 break;
                             case 4:
+                                EnigmeCoffret.enigme = enigme;
                                 intent=new Intent(EnigmeList.this, EnigmeCoffret.class);
                                 startActivity(intent);
                                 break;

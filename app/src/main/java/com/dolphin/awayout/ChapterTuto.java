@@ -15,15 +15,15 @@ public class ChapterTuto implements Chapter {
         // GameObjects
         ArrayList<GameObject> gobs = new ArrayList<GameObject>();
 
-        gobs.add(new GameObject("Montre", "Ma montre, j'y tient bien quelle soit à l'arrêt depuis longtemps", R.drawable.mirror));
+        gobs.add(new GameObject("Montre", "Ma montre, j'y tient bien quelle soit à l'arrêt depuis longtemps", R.drawable.tuto_montre));
         gobs.add(new GameObject("Lentille", "TO DO", R.drawable.mirror));
-        gobs.add(new GameObject("Morceau de loupe", "Un morceau de loupe, il manque la lentille", R.drawable.enigma_button));
-        gobs.add(new GameObject("Coffret", "TO DO", R.drawable.armoire));
+        gobs.add(new GameObject("Morceau de loupe", "Un morceau de loupe, il manque la lentille", R.drawable.tuto_loupe));
+        gobs.add(new GameObject("Coffret", "TO DO", R.drawable.tuto_coffret));
 
 
         // Enigmes
         ArrayList<EnigmeObject> enigmes = new ArrayList<EnigmeObject>();
-        enigmes.add(new EnigmeObject("Coffret",4,"635"));
+        enigmes.add(new EnigmeObject("Coffret",4,"953"));
 
         // Hints
         ArrayList<Hint> hints = new ArrayList<Hint>();
@@ -39,10 +39,10 @@ public class ChapterTuto implements Chapter {
 
         // DEBUG
         im.addQR("Pain", new Interaction("PENALITE", "30"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Coffret"));
+        im.addQR("Jackpot", new Interaction("SHOW_ENIGME", "Coffret"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "Morceau de loupe"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "Montre"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Lentille"));
+        //im.addQR("Jackpot", new Interaction( "ADD_GOB", "Lentille"));
 
         // QR
         im.addQR("Coffret", new Interaction("SHOW_ENIGME", "Coffret"));
@@ -51,13 +51,12 @@ public class ChapterTuto implements Chapter {
         GameState.getGameState().remainingQR = 3; //TODO TEMPORARY
 
         // COMBI
-
-        //im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Morceau de loupe"));
-        //im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Lentille"));
+        im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Morceau de loupe"));
+        im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Lentille"));
         im.addCombi("Morceau de loupe","Lentille", new Interaction("WIN", null));
-        //im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Morceau de loupe"));
-        //im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Lentille"));
-        //im.addCombi("Lentille","Morceau de loupe", new Interaction("Win", null));
+        im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Morceau de loupe"));
+        im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Lentille"));
+        im.addCombi("Lentille","Morceau de loupe", new Interaction("Win", null));
 
 
         // ENIGME WIN
