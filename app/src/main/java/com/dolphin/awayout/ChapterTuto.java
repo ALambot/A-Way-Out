@@ -44,10 +44,6 @@ public class ChapterTuto implements Chapter {
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "Montre"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "Lentille"));
 
-        for(int ii = 0; ii<6; ii++) {
-            im.addCombi("le small one", "le big one", new Interaction("PENALITE", "10"));
-        }
-
         // QR
         im.addQR("Coffret", new Interaction("SHOW_ENIGME", "Coffret"));
         im.addQR("Morceau de loupe", new Interaction( "ADD_GOB", "Morceau de loupe"));
@@ -56,12 +52,12 @@ public class ChapterTuto implements Chapter {
 
         // COMBI
 
-        im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Morceau de loupe"));
-        im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Lentille"));
-        im.addCombi("Morceau de loupe","Lentille", new Interaction("Win", null));
-        im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Morceau de loupe"));
-        im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Lentille"));
-        im.addCombi("Lentille","Morceau de loupe", new Interaction("Win", null));
+        //im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Morceau de loupe"));
+        //im.addCombi("Morceau de loupe","Lentille", new Interaction("REMOVE_GOB", "Lentille"));
+        im.addCombi("Morceau de loupe","Lentille", new Interaction("WIN", null));
+        //im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Morceau de loupe"));
+        //im.addCombi("Lentille","Morceau de loupe", new Interaction("REMOVE_GOB", "Lentille"));
+        //im.addCombi("Lentille","Morceau de loupe", new Interaction("Win", null));
 
 
         // ENIGME WIN
