@@ -31,9 +31,9 @@ public class Level_choice extends AppCompatActivity{
         String description = "Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne.\n " +
                 "On a fait appel à vos service pour résoudre cette mystère.\n \n" +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
-        levelList.add(new LevelObject("Tutoriel: \n Des debut difficiles ","ToDo",R.drawable.chap1,300,"Partout", new ChapterTuto()));
-        levelList.add(new LevelObject("Chapitre 1 : \n Dans le hall d'entrée ",description,R.drawable.chap1,900,"Réaumur", new Chapter1()));
-        levelList.add(new LevelObject("???","OwO what's this",R.drawable.gold,60,"where am i ???", new ChapterTest()));
+        levelList.add(new LevelObject("Tutoriel: \n Derniers préparatifs ","ToDo",R.drawable.gold,600,"Partout", new ChapterTuto()));
+        levelList.add(new LevelObject("Chapitre 1 : \n Des debut difficiles ",description,R.drawable.chap1,900,"Réaumur", new Chapter1()));
+        levelList.add(new LevelObject("Test : \n Sombre histoire de Dauphins","OwO what's this",R.drawable.gold,60,"where am i ???", new ChapterTest()));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);
         final TextAdapt adapter = new TextAdapt(this,levelList);

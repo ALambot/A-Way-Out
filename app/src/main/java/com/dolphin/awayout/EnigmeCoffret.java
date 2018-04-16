@@ -40,6 +40,7 @@ public class EnigmeCoffret extends AppCompatActivity{
                         if (reponse.equals(enigme.getReponse())) {
                             interactionManager.enigmeSuccess("Coffret");
                             //TODO creer interaction succes et fail pour coffret
+
                             Intent intent = new Intent(EnigmeCoffret.this, PlayerMenu.class);
                             startActivity(intent);
                         } else {
