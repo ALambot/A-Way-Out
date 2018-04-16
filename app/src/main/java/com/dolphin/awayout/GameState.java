@@ -62,7 +62,7 @@ public class GameState {
         this.initialized = true;
         this.ctx = context;
 
-        this.gameDuration = 900;
+        this.gameDuration = 1800;
         this.penalite = 0;
 
         this.nextID = 0; //pas touche
@@ -102,6 +102,7 @@ public class GameState {
         this.hints.add(new Hint("Essayez de regarder dans l'eau du vase", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
         this.hints.add(new Hint("Il y aurait-il un object qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
         this.hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","medusa"), new HintFlag("HAS_GOB", "miroir")}));
+        this.hints.add(new Hint("Les fleches du code indiquent un sens de rotation", new HintFlag[]{new HintFlag("HAS_GOB","feuille"), new HintFlag("HAS_GOB", "cypherDisc")}));
 
         this.interactions = new InteractionManager();
         this.interactions.init();

@@ -68,7 +68,7 @@ public class InteractionManager {
         addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
         addQR("clou", new Interaction("ADD_GOB", "clou"));
         addQR("statue", new Interaction("ADD_GOB", "statue"));
-        GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
+        GameState.getGameState().remainingQR = 6; //TODO TEMPORARY
 
         // COMBI
         addCombi("vase","bol vide", new Interaction("ADD_GOB", "boule transparente")); //vase+bol =boule transparente
@@ -90,6 +90,11 @@ public class InteractionManager {
         addCombi("vase","bol vide", new Interaction("REMOVE_GOB", "bol vide")); //vase+bol =boule transparente
         addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
         addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
+
+
+        
+
+
 
 
         // ENIGME WIN
@@ -256,6 +261,12 @@ public class InteractionManager {
             else if(this.action.equals("PENALITE")){
                 int penne = Integer.parseInt(this.arg);
                 GameState.getGameState().penalize(penne);
+
+            }
+            else if(this.action.equals("PENALITE_COMBI")){
+                int penne=Integer.parseInt(this.arg);
+                GameState.getGameState().penalize(penne);
+                Toast.makeText(GameState.getGameState().ctx, "Mauvaise combinaison ! Vous perdez "+ this.arg+" secondes.", Toast.LENGTH_LONG).show();
             }
             else if(this.action.equals("launch activity")){
                 Intent intent=new Intent(GameState.getGameState().ctx, LooseScreen.class);
