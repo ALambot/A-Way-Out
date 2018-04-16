@@ -15,8 +15,8 @@ public class ChapterTuto implements Chapter {
         // GameObjects
         ArrayList<GameObject> gobs = new ArrayList<GameObject>();
 
-        gobs.add(new GameObject("Montre", "Ma montre, j'y tient bien quelle soit à l'arrêt depuis longtemps", R.drawable.clock_player_menu));
-        gobs.add(new GameObject("Lentille", "Ma montre, j'y tient bien quelle soit à l'arrêt depuis longtemps", R.drawable.mirror));
+        gobs.add(new GameObject("Montre", "Ma montre, j'y tient bien quelle soit à l'arrêt depuis longtemps", R.drawable.mirror));
+        gobs.add(new GameObject("Lentille", "TO DO", R.drawable.mirror));
         gobs.add(new GameObject("Morceau de loupe", "Un morceau de loupe, il manque la lentille", R.drawable.enigma_button));
         gobs.add(new GameObject("Coffret", "TO DO", R.drawable.armoire));
 
@@ -42,6 +42,7 @@ public class ChapterTuto implements Chapter {
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "Coffret"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "Morceau de loupe"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "Montre"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Lentille"));
 
         for(int ii = 0; ii<6; ii++) {
             im.addCombi("le small one", "le big one", new Interaction("PENALITE", "10"));
