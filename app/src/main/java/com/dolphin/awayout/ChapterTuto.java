@@ -33,10 +33,10 @@ public class ChapterTuto implements Chapter {
 
 
 
-        String looseMessage="Votre temps est écoulé. Une autre détective est venue et a rafflé la mise. N'hésitez pas rééssayer et utiliser les indices. ";
-        String winMessage="Félicitations ! Vous êtes maintenant un ou une détéctive accompli ! Essayez maintenant les escape rooms plus compliquées.";
+        String looseMessage="Votre temps est écoulé.\n Une autre détective a déjà pris l'enquête.\n N'hésitez pas rééssayer et utiliser les indices. ";
+        String winMessage="Félicitations ! Vous êtes maintenant un ou une détéctive accompli ! \n Essayez maintenant les escape rooms plus compliquées.";
 
-        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,looseMessage,"");
+        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,looseMessage,winMessage);
 
         // --------------------------------------
 
@@ -68,7 +68,7 @@ public class ChapterTuto implements Chapter {
 
         // ENIGME WIN
         im.addEnigmeWIN("Coffret",new Interaction("ADD_GOB", "Verre"));
-        im.addEnigmeWIN("Coffret",new Interaction("LAUNCH_POPUP", "Dans le coffret, vous trouvez un verre pour la loupe"));
+        //im.addEnigmeWIN("Coffret",new Interaction("LAUNCH_POPUP", "Dans le coffret, vous trouvez un verre pour la loupe"));
 
         // ENIGME LOSE
         im.addEnigmeLOSE("Coffret", new Interaction("PENALITE", "30"));

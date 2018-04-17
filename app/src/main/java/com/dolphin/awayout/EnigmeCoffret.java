@@ -38,13 +38,13 @@ public class EnigmeCoffret extends AppCompatActivity{
                     String reponse = editText.getText().toString();
                     if(reponse.length() == 3) {
                         if (reponse.equals(enigme.getReponse())) {
-                            interactionManager.enigmeSuccess("Coffret");
+                            interactionManager.enigmeSuccess(enigme.getTitle());
                             //TODO creer interaction succes et fail pour coffret
 
                             Intent intent = new Intent(EnigmeCoffret.this, PlayerMenu.class);
                             startActivity(intent);
                         } else {
-                            interactionManager.enigmeFail("Coffret");
+                            interactionManager.enigmeFail(enigme.getTitle());
                             editText.setText("");
                             Toast.makeText(EnigmeCoffret.this, "Mauvais Code ! Vous perdez 30 secondes", Toast.LENGTH_LONG).show();
                         }
