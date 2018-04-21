@@ -7,18 +7,19 @@
     <GridView
         android:id="@+id/gridInventoryMenu"
         android:layout_width="558dp"
-        android:layout_height="451dp"
+        android:layout_height="379dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:numColumns="5"
         android:verticalSpacing="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageInventMenu" />
+        app:layout_constraintTop_toBottomOf="@+id/combine" />
 
     <TextView
         android:id="@+id/textInventTitle"
@@ -59,6 +60,18 @@
         app:layout_constraintVertical_bias="0.136"
         app:srcCompat="@drawable/inventory_menu_logo" />
 
+    <ImageView
+        android:id="@+id/combine"
+        android:layout_width="195dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageInventMenu"
+        app:srcCompat="@drawable/combine_button" />
+
     <ScrollView
         android:id="@+id/scrollViewDesc"
         android:layout_width="240dp"
@@ -85,6 +98,8 @@
             app:layout_constraintVertical_bias="0.0" />
 
     </ScrollView>
+
+
 
     <!-- adapter le nombre de col avec la taille de l'ecran-->
 

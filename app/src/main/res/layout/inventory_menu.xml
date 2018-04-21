@@ -7,7 +7,7 @@
     <GridView
         android:id="@+id/gridInventoryMenu"
         android:layout_width="344dp"
-        android:layout_height="249dp"
+        android:layout_height="218dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -16,14 +16,11 @@
         android:verticalSpacing="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977"
-        tools:layout_editor_absoluteY="249dp"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <TextView
         android:id="@+id/textInventTitle"
@@ -90,6 +87,18 @@
             app:layout_constraintVertical_bias="0.0" />
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/combine"
+        android:layout_width="120dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageInventMenu"
+        app:srcCompat="@drawable/combine_button" />
 
     <!-- adapter le nombre de col avec la taille de l'ecran-->
 

@@ -26,7 +26,7 @@ public class LevelObject{ //extends java.lang.Object{
         Title = title;
         this.description = "aucune description";
         this.imageId = R.drawable.gold;
-        Temps = 600;
+        Temps = 1800;
         Localisation = "ici";
     }
     /*

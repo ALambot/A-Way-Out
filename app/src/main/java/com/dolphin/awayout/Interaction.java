@@ -56,9 +56,13 @@ public class Interaction {
         }
         else if(this.action.equals("GAMEOVER")){
             GameState.getGameState().finishTimer();
+            Intent intent=new Intent(GameState.getGameState().ctx, LooseScreen.class);
+            GameState.getGameState().ctx.startActivity(intent);
         }
         else if(this.action.equals("WIN")){
             GameState.getGameState().finishTimer();
+            Intent intent=new Intent(GameState.getGameState().ctx, fin_niveau.class);
+            GameState.getGameState().ctx.startActivity(intent);
         }
         else if(this.action.equals("PENALITE")){
             int penne = Integer.parseInt(this.arg);

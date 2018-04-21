@@ -29,7 +29,7 @@ public class ChapterTest implements Chapter {
         //hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
         //hints.add(new Hint("Vazy vide l'eau du vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
 
-        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this);
+        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,"","");
 
         // --------------------------------------
 
@@ -40,7 +40,7 @@ public class ChapterTest implements Chapter {
         im.addQR("Pain", new Interaction("PENALITE", "30"));
         im.addQR("miam", new Interaction("ADD_GOB", "fricadelle"));
 
-        im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
+        //im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
         im.addTimeOut(new Interaction("GAMEOVER",null));
 
         GameState.getGameState().addIM(im);

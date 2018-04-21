@@ -36,7 +36,7 @@ public class InteractionManager {
         this.timeOut = null;
     }
 
-    // ADDERS ------
+    // A DDERS ------
 
     public void addStart(Interaction interaction){
         Interaction ir = this.start;
