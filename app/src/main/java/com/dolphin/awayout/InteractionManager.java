@@ -96,6 +96,7 @@ public class InteractionManager {
          }
          else{
              Toast.makeText(GameState.getGameState().ctx, "Rien ne se passe", Toast.LENGTH_SHORT).show();
+             //GameState.getGameState().penalize(30);
              return null;
          }
     }
