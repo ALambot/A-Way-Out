@@ -1,10 +1,10 @@
 package com.dolphin.awayout;
 
-import android.util.Log;
-import android.view.DragEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,66 +19,36 @@ public class InventoryGridView {
     private GridView listView;
     private String msg = "LOG";
     private List<InventoryObserver> observers = new ArrayList<InventoryObserver>();
+    private ImageView combiner;
+    private boolean isCombining;
 
-    public InventoryGridView(GridView view, InventoryAdapt inventoryAdapt, boolean itemDraggable) {
+    public InventoryGridView(GridView view, InventoryAdapt inventoryAdapt, ImageView combiner) {
         this.listView = view;
         this.inventoryAdapt = inventoryAdapt;
+        this.combiner = combiner;
+        this.isCombining = false;
         view.setAdapter(inventoryAdapt);
         onClickDisplayTitle();
-        if(itemDraggable)
-            setListenerDragNDrop();
+        onClickCombine();
     }
 
-    private void setListenerDragNDrop () {
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+    private void swapCombine() {
+        if(isCombining) {
+            isCombining = false;
+            combiner.setImageResource(R.drawable.combine_button);
+        }
+        else {
+            isCombining = true;
+            combiner.setImageResource(R.drawable.combine_button_on);
+        }
+
+    }
+
+    public void onClickCombine() {
+        combiner.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View v, int i, long l) {
-                GameObject obj = inventoryAdapt.getItem(i);
-                View.DragShadowBuilder myShadow = new View.DragShadowBuilder(v);
-                v.startDragAndDrop(null, myShadow, obj, 0) ;
-                return true;
-            }
-
-        });
-
-        listView.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-                switch (event.getAction()) {
-                    case DragEvent.ACTION_DRAG_STARTED:
-                        //v.setVisibility(View.INVISIBLE);
-                        Log.d(msg, "Started");
-                        break;
-
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        Log.d(msg, "Entered");
-                        int x_cord = (int) event.getX();
-                        int y_cord = (int) event.getY();
-                        break;
-
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        Log.d(msg, "Exited");
-                        break;
-
-                    case DragEvent.ACTION_DRAG_LOCATION:
-                        Log.d(msg, "Location");
-                        x_cord = (int) event.getX();
-                        y_cord = (int) event.getY();
-                        break;
-
-                    case DragEvent.ACTION_DRAG_ENDED:
-                        Log.d(msg, "Ended");
-                        notifyDropObservers((GameObject) event.getLocalState(), event.getX(), event.getY());
-                        break;
-
-                    case DragEvent.ACTION_DROP:
-                        Log.d(msg, "Drop");
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
+            public void onClick(View view) {
+                swapCombine();
             }
         });
     }
@@ -101,15 +71,14 @@ public class InventoryGridView {
 
     private void notifyClickObservers(GameObject object) {
         for(InventoryObserver observer : observers) {
-            observer.update(1, object, 0, 0);
+            if(!isCombining)
+                observer.update(1, object, 0, 0);
+            else {
+                observer.update(2, object, 0 , 0);
+                swapCombine();
+            }
+
         }
     }
 
-
-
-    private void notifyDropObservers(GameObject object, float x, float y){
-        for(InventoryObserver observer : observers) {
-            observer.update(2, object, Math.round(x), Math.round(y));
-        }
-    }
 }

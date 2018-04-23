@@ -39,61 +39,9 @@ public class InventoryListView {
         this.inventoryAdapt = inventoryAdapt;
         view.setAdapter(inventoryAdapt);
         onClickDisplayTitle();
-        if(itemDraggable)
-            setListenerDragNDrop();
     }
 
-    private void setListenerDragNDrop () {
-            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                @Override
-                public boolean onItemLongClick(AdapterView<?> adapterView, View v, int i, long l) {
-                    View.DragShadowBuilder myShadow = new View.DragShadowBuilder(v);
-                    v.startDragAndDrop(null, myShadow, null, 0) ;
-                    return true;
-                }
 
-            });
-
-            listView.setOnDragListener(new View.OnDragListener() {
-                @Override
-                public boolean onDrag(View v, DragEvent event) {
-                    switch (event.getAction()) {
-                        case DragEvent.ACTION_DRAG_STARTED:
-                            v.setVisibility(View.VISIBLE);
-                            Log.d(msg, "Started");
-                            break;
-
-                        case DragEvent.ACTION_DRAG_ENTERED:
-                            Log.d(msg, "Entered");
-                            int x_cord = (int) event.getX();
-                            int y_cord = (int) event.getY();
-                            break;
-
-                        case DragEvent.ACTION_DRAG_EXITED:
-                            Log.d(msg, "Exited");
-                            break;
-
-                        case DragEvent.ACTION_DRAG_LOCATION:
-                            Log.d(msg, "Location");
-                            x_cord = (int) event.getX();
-                            y_cord = (int) event.getY();
-                            break;
-
-                        case DragEvent.ACTION_DRAG_ENDED:
-                            Log.d(msg, "Ended");
-                            notifyDropObservers((GameObject) event.getLocalState(), event.getX(), event.getY());
-                            break;
-
-                        case DragEvent.ACTION_DROP:
-                            Log.d(msg, "Drop");
-                            break;
-                        default:
-                            break;
-                    }
-                    return true;
-                }
-            });
-    }
 
     private void onClickDisplayTitle() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
