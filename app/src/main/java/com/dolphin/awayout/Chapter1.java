@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by antoine on 27.03.18.
  */
 
-public class Chapter1 implements Chapter {
+public class  Chapter1 implements Chapter {
 
     private String title;
     private String description;
