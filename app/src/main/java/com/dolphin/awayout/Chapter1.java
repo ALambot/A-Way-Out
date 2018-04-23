@@ -8,12 +8,23 @@ import java.util.ArrayList;
 
 public class Chapter1 implements Chapter {
 
+    private String title;
+    private String description;
+    private String location;
+    private int imageID;
+    private int duration;
+
     public Chapter1() {
-        //...
+        this.title = "Chapitre 1 : \n Des débuts difficiles";
+        this.description = "Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne.\n " +
+                "On a fait appel à vos service pour résoudre cette mystère.\n \n" +
+                "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
+        this.location = "Réaumur : salle Intel";
+        this.imageID = R.drawable.chap1;
+        this.duration = 900;
     }
 
     public void load(){
-        long gameduration = 900;
 
         // GameObjects
         ArrayList<GameObject> gobs = new ArrayList<GameObject>();
@@ -55,7 +66,7 @@ public class Chapter1 implements Chapter {
         String looseMessage="Votre temps est écoulé ! Le majordome vous escortes hors de la maison alors qu\'il vous manque des indices. Essayez de repasser  plus tard !";
         String winMessage="Dans l\'armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubthshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !";
 
-        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,looseMessage, winMessage);
+        GameState.getGameState().init(this.duration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
         // --------------------------------------
 
@@ -126,8 +137,31 @@ public class Chapter1 implements Chapter {
 
         GameState.getGameState().addIM(im);
 
+    }
 
+    @Override
+    public String getTitle() {
+        return this.title;
+    }
 
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getLocation() {
+        return this.location;
+    }
+
+    @Override
+    public int getImageID() {
+        return this.imageID;
+    }
+
+    @Override
+    public int getDuration() {
+        return this.duration;
     }
 
 }

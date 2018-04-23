@@ -14,6 +14,7 @@ public class GameObject {
     private boolean visible;
     private boolean active;
     private boolean found;
+    public boolean QR; //Si l'objet est ramassé avec un QRcode ou non
 
     public GameObject(String name, String description, int imageRef) {
         this.ID = GameState.getGameState().getNextID();
@@ -23,6 +24,7 @@ public class GameObject {
         this.idImage = imageRef;
         this.visible = false;
         this.active = false;
+        this.QR = false;
     }
 
     public String getName() {

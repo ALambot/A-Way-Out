@@ -38,8 +38,13 @@ public class Interaction {
 
         if(this.action.equals("ADD_GOB")){
             GameObject gob = GameState.getGameState().getObjectByName(this.arg);
-            gob.activate();
-            gob.setFound();
+            if(!gob.isFound()){
+                gob.activate();
+                gob.setFound();
+                if(gob.QR){
+                    GameState.getGameState().remainingQR--;
+                }
+            }
         }
         else if(this.action.equals("REMOVE_GOB")){
             GameState.getGameState().getObjectByName(this.arg).deactivate();

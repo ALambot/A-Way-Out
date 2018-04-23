@@ -12,14 +12,14 @@ public class LevelObject{ //extends java.lang.Object{
     //Et/ou fichier contenant le niveau
     private Chapter chapter;
 
-    public LevelObject(String title, String description, int imageId, int temps, String localisation, Chapter chapter) {
-        Title = title;
-        this.description = description;
-        this.imageId = imageId;
-        Temps = temps;
-        Localisation = localisation;
-
+    public LevelObject(Chapter chapter) {
         this.chapter = chapter;
+
+        this.Title = chapter.getTitle();
+        this.description = chapter.getDescription();
+        this.imageId = chapter.getImageID();
+        this.Localisation = chapter.getLocation();
+        this.Temps = chapter.getDuration();
     }
 
     public LevelObject(String title) {

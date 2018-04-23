@@ -8,4 +8,10 @@ public interface Chapter {
 
     public void load();
 
+    public String getTitle();
+    public String getDescription();
+    public String getLocation();
+    public int getImageID();
+    public int getDuration();
+
 }

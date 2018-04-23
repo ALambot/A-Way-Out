@@ -8,12 +8,21 @@ import java.util.ArrayList;
 
 public class ChapterTest implements Chapter {
 
+    private String title;
+    private String description;
+    private String location;
+    private int imageID;
+    private int duration;
+
     public ChapterTest() {
-        //...
+        this.title = "Test : \n Sombre histoire de Dauphins";
+        this.description = "Vous allez perdre !";
+        this.location = "where am i ???";
+        this.imageID = R.drawable.gold;
+        this.duration = 42;
     }
 
     public void load(){
-        long gameduration = 42;
 
         // GameObjects
         ArrayList<GameObject> gobs = new ArrayList<GameObject>();
@@ -29,7 +38,7 @@ public class ChapterTest implements Chapter {
         //hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
         //hints.add(new Hint("Vazy vide l'eau du vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
 
-        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,"","");
+        GameState.getGameState().init(duration,gobs,enigmes,hints,this,"","");
 
         // --------------------------------------
 
@@ -45,6 +54,31 @@ public class ChapterTest implements Chapter {
 
         GameState.getGameState().addIM(im);
 
+    }
+
+    @Override
+    public String getTitle() {
+        return this.title;
+    }
+
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getLocation() {
+        return this.location;
+    }
+
+    @Override
+    public int getImageID() {
+        return this.imageID;
+    }
+
+    @Override
+    public int getDuration() {
+        return this.duration;
     }
 
 }

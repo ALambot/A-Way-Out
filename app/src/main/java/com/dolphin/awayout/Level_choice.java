@@ -26,15 +26,9 @@ public class Level_choice extends AppCompatActivity{
         levelList = new ArrayList<Object>();
 
         //Creer les niveau ici
-        String UnfinishedText = "Vous arriver dans un petit hall mal éclairé, le scénariste de l'escape room vous regarde le regard vide. " +
-                "Et vous dis avec une voix denuée de toute émotion \"This is an unpolished draft of the escape room\"";
-        String descchp1 = "Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne.\n " +
-                "On a fait appel à vos service pour résoudre cette mystère.\n \n" +
-                "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
-        levelList.add(new LevelObject("Tutoriel: \n Derniers préparatifs ","Cela faisait des jours que vous attendiez de pouvoir mettre vos talent à l'épreuve. Aujourd'hui c'est enfin possible !" +
-                "En effet, une nouvelle enquête vient d'être ouverte ! \n Néanmoins, avant de partir il vous faut preparer vos affaire... \n \n Hatez vous si vous voulez arriver sur les lieux avant la concurrence ! \n",R.drawable.tuto,600,"Réaumur : ?", new ChapterTuto()));
-        levelList.add(new LevelObject("Chapitre 1 : \n Des debut difficiles ",descchp1,R.drawable.chap1,900,"Réaumur : salle Intel", new Chapter1()));
-        levelList.add(new LevelObject("Test : \n Sombre histoire de Dauphins","Vous allez perdre !",R.drawable.gold,60,"where am i ???", new ChapterTest()));
+        levelList.add(new LevelObject(new ChapterTuto()));
+        levelList.add(new LevelObject(new Chapter1()));
+        levelList.add(new LevelObject(new ChapterTest()));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);
         final TextAdapt adapter = new TextAdapt(this,levelList);

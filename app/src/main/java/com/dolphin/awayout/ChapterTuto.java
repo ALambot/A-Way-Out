@@ -5,8 +5,19 @@ import java.util.ArrayList;
 
 public class ChapterTuto implements Chapter {
 
+    private String title;
+    private String description;
+    private String location;
+    private int imageID;
+    private int duration;
+
     public ChapterTuto() {
-        //...
+        this.title = "Tutoriel: \n Derniers préparatifs ";
+        this.description = "Cela faisait des jours que vous attendiez de pouvoir mettre vos talent à l'épreuve. Aujourd'hui c'est enfin possible !" +
+                "En effet, une nouvelle enquête vient d'être ouverte ! \n Néanmoins, avant de partir il vous faut preparer vos affaire... \n \n Hatez vous si vous voulez arriver sur les lieux avant la concurrence ! \n";
+        this.location = "Réaumur : ?";
+        this.imageID = R.drawable.tuto;
+        this.duration = 600;
     }
 
     public void load(){
@@ -78,6 +89,31 @@ public class ChapterTuto implements Chapter {
 
         GameState.getGameState().addIM(im);
 
+    }
+
+    @Override
+    public String getTitle() {
+        return this.title;
+    }
+
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getLocation() {
+        return this.location;
+    }
+
+    @Override
+    public int getImageID() {
+        return this.imageID;
+    }
+
+    @Override
+    public int getDuration() {
+        return this.duration;
     }
 
 }

@@ -71,6 +71,11 @@ public class InteractionManager {
         Interaction ir = this.qr.get(str);
         interaction.nextInteraction = ir;
         this.qr.put(str,interaction);
+
+        if(interaction.action.equals("ADD_GOB")){
+            GameObject gob = GameState.getGameState().getObjectByName(interaction.arg);
+            gob.QR = true;
+        }
     }
 
     public void addTimeOut(Interaction interaction){
@@ -96,7 +101,7 @@ public class InteractionManager {
          }
          else{
              Toast.makeText(GameState.getGameState().ctx, "Rien ne se passe", Toast.LENGTH_SHORT).show();
-             //GameState.getGameState().penalize(30);
+             GameState.getGameState().penalize(30);
              return null;
          }
     }
@@ -111,18 +116,15 @@ public class InteractionManager {
 
     public boolean QRresult(String result){
         Interaction ir = qr.get(result);
+        if(ir != null) {
+            ir.run();
+        }
+
         GameObject gob = GameState.getGameState().getObjectByName(result);
-        if (gob != null && !gob.isFound()) {
-            if (ir != null) {
-                GameState.getGameState().getObjectByName(result).setFound();
-                ir.run();
-            }
+        if(gob != null && gob.QR && !gob.isFound()){ // un peu bug dans le cas ou on debloque une enigme avec un QR
             return true;
         }
         else{
-            if(ir != null && gob == null){
-                ir.run(); //DEBUG ONLY
-            }
             return false;
         }
     }
