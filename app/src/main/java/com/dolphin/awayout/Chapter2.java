@@ -59,7 +59,7 @@ public class Chapter2 implements Chapter {
         ArrayList<Hint> hints =new ArrayList<>();
 
         String looseMessage = "Votre temps est écoulé ! Le majordome vous escorte hors de la maison. Vous devrez recommencer du début";
-        String winMessage= "IDFJGQIGSDGKDFJKEF";//TODO
+        String winMessage= "A l'intérieur du poudrier se trouvait un petit mot indiquant \"Tu va mourir ! signé: L.D\". Ce sont les initiales de la fille ainée de Lady Doubtshire ! Mais pourquoi tuer sa propre mère ?";//TODO
 
         GameState.getGameState().init(this.duration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
@@ -68,7 +68,25 @@ public class Chapter2 implements Chapter {
 
         InteractionManager im = new InteractionManager(gobs.size());
 
+
+        im.addQR("Jackpot", new Interaction("ADD_GOB","poudrier"));
+        im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "codeboite"));
+        im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "poudrier"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","ciseaux"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","veste"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","encyclo"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","posterBauBD"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","posterCN"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","boite"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","bol de noix"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","bol"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","feu"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","miroir"));
+
+
+
         im.addQR("Poudrier", new Interaction( "ADD_GOB","poudrier"));
+        im.addQR("Poudrier", new Interaction("SHOW_ENIGME", "poudrier"));
         im.addQR("Ciseaux", new Interaction( "ADD_GOB", "ciseaux"));
         im.addQR("Veste", new Interaction( "ADD_GOB", "veste"));
         im.addQR("Encyclo", new Interaction( "ADD_GOB", "encyclo"));
@@ -76,10 +94,17 @@ public class Chapter2 implements Chapter {
         im.addQR("PosterCN", new Interaction( "ADD_GOB", "posterCN"));
         im.addQR("Bol", new Interaction( "ADD_GOB", "bol"));
         im.addQR("Boite", new Interaction( "ADD_GOB", "boite"));
+        im.addQR("Boite", new Interaction( "SHOW_ENIGME", "codeboite"));
         im.addQR("Noix", new Interaction( "ADD_GOB", "bol de noix"));
         im.addQR("Feu", new Interaction( "ADD_GOB", "feu"));
         im.addQR("Miroir", new Interaction( "ADD_GOB", "miroir"));
         GameState.getGameState().remainingQR = 11;
+
+
+        im.addCombi("cle", "armoire", new Interaction("REMOVE_GOB", "armoire"));
+        im.addCombi("cle", "armoire", new Interaction("REMOVE_GOB", "cle"));
+        im.addCombi("cle", "armoire", new Interaction("REMOVE_GOB", "ciseaux"));
+        im.addCombi("cle", "armoire", new Interaction("ADD_GOB", "parfums"));
 
 
         im.addCombi("ciseaux","posterBauBD", new Interaction("ADD_GOB", "armoire"));
@@ -90,10 +115,11 @@ public class Chapter2 implements Chapter {
         im.addCombi("encyclo","bol de noix", new Interaction("LAUNCH_POPUP", "Vous ecrasez les noix avec l'enclopégie. A l'interieur de l'une d'entre elle se trouve un papier."));
         im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "encyclo"));
         im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "bol de noix"));
+        im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "posterCN"));
 
         im.addCombi("ciseaux","veste", new Interaction("ADD_GOB", "cle"));
         im.addCombi("ciseaux","veste", new Interaction("REMOVE_GOB", "veste"));
-        im.addCombi("ciseaux","veste", new Interaction("LAUNCH_POPUP"," Vous découpez la doublure de la veste. Vous y trouvez une clé"));
+        im.addCombi("ciseaux","veste", new Interaction("LAUNCH_POPUP"," Vous découpez la doublure de la veste. Vous y trouvez une clé !"));
 
 
         im.addCombi("bol","feu", new Interaction("ADD_GOB", "traducteur"));
@@ -108,6 +134,7 @@ public class Chapter2 implements Chapter {
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "boite"));
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "traducteur"));
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "papier"));
+        im.addEnigmeWIN("codeboite", new Interaction("HIDE_ENIGME", "codeboite"));
 
         im.addEnigmeWIN("poudrier",new Interaction("WIN",null)); //Armoir +code
 

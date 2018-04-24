@@ -79,7 +79,8 @@ public class ChapterTuto implements Chapter {
 
         // ENIGME WIN
         im.addEnigmeWIN("Coffret",new Interaction("ADD_GOB", "Verre"));
-        //im.addEnigmeWIN("Coffret",new Interaction("LAUNCH_POPUP", "Dans le coffret, vous trouvez un verre pour la loupe"));
+        im.addEnigmeWIN("Coffret",new Interaction("LAUNCH_POPUP_ENIGME", "Dans le coffret, vous trouvez un verre pour la loupe"));
+        im.addEnigmeWIN("Coffret", new Interaction("HIDE_ENIGME","Coffret"));
 
         // ENIGME LOSE
         im.addEnigmeLOSE("Coffret", new Interaction("PENALITE", "30"));
