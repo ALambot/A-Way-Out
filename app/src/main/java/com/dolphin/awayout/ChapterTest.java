@@ -48,6 +48,7 @@ public class ChapterTest implements Chapter {
         // DEBUG
         im.addQR("Pain", new Interaction("PENALITE", "30"));
         im.addQR("miam", new Interaction("ADD_GOB", "fricadelle"));
+        im.addQR("crash", new Interaction( "CRASH", null));
 
         //im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
         im.addTimeOut(new Interaction("GAMEOVER",null));

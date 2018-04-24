@@ -102,6 +102,9 @@ public class Interaction {
 
 
         }
+        else if(this.action.equals("CRASH")){
+            GameState.getGameState().crash();
+        }
 
         if(this.nextInteraction != null){
             this.nextInteraction.run();

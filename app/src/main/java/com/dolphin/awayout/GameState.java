@@ -218,6 +218,10 @@ public class GameState {
         this.penalite += seconds;
     }
 
+    public void crash() throws KEKxception {
+        throw new KEKxception();
+    }
+
     // OTHER ------
 
     public Object clone() throws CloneNotSupportedException {
@@ -225,4 +229,5 @@ public class GameState {
     }
 
     private class GameStateNotInitializedException extends RuntimeException{ }
+    private class KEKxception extends RuntimeException{ }
 }

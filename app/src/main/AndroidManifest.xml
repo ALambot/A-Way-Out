@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="00fa76afc07461e16f298b5e74716f998cf39c8d"
+            />
         <activity android:name=".PlayerMenu"
         android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
@@ -66,5 +70,6 @@
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
