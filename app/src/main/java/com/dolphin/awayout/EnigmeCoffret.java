@@ -25,6 +25,8 @@ public class EnigmeCoffret extends AppCompatActivity{
         setContentView(R.layout.enigme_code_coffret);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        GameState.getGameState().enigmeCoffret=this;
+
         inventaire=findViewById(R.id.listView_enigme_coffret);
         inventoryAdapt = GameState.getGameState().getInventoryAdapt();
         inventair=new InventoryListView(EnigmeCoffret.this,inventaire,inventoryAdapt, true);
@@ -40,9 +42,6 @@ public class EnigmeCoffret extends AppCompatActivity{
                         if (reponse.equals(enigme.getReponse())) {
                             interactionManager.enigmeSuccess(enigme.getTitle());
                             //TODO creer interaction succes et fail pour coffret
-
-                            Intent intent = new Intent(EnigmeCoffret.this, PlayerMenu.class);
-                            startActivity(intent);
                         } else {
                             interactionManager.enigmeFail(enigme.getTitle());
                             editText.setText("");

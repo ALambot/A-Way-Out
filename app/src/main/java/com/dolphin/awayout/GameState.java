@@ -20,6 +20,7 @@ public class GameState {
     private boolean initialized = false;
     public Context ctx;
     public Activity inventaire;
+    public Activity enigmeCoffret;
     private static Chapter chapter;
 
     // Timer

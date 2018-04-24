@@ -78,6 +78,31 @@ public class Interaction {
             GameState.getGameState().ctx.startActivity(intent);
 
         }
+        else if(this.action.equals("LAUNCH_POPUP_ENIGME")){
+
+            LinearLayout viewGroupe= GameState.getGameState().enigmeCoffret.findViewById(R.id.popup_General);
+            LayoutInflater layoutInflater=(LayoutInflater) GameState.getGameState().enigmeCoffret.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View layout = layoutInflater.inflate(R.layout.popup_general, viewGroupe);
+            final PopupWindow popup=new PopupWindow(GameState.getGameState().enigmeCoffret);
+            popup.setContentView(layout);
+            popup.setFocusable(true);
+
+            popup.showAtLocation(layout, Gravity.CENTER,0,0);
+            Button close=layout.findViewById(R.id.closePopUpGeneral);
+            close.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    popup.dismiss();
+                    Intent intent=new Intent(GameState.getGameState().ctx, PlayerMenu.class);
+                    GameState.getGameState().ctx.startActivity(intent);
+                }
+            });
+            TextView title=layout.findViewById(R.id.titlePopUpGeneral);
+            TextView textinPopUp=layout.findViewById(R.id.textPopUpGeneral);
+            title.setText("Bien joué !");
+            textinPopUp.setText(this.arg);
+        }
         else if(this.action.equals("LAUNCH_POPUP")){
             LinearLayout viewGroupe= GameState.getGameState().inventaire.findViewById(R.id.popup_General);
             LayoutInflater layoutInflater=(LayoutInflater) GameState.getGameState().inventaire.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -102,6 +127,9 @@ public class Interaction {
 
 
         }
+
+
+            //Toast.makeText(GameState.getGameState().ctx, "bleeeeeeeeeee !", Toast.LENGTH_SHORT).show();
 
         if(this.nextInteraction != null){
             this.nextInteraction.run();

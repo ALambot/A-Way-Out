@@ -59,7 +59,7 @@ public class Chapter2 implements Chapter {
         ArrayList<Hint> hints =new ArrayList<>();
 
         String looseMessage = "Votre temps est écoulé ! Le majordome vous escorte hors de la maison. Vous devrez recommencer du début";
-        String winMessage= "IDFJGQIGSDGKDFJKEF";//TODO
+        String winMessage= "A l'intérieur du poudrier se trouvait un petit mot indiquant \"Tu va mourir ! signé: L.D\". Ce sont les initiales de la fille ainée de Lady Doubtshire ! Mais pourquoi tuer sa propre mère ?";//TODO
 
         GameState.getGameState().init(this.duration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
@@ -108,6 +108,7 @@ public class Chapter2 implements Chapter {
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "boite"));
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "traducteur"));
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "papier"));
+        im.addEnigmeWIN("codeboite", new Interaction("HIDE_ENIGME", "codeboite"));
 
         im.addEnigmeWIN("poudrier",new Interaction("WIN",null)); //Armoir +code
 

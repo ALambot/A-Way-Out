@@ -34,6 +34,7 @@ public class PlayerMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_menu);
 
+
         Log.d("KEK", "PLAYERMENU CREATE");
 
         timer = (TextView) findViewById(R.id.timer);
