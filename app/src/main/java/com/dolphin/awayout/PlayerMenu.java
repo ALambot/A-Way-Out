@@ -35,8 +35,6 @@ public class PlayerMenu extends AppCompatActivity {
         setContentView(R.layout.activity_player_menu);
 
 
-        Log.d("KEK", "PLAYERMENU CREATE");
-
         timer = (TextView) findViewById(R.id.timer);
         inventory_button = (Button) findViewById(R.id.buttonMenuInventory);
         enigme_button = (Button) findViewById(R.id.buttonMenuEnigme);
@@ -63,6 +61,7 @@ public class PlayerMenu extends AppCompatActivity {
 
     public void onButtonHintClick(View view){
         showPopup(PlayerMenu.this, GameState.getGameState().getRandomHint(), false, true);
+        GameState.getGameState().penalize(30);
         //Toast.makeText(this, GameState.getGameState().getRandomHint(), Toast.LENGTH_LONG).show();
     }
 
@@ -177,7 +176,6 @@ public class PlayerMenu extends AppCompatActivity {
                             StringBuilder stringBuilder = new StringBuilder();
                             String neg = "";
                             if(time<0){
-                                Log.d("KEK","TIMER 0 " + GameState.getGameState().getRemainingTime());
                                 if (started) {
                                     started=false;
                                     InteractionManager interactionManager = GameState.getGameState().getInteractions();

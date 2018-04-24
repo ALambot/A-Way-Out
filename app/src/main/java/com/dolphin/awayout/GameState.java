@@ -219,8 +219,10 @@ public class GameState {
         this.penalite += seconds;
     }
 
-    public void crash() throws KEKxception {
-        throw new KEKxception();
+    public void crash(){
+        //throw new KEKxception();
+        int zero = 0;
+        int a = 42/zero;
     }
 
     // OTHER ------
