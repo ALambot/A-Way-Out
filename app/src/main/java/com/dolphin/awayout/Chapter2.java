@@ -8,13 +8,21 @@ import java.util.ArrayList;
 
 public class Chapter2 implements Chapter {
 
+    private String title;
+    private String description;
+    private String location;
+    private int imageID;
+    private int duration;
 
     public Chapter2() {
-
+        this.title = "Chapitre 2 : \n Le poudrier";
+        this.description = "À côté de Lady Doubtshire se trouvait ce poudrier. Parviendrez-vous à l'ouvrir ?";
+        this.location = "Réaumur : Siemens";
+        this.imageID = R.drawable.gold;
+        this.duration = 1800;
     }
 
     public void load(){
-        long gameduration=10000;
 
         ArrayList<GameObject> gobs = new ArrayList<>();
 
@@ -26,7 +34,7 @@ public class Chapter2 implements Chapter {
         gobs.add(new GameObject("bol de noix", "Un bol de noix. Lady Doubthsire en raffolait.", R.drawable.key_demo));
         gobs.add(new GameObject("papier", "Un papier avec un code mystérieux.", R.drawable.key_demo));
         gobs.add(new GameObject("veste", "La veste de Lady Doubtshire.Il semblerait que quelquque chose soit coincé dans la doublure.", R.drawable.key_demo));
-        gobs.add(new GameObject("mirroir", "Une mirroir posé sur la cheminée.", R.drawable.key_demo));
+        gobs.add(new GameObject("miroir", "Une mirroir posé sur la cheminée.", R.drawable.key_demo));
         gobs.add(new GameObject("feu", "Un bon feu brule dans la cheminée.", R.drawable.key_demo));
         gobs.add(new GameObject("dragees", "Des dragées de couleurs différentes.", R.drawable.key_demo));
         gobs.add(new GameObject("cle", "Une clé. Que pourrait-elle ouvrir ?", R.drawable.key_demo));
@@ -46,14 +54,14 @@ public class Chapter2 implements Chapter {
 
         enigmes.add(new EnigmeObject("codeboite", 2, "ilovepigpen"));
 
-        engimes.add(new EnigmeObject("poudrier", 2, "5236"));
+        enigmes.add(new EnigmeObject("poudrier", 2, "5236"));
 
         ArrayList<Hint> hints =new ArrayList<>();
 
         String looseMessage = "Votre temps est écoulé ! Le majordome vous escorte hors de la maison. Vous devrez recommencer du début";
         String winMessage= "IDFJGQIGSDGKDFJKEF";//TODO
 
-        GameState.getGameState().init(gameduration,gobs,enigmes,hints,this,looseMessage, winMessage);
+        GameState.getGameState().init(this.duration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
         // --------------------------------------
 
@@ -70,7 +78,7 @@ public class Chapter2 implements Chapter {
         im.addQR("Boite", new Interaction( "ADD_GOB", "boite"));
         im.addQR("Noix", new Interaction( "ADD_GOB", "bol de noix"));
         im.addQR("Feu", new Interaction( "ADD_GOB", "feu"));
-        im.addQR("Mirroir", new Interaction( "ADD_GOB", "mirroir"));
+        im.addQR("Miroir", new Interaction( "ADD_GOB", "miroir"));
         GameState.getGameState().remainingQR = 11;
 
 
@@ -88,17 +96,17 @@ public class Chapter2 implements Chapter {
         im.addCombi("ciseaux","veste", new Interaction("LAUNCH_POPUP"," Vous découpez la doublure de la veste. Vous y trouvez une clé"));
 
 
-        im.addCombi("cruche","feu", new Interaction("ADD_GOB", "traduction"));
-        im.addCombi("cruche","feu", new Interaction("REMOVE_GOB", "feu"));
-        im.addCombi("cruche","feu", new Interaction("REMOVE_GOB", "cruche"));
-        im.addCombi("cruche","feu", new Interaction("REMOVE_GOB", "mirroir"));
-        im.addCombi("cruche","feu", new Interaction("LAUNCH_POPUP","En versant de l'eau sur le feu, de la vapeur révèle un dessin sur le miroir"));
+        im.addCombi("bol","feu", new Interaction("ADD_GOB", "traducteur"));
+        im.addCombi("bol","feu", new Interaction("REMOVE_GOB", "feu"));
+        im.addCombi("bol","feu", new Interaction("REMOVE_GOB", "bol"));
+        im.addCombi("bol","feu", new Interaction("REMOVE_GOB", "miroir"));
+        im.addCombi("bol","feu", new Interaction("LAUNCH_POPUP","En versant de l'eau sur le feu, de la vapeur révèle un dessin sur le miroir"));
 
 
         // ENIGME WIN
         im.addEnigmeWIN("codeboite",new Interaction("ADD_GOB", "dragees"));
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "boite"));
-        im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "traduction"));
+        im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "traducteur"));
         im.addEnigmeWIN("codeboite",new Interaction("REMOVE_GOB", "papier"));
 
         im.addEnigmeWIN("poudrier",new Interaction("WIN",null)); //Armoir +code
@@ -140,7 +148,30 @@ public class Chapter2 implements Chapter {
     //parfums
     //traductioncode
 
+    @Override
+    public String getTitle() {
+        return this.title;
+    }
 
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getLocation() {
+        return this.location;
+    }
+
+    @Override
+    public int getImageID() {
+        return this.imageID;
+    }
+
+    @Override
+    public int getDuration() {
+        return this.duration;
+    }
 
 
 }

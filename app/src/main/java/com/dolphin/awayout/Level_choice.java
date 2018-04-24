@@ -28,6 +28,7 @@ public class Level_choice extends AppCompatActivity{
         //Creer les niveau ici
         levelList.add(new LevelObject(new ChapterTuto()));
         levelList.add(new LevelObject(new Chapter1()));
+        levelList.add(new LevelObject(new Chapter2()));
         levelList.add(new LevelObject(new ChapterTest()));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);
@@ -40,14 +41,12 @@ public class Level_choice extends AppCompatActivity{
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(levelList != null || levelList.size() >= 0){  // eviter le cas ou il n'y a pas d'enigme
+                if(levelList != null || levelList.size() >= 0){
                     LevelObject levelObject = (LevelObject) levelList.get(position);
-                    //TO DO Initialiser le Gamestate prendre ou le faire dans la page suivante
-
 
                     LevelStart.myLevel = levelObject;
                     Intent intent = new Intent(Level_choice.this, LevelStart.class);
-                    levelObject.load();
+                    levelObject.load(); //ceci crée et initialise le GameState depuis le Chapitre
                     GameState.getGameState().addContext(ctx);
                     startActivity(intent);
                 }
