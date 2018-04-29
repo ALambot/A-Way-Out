@@ -125,7 +125,6 @@ public class  Chapter1 implements Chapter {
 
 
         // ENIGME WIN
-        im.addEnigmeWIN("Armoir",new Interaction("ADD_GOB", "15")); //Armoir +code TODO
         im.addEnigmeWIN("Armoir",new Interaction("WIN",null)); //Armoir +code
 
         // ENIGME LOSE
