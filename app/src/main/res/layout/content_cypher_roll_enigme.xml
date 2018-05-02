@@ -21,7 +21,7 @@
         app:layout_constraintStart_toEndOf="@+id/inventaire_liste"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/outside_cypher_roll" />
+        app:srcCompat="@drawable/ch1_outside_cypher_roll" />
 
     <ImageView
         android:id="@+id/insidside_circle"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="@+id/outside_Circle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/inside_cypher_roll" />
+        app:srcCompat="@drawable/ch1_inside_cypher_roll" />
 
     <ImageButton
         android:id="@+id/button_versGauche"

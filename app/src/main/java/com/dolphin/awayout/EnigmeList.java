@@ -5,12 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -63,8 +59,8 @@ public class EnigmeList extends AppCompatActivity{
                                 startActivity(intent);
                                 break;
                             case 4:
-                                EnigmeCoffret.enigme = enigme;
-                                intent=new Intent(EnigmeList.this, EnigmeCoffret.class);
+                                EnigmeCode.enigme = enigme;
+                                intent=new Intent(EnigmeList.this, EnigmeCode.class);
                                 startActivity(intent);
                                 break;
                         }

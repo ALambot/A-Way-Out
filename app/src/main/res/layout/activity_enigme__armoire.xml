@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="@+id/listView_enigme_armoir"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/armoire" />
+        app:srcCompat="@drawable/ch1_armoire" />
 
     <Button
         android:id="@+id/buttonI"

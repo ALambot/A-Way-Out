@@ -1,6 +1,5 @@
 package com.dolphin.awayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class EnigmeCoffret extends AppCompatActivity{
+public class EnigmeCode extends AppCompatActivity{
 
     private EditText editText;
     private ListView inventaire;
@@ -29,7 +28,7 @@ public class EnigmeCoffret extends AppCompatActivity{
 
         inventaire=findViewById(R.id.listView_enigme_coffret);
         inventoryAdapt = GameState.getGameState().getInventoryAdapt();
-        inventair=new InventoryListView(EnigmeCoffret.this,inventaire,inventoryAdapt, true);
+        inventair=new InventoryListView(EnigmeCode.this,inventaire,inventoryAdapt, true);
         editText = (EditText)findViewById(R.id.editTextCoffret);
 
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -45,7 +44,7 @@ public class EnigmeCoffret extends AppCompatActivity{
                         } else {
                             interactionManager.enigmeFail(enigme.getTitle());
                             editText.setText("");
-                            Toast.makeText(EnigmeCoffret.this, "Mauvais Code ! Vous perdez 30 secondes", Toast.LENGTH_LONG).show();
+                            Toast.makeText(EnigmeCode.this, "Mauvais Code ! Vous perdez 30 secondes", Toast.LENGTH_LONG).show();
                         }
                     }
                 //}

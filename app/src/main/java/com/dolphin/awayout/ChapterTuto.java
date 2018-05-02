@@ -34,7 +34,7 @@ public class ChapterTuto implements Chapter {
 
         // Enigmes
         ArrayList<EnigmeObject> enigmes = new ArrayList<EnigmeObject>();
-        enigmes.add(new EnigmeObject("Coffret",4,"953"));
+        enigmes.add(new EnigmeObject("Coffret",4,"853"));
 
         // Hints
         ArrayList<Hint> hints = new ArrayList<Hint>();

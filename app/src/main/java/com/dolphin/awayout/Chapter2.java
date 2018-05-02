@@ -38,7 +38,7 @@ public class Chapter2 implements Chapter {
         gobs.add(new GameObject("feu", "Un bon feu brule dans la cheminée.", R.drawable.key_demo));
         gobs.add(new GameObject("dragees", "Des dragées de couleurs différentes.", R.drawable.key_demo));
         gobs.add(new GameObject("cle", "Une clé. Que pourrait-elle ouvrir ?", R.drawable.key_demo));
-        gobs.add(new GameObject("armoire", "L'armoir des parfums de lady Doubtshire, elle est fermée à clé.", R.drawable.key_demo));
+        gobs.add(new GameObject("ch1_armoire", "L'armoir des parfums de lady Doubtshire, elle est fermée à clé.", R.drawable.key_demo));
         gobs.add(new GameObject("ciseaux", "Une paire de petits ciseaux.", R.drawable.key_demo));
         gobs.add(new GameObject("bol", "Un bol rempli d'eau.", R.drawable.key_demo));
         gobs.add(new GameObject("parfums", "Les parfums de lady Doubtshire", R.drawable.key_demo));
@@ -102,17 +102,17 @@ public class Chapter2 implements Chapter {
         GameState.getGameState().remainingQR = 11;
 
 
-        im.addCombi("cle", "armoire", new Interaction("REMOVE_GOB", "armoire"));
-        im.addCombi("cle", "armoire", new Interaction("REMOVE_GOB", "cle"));
-        im.addCombi("cle", "armoire", new Interaction("REMOVE_GOB", "ciseaux"));
-        im.addCombi("cle", "armoire", new Interaction("ADD_GOB", "parfums"));
+        im.addCombi("cle", "ch1_armoire", new Interaction("REMOVE_GOB", "ch1_armoire"));
+        im.addCombi("cle", "ch1_armoire", new Interaction("REMOVE_GOB", "cle"));
+        im.addCombi("cle", "ch1_armoire", new Interaction("REMOVE_GOB", "ciseaux"));
+        im.addCombi("cle", "ch1_armoire", new Interaction("ADD_GOB", "parfums"));
 
 
-        im.addCombi("ciseaux","posterBauBD", new Interaction("ADD_GOB", "armoire"));
+        im.addCombi("ciseaux","posterBauBD", new Interaction("ADD_GOB", "ch1_armoire"));
         im.addCombi("ciseaux","posterBauBD", new Interaction("REMOVE_GOB", "posterBauBD"));
-        im.addCombi("ciseaux","posterBauBD", new Interaction("LAUNCH_POPUP"," Vous découpez le poster, derriere lui se trouve une armoire fermée à clé"));
+        im.addCombi("ciseaux","posterBauBD", new Interaction("LAUNCH_POPUP"," Vous découpez le poster, derriere lui se trouve une ch1_armoire fermée à clé"));
 
-        im.addCombi("encyclo","bol de noix", new Interaction("ADD_GOB", "papier")); //vase+bol =boule transparente
+        im.addCombi("encyclo","bol de noix", new Interaction("ADD_GOB", "papier")); //ch1_vase+bol =boule transparente
         im.addCombi("encyclo","bol de noix", new Interaction("LAUNCH_POPUP", "Vous ecrasez les noix avec l'enclopégie. A l'interieur de l'une d'entre elle se trouve un papier."));
         im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "encyclo"));
         im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "bol de noix"));
@@ -172,7 +172,7 @@ public class Chapter2 implements Chapter {
     //ciseaux
     //bol eau
     //pourdrier
-    //armoire
+    //ch1_armoire
     //parfums
     //traductioncode
 

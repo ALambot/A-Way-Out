@@ -36,7 +36,7 @@ public class ChapterTest implements Chapter {
         ArrayList<Hint> hints = new ArrayList<Hint>();
 
         //hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
-        //hints.add(new Hint("Vazy vide l'eau du vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
+        //hints.add(new Hint("Vazy vide l'eau du ch1_vase dans le bol", new HintFlag[]{new HintFlag("HAS_GOB","ch1_vase"),new HintFlag("HAS_GOB","bol vide")}));
 
         GameState.getGameState().init(duration,gobs,enigmes,hints,this,"","");
 

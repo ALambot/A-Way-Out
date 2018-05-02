@@ -58,7 +58,7 @@
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
         <!-- Tutorielle -->
-        <activity android:name=".EnigmeCoffret"
+        <activity android:name=".EnigmeCode"
             android:screenOrientation="portrait"/>
         <!-- Chapter 1 -->
         <activity android:name=".cypherRoll_enigme"
