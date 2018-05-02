@@ -29,7 +29,7 @@ public class ChapterTuto implements Chapter {
         gobs.add(new GameObject("Montre", "Ma montre, j'y tient bien quelle soit à l'arrêt depuis longtemps", R.drawable.tuto_montre));
         gobs.add(new GameObject("Verre", "Un verre neuf pour ma Loupe", R.drawable.tuto_verre));
         gobs.add(new GameObject("Morceau de loupe", "Un morceau de loupe, il manque la lentille", R.drawable.tuto_loupe));
-        gobs.add(new GameObject("Coffret", "J'y range qq affaires utiles", R.drawable.tuto_coffret));
+        gobs.add(new GameObject("Coffret", "J'y range quelques affaires utiles", R.drawable.tuto_coffret));
 
 
         // Enigmes
