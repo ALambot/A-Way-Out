@@ -27,22 +27,22 @@ public class Chapter2 implements Chapter {
         ArrayList<GameObject> gobs = new ArrayList<>();
 
 
-        gobs.add(new GameObject("poudrier", "Le poudrier trouvé dans la main de la victime. Il est fermé par un code à quatre chiffres", R.drawable.key_demo));
+        gobs.add(new GameObject("poudrier", "Le poudrier trouvé dans la main de la victime. Il est fermé par un code à quatre chiffres", R.drawable.ch2_poudrier));
         gobs.add(new GameObject("boite", "Une boite fermée par un code à dix chiffres. Que pourrait-elle contenir ?", R.drawable.key_demo));
-        gobs.add(new GameObject("poster du ballet de la belle au bois dormant", "Ung rand poster du ballet de la belle au bois dormant.",R.drawable.key_demo));
-        gobs.add(new GameObject("encyclo", "L'encyclopédie de Gutenberg.", R.drawable.key_demo));
-        gobs.add(new GameObject("bol de noix", "Un bol de noix. Lady Doubthsire en raffolait.", R.drawable.key_demo));
+        gobs.add(new GameObject("poster du ballet de la belle au bois dormant", "Un grand poster du ballet de la belle au bois dormant.",R.drawable.ch2_poster2));
+        gobs.add(new GameObject("encyclo", "L'encyclopédie de Gutenberg.", R.drawable.ch2_encycopedie));
+        gobs.add(new GameObject("bol de noix", "Un bol de noix. Lady Doubthsire en raffolait.", R.drawable.ch2_nuts));
         gobs.add(new GameObject("papier", "Un papier avec un code mystérieux.", R.drawable.key_demo));
         gobs.add(new GameObject("veste", "La veste de Lady Doubtshire.Il semblerait que quelquque chose soit coincé dans la doublure.", R.drawable.key_demo));
-        gobs.add(new GameObject("miroir", "Une mirroir posé sur la cheminée.", R.drawable.key_demo));
-        gobs.add(new GameObject("feu", "Un bon feu brule dans la cheminée.", R.drawable.key_demo));
-        gobs.add(new GameObject("dragees", "Des dragées de couleurs différentes.", R.drawable.key_demo));
+        gobs.add(new GameObject("miroir", "Une mirroir posé sur la cheminée.", R.drawable.ch2_mirroir2));
+        gobs.add(new GameObject("feu", "Un bon feu brule dans la cheminée.", R.drawable.ch2_dragees));
+        gobs.add(new GameObject("dragees", "Des dragées de couleurs différentes.", R.drawable.ch2_dragees));
         gobs.add(new GameObject("cle", "Une clé. Que pourrait-elle ouvrir ?", R.drawable.key_demo));
         gobs.add(new GameObject("Armoire à parfums", "L'armoir des parfums de lady Doubtshire, elle est fermée à clé.", R.drawable.key_demo));
         gobs.add(new GameObject("ciseaux", "Une paire de petits ciseaux.", R.drawable.key_demo));
-        gobs.add(new GameObject("bol", "Un bol rempli d'eau.", R.drawable.key_demo));
+        gobs.add(new GameObject("bol", "Un bol rempli d'eau.", R.drawable.chamber_pot_filled));
         gobs.add(new GameObject("parfums", "Les parfums de lady Doubtshire", R.drawable.key_demo));
-        gobs.add(new GameObject("feuille avec un code", "Des inscriptions mystérieuses écites sur le miroir.", R.drawable.key_demo));
+        gobs.add(new GameObject("mirroir avec un code", "Des inscriptions mystérieuses écrites sur le miroir.", R.drawable.key_demo));
         gobs.add(new GameObject("poster du ballet du casse-noisettes", "Un poster du ballet de casse noissettes. Un des préférés de Lady Doubtshire",R.drawable.key_demo));
 
 
@@ -52,8 +52,8 @@ public class Chapter2 implements Chapter {
 
 
 
-        enigmes.add(new EnigmeObject("boite fermée par un code", 2, "ilovepigpen"));
-        enigmes.add(new EnigmeObject("poudrier","_ _ _ _","5236",R.drawable.tuto_coffret));
+        enigmes.add(new EnigmeObject("boite fermée par un code","..........","ilovepigpen",R.drawable.tuto_coffret));
+        enigmes.add(new EnigmeObject("poudrier","_ _ _ _","5236",R.drawable.ch2_poudrier));
 
         ArrayList<Hint> hints =new ArrayList<>();
 
@@ -132,10 +132,12 @@ public class Chapter2 implements Chapter {
 
         // ENIGME WIN
         im.addEnigmeWIN("boite fermée par un code",new Interaction("ADD_GOB", "dragees"));
+        im.addEnigmeWIN("boite fermée par un code",new Interaction("LAUNCH_POPUP_ENIGME", "Dans le boîte, vous trouvez quelques draguées"));
+        im.addEnigmeWIN("boite fermée par un code", new Interaction("HIDE_ENIGME", "boite fermée par un code"));
         im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "boite"));
         im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "feuille avec un code"));
         im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "papier"));
-        im.addEnigmeWIN("boite fermée par un code", new Interaction("HIDE_ENIGME", "boite fermée par un code"));
+
 
         im.addEnigmeWIN("poudrier",new Interaction("WIN",null)); //Armoir +code
 
