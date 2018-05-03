@@ -123,7 +123,7 @@ public class Chapter2 implements Chapter {
         im.addCombi("ciseaux","veste", new Interaction("LAUNCH_POPUP"," Vous découpez la doublure de la veste. Vous y trouvez une clé !"));
 
 
-        im.addCombi("bol","feu", new Interaction("ADD_GOB", "feuille avec un code"));
+        im.addCombi("bol","feu", new Interaction("ADD_GOB", "mirroir avec un code"));
         im.addCombi("bol","feu", new Interaction("REMOVE_GOB", "feu"));
         im.addCombi("bol","feu", new Interaction("REMOVE_GOB", "bol"));
         im.addCombi("bol","feu", new Interaction("REMOVE_GOB", "miroir"));
@@ -135,8 +135,8 @@ public class Chapter2 implements Chapter {
         im.addEnigmeWIN("boite fermée par un code",new Interaction("LAUNCH_POPUP_ENIGME", "Dans le boîte, vous trouvez quelques draguées"));
         im.addEnigmeWIN("boite fermée par un code", new Interaction("HIDE_ENIGME", "boite fermée par un code"));
         im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "boite"));
-        im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "feuille avec un code"));
-        im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "papier"));
+        im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "mirroir avec un code"));
+       // im.addEnigmeWIN("boite fermée par un code",new Interaction("REMOVE_GOB", "papier"));
 
 
         im.addEnigmeWIN("poudrier",new Interaction("WIN",null)); //Armoir +code
