@@ -6,15 +6,16 @@ public class EnigmeObject {
     /*type
     * 1 : text choix
     * 2 : cypher roll
-    * 3 : Armoir
-    * 4 : Coffret
+    * 3 : armoire
+    * 4 : code
     */
     private String title = null;
     private int type;
     private String text = null;
     private String[] proposition = null;
+    private String hint = null;
     private String reponse =  null;
-
+    private int imgId = R.drawable.inventory_button;
     private boolean hidden = true;
     private boolean solved = false;
 
@@ -38,6 +39,17 @@ public class EnigmeObject {
         this.reponse = reponse;
         this.hidden = true;
         this.solved = false;
+    }
+
+    //type code
+    public EnigmeObject(String title,String hint, String reponse,  int img) {
+        this.title = title;
+        this.type = 4;
+        this.hint = hint;
+        this.reponse = reponse;
+        this.hidden = true;
+        this.solved = false;
+        this.imgId = img;
     }
     public String getTitle() {
         return title;
@@ -93,6 +105,22 @@ public class EnigmeObject {
 
     public void solve(){
         this.solved = true;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+    public int getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
     }
 
 

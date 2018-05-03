@@ -53,7 +53,7 @@ public class Chapter2 implements Chapter {
 
 
         enigmes.add(new EnigmeObject("codeboite", 2, "ilovepigpen"));
-        enigmes.add(new EnigmeObject("poudrier", 2, "5236"));
+        enigmes.add(new EnigmeObject("poudrier","_ _ _ _","5236",R.drawable.tuto_coffret));
 
         ArrayList<Hint> hints =new ArrayList<>();
 
