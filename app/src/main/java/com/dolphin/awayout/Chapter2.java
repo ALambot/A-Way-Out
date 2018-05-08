@@ -61,7 +61,7 @@ public class Chapter2 implements Chapter {
         hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
 
         String looseMessage = "Votre temps est écoulé ! Le majordome vous escorte hors de la maison. Vous devrez recommencer du début";
-        String winMessage= "A l'intérieur du poudr                                      ier se trouvait un petit mot indiquant \"Tu va mourir ! signé: L.D\". Ce sont les initiales de la fille ainée de Lady Doubtshire ! Mais pourquoi tuer sa propre mère ?";//TODO
+        String winMessage= "A l'intérieur du poudrier se trouvait un petit mot indiquant \"Tu va mourir ! signé: L.D\". Ce sont les initiales de la fille ainée de Lady Doubtshire ! Mais pourquoi vouloir tuer sa propre mère ?";//TODO
 
         GameState.getGameState().init(this.duration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
