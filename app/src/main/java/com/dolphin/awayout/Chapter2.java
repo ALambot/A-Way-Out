@@ -29,7 +29,7 @@ public class Chapter2 implements Chapter {
 
         gobs.add(new GameObject("poudrier", "Le poudrier trouvé dans la main de la victime. Il est fermé par un code à quatre chiffres", R.drawable.ch2_poudrier));
         gobs.add(new GameObject("boite", "Une boite fermée par un code à dix chiffres. Que pourrait-elle contenir ?", R.drawable.key_demo));
-        gobs.add(new GameObject("Poster dessiné", "Un grand poster du ballet de la belle au bois dormant.",R.drawable.ch2_poster2));
+        gobs.add(new GameObject("Poster dessiné", "Un grand poster du ballet : le lac des signes.",R.drawable.ch2_poster1));
         gobs.add(new GameObject("Encyclopedie", "L'Encyclopedie de Gutenberg.", R.drawable.ch2_encycopedie));
         gobs.add(new GameObject("bol de noix", "Un bol de noix. Lady Doubthsire en raffolait.", R.drawable.ch2_nuts));
         gobs.add(new GameObject("papier", "Un papier avec un code mystérieux.", R.drawable.ch2_papier_code2));
@@ -39,12 +39,12 @@ public class Chapter2 implements Chapter {
         gobs.add(new GameObject("dragees", "Des dragées de couleurs différentes.", R.drawable.ch2_dragees));
         gobs.add(new GameObject("cle", "Une clé. Que pourrait-elle ouvrir ?", R.drawable.ch2_cle));
         gobs.add(new GameObject("Armoire à parfums", "L'armoir des parfums de lady Doubtshire, elle est fermée à clé.", R.drawable.key_demo));
-        gobs.add(new GameObject("ciseaux", "Une paire de petits ciseaux.", R.drawable.key_demo));
+        gobs.add(new GameObject("ciseaux", "Une paire de petits ciseaux.", R.drawable.ch2_ciseaux));
         gobs.add(new GameObject("bol", "Un bol rempli d'eau.", R.drawable.chamber_pot_filled));
         gobs.add(new GameObject("bol bouillant", "Un bol rempli d'eau bouillante. De la valeur d'eau s'en échappe.", R.drawable.ch2_bol_fumant));
         gobs.add(new GameObject("parfums", "Les parfums de lady Doubtshire", R.drawable.ch2_parfums));
         gobs.add(new GameObject("mirroir avec un code", "Des inscriptions mystérieuses écrites sur le miroir.", R.drawable.ch2_papier_code));
-        gobs.add(new GameObject("Petit poster ", "Un poster du ballet de casse noissettes. Un des préférés de Lady Doubtshire",R.drawable.key_demo));
+        gobs.add(new GameObject("Petit poster ", "Un poster du ballet de casse noissettes. Un des préférés de Lady Doubtshire",R.drawable.ch2_poster2));
 
 
 
