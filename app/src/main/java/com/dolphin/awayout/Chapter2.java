@@ -16,10 +16,10 @@ public class Chapter2 implements Chapter {
 
     public Chapter2() {
         this.title = "Chapitre 2 : \n Le poudrier ensanglanté";
-        this.description = "\"Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge sur qui aurait bien pu vouloir s'en prendre à elle.\n  +\n" +
-                "On a fait appel à vos service pour résoudre cette mystère.\n \n+\n" +
-                "En arrivant, vous trouver le corps ensanglanté de Lady Doubtshire étalé sur le sol. Dans sa main, se trouve un pourdier. Vous le prenez mais impossible de l'ouvrir ! \n" +
-                "                \"Parviendrez vous à percez les secret de ce mystérieux pourdrier.";
+        this.description = "\"Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge.\n Qui aurait bien pu vouloir s'en prendre à elle ?\n" +
+                "On a fait appel à vos service pour résoudre ce mystère.\n \n" +
+                "En arrivant, vous trouver le corps ensanglanté de Lady Doubtshire étalé sur le sol. Dans sa main, se trouve un pourdier. Vous le prenez mais impossible de l'ouvrir ! \n \n" +
+                "Parviendrez vous à percez le secret de ce mystérieux pourdrier.\n";
         this.location = "Réaumur : Siemens";
         this.imageID = R.drawable.gold;
         this.duration = 1800;

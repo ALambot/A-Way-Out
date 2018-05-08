@@ -17,7 +17,7 @@ public class  Chapter1 implements Chapter {
     public Chapter1() {
         this.title = "Chapitre 1 : \n A la recherche de preuves";
         this.description = "Vous avez besoin de preuves pour étailler vos allégation.\n" +
-                "Vous fouiller donc le bureau de Lady Doubthshire, à la recherche d'un quelconque objet ou document pouvant fournir un mobile de meutre. \n \n" +
+                "Vous fouiller le bureau de Lady Doubthshire, à la recherche d'un quelconque objet ou document pouvant fournir un mobile de meutre. \n \n" +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
         this.location = "Réaumur : salle Intel";
         this.imageID = R.drawable.chap1;
