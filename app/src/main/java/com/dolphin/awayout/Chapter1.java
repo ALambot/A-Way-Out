@@ -163,8 +163,8 @@ public class Chapter1 implements Chapter {
         im.addEnigmeWIN("Poudrier",new Interaction("WIN",null)); //Armoir +code
 
         // ENIGME LOSE
-        im.addEnigmeLOSE("Boîte fermée par un code", new Interaction("PENALITE", "180"));
-        im.addEnigmeLOSE("Poudrier", new Interaction("PENALITE", "180"));
+        im.addEnigmeLOSE("Boîte fermée par un code", new Interaction("PENALITE", "60"));
+        im.addEnigmeLOSE("Poudrier", new Interaction("PENALITE", "240"));
 
         //im.addTimeOut(new Interaction("launch activity", "LooseScreen.class"));
         im.addTimeOut(new Interaction("GAMEOVER",null));
