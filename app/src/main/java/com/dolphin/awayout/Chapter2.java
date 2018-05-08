@@ -93,13 +93,13 @@ public class Chapter2 implements Chapter {
         // QR
         //im.addQR("cle", new Interaction("ADD_GOB", "cle"));
         im.addQR("miroir", new Interaction("ADD_GOB", "miroir"));
-        im.addQR("ch1_vase", new Interaction("ADD_GOB", "ch1_vase"));
+        im.addQR("vase", new Interaction("ADD_GOB", "ch1_vase"));
         im.addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
         im.addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
-        im.addQR("ch1_armoire", new Interaction("ADD_GOB", "ch1_armoire"));
-        im.addQR("ch1_armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
+        im.addQR("armoire", new Interaction("ADD_GOB", "ch1_armoire"));
+        im.addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
         im.addQR("clou", new Interaction("ADD_GOB", "clou"));
-        im.addQR("ch1_statue", new Interaction("ADD_GOB", "ch1_statue"));
+        im.addQR("statue", new Interaction("ADD_GOB", "ch1_statue"));
         GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
 
         // COMBI

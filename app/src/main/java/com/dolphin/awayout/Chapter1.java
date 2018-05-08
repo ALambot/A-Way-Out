@@ -80,13 +80,13 @@ public class Chapter1 implements Chapter {
         im.addQR("Veste", new Interaction( "ADD_GOB", "Veste"));
         im.addQR("Encyclopedie", new Interaction( "ADD_GOB", "Encyclopedie"));
         im.addQR("PosterBelle", new Interaction( "ADD_GOB", "Poster dessiné"));
-        im.addQR("Petit poster ", new Interaction( "ADD_GOB", "Petit poster "));
-        im.addQR("Bol", new Interaction( "ADD_GOB", "Bol d'eau"));
+        im.addQR("PosterCN", new Interaction( "ADD_GOB", "Petit poster "));
+        im.addQR("bol", new Interaction( "ADD_GOB", "Bol d'eau"));
         //im.addQR("Boîte", new Interaction( "ADD_GOB", "Boîte"));
         im.addQR("Boite", new Interaction( "SHOW_ENIGME", "Boîte fermée par un code"));
         im.addQR("Noix", new Interaction( "ADD_GOB", "Bol de noix"));
         im.addQR("Feu", new Interaction( "ADD_GOB", "Feu de bois"));
-        im.addQR("Miroir", new Interaction( "ADD_GOB", "Miroir"));
+        im.addQR("Mirroir", new Interaction( "ADD_GOB", "Miroir"));
 
         //im.addQR("Jackpot", new Interaction("ADD_GOB","Poudrier"));
         im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Boîte fermée par un code"));
