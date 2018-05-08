@@ -15,9 +15,9 @@ public class  Chapter1 implements Chapter {
     private int duration;
 
     public Chapter1() {
-        this.title = "Chapitre 1 : \n Des débuts difficiles";
-        this.description = "Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge sur ce qui a bien pu arriver à une si vertueuse personne.\n " +
-                "On a fait appel à vos service pour résoudre cette mystère.\n \n" +
+        this.title = "Chapitre 1 : \n A la recherche de preuves";
+        this.description = "Vous avez besoin de preuves pour étailler vos allégation.\n" +
+                "Vous fouiller donc le bureau de Lady Doubthshire, à la recherche d'un quelconque objet ou document pouvant fournir un mobile de meutre. \n \n" +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
         this.location = "Réaumur : salle Intel";
         this.imageID = R.drawable.chap1;
