@@ -50,9 +50,13 @@ public class InteractionManager {
         int ID1 = gob1.getID();
         int ID2 = gob2.getID();
 
-        Interaction ir = this.combiTable[ID1][ID2];
-        interaction.nextInteraction = ir;
+        Interaction ir1 = this.combiTable[ID1][ID2];
+        interaction.nextInteraction = ir1;
         this.combiTable[ID1][ID2] = interaction;
+
+        Interaction ir2 = this.combiTable[ID2][ID1];
+        interaction.nextInteraction = ir2;
+        this.combiTable[ID2][ID1] = interaction;
     }
 
     public void addEnigmeWIN(String enigme, Interaction interaction){
