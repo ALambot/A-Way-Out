@@ -29,8 +29,8 @@ public class Chapter2 implements Chapter {
 
         gobs.add(new GameObject("poudrier", "Le poudrier trouvé dans la main de la victime. Il est fermé par un code à quatre chiffres", R.drawable.ch2_poudrier));
         gobs.add(new GameObject("boite", "Une boite fermée par un code à dix chiffres. Que pourrait-elle contenir ?", R.drawable.key_demo));
-        gobs.add(new GameObject("poster du ballet de la belle au bois dormant", "Un grand poster du ballet de la belle au bois dormant.",R.drawable.ch2_poster2));
-        gobs.add(new GameObject("encyclo", "L'encyclopédie de Gutenberg.", R.drawable.ch2_encycopedie));
+        gobs.add(new GameObject("Poster dessiné", "Un grand poster du ballet de la belle au bois dormant.",R.drawable.ch2_poster2));
+        gobs.add(new GameObject("Encyclopedie", "L'Encyclopedie de Gutenberg.", R.drawable.ch2_encycopedie));
         gobs.add(new GameObject("bol de noix", "Un bol de noix. Lady Doubthsire en raffolait.", R.drawable.ch2_nuts));
         gobs.add(new GameObject("papier", "Un papier avec un code mystérieux.", R.drawable.key_demo));
         gobs.add(new GameObject("veste", "La veste de Lady Doubtshire.Il semblerait que quelquque chose soit coincé dans la doublure.", R.drawable.key_demo));
@@ -44,7 +44,7 @@ public class Chapter2 implements Chapter {
         gobs.add(new GameObject("bol bouillant", "Un bol rempli d'eau bouillante. De la valeur d'eau s'en échappe.", R.drawable.ch2_bol_fumant));
         gobs.add(new GameObject("parfums", "Les parfums de lady Doubtshire", R.drawable.key_demo));
         gobs.add(new GameObject("mirroir avec un code", "Des inscriptions mystérieuses écrites sur le miroir.", R.drawable.key_demo));
-        gobs.add(new GameObject("poster du ballet du casse-noisettes", "Un poster du ballet de casse noissettes. Un des préférés de Lady Doubtshire",R.drawable.key_demo));
+        gobs.add(new GameObject("Petit poster ", "Un poster du ballet de casse noissettes. Un des préférés de Lady Doubtshire",R.drawable.key_demo));
 
 
 
@@ -71,19 +71,35 @@ public class Chapter2 implements Chapter {
         InteractionManager im = new InteractionManager(gobs.size());
 
 
-        //im.addQR("Poudrier", new Interaction( "ADD_GOB","poudrier"));
+       // im.addQR("Poudrier", new Interaction( "ADD_GOB","poudrier"));
         im.addQR("Poudrier", new Interaction("SHOW_ENIGME", "poudrier"));
         im.addQR("Ciseaux", new Interaction( "ADD_GOB", "ciseaux"));
         im.addQR("Veste", new Interaction( "ADD_GOB", "veste"));
-        im.addQR("Encyclo", new Interaction( "ADD_GOB", "encyclo"));
-        im.addQR("PosterBelle", new Interaction( "ADD_GOB", "poster du ballet de la belle au bois dormant"));
-        im.addQR("poster du ballet du casse-noisettes", new Interaction( "ADD_GOB", "poster du ballet du casse-noisettes"));
+        im.addQR("Encyclopedie", new Interaction( "ADD_GOB", "Encyclopedie"));
+        im.addQR("PosterBelle", new Interaction( "ADD_GOB", "Poster dessiné"));
+        im.addQR("Petit poster ", new Interaction( "ADD_GOB", "Petit poster "));
         im.addQR("Bol", new Interaction( "ADD_GOB", "bol"));
         //im.addQR("Boite", new Interaction( "ADD_GOB", "boite"));
         im.addQR("Boite", new Interaction( "SHOW_ENIGME", "boite fermée par un code"));
         im.addQR("Noix", new Interaction( "ADD_GOB", "bol de noix"));
         im.addQR("Feu", new Interaction( "ADD_GOB", "feu"));
         im.addQR("Miroir", new Interaction( "ADD_GOB", "miroir"));
+
+        //im.addQR("Jackpot", new Interaction("ADD_GOB","poudrier"));
+        im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "boite fermée par un code"));
+        im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "poudrier"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","ciseaux"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","veste"));
+        //im.addQR("Jackpot", new Interaction("ADD_GOB", ""))
+         im.addQR("Jackpot", new Interaction("ADD_GOB","Encyclopedie"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","Poster dessiné"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","Petit poster "));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","boite"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","bol de noix"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","bol"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","feu"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","miroir"));
+
         GameState.getGameState().remainingQR = 11;
 
 
@@ -93,15 +109,15 @@ public class Chapter2 implements Chapter {
         im.addCombi("cle", "Armoire à parfums", new Interaction("ADD_GOB", "parfums"));
 
 
-        im.addCombi("ciseaux","poster du ballet de la belle au bois dormant", new Interaction("ADD_GOB", "Armoire à parfums"));
-        im.addCombi("ciseaux","poster du ballet de la belle au bois dormant", new Interaction("REMOVE_GOB", "poster du ballet de la belle au bois dormant"));
-        im.addCombi("ciseaux","poster du ballet de la belle au bois dormant", new Interaction("LAUNCH_POPUP"," Vous découpez le poster, derriere lui se trouve une Armoire à parfums fermée à clé"));
+        im.addCombi("ciseaux","Poster dessiné", new Interaction("ADD_GOB", "Armoire à parfums"));
+        im.addCombi("ciseaux","Poster dessiné", new Interaction("REMOVE_GOB", "Poster dessiné"));
+        im.addCombi("ciseaux","Poster dessiné", new Interaction("LAUNCH_POPUP"," Vous découpez le poster, derriere lui se trouve une Armoire à parfums fermée à clé"));
 
-        im.addCombi("encyclo","bol de noix", new Interaction("ADD_GOB", "papier")); //ch1_vase+bol =boule transparente
-        im.addCombi("encyclo","bol de noix", new Interaction("LAUNCH_POPUP", "Vous ecrasez les noix avec l'enclopégie. A l'interieur de l'une d'entre elle se trouve un papier."));
-        im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "encyclo"));
-        im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "bol de noix"));
-        im.addCombi("encyclo","bol de noix", new Interaction("REMOVE_GOB", "poster du ballet du casse-noisettes"));
+        im.addCombi("Encyclopedie","bol de noix", new Interaction("ADD_GOB", "papier")); //ch1_vase+bol =boule transparente
+        im.addCombi("Encyclopedie","bol de noix", new Interaction("LAUNCH_POPUP", "Vous ecrasez les noix avec l'enclopégie. A l'interieur de l'une d'entre elle se trouve un papier."));
+        im.addCombi("Encyclopedie","bol de noix", new Interaction("REMOVE_GOB", "Encyclopedie"));
+        im.addCombi("Encyclopedie","bol de noix", new Interaction("REMOVE_GOB", "bol de noix"));
+        im.addCombi("Encyclopedie","bol de noix", new Interaction("REMOVE_GOB", "Petit poster "));
 
         im.addCombi("ciseaux","veste", new Interaction("ADD_GOB", "cle"));
         im.addCombi("ciseaux","veste", new Interaction("REMOVE_GOB", "veste"));
@@ -157,7 +173,7 @@ public class Chapter2 implements Chapter {
     //boite avec code  10
     //postercasse noissette
     // poster belle aux bois dorman
-    //Encyclopedie de G.
+    //Encyclopediepedie de G.
     // Bol de noix
     // Papier  code + X
     // Veste
