@@ -30,18 +30,18 @@ public class Chapter2 implements Chapter {
         ArrayList<GameObject> gobs = new ArrayList<GameObject>();
 
         //gobs.add(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
-        gobs.add(new GameObject("miroir", "Un ancien mirroir posé sur la cheminée", R.drawable.ch1_mirror));
-        gobs.add(new GameObject("ch1_vase", "Une ch1_vase avec des fleures fraiches", R.drawable.ch1_vase));
-        gobs.add(new GameObject("bol vide", "Un ancien pot de chambre", R.drawable.ch1_chamber_pot));
-        gobs.add(new GameObject("clou", "Un clou rouillé", R.drawable.ch1_nail));
-        gobs.add(new GameObject("ch1_statue", "Une délicate ch1_statue posée sur le bureau", R.drawable.ch1_statue));
+        gobs.add(new GameObject("Miroir", "Un ancien miroir posé sur la cheminée", R.drawable.ch1_mirror));
+        gobs.add(new GameObject("Vase", "Une vase avec des fleures fraiches", R.drawable.ch1_vase));
+        gobs.add(new GameObject("Bol vide", "Un ancien pot de chambre", R.drawable.ch1_chamber_pot));
+        gobs.add(new GameObject("Clou", "Un clou rouillé", R.drawable.ch1_nail));
+        gobs.add(new GameObject("Statue", "Une délicate statue posée sur le bureau", R.drawable.ch1_statue));
         gobs.add(new GameObject("cypherDisc", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.ch1_outside_cypher_roll));
-        gobs.add(new GameObject("medusa", "Un papier d'une représentation de la Méduse", R.drawable.ch1_medusa_paper));
-        gobs.add(new GameObject("ch1_victoria","Une photo de la reine Victoria", R.drawable.ch1_victoria));
-        gobs.add(new GameObject("ch1_armoire", "Une ch1_armoire avec toutes les lettres engravées. Elle est verouillée. On peut appuyer sur les lettres.", R.drawable.ch1_armoire));
-        gobs.add(new GameObject("boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.ch1_crystal_ball));
-        gobs.add(new GameObject("feuille", "Des chiffres et flèches sont écrits dessus. ", R.drawable.ch1_password_paper));
-        gobs.add(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée ! ", R.drawable.ch1_tirroir));
+        gobs.add(new GameObject("Medusa", "Un papier d'une représentation de la Méduse", R.drawable.ch1_medusa_paper));
+        gobs.add(new GameObject("Victoiria","Une photo de la reine Victoria", R.drawable.ch1_victoria));
+        gobs.add(new GameObject("Armoire", "Une grande armoire avec toutes les lettres engravées. Elle est verrouillée. On peut appuyer sur les lettres.", R.drawable.ch1_armoire));
+        gobs.add(new GameObject("Boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.ch1_crystal_ball));
+        gobs.add(new GameObject("Feuille", "Des chiffres et des flèches sont écrits dessus.", R.drawable.ch1_password_paper));
+        gobs.add(new GameObject("Tiroir", "Un tiroir fermé. Il manque la poignée !", R.drawable.ch1_tirroir));
         //DEBUG
         gobs.add(new GameObject("le small one", "put me in le big one", R.drawable.ch1_inside_cypher_roll));
         gobs.add(new GameObject("le big one", "no touchy me", R.drawable.ch1_outside_cypher_roll));
@@ -57,13 +57,13 @@ public class Chapter2 implements Chapter {
         // Hints
         ArrayList<Hint> hints = new ArrayList<Hint>();
 
-        hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
-        hints.add(new Hint("Essayez de regarder dans l'eau du ch1_vase", new HintFlag[]{new HintFlag("HAS_GOB","ch1_vase"),new HintFlag("HAS_GOB","bol vide")}));
-        hints.add(new Hint("Il y aurait-il un object qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
-        hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","medusa"), new HintFlag("HAS_GOB", "miroir")}));
+        hints.add(new Hint("Il vous reste encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
+        hints.add(new Hint("Essayez de regarder dans l'eau du vase", new HintFlag[]{new HintFlag("HAS_GOB","Vase"),new HintFlag("HAS_GOB","Bol vide")}));
+        hints.add(new Hint("Il y aurait-il un objet qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","Tiroir"), new HintFlag("HAS_GOB", "Clou")}));
+        hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","Medusa"), new HintFlag("HAS_GOB", "Miroir")}));
 
         String looseMessage="Votre temps est écoulé ! Le majordome vous escortes hors de la maison alors qu\'il vous manque des indices. Essayez de repasser  plus tard !";
-        String winMessage="Dans l\'ch1_armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubthshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !";
+        String winMessage="Dans l\'Armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubthshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !";
 
         GameState.getGameState().init(this.duration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
@@ -77,13 +77,13 @@ public class Chapter2 implements Chapter {
         im.addQR("Sesame", new Interaction("SHOW_ENIGME", "cypherRoll"));
         im.addQR("Roll", new Interaction("ADD_GOB", "le small one"));
         im.addQR("Roll", new Interaction("ADD_GOB", "le big one"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "miroir"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "ch1_vase"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "bol vide"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "tiroir"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "ch1_armoire"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "clou"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "ch1_statue"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Miroir"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Vase"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Bol vide"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Tiroir"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Armoire"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Clou"));
+        im.addQR("Jackpot", new Interaction( "ADD_GOB", "Statue"));
         im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Armoire mysterieuse"));
 
         for(int ii = 0; ii<6; ii++) {
@@ -92,36 +92,36 @@ public class Chapter2 implements Chapter {
 
         // QR
         //im.addQR("cle", new Interaction("ADD_GOB", "cle"));
-        im.addQR("miroir", new Interaction("ADD_GOB", "miroir"));
-        im.addQR("vase", new Interaction("ADD_GOB", "ch1_vase"));
-        im.addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
-        im.addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
-        im.addQR("armoire", new Interaction("ADD_GOB", "ch1_armoire"));
+        im.addQR("miroir", new Interaction("ADD_GOB", "Miroir"));
+        im.addQR("vase", new Interaction("ADD_GOB", "Vase"));
+        im.addQR("bol vide", new Interaction("ADD_GOB", "Bol vide"));
+        im.addQR("tiroir", new Interaction("ADD_GOB", "Tiroir"));
+        im.addQR("armoire", new Interaction("ADD_GOB", "Armoire"));
         im.addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
-        im.addQR("clou", new Interaction("ADD_GOB", "clou"));
-        im.addQR("statue", new Interaction("ADD_GOB", "ch1_statue"));
+        im.addQR("clou", new Interaction("ADD_GOB", "Clou"));
+        im.addQR("statue", new Interaction("ADD_GOB", "Statue"));
         GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
 
         // COMBI
-        im.addCombi("ch1_vase","bol vide", new Interaction("ADD_GOB", "boule transparente")); //ch1_vase+bol =boule transparente
-        im.addCombi("ch1_vase","bol vide", new Interaction("LAUNCH_POPUP", "Vous videz le ch1_vase dans le bol. Dans l'eau du ch1_vase était cachée une boule transparente."));
-        im.addCombi("boule transparente", "ch1_statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+ch1_statue= cypherKey TODO
-        im.addCombi("boule transparente", "ch1_statue", new Interaction("REMOVE_GOB", "ch1_statue"));
-        im.addCombi("boule transparente", "ch1_statue", new Interaction("REMOVE_GOB", "boule transparente"));
-        im.addCombi("boule transparente", "ch1_statue", new Interaction("LAUNCH_POPUP", "Lorsque vous posez la boule dans la paume de la ch1_statue, le socle de celle-ci s'ouvre pour dévoiler un cypher roll. Il est disponible dans vos énigmes"));
-        im.addCombi("clou","tiroir", new Interaction("ADD_GOB", "medusa"));  // clou+tiroir= photo reine Victoria+photo medusa
-        im.addCombi("clou","tiroir", new Interaction("ADD_GOB", "ch1_victoria"));  // clou+tiroir= photo reine Victoria+photo medusa
-        im.addCombi("clou","tiroir", new Interaction("LAUNCH_POPUP", "Vous utilisez le clou comme poignée de tiroir. A l'intérieur de celui-ci se trouvent deux photos."));
-        im.addCombi("miroir","medusa", new Interaction("ADD_GOB", "feuille"));//miroir+medusa=code TODO
-        im.addCombi("medusa","miroir", new Interaction("ADD_GOB", "feuille"));
-        im.addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "miroir"));
-        im.addCombi("medusa","miroir", new Interaction("REMOVE_GOB", "medusa"));
-        im.addCombi("medusa","miroir", new Interaction("LAUNCH_POPUP", "En mettant la photo de la Méduse devant le miroir, elle s'éface pour laisser apparaitre un code !"));
+        im.addCombi("Vase","Bol vide", new Interaction("ADD_GOB", "Boule transparente")); //Vase+bol =Boule transparente
+        im.addCombi("Vase","Bol vide", new Interaction("LAUNCH_POPUP", "Vous videz le vase dans le bol. Dans l'eau du vase était cachée une Boule transparente."));
+        im.addCombi("Boule transparente", "Statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+Statue= cypherKey TODO
+        im.addCombi("Boule transparente", "Statue", new Interaction("REMOVE_GOB", "Statue"));
+        im.addCombi("Boule transparente", "Statue", new Interaction("REMOVE_GOB", "Boule transparente"));
+        im.addCombi("Boule transparente", "Statue", new Interaction("LAUNCH_POPUP", "Lorsque vous posez la boule dans la paume de la statue, le socle de celle-ci s'ouvre pour dévoiler un cypher roll. Il est disponible dans vos énigmes"));
+        im.addCombi("Clou","Tiroir", new Interaction("ADD_GOB", "Medusa"));  // Clou+Tiroir= photo reine Victoria+photo Medusa
+        im.addCombi("Clou","Tiroir", new Interaction("ADD_GOB", "Victoiria"));  // Clou+Tiroir= photo reine Victoria+photo Medusa
+        im.addCombi("Clou","Tiroir", new Interaction("LAUNCH_POPUP", "Vous utilisez le clou comme poignée pour le Ttroir. A l'intérieur de celui-ci se trouvent deux photos."));
+        im.addCombi("Miroir","Medusa", new Interaction("ADD_GOB", "Feuille"));//Miroir+Medusa=code TODO
+        im.addCombi("Medusa","Miroir", new Interaction("ADD_GOB", "Feuille"));
+        im.addCombi("Medusa","Miroir", new Interaction("REMOVE_GOB", "Miroir"));
+        im.addCombi("Medusa","Miroir", new Interaction("REMOVE_GOB", "Medusa"));
+        im.addCombi("Medusa","Miroir", new Interaction("LAUNCH_POPUP", "En mettant la photo de la Méduse devant le miroir, elle s'éfface pour laisser apparaître un code !"));
 
-        im.addCombi("ch1_vase","bol vide", new Interaction("REMOVE_GOB", "ch1_vase")); //ch1_vase+bol =boule transparente
-        im.addCombi("ch1_vase","bol vide", new Interaction("REMOVE_GOB", "bol vide")); //ch1_vase+bol =boule transparente
-        im.addCombi("clou", "tiroir", new Interaction("REMOVE_GOB", "clou"));  // clou+tiroir= photo reine Victoria+photo medusa
-        im.addCombi("clou","tiroir", new Interaction("REMOVE_GOB", "tiroir"));  // clou+tiroir= photo reine Victoria+photo medusa
+        im.addCombi("Vase","Bol vide", new Interaction("REMOVE_GOB", "Vase")); //Vase+bol =Boule transparente
+        im.addCombi("Vase","Bol vide", new Interaction("REMOVE_GOB", "Bol vide")); //Vase+bol =Boule transparente
+        im.addCombi("Clou", "Tiroir", new Interaction("REMOVE_GOB", "Clou"));  // Clou+Tiroir= photo reine Victoria+photo Medusa
+        im.addCombi("Clou","Tiroir", new Interaction("REMOVE_GOB", "Tiroir"));  // Clou+Tiroir= photo reine Victoria+photo Medusa
 
 
         // ENIGME WIN

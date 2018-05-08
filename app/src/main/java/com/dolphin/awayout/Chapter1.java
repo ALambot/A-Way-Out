@@ -15,7 +15,7 @@ public class Chapter1 implements Chapter {
     private int duration;
 
     public Chapter1() {
-        this.title = "Chapitre 1 : \n Le poudrier ensanglanté";
+        this.title = "Chapitre 1 : \n Le poudrier en sang";
         this.description = "\"Lady Doubthshire a été assasinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interroge.\n Qui aurait bien pu vouloir s'en prendre à elle ?\n" +
                 "On a fait appel à vos service pour résoudre ce mystère.\n \n" +
                 "En arrivant, vous trouver le corps ensanglanté de Lady Doubtshire étalé sur le sol. Dans sa main, se trouve un pourdier. Vous le prenez mais impossible de l'ouvrir ! \n \n" +
@@ -78,10 +78,10 @@ public class Chapter1 implements Chapter {
         im.addQR("Poudrier", new Interaction("SHOW_ENIGME", "Poudrier"));
         im.addQR("Ciseaux", new Interaction( "ADD_GOB", "Ciseaux"));
         im.addQR("Veste", new Interaction( "ADD_GOB", "Veste"));
-        im.addQR("Encyclopedie", new Interaction( "ADD_GOB", "Encyclopedie"));
+        im.addQR("Encyclo", new Interaction( "ADD_GOB", "Encyclopedie"));
         im.addQR("PosterBelle", new Interaction( "ADD_GOB", "Poster dessiné"));
         im.addQR("PosterCN", new Interaction( "ADD_GOB", "Petit poster "));
-        im.addQR("bol", new Interaction( "ADD_GOB", "Bol d'eau"));
+        im.addQR("Bol", new Interaction( "ADD_GOB", "Bol d'eau"));
         //im.addQR("Boîte", new Interaction( "ADD_GOB", "Boîte"));
         im.addQR("Boite", new Interaction( "SHOW_ENIGME", "Boîte fermée par un code"));
         im.addQR("Noix", new Interaction( "ADD_GOB", "Bol de noix"));
