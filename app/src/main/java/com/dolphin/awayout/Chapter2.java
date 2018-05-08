@@ -104,14 +104,14 @@ public class Chapter2 implements Chapter {
 
         // COMBI
         im.addCombi("Vase","Bol vide", new Interaction("ADD_GOB", "Boule transparente")); //Vase+bol =Boule transparente
-        im.addCombi("Vase","Bol vide", new Interaction("LAUNCH_POPUP", "Vous videz le vase dans le bol. Dans l'eau du vase était cachée une Boule transparente."));
+        im.addCombi("Vase","Bol vide", new Interaction("LAUNCH_POPUP", "Vous videz le vase dans le bol. Dans l'eau du vase était cachée une boule transparente."));
         im.addCombi("Boule transparente", "Statue", new Interaction("SHOW_ENIGME", "cypherRoll"));  // boule+Statue= cypherKey TODO
         im.addCombi("Boule transparente", "Statue", new Interaction("REMOVE_GOB", "Statue"));
         im.addCombi("Boule transparente", "Statue", new Interaction("REMOVE_GOB", "Boule transparente"));
         im.addCombi("Boule transparente", "Statue", new Interaction("LAUNCH_POPUP", "Lorsque vous posez la boule dans la paume de la statue, le socle de celle-ci s'ouvre pour dévoiler un cypher roll. Il est disponible dans vos énigmes"));
         im.addCombi("Clou","Tiroir", new Interaction("ADD_GOB", "Medusa"));  // Clou+Tiroir= photo reine Victoria+photo Medusa
         im.addCombi("Clou","Tiroir", new Interaction("ADD_GOB", "Victoiria"));  // Clou+Tiroir= photo reine Victoria+photo Medusa
-        im.addCombi("Clou","Tiroir", new Interaction("LAUNCH_POPUP", "Vous utilisez le clou comme poignée pour le Ttroir. A l'intérieur de celui-ci se trouvent deux photos."));
+        im.addCombi("Clou","Tiroir", new Interaction("LAUNCH_POPUP", "Vous utilisez le clou comme poignée pour le Tiroir. A l'intérieur de celui-ci se trouvent deux photos."));
         im.addCombi("Miroir","Medusa", new Interaction("ADD_GOB", "Feuille"));//Miroir+Medusa=code TODO
         im.addCombi("Medusa","Miroir", new Interaction("ADD_GOB", "Feuille"));
         im.addCombi("Medusa","Miroir", new Interaction("REMOVE_GOB", "Miroir"));
