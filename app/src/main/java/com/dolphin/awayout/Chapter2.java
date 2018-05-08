@@ -42,7 +42,7 @@ public class Chapter2 implements Chapter {
         gobs.add(new GameObject("ciseaux", "Une paire de petits ciseaux.", R.drawable.key_demo));
         gobs.add(new GameObject("bol", "Un bol rempli d'eau.", R.drawable.chamber_pot_filled));
         gobs.add(new GameObject("bol bouillant", "Un bol rempli d'eau bouillante. De la valeur d'eau s'en échappe.", R.drawable.ch2_bol_fumant));
-        gobs.add(new GameObject("parfums", "Les parfums de lady Doubtshire", R.drawable.key_demo));
+        gobs.add(new GameObject("parfums", "Les parfums de lady Doubtshire", R.drawable.ch2_parfums));
         gobs.add(new GameObject("mirroir avec un code", "Des inscriptions mystérieuses écrites sur le miroir.", R.drawable.ch2_papier_code));
         gobs.add(new GameObject("Petit poster ", "Un poster du ballet de casse noissettes. Un des préférés de Lady Doubtshire",R.drawable.key_demo));
 
