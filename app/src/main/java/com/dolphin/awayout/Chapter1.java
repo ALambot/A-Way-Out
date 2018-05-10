@@ -20,9 +20,9 @@ public class Chapter1 implements Chapter {
                 "On a fait appel à vos service pour résoudre ce mystère.\n \n" +
                 "En arrivant, vous trouver le corps ensanglanté de Lady Doubtshire étalé sur le sol. Dans sa main, se trouve un pourdier. Vous le prenez mais impossible de l'ouvrir ! \n \n" +
                 "Parviendrez vous à percez le secret de ce mystérieux pourdrier.\n";
-        this.location = "Réaumur : Siemens";
+        this.location = "Réaumur : salle Intell";
         this.imageID = R.drawable.gold;
-        this.duration = 1800;
+        this.duration = 2700;
     }
 
     public void load(){

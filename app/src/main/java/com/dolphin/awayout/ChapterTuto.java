@@ -15,7 +15,7 @@ public class ChapterTuto implements Chapter {
         this.title = "Tutoriel: \n Derniers préparatifs ";
         this.description = "Cela faisait des jours que vous attendiez de pouvoir mettre vos talent à l'épreuve. Aujourd'hui c'est enfin possible !" +
                 "En effet, une nouvelle enquête vient d'être ouverte ! \n Néanmoins, avant de partir il vous faut preparer vos affaire... \n \n Hatez vous si vous voulez arriver sur les lieux avant la concurrence ! \n";
-        this.location = "Réaumur : ?";
+        this.location = "Réaumur : salle Bill Joy";
         this.imageID = R.drawable.tuto;
         this.duration = 600;
     }
