@@ -15,11 +15,11 @@ public class Chapter2 implements Chapter {
     private int duration;
 
     public Chapter2() {
-        this.title = "Chapitre 2 : \n A la recherche de preuves";
+        this.title = "Chapitre 2 : \n Besoin de preuves";
         this.description = "Vous avez besoin de preuves pour étailler vos allégation.\n" +
                 "Vous fouiller le bureau de Lady Doubthshire, à la recherche d'un quelconque objet ou document pouvant fournir un mobile de meutre. \n \n" +
                 "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
-        this.location = "Réaumur : salle Siemens";
+        this.location = "Réaumur : Siemens";
         this.imageID = R.drawable.chap1;
         this.duration = 2700;
     }

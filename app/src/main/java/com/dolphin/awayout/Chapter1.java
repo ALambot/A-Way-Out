@@ -20,8 +20,8 @@ public class Chapter1 implements Chapter {
                 "On a fait appel à vos service pour résoudre ce mystère.\n \n" +
                 "En arrivant, vous trouver le corps ensanglanté de Lady Doubtshire étalé sur le sol. Dans sa main, se trouve un pourdier. Vous le prenez mais impossible de l'ouvrir ! \n \n" +
                 "Parviendrez vous à percez le secret de ce mystérieux pourdrier.\n";
-        this.location = "Réaumur : salle Intell";
-        this.imageID = R.drawable.gold;
+        this.location = "Réaumur : Intell";
+        this.imageID = R.drawable.ch2_start;
         this.duration = 2700;
     }
 
@@ -31,17 +31,17 @@ public class Chapter1 implements Chapter {
 
 
         gobs.add(new GameObject("Poudrier", "Le poudrier trouvé dans la main de la victime. Il est fermé par un code à quatre chiffres", R.drawable.ch2_poudrier));
-        gobs.add(new GameObject("Boîte", "Une boite fermée par un code à dix chiffres. Que pourrait-elle contenir ?", R.drawable.key_demo));
+        gobs.add(new GameObject("Boîte", "Une boite fermée par un code à dix chiffres. Que pourrait-elle contenir ?", R.drawable.ch2_boite));
         gobs.add(new GameObject("Petit poster ", "Un grand poster du ballet : le lac des signes.",R.drawable.ch2_poster1));
         gobs.add(new GameObject("Encyclopedie", "L'Encyclopedie de Gutenberg.", R.drawable.ch2_encycopedie));
         gobs.add(new GameObject("Bol de noix", "Un bol de noix. Lady Doubthsire en raffolait.", R.drawable.ch2_nuts));
         gobs.add(new GameObject("Morceau de papier", "Un papier avec un code mystérieux.", R.drawable.ch2_papier_code2));
-        gobs.add(new GameObject("Veste", "La veste de Lady Doubtshire.Il semblerait que quelquque chose soit coincé dans la doublure.", R.drawable.key_demo));
+        gobs.add(new GameObject("Veste", "La veste de Lady Doubtshire.Il semblerait que quelquque chose soit coincé dans la doublure.", R.drawable.ch2_veste));
         gobs.add(new GameObject("Miroir", "Une mirroir posé sur la cheminée.", R.drawable.ch2_mirroir2));
-        gobs.add(new GameObject("Feu de bois", "Un bon feu brule dans la cheminée.", R.drawable.key_demo));
+        gobs.add(new GameObject("Feu de bois", "Un bon feu brule dans la cheminée.", R.drawable.ch2_feu));
         gobs.add(new GameObject("Dragées", "Des dragées de couleurs différentes.", R.drawable.ch2_dragees));
         gobs.add(new GameObject("Clé", "Une clé.\n Que pourrait-elle ouvrir ?", R.drawable.ch2_cle));
-        gobs.add(new GameObject("Armoire encastrée dans le mur", "Une armoire secrete cachée dans un mur. Elle est fermée à clé.", R.drawable.key_demo));
+        gobs.add(new GameObject("Armoire encastrée dans le mur", "Une armoire secrete cachée dans un mur. Elle est fermée à clé.", R.drawable.ch2_coffre));
         gobs.add(new GameObject("Ciseaux", "Une paire de petits ciseaux.", R.drawable.ch2_ciseaux));
         gobs.add(new GameObject("Bol d'eau", "Un bol rempli d'eau.", R.drawable.chamber_pot_filled));
         gobs.add(new GameObject("Bol d'eau bouillante", "Un bol rempli d'eau bouillante. De la valeur d'eau s'en échappe.", R.drawable.ch2_bol_fumant));
@@ -56,7 +56,7 @@ public class Chapter1 implements Chapter {
 
 
 
-        enigmes.add(new EnigmeObject("Boîte fermée par un code","..........","ilovepigpen",R.drawable.tuto_coffret));
+        enigmes.add(new EnigmeObject("Boîte fermée par un code","..........","ilovepigpen",R.drawable.ch2_boite));
         enigmes.add(new EnigmeObject("Poudrier","_ _ _ _","3518",R.drawable.ch2_poudrier));
 
         ArrayList<Hint> hints =new ArrayList<>();

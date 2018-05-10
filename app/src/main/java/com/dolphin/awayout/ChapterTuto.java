@@ -15,7 +15,7 @@ public class ChapterTuto implements Chapter {
         this.title = "Tutoriel: \n Derniers préparatifs ";
         this.description = "Cela faisait des jours que vous attendiez de pouvoir mettre vos talent à l'épreuve. Aujourd'hui c'est enfin possible !" +
                 "En effet, une nouvelle enquête vient d'être ouverte ! \n Néanmoins, avant de partir il vous faut preparer vos affaire... \n \n Hatez vous si vous voulez arriver sur les lieux avant la concurrence ! \n";
-        this.location = "Réaumur : salle Bill Joy";
+        this.location = "Réaumur : Bill Joy";
         this.imageID = R.drawable.tuto;
         this.duration = 600;
     }
@@ -40,7 +40,9 @@ public class ChapterTuto implements Chapter {
         ArrayList<Hint> hints = new ArrayList<Hint>();
 
         hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
-        hints.add(new Hint("Quelle information peut-on tirer d'une montre ?", new HintFlag[]{new HintFlag("ENIGME_UNSOLVED", "Coffret"), new HintFlag("HAS_GOB","Montre")}));
+        hints.add(new Hint("La montre est surement la clé de l'enigme ! Concentrez vous pour éviter les erreurs d'inattention", new HintFlag[]{new HintFlag("ENIGME_UNSOLVED", "Coffret"), new HintFlag("HAS_GOB","Montre")}));
+        hints.add(new Hint("Vous devriez désormais pouvoir réparer ma loupe.", new HintFlag[]{new HintFlag("HAS_GOB","Verre"), new HintFlag("HAS_GOB","Morceau de loupe")}));
+
 
 
 
