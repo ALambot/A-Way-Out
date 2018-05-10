@@ -20,7 +20,7 @@ public class Chapter1 implements Chapter {
                 "On a fait appel à vos service pour résoudre ce mystère.\n \n" +
                 "En arrivant, vous trouver le corps ensanglanté de Lady Doubtshire étalé sur le sol. Dans sa main, se trouve un pourdier. Vous le prenez mais impossible de l'ouvrir ! \n \n" +
                 "Parviendrez vous à percez le secret de ce mystérieux pourdrier.\n";
-        this.location = "Réaumur : Intell";
+        this.location = "Réaumur : Intel";
         this.imageID = R.drawable.ch2_start;
         this.duration = 2700;
     }
@@ -94,7 +94,7 @@ public class Chapter1 implements Chapter {
         im.addQR("Jackpot", new Interaction("ADD_GOB","Ciseaux"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Veste"));
         //im.addQR("Jackpot", new Interaction("ADD_GOB", ""))
-         im.addQR("Jackpot", new Interaction("ADD_GOB","Encyclopedie"));
+        im.addQR("Jackpot", new Interaction("ADD_GOB","Encyclopedie"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Poster dessiné"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Petit poster "));
         //im.addQR("Jackpot", new Interaction("ADD_GOB","Boîte"));
@@ -103,7 +103,7 @@ public class Chapter1 implements Chapter {
         im.addQR("Jackpot", new Interaction("ADD_GOB","Feu de bois"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Miroir"));
 
-        GameState.getGameState().remainingQR = 11;
+        GameState.getGameState().remainingQR = 9; //Juste les gob
 
 
         im.addCombi("Clé", "Armoire encastrée dans le mur", new Interaction("REMOVE_GOB", "Armoire encastrée dans le mur"));

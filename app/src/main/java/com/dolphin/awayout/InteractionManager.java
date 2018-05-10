@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -119,13 +120,20 @@ public class InteractionManager {
     }
 
     public boolean QRresult(String result){
+        GameObject gob = GameState.getGameState().getObjectByName(result);
+        boolean found = true;
+        if(gob != null){
+            found = !gob.isFound();
+        }
+
         Interaction ir = qr.get(result);
         if(ir != null) {
             ir.run();
         }
 
-        GameObject gob = GameState.getGameState().getObjectByName(result);
-        if(gob != null && gob.QR && !gob.isFound()){ // un peu bug dans le cas ou on debloque une enigme avec un QR
+        //GameObject gob = GameState.getGameState().getObjectByName(result);
+        gob = GameState.getGameState().getObjectByName(result);
+        if(gob != null && gob.QR && found){ // un peu bug dans le cas ou on debloque une enigme avec un QR
             return true;
         }
         else{

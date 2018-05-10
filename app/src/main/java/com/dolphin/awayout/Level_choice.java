@@ -29,8 +29,8 @@ public class Level_choice extends AppCompatActivity{
         levelList.add(new LevelObject(new ChapterTuto()));
         levelList.add(new LevelObject(new Chapter1()));
         levelList.add(new LevelObject(new Chapter2()));
-        levelList.add(new LevelObject(new ChapterDemo()));
-        levelList.add(new LevelObject(new ChapterTest()));
+        //levelList.add(new LevelObject(new ChapterDemo()));
+        //levelList.add(new LevelObject(new ChapterTest()));
 
         ListView list_niveau = (ListView) findViewById(R.id.listNiveau);
         final TextAdapt adapter = new TextAdapt(this,levelList);
