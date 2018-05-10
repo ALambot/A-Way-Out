@@ -8,6 +8,7 @@ public class EnigmeObject {
     * 2 : cypher roll
     * 3 : armoire
     * 4 : code
+    * 5 : montre-gousset demo
     */
     private String title = null;
     private int type;

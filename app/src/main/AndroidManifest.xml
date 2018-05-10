@@ -69,6 +69,11 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
+        <!-- ChapterDemo -->
+        <activity android:name=".MontreGousset"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 
