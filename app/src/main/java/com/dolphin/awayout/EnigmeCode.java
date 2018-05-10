@@ -55,7 +55,7 @@ public class EnigmeCode extends AppCompatActivity{
                     } else {
                         interactionManager.enigmeFail(enigme.getTitle());
                         editText.setText("");
-                        Toast.makeText(EnigmeCode.this, "Mauvais Code ! Vous perdez 30 secondes", Toast.LENGTH_LONG).show();
+                        Toast.makeText(EnigmeCode.this, "Mauvais Code ! Vous perdez du temps", Toast.LENGTH_LONG).show();
                     }
                 }
                 return false;
