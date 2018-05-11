@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gold" />
+        app:srcCompat="@drawable/ch2_bol_fumant" />
 
     <ImageView
         android:id="@+id/imageMGH"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gold" />
+        app:srcCompat="@drawable/ch2_cle" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -73,21 +73,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:onClick="bHL"
+                android:text="&lt;" />
 
             <TextView
                 android:id="@+id/textH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="Heure" />
 
             <Button
                 android:id="@+id/buttonHright"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:onClick="bHR"
+                android:text="&gt;" />
         </LinearLayout>
 
         <LinearLayout
@@ -108,21 +110,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:onClick="bML"
+                android:text="&lt;" />
 
             <TextView
                 android:id="@+id/textM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="Minute" />
 
             <Button
                 android:id="@+id/buttonMright"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:onClick="bMR"
+                android:text="&gt;" />
 
         </LinearLayout>
 
@@ -131,7 +135,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:onClick="OK"
+            android:text="OK" />
 
     </LinearLayout>
 
