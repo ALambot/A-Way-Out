@@ -65,6 +65,7 @@ public class ChapterTuto implements Chapter {
 
         // QR
         im.addQR("Coffret", new Interaction("SHOW_ENIGME", "Coffret"));
+        im.addQR("Coffret", new Interaction("ADD_GOB", "Coffret"));
         im.addQR("Loupe", new Interaction( "ADD_GOB", "Morceau de loupe"));
         im.addQR("Montre", new Interaction( "ADD_GOB", "Montre"));
         GameState.getGameState().remainingQR = 3; //TODO TEMPORARY

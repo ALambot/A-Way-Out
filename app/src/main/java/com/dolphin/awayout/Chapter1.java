@@ -76,6 +76,7 @@ public class Chapter1 implements Chapter {
 
        // im.addQR("Poudrier", new Interaction( "ADD_GOB","Poudrier"));
         im.addQR("Poudrier", new Interaction("SHOW_ENIGME", "Poudrier"));
+        im.addQR("Poudrier", new Interaction("ADD_GOB", "Poudrier"));
         im.addQR("Ciseaux", new Interaction( "ADD_GOB", "Ciseaux"));
         im.addQR("Veste", new Interaction( "ADD_GOB", "Veste"));
         im.addQR("Encyclo", new Interaction( "ADD_GOB", "Encyclopedie"));
@@ -91,6 +92,7 @@ public class Chapter1 implements Chapter {
         //im.addQR("Jackpot", new Interaction("ADD_GOB","Poudrier"));
         im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Boîte fermée par un code"));
         im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Poudrier"));
+        im.addQR("Poudrier", new Interaction("ADD_GOB", "Poudrier"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Ciseaux"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Veste"));
         //im.addQR("Jackpot", new Interaction("ADD_GOB", ""))
@@ -103,7 +105,7 @@ public class Chapter1 implements Chapter {
         im.addQR("Jackpot", new Interaction("ADD_GOB","Feu de bois"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Miroir"));
 
-        GameState.getGameState().remainingQR = 9; //Juste les gob
+        GameState.getGameState().remainingQR = 11; //Juste les gob
 
 
         im.addCombi("Clé", "Armoire encastrée dans le mur", new Interaction("REMOVE_GOB", "Armoire encastrée dans le mur"));
@@ -153,11 +155,12 @@ public class Chapter1 implements Chapter {
 
         // ENIGME WIN
         im.addEnigmeWIN("Boîte fermée par un code",new Interaction("ADD_GOB", "Dragées"));
-        im.addEnigmeWIN("Boîte fermée par un code",new Interaction("LAUNCH_POPUP_ENIGME", "A l'intérieur de la boîte, vous trouvez quelques draguées"));
-        im.addEnigmeWIN("Boîte fermée par un code", new Interaction("HIDE_ENIGME", "Boîte fermée par un code"));
         im.addEnigmeWIN("Boîte fermée par un code",new Interaction("REMOVE_GOB", "Boîte"));
         im.addEnigmeWIN("Boîte fermée par un code",new Interaction("REMOVE_GOB", "Mystérieuses inscriptions"));
-        im.addEnigmeWIN("Boîte fermée par un code",new Interaction("REMOVE_GOB", "Morceau de papier "));
+        im.addEnigmeWIN("Boîte fermée par un code",new Interaction("REMOVE_GOB", "Morceau de papier"));
+        im.addEnigmeWIN("Boîte fermée par un code",new Interaction("LAUNCH_POPUP_ENIGME", "A l'intérieur de la boîte, vous trouvez quelques draguées"));
+        im.addEnigmeWIN("Boîte fermée par un code", new Interaction("HIDE_ENIGME", "Boîte fermée par un code"));
+
 
 
         im.addEnigmeWIN("Poudrier",new Interaction("WIN",null)); //Armoir +code

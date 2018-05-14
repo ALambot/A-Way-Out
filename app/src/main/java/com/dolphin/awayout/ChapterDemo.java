@@ -28,11 +28,11 @@ public class ChapterDemo implements Chapter {
         // GameObjects
         ArrayList<GameObject> gobs = new ArrayList<GameObject>();
 
-        gobs.add(new GameObject( "Coffre", "Un solide coffre en bois. Qui sait ce qu'il renferme ?", R.drawable.gold));
-        gobs.add(new GameObject( "Pied de biche", "Pour forcer une porte. Ou un bocal de mayonnaise particulièrement coriace.", R.drawable.gold));
-        gobs.add(new GameObject( "Scie", "Ne sert plus à rien maintenant que tout le monde achète ses meubles à Ikea", R.drawable.gold));
-        gobs.add(new GameObject( "Marteau", "Un simple marteau", R.drawable.gold));
-        gobs.add(new GameObject( "Clé", "Elle était juste sous vos yeux", R.drawable.gold));
+        gobs.add(new GameObject( "Coffre", "Un solide coffre en bois. Qui sait ce qu'il renferme ?", R.drawable.demo_coffre));
+        gobs.add(new GameObject( "Pied de biche", "Pour forcer une porte. Ou un bocal de mayonnaise particulièrement coriace.", R.drawable.demo_pied_de_biche));
+        gobs.add(new GameObject( "Scie", "Ne sert plus à rien maintenant que tout le monde achète ses meubles à Ikea", R.drawable.demo_scie));
+        gobs.add(new GameObject( "Marteau", "Un simple marteau", R.drawable.demo_marteau));
+        gobs.add(new GameObject( "Clé", "Elle était juste sous vos yeux", R.drawable.demo_cle));
 
         // Enigmes
         ArrayList<EnigmeObject> enigmes = new ArrayList<EnigmeObject>();
