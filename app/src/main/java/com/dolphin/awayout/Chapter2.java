@@ -101,7 +101,7 @@ public class Chapter2 implements Chapter {
         im.addQR("armoire", new Interaction("ADD_GOB", "Armoire mysterieuse"));
         im.addQR("clou", new Interaction("ADD_GOB", "clou"));
         im.addQR("statue", new Interaction("ADD_GOB", "statue"));
-        GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
+        GameState.getGameState().remainingQR = 8; //TODO TEMPORARY
 
         // COMBI
         im.addCombi("vase","bol vide", new Interaction("ADD_GOB", "Boule transparente")); //vase+bol =Boule transparente

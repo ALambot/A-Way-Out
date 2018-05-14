@@ -105,7 +105,7 @@ public class Chapter1 implements Chapter {
         im.addQR("Jackpot", new Interaction("ADD_GOB","Feu de bois"));
         im.addQR("Jackpot", new Interaction("ADD_GOB","Miroir"));
 
-        GameState.getGameState().remainingQR = 9; //Juste les gob
+        GameState.getGameState().remainingQR = 11; //Juste les gob
 
 
         im.addCombi("Clé", "Armoire encastrée dans le mur", new Interaction("REMOVE_GOB", "Armoire encastrée dans le mur"));
