@@ -13,8 +13,8 @@ public class ChapterTuto implements Chapter {
 
     public ChapterTuto() {
         this.title = "Tutoriel: \n Derniers préparatifs ";
-        this.description = "Cela faisait des jours que vous attendiez de pouvoir mettre vos talent à l'épreuve. Aujourd'hui c'est enfin possible !" +
-                "En effet, une nouvelle enquête vient d'être ouverte ! \n Néanmoins, avant de partir il vous faut preparer vos affaire... \n \n Hatez vous si vous voulez arriver sur les lieux avant la concurrence ! \n";
+        this.description = "Cela faisait des jours que vous attendiez de pouvoir mettre vos talents à l'épreuve. Aujourd'hui c'est enfin possible !" +
+                "En effet, une nouvelle enquête vient d'être ouverte ! \n Néanmoins, avant de partir il vous faut préparer vos affaires... \n \n Hâtez vous si vous voulez arriver sur les lieux avant la concurrence ! \n";
         this.location = "Réaumur : Bill Joy";
         this.imageID = R.drawable.tuto;
         this.duration = 600;
@@ -26,10 +26,10 @@ public class ChapterTuto implements Chapter {
         // GameObjects
         ArrayList<GameObject> gobs = new ArrayList<GameObject>();
 
-        gobs.add(new GameObject("Montre", "Ma montre, j'y tient bien quelle soit à l'arrêt depuis longtemps", R.drawable.tuto_montre));
-        gobs.add(new GameObject("Verre", "Un verre neuf pour ma Loupe", R.drawable.tuto_verre));
+        gobs.add(new GameObject("Montre", "Ma montre, j'y tiens bien quelle soit à l'arrêt depuis longtemps", R.drawable.tuto_montre));
+        gobs.add(new GameObject("Verre", "Un verre neuf pour ma loupe", R.drawable.tuto_verre));
         gobs.add(new GameObject("Morceau de loupe", "Un morceau de loupe, il manque la lentille", R.drawable.tuto_loupe));
-        gobs.add(new GameObject("Coffret", "J'y range quelques affaires utiles", R.drawable.tuto_coffret));
+        //gobs.add(new GameObject("Coffret", "J'y range quelques affaires utiles", R.drawable.tuto_coffret));
 
 
         // Enigmes
@@ -40,7 +40,7 @@ public class ChapterTuto implements Chapter {
         ArrayList<Hint> hints = new ArrayList<Hint>();
 
         hints.add(new Hint("Il vous manque peut-être encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
-        hints.add(new Hint("La montre est surement la clé de l'enigme ! Concentrez vous pour éviter les erreurs d'inattention", new HintFlag[]{new HintFlag("ENIGME_UNSOLVED", "Coffret"), new HintFlag("HAS_GOB","Montre")}));
+        hints.add(new Hint("La montre est sûrement la clé de l'enigme ! Concentrez vous pour éviter les erreurs d'inattention", new HintFlag[]{new HintFlag("ENIGME_UNSOLVED", "Coffret"), new HintFlag("HAS_GOB","Montre")}));
         hints.add(new Hint("Vous devriez désormais pouvoir réparer ma loupe.", new HintFlag[]{new HintFlag("HAS_GOB","Verre"), new HintFlag("HAS_GOB","Morceau de loupe")}));
 
 
@@ -65,10 +65,9 @@ public class ChapterTuto implements Chapter {
 
         // QR
         im.addQR("Coffret", new Interaction("SHOW_ENIGME", "Coffret"));
-        im.addQR("Coffret", new Interaction("ADD_GOB", "Coffret"));
         im.addQR("Loupe", new Interaction( "ADD_GOB", "Morceau de loupe"));
         im.addQR("Montre", new Interaction( "ADD_GOB", "Montre"));
-        GameState.getGameState().remainingQR = 3; //TODO TEMPORARY
+        GameState.getGameState().remainingQR = 3;
 
         // COMBI
         im.addCombi("Morceau de loupe","Verre", new Interaction("REMOVE_GOB", "Morceau de loupe"));

@@ -16,11 +16,11 @@ public class ChapterDemo implements Chapter {
 
     public ChapterDemo() {
         this.title = "Démo P4 :\nUn défi aux assistants";
-        this.description = "Vous profitiez d'un peu de temps libre dans le local quand on vous y a enfermé. " +
-                "Malheureusement, vous avez cours dans 5 minutes, trouverez-vous un moyen de sortir de la pièce à temps ?";
+        this.description = "Vous profitiez d'un peu de temps libre dans le local lorsqu'une étudiante malveillante vous y a enfermé. " +
+                "Malheureusement, vous avez cours dans 8 minutes, trouverez-vous un moyen de sortir de la pièce à temps ?";
         this.location = "QG du Baron \nMcLainez";
         this.imageID = R.drawable.gold;
-        this.duration = 300;
+        this.duration = 480;
     }
 
     public void load(){
@@ -50,7 +50,30 @@ public class ChapterDemo implements Chapter {
                         new HintFlag("HAS_GOB","Marteau")
                 }));
 
-        GameState.getGameState().init(duration,gobs,enigmes,hints,this,"","");
+        hints.add(new Hint(
+                "Coincé... ? La clé du problème est juste devant vos yeux...",
+                new HintFlag[]{
+                        new HintFlag("HAS_GOB","Pied de biche"),
+                        new HintFlag("HAS_GOB","Scie"),
+                        new HintFlag("HAS_GOB","Marteau")
+                }));
+
+        hints.add(new Hint(
+                "Quelle heure est-il ?",
+                new HintFlag[]{
+                        new HintFlag("ENIGME_UNSOLVED","Montre gousset")
+                }));
+
+        hints.add(new Hint(
+                "Trouver la solution demande un peu de RÉFLECTION...",
+                new HintFlag[]{
+                        new HintFlag("ENIGME_UNSOLVED","Montre gousset")
+                }));
+
+        String winMsg = "Au moment où vous remettez la montre à l'heure, vous entendez un \'clic\' et la porte s'ouvre ! Vous saisissez vos affaires en vitesse et filez au cours, vous demandant toujours qui pourrait bien vous avoir enfermé...";
+        String lossMsg = "Perdu, vous serez plus en retard que les points d'Oz...";
+
+        GameState.getGameState().init(duration,gobs,enigmes,hints,this,lossMsg,winMsg);
 
         // --------------------------------------
 
@@ -61,6 +84,9 @@ public class ChapterDemo implements Chapter {
         im.addQR("Scie", new Interaction("ADD_GOB", "Scie"));
         im.addQR("Marteau", new Interaction( "ADD_GOB", "Marteau"));
         im.addQR("Clé", new Interaction( "ADD_GOB", "Clé"));
+
+        //Combi popup
+        im.addCombi("Coffre", "Clé", new Interaction("LAUNCH_POPUP", "Vous avez ouvert le coffre, à l'intérieur se trouve une montre gousset un peu particulière..."));
 
         im.addCombi("Clé", "Coffre", new Interaction("SHOW_ENIGME", "Montre gousset"));
         im.addCombi("Clé", "Coffre", new Interaction("REMOVE_GOB", "Coffre"));

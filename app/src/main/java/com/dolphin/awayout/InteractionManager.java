@@ -81,6 +81,10 @@ public class InteractionManager {
             GameObject gob = GameState.getGameState().getObjectByName(interaction.arg);
             gob.QR = true;
         }
+        else if(interaction.action.equals("SHOW_ENIGME")){
+            EnigmeObject en = GameState.getGameState().getEnigmeByTitle(interaction.arg);
+            en.QR = true;
+        }
     }
 
     public void addTimeOut(Interaction interaction){

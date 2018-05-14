@@ -20,6 +20,9 @@ public class EnigmeObject {
     private boolean hidden = true;
     private boolean solved = false;
 
+    public boolean QR = false; //bricolage pour les hint
+    public boolean QRfound = false;
+
 
     //type text
     public EnigmeObject(String title,int type , String reponse) {

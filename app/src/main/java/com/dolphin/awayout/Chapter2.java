@@ -15,10 +15,10 @@ public class Chapter2 implements Chapter {
     private int duration;
 
     public Chapter2() {
-        this.title = "Chapitre 2 : \n Besoin de preuves";
-        this.description = "Vous avez besoin de preuves pour étailler vos allégation.\n" +
-                "Vous fouiller le bureau de Lady Doubthshire, à la recherche d'un quelconque objet ou document pouvant fournir un mobile de meutre. \n \n" +
-                "Vous feriez mieux de vous depêcher avant que toute preuve ne disparaisse !\n";
+        this.title = "Chapitre 2 : \n Besoin de Preuves";
+        this.description = "Vous avez besoin de preuves pour étayer vos allégations.\n" +
+                "Vous fouillez le bureau de Lady Doubtshire, à la recherche d'un quelconque objet ou document pouvant fournir un mobile de meutre. \n \n" +
+                "Vous feriez mieux de vous dépêcher avant que toute preuve ne disparaisse !\n";
         this.location = "Réaumur : Siemens";
         this.imageID = R.drawable.chap1;
         this.duration = 2700;
@@ -31,17 +31,18 @@ public class Chapter2 implements Chapter {
 
         //gobs.add(new GameObject("cle", "Ceci est une clé", R.drawable.key_demo));
         gobs.add(new GameObject("miroir", "Un ancien miroir posé sur la cheminée", R.drawable.ch1_mirror));
-        gobs.add(new GameObject("vase", "Une vase avec des fleures fraiches", R.drawable.ch1_vase));
+        gobs.add(new GameObject("vase", "Une vase avec des fleurs fraîches", R.drawable.ch1_vase));
         gobs.add(new GameObject("bol vide", "Un ancien pot de chambre", R.drawable.ch1_chamber_pot));
         gobs.add(new GameObject("clou", "Un clou rouillé", R.drawable.ch1_nail));
         gobs.add(new GameObject("statue", "Une délicate statue posée sur le bureau", R.drawable.ch1_statue));
         gobs.add(new GameObject("cypherDisc", "Un disque utilisé pour encrypter et décrypter des codes. La partie du milieu est mobile", R.drawable.ch1_outside_cypher_roll));
         gobs.add(new GameObject("Medusa", "Un papier d'une représentation de la Méduse", R.drawable.ch1_medusa_paper));
         gobs.add(new GameObject("Victoiria","Une photo de la reine Victoria", R.drawable.ch1_victoria));
-        gobs.add(new GameObject("armoire", "Une grande armoire avec toutes les lettres engravées. Elle est verrouillée. On peut appuyer sur les lettres.", R.drawable.ch1_armoire));
+        //gobs.add(new GameObject("armoire", "Une grande armoire avec toutes les lettres engravées. Elle est verrouillée. On peut appuyer sur les lettres.", R.drawable.ch1_armoire));
         gobs.add(new GameObject("Boule transparente", "Une boule de verre transparente. Elle est assez lourde.", R.drawable.ch1_crystal_ball));
         gobs.add(new GameObject("Feuille", "Des chiffres et des flèches sont écrits dessus.", R.drawable.ch1_password_paper));
         gobs.add(new GameObject("tiroir", "Un tiroir fermé. Il manque la poignée !", R.drawable.ch1_tirroir));
+
         //DEBUG
         gobs.add(new GameObject("le small one", "put me in le big one", R.drawable.ch1_inside_cypher_roll));
         gobs.add(new GameObject("le big one", "no touchy me", R.drawable.ch1_outside_cypher_roll));
@@ -59,11 +60,11 @@ public class Chapter2 implements Chapter {
 
         hints.add(new Hint("Il vous reste encore des objets à découvrir...", new HintFlag[]{new HintFlag("QR_REM",null)}));
         hints.add(new Hint("Essayez de regarder dans l'eau du vase", new HintFlag[]{new HintFlag("HAS_GOB","vase"),new HintFlag("HAS_GOB","bol vide")}));
-        hints.add(new Hint("Il y aurait-il un objet qui permetrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
-        hints.add(new Hint("Que crains la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","Medusa"), new HintFlag("HAS_GOB", "miroir")}));
+        hints.add(new Hint("Y aurait-il un objet qui permettrait d'ouvrir le tiroir ?", new HintFlag[]{new HintFlag("HAS_GOB","tiroir"), new HintFlag("HAS_GOB", "clou")}));
+        hints.add(new Hint("Que craint la méduse ?", new HintFlag[]{new HintFlag("HAS_GOB","Medusa"), new HintFlag("HAS_GOB", "miroir")}));
 
-        String looseMessage="Votre temps est écoulé ! Le majordome vous escortes hors de la maison alors qu\'il vous manque des indices. Essayez de repasser  plus tard !";
-        String winMessage="Dans l\'Armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubthshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !";
+        String looseMessage="Votre temps est écoulé ! Le majordome vous escorte hors de la maison alors qu\'il vous manque des indices. Essayez de repasser plus tard !";
+        String winMessage="Dans l\'armoire se trouve la clé qui permet de sortir de la pièce, mais aussi des mystérieux contrats léguant toute la fortune de Lady Doubtshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !";
 
         GameState.getGameState().init(this.duration,gobs,enigmes,hints,this,looseMessage, winMessage);
 
@@ -81,7 +82,7 @@ public class Chapter2 implements Chapter {
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "vase"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "bol vide"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "tiroir"));
-        im.addQR("Jackpot", new Interaction( "ADD_GOB", "armoire"));
+        //im.addQR("Jackpot", new Interaction( "ADD_GOB", "armoire"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "clou"));
         im.addQR("Jackpot", new Interaction( "ADD_GOB", "statue"));
         im.addQR("Jackpot", new Interaction( "SHOW_ENIGME", "Armoire mysterieuse"));
@@ -96,12 +97,12 @@ public class Chapter2 implements Chapter {
         im.addQR("vase", new Interaction("ADD_GOB", "vase"));
         im.addQR("bol vide", new Interaction("ADD_GOB", "bol vide"));
         im.addQR("tiroir", new Interaction("ADD_GOB", "tiroir"));
-        im.addQR("armoire", new Interaction("ADD_GOB", "armoire"));
+        //im.addQR("armoire", new Interaction("ADD_GOB", "armoire"));
         im.addQR("armoire", new Interaction("SHOW_ENIGME", "Armoire mysterieuse"));
-        im.addQR("armoire", new Interaction("ADD_GOB", "Armoire mysterieuse"));
+        //im.addQR("armoire", new Interaction("ADD_GOB", "Armoire mysterieuse"));
         im.addQR("clou", new Interaction("ADD_GOB", "clou"));
         im.addQR("statue", new Interaction("ADD_GOB", "statue"));
-        GameState.getGameState().remainingQR = 8; //TODO TEMPORARY
+        GameState.getGameState().remainingQR = 7; //TODO TEMPORARY
 
         // COMBI
         im.addCombi("vase","bol vide", new Interaction("ADD_GOB", "Boule transparente")); //vase+bol =Boule transparente

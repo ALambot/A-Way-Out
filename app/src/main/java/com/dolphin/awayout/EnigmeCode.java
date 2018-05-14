@@ -4,6 +4,7 @@ package com.dolphin.awayout;
         import android.os.Bundle;
         import android.support.annotation.Nullable;
         import android.support.v7.app.AppCompatActivity;
+        import android.util.Log;
         import android.view.KeyEvent;
         import android.view.WindowManager;
         import android.widget.EditText;
@@ -50,9 +51,12 @@ public class EnigmeCode extends AppCompatActivity{
                 String reponse = editText.getText().toString();
                 if(reponse.length() == enigme.getReponse().length()) {
                     if (reponse.equals(enigme.getReponse())) {
+                        Log.d("KEK", "ENIGME - SUCCESS1 - TPS REM : "+GameState.getGameState().getRemainingTime());
                         interactionManager.enigmeSuccess(enigme.getTitle());
                         //TODO creer interaction succes et fail pour coffret
+                        Log.d("KEK", "ENIGME - SUCCESS2 - TPS REM : "+GameState.getGameState().getRemainingTime());
                     } else {
+                        Log.d("KEK", "ENIGME - FAIL - TPS REM : "+GameState.getGameState().getRemainingTime());
                         interactionManager.enigmeFail(enigme.getTitle());
                         editText.setText("");
                         Toast.makeText(EnigmeCode.this, "Mauvais Code ! Vous perdez du temps", Toast.LENGTH_LONG).show();

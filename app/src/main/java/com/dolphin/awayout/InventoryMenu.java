@@ -46,7 +46,7 @@ public class InventoryMenu extends AppCompatActivity {
         InventoryAdapt adapt = GameState.getGameState().getInventoryAdapt();
         final InventoryGridView inventory = new InventoryGridView(gridView, adapt, combiner);
         title.setText("Votre inventaire");
-        desc.setText("Appuyez sur un des éléments pour l'observer. Pour combiner un objet, appuyez sur un objet puis glissez un autre objet vers l'image principale de l'écran");
+        desc.setText("Appuyez sur un des éléments pour l'observer. Pour combiner un objet à celui-ci, appuyez sur la flèche puis sur le deuxième objet. Une combinaison invalide vous donnera une pénalité de temps.");
         img.setImageDrawable(inventoryLogo);
         final InventoryMenuDescription menuTriggered = new InventoryMenuDescription(title,
                 desc, img, inventory);

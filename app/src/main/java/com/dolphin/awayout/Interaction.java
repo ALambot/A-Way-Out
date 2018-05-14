@@ -2,6 +2,7 @@ package com.dolphin.awayout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +57,11 @@ public class Interaction {
             GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(false);
         }
         else if(this.action.equals("SHOW_ENIGME")){
+            EnigmeObject en = GameState.getGameState().getEnigmeByTitle(this.arg);
+            if(en.QR && !en.QRfound){
+                en.QRfound = true;
+                GameState.getGameState().remainingQR--;
+            }
             GameState.getGameState().getEnigmeByTitle(this.arg).setVisible(true);
             Toast.makeText(GameState.getGameState().ctx, "Vous avez débloqué une énigme !", Toast.LENGTH_SHORT).show();
         }
@@ -65,8 +71,10 @@ public class Interaction {
             GameState.getGameState().ctx.startActivity(intent);
         }
         else if(this.action.equals("WIN")){
+            Log.d("KEK", "WIN1 - TPS REM : "+GameState.getGameState().getRemainingTime());
             GameState.getGameState().finishTimer();
             Intent intent=new Intent(GameState.getGameState().ctx, fin_niveau.class);
+            Log.d("KEK", "WIN2 - TPS REM : "+GameState.getGameState().getRemainingTime());
             GameState.getGameState().ctx.startActivity(intent);
         }
         else if(this.action.equals("PENALITE")){

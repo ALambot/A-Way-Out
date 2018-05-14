@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/imageMGfond"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +21,10 @@
 
     <ImageView
         android:id="@+id/imageMGM"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +33,10 @@
 
     <ImageView
         android:id="@+id/imageMGH"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="bHL"
-                android:text="&lt;" />
+                android:text=" &lt; " />
 
             <TextView
                 android:id="@+id/textH"
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="bHR"
-                android:text="&gt;" />
+                android:text=" &gt; " />
         </LinearLayout>
 
         <LinearLayout
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="bML"
-                android:text="&lt;" />
+                android:text=" &lt; " />
 
             <TextView
                 android:id="@+id/textM"
@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="bMR"
-                android:text="&gt;" />
+                android:text=" &gt; " />
 
         </LinearLayout>
 

@@ -130,8 +130,10 @@ public class GameState {
         if(initialized == false){
             throw new GameStateNotInitializedException();
         }
+        //Log.d("KEK", "NOW : " + Calendar.getInstance().getTimeInMillis()/1000);
+        //Log.d("KEK", "FIN : " + this.finish);
         if(finished){
-            return this.finish - this.startTime - this.penalite;
+            return this.gameDuration - (this.finish - this.startTime) - this.penalite;
         }
         long elapsed = Calendar.getInstance().getTimeInMillis()/1000 - startTime;
 
@@ -211,8 +213,10 @@ public class GameState {
     }
 
     public void finishTimer(){
+        Log.d("KEK", "FINISHTIMER1 - TSP REM : "+getRemainingTime());
         this.finished = true;
         this.finish = Calendar.getInstance().getTimeInMillis()/1000;
+        Log.d("KEK", "FINISHTIMER2 - TSP REM : "+getRemainingTime());
     }
 
     public void penalize(long seconds){
