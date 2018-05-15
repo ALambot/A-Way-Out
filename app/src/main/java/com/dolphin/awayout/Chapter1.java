@@ -16,7 +16,7 @@ public class Chapter1 implements Chapter {
 
     public Chapter1() {
         this.title = "Chapitre 1 : \n Le Poudrier Ensanglanté";
-        this.description = "\"Lady Doubthshire a été assassinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interrogent.\n Qui aurait bien pu vouloir s'en prendre à elle ?\n" +
+        this.description = "\"Lady Doubtshire a été assassinée ! \n Son corps sans vie a été retrouvé ce matin.\n Tous s'interrogent.\n Qui aurait bien pu vouloir s'en prendre à elle ?\n" +
                 "On a fait appel à vos services pour résoudre ce mystère.\n \n" +
                 "En arrivant, vous trouvez le corps ensanglanté de Lady Doubtshire étendu sur le sol. Dans sa main, se trouve un poudrier. Vous le prenez mais impossible de l'ouvrir ! \n \n" +
                 "Parviendrez vous à percer le secret de ce mystérieux poudrier.\n";
@@ -34,7 +34,7 @@ public class Chapter1 implements Chapter {
         //gobs.add(new GameObject("Boîte", "Une boite fermée par un code à dix chiffres. Que pourrait-elle contenir ?", R.drawable.ch2_boite));
         gobs.add(new GameObject("Petit poster ", "Un grand poster du ballet : le lac des signes.",R.drawable.ch2_poster1));
         gobs.add(new GameObject("Encyclopedie", "L'Encyclopedie de Gutenberg.", R.drawable.ch2_encycopedie));
-        gobs.add(new GameObject("Bol de noix", "Un bol de noix. Lady Doubthsire en raffolait.", R.drawable.ch2_nuts));
+        gobs.add(new GameObject("Bol de noix", "Un bol de noix. Lady Doubtsire en raffolait.", R.drawable.ch2_nuts));
         gobs.add(new GameObject("Morceau de papier", "Un papier avec un code mystérieux.", R.drawable.ch2_papier_code2));
         gobs.add(new GameObject("Veste", "La veste de Lady Doubtshire. Il semblerait que quelque chose soit coincé dans la doublure.", R.drawable.ch2_veste));
         gobs.add(new GameObject("Miroir", "Une miroir posé sur la cheminée.", R.drawable.ch2_mirroir2));

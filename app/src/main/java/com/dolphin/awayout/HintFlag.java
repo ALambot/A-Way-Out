@@ -23,7 +23,7 @@ class HintFlag {
             return GameState.getGameState().getObjectByName(this.arg).isActive();
         }
         else if(type.equals("ENIGME_UNSOLVED")){
-            return GameState.getGameState().getEnigmeByTitle(this.arg).isSolved();
+            return !GameState.getGameState().getEnigmeByTitle(this.arg).isHidden() && !GameState.getGameState().getEnigmeByTitle(this.arg).isSolved();
         }
         else{
             //ERROR

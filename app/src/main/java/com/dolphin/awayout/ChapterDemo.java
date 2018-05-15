@@ -19,7 +19,7 @@ public class ChapterDemo implements Chapter {
         this.description = "Vous profitiez d'un peu de temps libre dans le local lorsqu'une étudiante malveillante vous y a enfermé. " +
                 "Malheureusement, vous avez cours dans 8 minutes, trouverez-vous un moyen de sortir de la pièce à temps ?";
         this.location = "QG du Baron \nMcLainez";
-        this.imageID = R.drawable.gold;
+        this.imageID = R.drawable.mclainez;
         this.duration = 480;
     }
 
@@ -32,7 +32,7 @@ public class ChapterDemo implements Chapter {
         gobs.add(new GameObject( "Pied de biche", "Pour forcer une porte. Ou un bocal de mayonnaise particulièrement coriace.", R.drawable.demo_pied_de_biche));
         gobs.add(new GameObject( "Scie", "Ne sert plus à rien maintenant que tout le monde achète ses meubles à Ikea", R.drawable.demo_scie));
         gobs.add(new GameObject( "Marteau", "Un simple marteau", R.drawable.demo_marteau));
-        gobs.add(new GameObject( "Clé", "Elle était juste sous vos yeux", R.drawable.demo_cle));
+        gobs.add(new GameObject( "Clé", "Elle était juste sous vos yeux", R.drawable.ch2_cle));
 
         // Enigmes
         ArrayList<EnigmeObject> enigmes = new ArrayList<EnigmeObject>();

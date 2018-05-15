@@ -15,7 +15,7 @@
     <string name="description">Appuyez sur un des éléments pour l\'observer. Pour combiner un objet, appuyez sur un objet puis glissez un autre objet vers l\'image principale de l\'écran</string>
     <string name="desc_play_button">Jouer</string>
     <!--fin de niveau-->
-    <string name="histoire1">Dans l\'armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubthshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !</string>
+    <string name="histoire1">Dans l\'armoire se trouve la clé qui permet de sortir de la pièce mais aussi des mysterieux contrats leguant toute la fortune  de Lady Doubtshire à ses héritiers ! \n L\'un d\'entre eux en aurait-il eu marre d\'attendre ? Et comment Lady Doubtshire a-t-elle été tuée ? Fouillez la prochaine pièce pour le savoir !</string>
     <string name="fin_perdue">Votre temps est écoulé ! Le majordome vous escortes hors de la maison alors qu\'il vous manque des indices. Essayez de repasser  plus tard !</string>
     <string name="ExitGame">Est vous sur de vouloir quitter le niveau ? \n Votre progression sera perdue.</string>
 </resources>

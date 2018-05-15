@@ -36,6 +36,7 @@ public class GameState {
     // Hints
     private ArrayList<Hint> hints;
     public int remainingQR;
+    private String lastHint = null;
 
     // EscapeRoom
     private InteractionManager interactions;
@@ -119,7 +120,12 @@ public class GameState {
             }
         }
         if(valid.size()>0){
-            return valid.get((int) Math.floor(Math.random()*valid.size())).getText();
+            String ret = valid.get((int) Math.floor(Math.random()*valid.size())).getText();
+            for(int i=0; i<4 && ret.equals(this.lastHint); i++) {
+                ret = valid.get((int) Math.floor(Math.random()*valid.size())).getText();
+            }
+            this.lastHint = ret;
+            return ret;
         }
         else{
             return "Aucun indice disponible mais vous perdez quand meme du temps ;-) ";
