@@ -109,7 +109,7 @@ public class InteractionManager {
              return inter;
          }
          else{
-             Toast.makeText(GameState.getGameState().ctx, "Rien ne se passe", Toast.LENGTH_SHORT).show();
+             Toast.makeText(GameState.getGameState().ctx, "Cette combinaison ne fonctionne pas. Vous perdez du temps !", Toast.LENGTH_LONG).show();
              GameState.getGameState().penalize(30);
              return null;
          }

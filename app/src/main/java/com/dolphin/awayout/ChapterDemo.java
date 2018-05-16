@@ -19,7 +19,7 @@ public class ChapterDemo implements Chapter {
         this.description = "Vous profitiez d'un peu de temps libre dans le local lorsqu'une étudiante malveillante vous y a enfermé. " +
                 "Malheureusement, vous avez cours dans 8 minutes, trouverez-vous un moyen de sortir de la pièce à temps ?";
         this.location = "QG du Baron \nMcLainez";
-        this.imageID = R.drawable.mclainez;
+        this.imageID = R.drawable.tuto;//R.drawable.mclainez;
         this.duration = 480;
     }
 
