@@ -104,8 +104,8 @@ public class PlayerMenu extends AppCompatActivity {
 
                 textinPopUp.setText("Vous avez trouvé l'objet " + object);
             } else {
-                title.setText("Attention");
-                textinPopUp.setText("Vous avez déja trouvé l'objet " + object);
+                title.setText("Bien joué !");
+                textinPopUp.setText("Vous avez trouvé l'objet " + object);
             }
         }
         else{ //Pop up avec un indice
